@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR
+{% endblock title %}
+
+{% block content %}
+    <section class="home">
+        <img src="{{ url_for('static', filename='img/home.png') }}" class="home__img" alt="Imagen de la pagina principal"/>
+        <div class="home__container container grid">
+            <div class="home__data">
+                <h1 class="home__data-title">TU PROXIMO</h1>
+                <span class="home__data-subtitle">HOGAR</span>
+                <p class="home__data-desc">
+                    REMATE COSTA RICA esta enfocado
+                    <br>
+                    en que tome las mejores decisiones
+                    <br>
+                    antes de comprar una propiedad.
+                </p>
+                <div class="home__data-btns">
+                    <a href="" class="home__data-btn">
+                        MÁS <i class="ri-arrow-down-line home__data-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,58 @@
+.home {
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: 30%;
+    }
+
+    &__container {
+        position: relative;
+        height: calc(100vh - 3rem);
+        row-gap: 3rem;
+        align-content: center;
+    }
+
+    &__data {
+        position: absolute;
+        top: 1.7rem;
+        font-family: $raleway;
+
+        &-title { font-size: 2.5rem; }
+
+        &-subtitle {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        &-desc {
+            font-weight: 400;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        &-btns { display: flex; }
+
+        &-btn {
+            background-color: rgba(0, 0, 0, .8);
+            padding: 1rem 3rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: $white-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: .5rem;
+            border-radius: .25rem;
+            @include transition-ease;
+
+            &:hover { background-color: #000; }
+        }
+
+        &-icon { font-size: 1.5rem; }
+    }
+}
