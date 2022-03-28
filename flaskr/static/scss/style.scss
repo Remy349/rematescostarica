@@ -63,7 +63,7 @@ img {
     left: 0;
     z-index: 100;
     background-color: #000;
-    opacity: .7;
+    opacity: .8;
 }
 
 /* NAV */
@@ -96,7 +96,7 @@ img {
             right: -100%;
             width: 100%;
             height: 100%;
-            padding: 3rem;
+            padding: 6rem 3rem 3rem 3rem;
             transition: .5s;
             background-color: #000;
         }
@@ -146,3 +146,23 @@ img {
 
 /* HOME */
 @import './index';
+
+/* FOOTER */
+.footer {
+    background-color: #000;
+    opacity: .8;
+    color: $white-color;
+    font-family: $raleway;
+
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__creador {
+        font-size: 1.1rem;
+        font-weight: 300;
+        text-align: center;
+    }
+}
