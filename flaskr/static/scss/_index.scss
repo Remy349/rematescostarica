@@ -98,6 +98,7 @@
         row-gap: 1.5rem;
         font-family: $raleway;
         cursor: default;
+        background-color: $white-color;
         @include transition-ease;
 
         &:hover { background-color: $primary-color-sub; }
