@@ -146,6 +146,14 @@ img {
   transition-delay: 0.55s;
 }
 
+.nav__item:nth-child(5) {
+  transition-delay: 0.65s;
+}
+
+.nav__item:nth-child(6) {
+  transition-delay: 0.75s;
+}
+
 /* HOME */
 .home__img {
   position: absolute;
@@ -378,6 +386,85 @@ img {
   text-align: left;
   font-weight: 500;
   line-height: 1.3;
+}
+
+/* REGISTRATE */
+.registrate__forms {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.registrate__form {
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+}
+.registrate__form-title h1 {
+  text-align: center;
+  font-size: 1.85rem;
+}
+.registrate__form-text {
+  text-align: center;
+  font-size: 1.15rem;
+}
+.registrate__form-inputscont {
+  row-gap: 1rem;
+}
+.registrate__form-inputs {
+  display: grid;
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  row-gap: 0.3rem;
+}
+.registrate__form-inputs label {
+  font-size: 1.1rem;
+}
+.registrate__form-input {
+  background-color: #e7e5e5;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  width: 100%;
+}
+.registrate__form-btn {
+  width: 100%;
+  padding: 1.15rem 0;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  background-color: #b0b878;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.registrate__info {
+  background-color: #b0b878;
+  padding: 3rem 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+.registrate__info-title {
+  text-align: center;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 3rem;
+}
+.registrate__info-btns {
+  display: flex;
+  justify-content: center;
+}
+.registrate__info-btn {
+  background-color: #fff;
+  padding: 1rem 3rem;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 /* FOOTER */

@@ -13,3 +13,4 @@ def page_not_found(e):
     return render_template("errors/404.html"), 404
 
 from flaskr import routes
+from flaskr import auth
