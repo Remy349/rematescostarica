@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - Iniciar Sesion
+{% endblock title %}
+
+{% block content %}
+    <section class="iniciarsesion section">
+        <div class="iniciarsesion__container container">
+            <div class="iniciarsesion__forms">
+                <form action="{{ url_for('iniciar_sesion') }}" method="POST" class="iniciarsesion__form" accept-charset="utf-8">
+                    <div class="iniciarsesion__form-title">
+                        <h1>Iniciar Sesión</h1>
+                    </div>
+                    <div class="iniciarsesion__form-inputs">
+                        <label>Nombre de usuario</label>
+                        <input
+                            name="username"
+                            autocomplete="off"
+                            class="iniciarsesion__form-input"
+                            type="text"
+                        />
+                    </div>
+                    <div class="iniciarsesion__form-inputs">
+                        <label>Contraseña</label>
+                        <input
+                            name="password"
+                            autocomplete="off"
+                            class="iniciarsesion__form-input"
+                            type="password"
+                        />
+                    </div>
+                    <div class="iniciarsesion__form-btns">
+                        <button class="iniciarsesion__form-btn" type="submit">
+                            Ingresar
+                        </button>
+                    </div>
+                    <div class="iniciarsesion__form-forgot">
+                        ¿Olvidaste tu contraseña?
+                    </div>
+                    <div class="iniciarsesion__form-registro">
+                        <a href="{{ url_for('registrate') }}">
+                            ¿Aún no tienes una cuenta?
+                            <br>
+                            ¡CREA UNA!
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

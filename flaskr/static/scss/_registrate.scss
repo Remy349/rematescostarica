@@ -1,4 +1,9 @@
 .registrate {
+    &__wrap {
+        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        border-radius: .5rem;
+    }
+
     &__forms {
         padding: 3rem 2rem;
         background-color: $white-color;

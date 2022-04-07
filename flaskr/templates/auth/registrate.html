@@ -6,98 +6,130 @@
 
 {% block content %}
     <section class="registrate section">
-        <div class="registrate__container container grid">
-            <div class="registrate__forms">
-                <form action="{{ url_for('registrate') }}" method="POST" class="registrate__form" accept-charset="utf-8">
-                    <div class="registrate__form-title">
-                        <h1>Registrate</h1>
-                    </div>
-                    <p class="registrate__form-text">
-                        Información para la cuenta
-                    </p>
-                    <div class="registrate__form-inputscont grid">
+        <div class="registrate__container container">
+            <div class="registrate__wrap grid">
+                <div class="registrate__forms">
+                    <form action="{{ url_for('registrate') }}" method="POST" class="registrate__form" accept-charset="utf-8">
+                        <div class="registrate__form-title">
+                            <h1>Registrate</h1>
+                        </div>
+                        <p class="registrate__form-text">
+                            Información para la cuenta
+                        </p>
+                        <div class="registrate__form-inputscont grid">
+                            <div class="registrate__form-inputs">
+                                <label>Nombre</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    name="firstname"
+                                    type="text"
+                                />
+                            </div>
+                            <div class="registrate__form-inputs">
+                                <label>Apellido</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    name="lastname"
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+                        <div class="registrate__form-inputscont grid">
+                            <div class="registrate__form-inputs">
+                                <label>Nombre de usuario</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    name="username"
+                                    type="text"
+                                />
+                            </div>
+                            <div class="registrate__form-inputs">
+                                <label>Teléfono</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    type="text"
+                                    name="phonenumber"
+                                />
+                            </div>
+                        </div>
                         <div class="registrate__form-inputs">
-                            <label>Nombre</label>
+                            <label>Dirección E-Mail</label>
                             <input
                                 class="registrate__form-input"
                                 autocomplete="off"
                                 type="text"
+                                name="email_adress"
                             />
                         </div>
-                        <div class="registrate__form-inputs">
-                            <label>Apellido</label>
-                            <input
-                                class="registrate__form-input"
-                                autocomplete="off"
-                                type="text"
-                            />
+                        <p class="registrate__form-text">
+                            Información adicional
+                        </p>
+                        <div class="registrate__form-inputscont grid">
+                            <div class="registrate__form-inputs">
+                                <label>Dirección(Opcional)</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    type="text"
+                                    name="adress"
+                                />
+                            </div>
+                            <div class="registrate__form-inputs">
+                                <label>Código postal(Opcional)</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    type="text"
+                                    name="postal_code"
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div class="registrate__form-inputscont grid">
-                        <div class="registrate__form-inputs">
-                            <label>Nombre de usuario</label>
-                            <input
-                                class="registrate__form-input"
-                                autocomplete="off"
-                                type="text"
-                            />
+                        <p class="registrate__form-text">
+                            Seguridad de la cuenta
+                        </p>
+                        <div class="registrate__form-inputscont grid">
+                            <div class="registrate__form-inputs">
+                                <label>Contraseña</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    type="password"
+                                    name="password"
+                                />
+                            </div>
+                            <div class="registrate__form-inputs">
+                                <label>Confirmar contraseña</label>
+                                <input
+                                    class="registrate__form-input"
+                                    autocomplete="off"
+                                    type="password"
+                                    name="confirm_password"
+                                />
+                            </div>
                         </div>
-                        <div class="registrate__form-inputs">
-                            <label>Teléfono</label>
-                            <input
-                                class="registrate__form-input"
-                                autocomplete="off"
-                                type="text"
-                            />
+                        <div class="registrate__form-btns">
+                            <button type="submit" class="registrate__form-btn">
+                                Registrar
+                            </button>
                         </div>
-                    </div>
-                    <div class="registrate__form-inputs">
-                        <label>Dirección E-Mail</label>
-                        <input
-                            class="registrate__form-input"
-                            autocomplete="off"
-                            type="text"
-                        />
-                    </div>
-                    <p class="registrate__form-text">
-                        Seguridad de la cuenta
-                    </p>
-                    <div class="registrate__form-inputscont grid">
-                        <div class="registrate__form-inputs">
-                            <label>Contraseña</label>
-                            <input
-                                class="registrate__form-input"
-                                autocomplete="off"
-                                type="password"
-                            />
+                    </form>
+                </div>
+                <div class="registrate__info">
+                    <div class="registrate__info-container">
+                        <h2 class="registrate__info-title">
+                            Si ya tienes una cuenta
+                            <br>
+                            inicia sesión aquí
+                        </h2>
+                        <div class="registrate__info-btns">
+                            <a href="{{ url_for('iniciar_sesion') }}" class="registrate__info-btn">
+                                Ingresar
+                            </a>
                         </div>
-                        <div class="registrate__form-inputs">
-                            <label>Confirmar contraseña</label>
-                            <input
-                                class="registrate__form-input"
-                                autocomplete="off"
-                                type="password"
-                            />
-                        </div>
-                    </div>
-                    <div class="registrate__form-btns">
-                        <button type="submit" class="registrate__form-btn">
-                            Registrar
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div class="registrate__info">
-                <div class="registrate__info-container">
-                    <h2 class="registrate__info-title">
-                        Si ya tienes una cuenta
-                        <br>
-                        inicia sesión aquí
-                    </h2>
-                    <div class="registrate__info-btns">
-                        <a href="#" class="registrate__info-btn">
-                            Ingresar
-                        </a>
                     </div>
                 </div>
             </div>

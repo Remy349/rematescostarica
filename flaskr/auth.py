@@ -8,3 +8,11 @@ def registrate():
         return render_template("auth/registrate.html")
     elif request.method == "POST":
         return redirect(url_for("index"))
+
+@app.route("/iniciar_sesion", methods=["GET", "POST"])
+def iniciar_sesion():
+    """ Funcion para realizar el inicio de sesion de cada usuario """
+    if request.method == "GET":
+        return render_template("auth/iniciar_sesion.html")
+    elif request.method == "POST":
+        return redirect(url_for("index"))
