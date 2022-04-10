@@ -19,5 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* ACCORDION CURSO */
+    const cursosMoreContent = document.getElementsByClassName('cursos__more-content'),
+        cursosMoreHeader = document.querySelectorAll('.cursos__more-header');
 
+    function accordionCursos() {
+        let itemClass = this.parentNode.className;
+
+        for (let i = 0; i < cursosMoreContent.length; i++) {
+            cursosMoreContent[i].className = 'cursos__more-content cursos__more-close';
+        }
+
+        if (itemClass === 'cursos__more-content cursos__more-close') {
+            this.parentNode.className = 'cursos__more-content cursos__more-open';
+        }
+    }
+
+    cursosMoreHeader.forEach(cursoHeader => {
+        cursoHeader.addEventListener('click', accordionCursos);
+    });
 });

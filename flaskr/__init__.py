@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from dotenv import load_dotenv
+from flask_session import Session
+from flask_migrate import Migrate
 from config import Config
 
 load_dotenv()

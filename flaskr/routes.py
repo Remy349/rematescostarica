@@ -10,3 +10,8 @@ def index():
 def quienes_somos():
     """ Funcion para mostrar la pagina de ¿quienes somos? """
     return render_template("routes/quienes_somos.html")
+
+@app.route("/cursos", methods=["GET"])
+def cursos():
+    """ Funcion para presentar la pagina de los cursos """
+    return render_template("routes/cursos.html")

@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - Cursos
+{% endblock title %}
+
+{% block content %}
+    <section class="cursos section">
+        <div class="cursos__container container">
+            <h1 class="cursos__title">CURSO ONLINE</h1>
+            <p class="cursos__profesor">
+                <b>Lic. Randall Hernández</b>
+                <br>
+                comprador, vendedor, experto en cierre de ventas de propiedades, corredor de bienes raíces e instructor prágmatico.
+            </p>
+            <div class="cursos__free grid">
+                <div class="cursos__free-videos">
+                    <div class="cursos__free-videos_video">
+                        <img src="{{ url_for('static', filename='img/videos.jpg') }}" alt="Video de informacion sobre el curso">
+                    </div>
+                    <div class="cursos__free-videos_data">
+                        <p>
+                            Aprendera a generar un ingreso real y constante.
+                            Participe en este curso y conozca el secreto de adjudicarse propiedades antes que los bancos en los Remates Inmobiliarios de los Juzgados!
+                        </p>
+                    </div>
+                </div>
+                <div class="cursos__free-cards">
+                    <div class="cursos__free-cards_card">
+                        <div class="cursos__free-cards_header">
+                            <h3>Estudie desde su casa!</h3>
+                        </div>
+                        <div class="cursos__free-cards_data">
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Más de 13 horas de estudio, prácticas y nuevas herramientas</p>
+                            </div>
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Sesiones de más de 2 horas y media.</p>
+                            </div>
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Toda la orientacion gratis despues del curso.</p>
+                            </div>
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Lista semanal disponible y actualizada de Remates Judiciales.</p>
+                            </div>
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Acceso para que pueda ver la clase una y otra vez 24/7.</p>
+                            </div>
+                            <div>
+                                <i class="ri-check-line"></i>
+                                <p>Sin necesidad de trasladarse a ningun lugar.</p>
+                            </div>
+                        </div>
+                        <div class="cursos__free-cards_btns">
+                            <button class="cursos__free-cards_btn">
+                                Comprar curso ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cursos__more">
+                <!-- 1 -->
+                <div>
+                    <div class="cursos__more-content cursos__more-close">
+                        <div class="cursos__more-header">
+                            <div>
+                                <h2 class="cursos__more-title">
+                                    Sesión de clase #1
+                                </h2>
+                            </div>
+                            <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                        </div>
+                        <div class="cursos__more-data">
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div class="cursos__more-btns">
+                                <button class="cursos__more-btn">
+                                    Ver Clase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div>
+                    <div class="cursos__more-content cursos__more-close">
+                        <div class="cursos__more-header">
+                            <div>
+                                <h2 class="cursos__more-title">
+                                    Sesión de clase #2
+                                </h2>
+                            </div>
+                            <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                        </div>
+                        <div class="cursos__more-data">
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div class="cursos__more-btns">
+                                <button class="cursos__more-btn">
+                                    Ver Clase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div>
+                    <div class="cursos__more-content cursos__more-close">
+                        <div class="cursos__more-header">
+                            <div>
+                                <h2 class="cursos__more-title">
+                                    Sesión de clase #3
+                                </h2>
+                            </div>
+                            <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                        </div>
+                        <div class="cursos__more-data">
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div class="cursos__more-btns">
+                                <button class="cursos__more-btn">
+                                    Ver Clase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div>
+                    <div class="cursos__more-content cursos__more-close">
+                        <div class="cursos__more-header">
+                            <div>
+                                <h2 class="cursos__more-title">
+                                    Sesión de clase #4
+                                </h2>
+                            </div>
+                            <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                        </div>
+                        <div class="cursos__more-data">
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div class="cursos__more-btns">
+                                <button class="cursos__more-btn">
+                                    Ver Clase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div>
+                    <div class="cursos__more-content cursos__more-close">
+                        <div class="cursos__more-header">
+                            <div>
+                                <h2 class="cursos__more-title">
+                                    Sesión de clase #5
+                                </h2>
+                            </div>
+                            <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                        </div>
+                        <div class="cursos__more-data">
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div>
+                                <i class="ri-checkbox-blank-circle-fill"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                                </p>
+                            </div>
+                            <div class="cursos__more-btns">
+                                <button class="cursos__more-btn">
+                                    Ver Clase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
