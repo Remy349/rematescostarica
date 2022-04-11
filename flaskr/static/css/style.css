@@ -624,7 +624,7 @@ img {
   color: #b0b878;
   font-weight: 700;
   margin-left: auto;
-  transition: 0.5rem;
+  transition: 0.5s;
 }
 .cursos__more-data {
   display: grid;
