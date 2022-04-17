@@ -7,6 +7,30 @@
 {% block content %}
     <section class="registrate section">
         <div class="registrate__container container">
+            <!-- NOTIFICATION -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="notification__container">
+                            <div class="notification">
+                                <div class="notification__content">
+                                    <i class="ri-error-warning-line notification__content-icon"></i>
+                                    <div class="notification__content-message">
+                                        <span class="notification__content-title">
+                                            Advertencia
+                                        </span>
+                                        <span class="notification__content-text">
+                                            {{ message }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="notification__content-progress"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- FORM -->
             <div class="registrate__wrap grid">
                 <div class="registrate__forms">
                     <form action="{{ url_for('registrate') }}" method="POST" class="registrate__form" accept-charset="utf-8">

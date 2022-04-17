@@ -38,4 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cursosMoreHeader.forEach(cursoHeader => {
         cursoHeader.addEventListener('click', accordionCursos);
     });
+
+    /* NOTIFICATION ALERT */
+    const notification = document.querySelector('.notification');
+
+    if (notification) {
+        setTimeout(() => {
+            notification.style.transform = 'translateX(calc(100% + 1rem))';
+        }, 7000);
+    }
 });

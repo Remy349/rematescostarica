@@ -1,0 +1,146 @@
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
+
+.iniciarsesion {
+    height: 100vh;
+
+    &__noti {
+        background-color: $white-color;
+        border-radius: .5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
+        padding: 15px 30px 15px 20px;
+        border-left: 6px solid #ff2d2d;
+        overflow: hidden;
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
+        font-family: $raleway;
+        width: 100%;
+        max-width: 330px;
+        //transform: translateX(calc(100% + 1rem));
+        transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &-content {
+            display: flex;
+            align-items: center;
+            column-gap: .8rem;
+        }
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            width: 35px;
+            background-color: #ff2d2d;
+            color: $white-color;
+            border-radius: 50%;
+            font-size: 1.3rem;
+        }
+
+        &-message {
+            display: flex;
+            flex-direction: column;
+            row-gap: .2rem;
+        }
+
+        &-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        &-text {
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        &-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background-color: #ddd;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background-color: #ff2d2d;
+                height: 100%;
+                width: 100%;
+                animation: progress 5s linear forwards;
+            }
+        }
+    }
+
+    &__form {
+        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        font-family: $raleway;
+        background-color: $white-color;
+        padding: 3rem 2rem;
+        border-radius: .5rem;
+        display: grid;
+        row-gap: 1.5rem;
+
+        &-title {
+            & h1 {
+                font-size: 1.85rem;
+                text-align: center;
+            }
+        }
+
+        &-inputs {
+            background-color: $background-color;
+            padding: 1rem .5rem 1rem 1rem;
+            border-radius: .5rem;
+            display: grid;
+            row-gap: .3rem;
+
+            & label { font-size: 1.1rem; }
+        }
+
+        &-input {
+            background-color: $background-color;
+            font-size: 1.15rem;
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        &-btn {
+            background-color: $primary-color-sub;
+            border-radius: .5rem;
+            padding: 1.15rem 0;
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.15rem;
+            color: $white-color;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        &-forgot {
+            font-size: 1.15rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        &-registro {
+            text-align: center;
+
+            & a {
+                font-size: 1.17rem;
+                cursor: pointer;
+                font-weight: 500;
+                color: #000;
+            }
+        }
+    }
+}

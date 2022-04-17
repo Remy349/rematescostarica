@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 class Config(object):
     """ Clase para las configuraciones de la app """
@@ -8,5 +9,5 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Configuracion para las sesiones
-    SESSION_PERMANENT = False
+    PERMANENT_SESSION_LIFETIME = timedelta(days=1)
     SESSION_TYPE = "filesystem"

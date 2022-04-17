@@ -686,4 +686,73 @@ img {
   text-align: center;
 }
 
+/* NOTIFICATION ALERT */
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+.notification {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 30px 15px 20px;
+  border-left: 6px solid #ff2d2d;
+  overflow: hidden;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  max-width: 330px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.notification__content {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+.notification__content-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: #ff2d2d;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+.notification__content-message {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+}
+.notification__content-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.notification__content-text {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.notification__content-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #ddd;
+}
+.notification__content-progress:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ff2d2d;
+  height: 100%;
+  width: 100%;
+  animation: progress 6.8s linear forwards;
+}
+
 /*# sourceMappingURL=style.css.map */
