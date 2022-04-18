@@ -12,6 +12,7 @@ class Users(db.Model):
     email_adress = db.Column(db.String(160), nullable=False, unique=True)
     adress = db.Column(db.String(160), nullable=True)
     postal_code = db.Column(db.String(60), nullable=True)
+    gravatar = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(160), nullable=False)
 
     def set_password(self, password):
@@ -29,4 +30,5 @@ class Users(db.Model):
                 Username: {self.username},
                 Phonenumber: {self.phonenumber},
                 Email_adress: {self.email_adress},
+                Gravatar: {self.gravatar},
         """

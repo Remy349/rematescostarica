@@ -1,5 +1,6 @@
 from flaskr import app, db
 from flask import render_template, redirect, url_for, request, session, flash
+from hashlib import md5
 
 from flaskr.models import Users
 
@@ -26,18 +27,19 @@ def registrate():
 
         user = Users.query.filter_by(username=username).first()
 
-        if username == user.username:
+        if user is not None:
             errors = f"'{username}' ya esta registrado! Usa otro!"
-        elif email_adress == user.email_adress:
-            errors = f"Dirección de correo ya ocupado!"
 
         if errors is None:
+            gravatar = md5(email_adress.lower().encode("utf-8")).hexdigest()
+
             new_user = Users(firstname=firstname, lastname=lastname, username=username, phonenumber=phonenumber, \
-                email_adress=email_adress, adress=adress, postal_code=postal_code
+                email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar
             )
             new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()
+            print(new_user)
 
             return redirect(url_for("iniciar_sesion"))
 
@@ -69,6 +71,7 @@ def iniciar_sesion():
         if errors is None:
             session["user_id"] = user.id
             session["username"] = user.username
+            session["gravatar"] = user.gravatar
             session.permanent = True
             return redirect(url_for("cursos"))
 

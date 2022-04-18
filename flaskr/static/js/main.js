@@ -40,11 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* NOTIFICATION ALERT */
-    const notification = document.querySelector('.notification');
+    const notification = document.querySelector('.notification'),
+        notificationContainer = document.querySelector('.notification__container');
 
     if (notification) {
         setTimeout(() => {
             notification.style.transform = 'translateX(calc(100% + 1rem))';
         }, 7000);
+
+        setTimeout(() => {
+            notificationContainer.style.display = 'none';
+        }, 7500);
     }
 });
