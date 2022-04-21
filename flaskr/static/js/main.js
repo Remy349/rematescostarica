@@ -52,4 +52,75 @@ document.addEventListener('DOMContentLoaded', () => {
             notificationContainer.style.display = 'none';
         }, 7500);
     }
+
+    /* VALIDAR FORMULARIO DE REGISTRO DE USUARIO */
+    const registrateForm = document.getElementById('registrateForm');
+
+    if (registrateForm) {
+        registrateForm.addEventListener('submit', validarFormulario);
+    }
 });
+
+const validarFormulario = (e) => {
+    let errors = false;
+    const firstname = document.getElementById('firstname').value,
+        lastname = document.getElementById('lastname').value,
+        username = document.getElementById('username').value;
+    const firstnameCont = document.getElementById('firstnameCont'),
+        lastnameCont = document.getElementById('lastnameCont'),
+        usernameCont = document.getElementById('usernameCont');
+    const firstnameLabel = document.getElementById('firstnameLabel'),
+        lastnameLabel = document.getElementById('lastnameLabel'),
+        usernameLabel = document.getElementById('usernameLabel');
+    const justLetters = new RegExp('^[A-Z\ áéíóúñü \]+$', 'i');
+
+    /* validar nombre */
+    if (firstname.length == 0) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede estar vacio!');
+        errors = true;
+    } else if (firstname.length < 3) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser menor a 3 caracteres!');
+        errors = true;
+    } else if (firstname.length > 15) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(firstname)) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre solo debe contener letras!');
+        errors = true;
+    } else {
+        firstnameCont.style.border = 'none';
+        firstnameLabel.style.display = 'none';
+    }
+
+    /* validar apellido */
+    if (lastname.length == 0) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede estar vacio!');
+        errors = true;
+    } else if (lastname.length < 4) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser menor a 4 caracteres!');
+        errors = true;
+    } else if (lastname.length > 15) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(lastname)) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido solo debe contener letras!');
+        errors = true;
+    } else {
+        lastnameCont.style.border = 'none';
+        lastnameLabel.style.display = 'none';
+    }
+
+    /* validar username */
+
+    if (errors) {
+        e.preventDefault();
+    }
+}
+
+const errorInput = (idCont, idLabel, message) => {
+    idCont.style.border = '2px solid #ff2d2d';
+    idLabel.innerText = message;
+    idLabel.style.color = '#ff2d2d';
+    idLabel.style.fontSize = '1.05rem';
+    idLabel.style.display = 'block';
+}

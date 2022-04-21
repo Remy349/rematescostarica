@@ -33,7 +33,7 @@
             <!-- FORM -->
             <div class="registrate__wrap grid">
                 <div class="registrate__forms">
-                    <form action="{{ url_for('registrate') }}" method="POST" class="registrate__form" accept-charset="utf-8">
+                    <form action="{{ url_for('registrate') }}" method="POST" class="registrate__form" id="registrateForm" accept-charset="utf-8">
                         <div class="registrate__form-title">
                             <h1>Registrate</h1>
                         </div>
@@ -41,36 +41,39 @@
                             Información para la cuenta
                         </p>
                         <div class="registrate__form-inputscont grid">
-                            <div class="registrate__form-inputs">
+                            <div class="registrate__form-inputs" id="firstnameCont">
+                                <p id="firstnameLabel"></p>
                                 <label>Nombre</label>
                                 <input
                                     class="registrate__form-input"
                                     autocomplete="off"
                                     name="firstname"
                                     type="text"
-                                    required
+                                    id="firstname"
                                 />
                             </div>
-                            <div class="registrate__form-inputs">
+                            <div class="registrate__form-inputs" id="lastnameCont">
+                                <p id="lastnameLabel"></p>
                                 <label>Apellido</label>
                                 <input
                                     class="registrate__form-input"
                                     autocomplete="off"
                                     name="lastname"
                                     type="text"
-                                    required
+                                    id="lastname"
                                 />
                             </div>
                         </div>
                         <div class="registrate__form-inputscont grid">
-                            <div class="registrate__form-inputs">
+                            <div class="registrate__form-inputs" id="usernameCont">
+                                <p id="usernameLabel"></p>
                                 <label>Nombre de usuario</label>
                                 <input
                                     class="registrate__form-input"
                                     autocomplete="off"
                                     name="username"
                                     type="text"
-                                    required
+                                    id="username"
                                 />
                             </div>
                             <div class="registrate__form-inputs">
@@ -80,7 +83,6 @@
                                     autocomplete="off"
                                     type="text"
                                     name="phonenumber"
-                                    required
                                 />
                             </div>
                         </div>
@@ -91,7 +93,6 @@
                                 autocomplete="off"
                                 type="text"
                                 name="email_adress"
-                                required
                             />
                         </div>
                         <p class="registrate__form-text">
@@ -128,7 +129,6 @@
                                     autocomplete="off"
                                     type="password"
                                     name="password"
-                                    required
                                 />
                             </div>
                             <div class="registrate__form-inputs">
@@ -138,7 +138,6 @@
                                     autocomplete="off"
                                     type="password"
                                     name="confirm_password"
-                                    required
                                 />
                             </div>
                         </div>
