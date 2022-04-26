@@ -1,5 +1,8 @@
 from flaskr import app
 from flask import render_template
+from helpers import login_required
+
+from flaskr.models import Users
 
 @app.route("/", methods=["GET"])
 def index():
@@ -15,3 +18,11 @@ def quienes_somos():
 def cursos():
     """ Funcion para presentar la pagina de los cursos """
     return render_template("routes/cursos.html")
+
+@app.route("/perfil/<string:username>", methods=["GET"])
+@login_required
+def perfil(username):
+    """ Funcion para mostrar el perfil de usuario """
+    current_user = Users.query.filter_by(username=username).first()
+
+    return render_template("routes/perfil.html", current_user=current_user)

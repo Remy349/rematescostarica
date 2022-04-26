@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (registrateForm) {
         registrateForm.addEventListener('submit', validarFormulario);
     }
+
+    /* EDITAR PERFIL - ALERTA TEMPORAL */
+    const editarPerfilBtn = document.getElementById('editarPerfilBtn');
+
+    if (editarPerfilBtn) {
+        editarPerfilBtn.addEventListener('click', () => {
+            alert('Esta función estara disponible proximamente!');
+        });
+    }
 });
 
 const validarFormulario = (e) => {

@@ -73,7 +73,7 @@ def iniciar_sesion():
             session["username"] = user.username
             session["gravatar"] = user.gravatar
             session.permanent = True
-            return redirect(url_for("cursos"))
+            return redirect(url_for("perfil", username=username))
 
         if errors:
             flash(errors)

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - {{ session.username }}
+{% endblock title %}
+
+{% block content %}
+    <section class="perfil section">
+        <div class="perfil__container container grid">
+            <div class="perfil__content">
+                <div class="perfil__content-profile">
+                    <img
+                        src="http://www.gravatar.com/avatar/{{ current_user.gravatar }}?d=identicon"
+                        alt="Perfil de usuario {{ current_user.username }}"
+                    />
+                    <h1>{{ current_user.username }}</h1>
+                </div>
+                <div class="perfil__content-data grid">
+                    <p class="perfil__content-data_title">
+                        Información personal
+                    </p>
+                    <p class="perfil__content-data_info">
+                        Nombre: {{ current_user.firstname }}
+                    </p>
+                    <p class="perfil__content-data_info">
+                        Apellido: {{ current_user.lastname }}
+                    </p>
+                    <p class="perfil__content-data_info">
+                        Correo: {{ current_user.email_adress }}
+                    </p>
+                    <p class="perfil__content-data_info">
+                        Telefono: {{ current_user.phonenumber }}
+                    </p>
+                </div>
+                <div class="perfil__content-editar">
+                    <button class="perfil__content-btn" id="editarPerfilBtn">
+                        Editar Perfil
+                    </button>
+                </div>
+            </div>
+            <div class="perfil__videos">
+                
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -35,7 +35,7 @@
                         </li>
                     </ul>
                     <div class="nav__profile">
-                        <a href="#" class="nav__profile-link">
+                        <a href="{{ url_for('perfil', username=session.username) }}" class="nav__profile-link">
                             <img
                                 src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
                                 class="nav__profile-img"
