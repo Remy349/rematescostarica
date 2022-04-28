@@ -37,7 +37,8 @@ a { text-decoration: none; }
 
 ul { list-style: none; }
 
-img {
+img,
+video {
     max-width: 100%;
     height: auto;
 }
@@ -183,6 +184,9 @@ img {
 
 /* PERFIL */
 @import './perfil';
+
+/* VIDEOS */
+@import './videos';
 
 /* FOOTER */
 .footer {

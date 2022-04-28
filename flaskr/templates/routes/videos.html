@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - {{ video.title }}
+{% endblock title %}
+
+{% block content %}
+    <section class="videos section">
+        <div class="videos__container container grid">
+            <div class="videos__current">
+                <div class="videos__current-content">
+                    <video controls>
+                        <source src="{{ video.url_video }}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="videos__current-title">
+                    <h3>{{ video.title }}</h3>
+                </div>
+            </div>
+            <div class="videos__lists">
+                <div class="videos__lists-content">
+                    {% for v in videos %}
+                        {% if v.id == video.id %}
+                        <a class="videos__lists-card" style="display: none;">
+                                <div class="videos__lists-card_cont">
+                                    <video>
+                                        <source src="{{ v.url_video }}" type="video/mp4">
+                                    </video>
+                                    <p>{{ v.title }}</p>
+                                </div>
+                            </a>
+                        {% else %}
+                        <a href="{{ url_for('videos', video_id=v.id) }}" class="videos__lists-card">
+                                <div class="videos__lists-card_cont">
+                                    <video>
+                                        <source src="{{ v.url_video }}" type="video/mp4">
+                                    </video>
+                                    <p>{{ v.title }}</p>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

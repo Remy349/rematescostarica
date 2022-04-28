@@ -32,3 +32,18 @@ class Users(db.Model):
                 Email_adress: {self.email_adress},
                 Gravatar: {self.gravatar},
         """
+
+class Videos(db.Model):
+    """ Tabla para guardar la url de los videos del curso """
+    __tablename__ = "videos"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), nullable=False)
+    url_video = db.Column(db.String(180), nullable=False, unique=True)
+
+    def __repr__(self):
+        return f"""
+            Video:
+                Id: {self.id},
+                Title: {self.title},
+                UrlVideo: {self.url_video},
+        """

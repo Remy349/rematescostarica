@@ -25,7 +25,8 @@ ul {
   list-style: none;
 }
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -742,6 +743,40 @@ img {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+/* VIDEOS */
+.videos {
+  font-family: "Raleway", sans-serif;
+}
+.videos__container {
+  row-gap: 3rem;
+}
+.videos__current-title {
+  margin-top: 1rem;
+}
+.videos__current-title h3 {
+  font-size: 1.3rem;
+}
+.videos__lists-content {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.videos__lists-card {
+  background-color: #fff;
+  padding: 1rem 2rem 1rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.videos__lists-card_cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
+}
+.videos__lists-card_cont p {
+  color: #000;
+  font-size: 1.1rem;
 }
 
 /* FOOTER */

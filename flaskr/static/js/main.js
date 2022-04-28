@@ -202,10 +202,10 @@ const validarFormulario = (e) => {
         errorInput(passwordCont, passwordLabel, 'No ingresar espacios en blanco!');
         errors = true;
     } else if (password.length == 0) {
-        errorInput(passwordCont, passwordLabel, 'Contraña no puede estar vacia!');
+        errorInput(passwordCont, passwordLabel, 'Contraseña no puede estar vacia!');
         errors = true;
     } else if (password.length < 8) {
-        errorInput(passwordCont, passwordLabel, 'Contraña no puede ser menor a 8 caracteres!');
+        errorInput(passwordCont, passwordLabel, 'Contraseña no puede ser menor a 8 caracteres!');
         errors = true;
     } else {
         passwordCont.style.border = 'none';
@@ -216,7 +216,7 @@ const validarFormulario = (e) => {
         errorInput(passwordContT, passwordLabelT, 'No ingresar espacios en blanco!');
         errors = true;
     } else if (passwordT.length == 0) {
-        errorInput(passwordContT, passwordLabelT, 'Confirmar contraña no puede estar vacia!');
+        errorInput(passwordContT, passwordLabelT, 'Confirmar contraseña no puede estar vacia!');
         errors = true;
     } else if (passwordT !== password) {
         errorInput(passwordContT, passwordLabelT, 'La contraseña no coinside!');

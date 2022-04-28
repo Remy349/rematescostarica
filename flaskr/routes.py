@@ -2,7 +2,7 @@ from flaskr import app
 from flask import render_template
 from helpers import login_required
 
-from flaskr.models import Users
+from flaskr.models import Users, Videos
 
 @app.route("/", methods=["GET"])
 def index():
@@ -17,7 +17,17 @@ def quienes_somos():
 @app.route("/cursos", methods=["GET"])
 def cursos():
     """ Funcion para presentar la pagina de los cursos """
-    return render_template("routes/cursos.html")
+    videos = Videos.query.all()
+
+    return render_template("routes/cursos.html", videos=videos)
+
+@app.route("/cursos/clase/<int:video_id>", methods=["GET"])
+def videos(video_id):
+    """ Funcion para mostrar los videos de lass clases """
+    videos = Videos.query.all()
+    video = Videos.query.filter_by(id=video_id).first()
+
+    return render_template("routes/videos.html", video=video, videos=videos)
 
 @app.route("/perfil/<string:username>", methods=["GET"])
 @login_required

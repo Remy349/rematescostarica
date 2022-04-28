@@ -1,0 +1,39 @@
+.videos {
+    font-family: $raleway;
+
+    &__container { row-gap: 3rem; }
+
+    &__current {
+        &-title {
+            margin-top: 1rem;
+
+            & h3 { font-size: 1.3rem; }
+        }
+    }
+
+    &__lists {
+        &-content {
+            display: grid;
+            row-gap: 1.5rem;
+        }
+
+        &-card {
+            background-color: $white-color;
+            padding: 1rem 2rem 1rem 1rem;
+            border-radius: .5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,.3);
+            cursor: pointer;
+
+            &_cont {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: .5rem;
+
+                & p {
+                    color: #000;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}
