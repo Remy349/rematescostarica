@@ -693,9 +693,21 @@ video {
 }
 
 /* PERFIL */
+@keyframes play-video {
+  50% {
+    background-color: #fff;
+  }
+}
+@keyframes icon-video {
+  50% {
+    color: #b0b878;
+  }
+}
 .perfil {
   font-family: "Raleway", sans-serif;
-  height: 100vh;
+}
+.perfil__container {
+  row-gap: 3rem;
 }
 .perfil__content {
   display: grid;
@@ -744,6 +756,53 @@ video {
   outline: none;
   cursor: pointer;
 }
+.perfil__videos-container {
+  display: grid;
+  row-gap: 2rem;
+}
+.perfil__videos-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.perfil__videos-card {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  cursor: default;
+  display: grid;
+  row-gap: 1rem;
+  transition: 0.5s;
+}
+.perfil__videos-card:hover {
+  transform: scale(0.95);
+}
+.perfil__videos-card_data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.perfil__videos-card_data p {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.perfil__videos-card_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b0b878;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  animation: play-video 7s infinite;
+}
+.perfil__videos-card_icon {
+  font-size: 1.8rem;
+  color: #fff;
+  animation: icon-video 7s infinite;
+}
 
 /* VIDEOS */
 .videos {
@@ -763,6 +822,7 @@ video {
   row-gap: 1.5rem;
 }
 .videos__lists-card {
+  border-left: 7px solid #b0b878;
   background-color: #fff;
   padding: 1rem 2rem 1rem 1rem;
   border-radius: 0.5rem;
@@ -772,7 +832,7 @@ video {
 .videos__lists-card_cont {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 0.5rem;
+  column-gap: 0.7rem;
 }
 .videos__lists-card_cont p {
   color: #000;

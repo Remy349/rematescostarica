@@ -18,6 +18,7 @@
         }
 
         &-card {
+            border-left: 7px solid $primary-color-sub;
             background-color: $white-color;
             padding: 1rem 2rem 1rem 1rem;
             border-radius: .5rem;
@@ -27,7 +28,7 @@
             &_cont {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                column-gap: .5rem;
+                column-gap: .7rem;
 
                 & p {
                     color: #000;

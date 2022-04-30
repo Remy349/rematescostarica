@@ -39,7 +39,26 @@
                 </div>
             </div>
             <div class="perfil__videos">
-                
+                <div class="perfil__videos-title">
+                    <h2>Mira los videos del curso!</h2>
+                </div>
+                <div class="perfil__videos-container">
+                    {% for video in videos %}
+                        <div class="perfil__videos-card">
+                            <div class="perfil__videos-card_video">
+                                <video>
+                                    <source src="{{ video.url_video }}" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="perfil__videos-card_data">
+                                <p>{{ video.title }}</p>
+                                <a href="{{ url_for('videos', video_id=video.id) }}" class="perfil__videos-card_btn">
+                                    <i class="ri-play-circle-line perfil__videos-card_icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>

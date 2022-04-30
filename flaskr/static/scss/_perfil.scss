@@ -1,6 +1,15 @@
+@keyframes play-video {
+    50% { background-color: $white-color; }
+}
+
+@keyframes icon-video {
+    50% { color: $primary-color-sub; }
+}
+
 .perfil {
     font-family: $raleway;
-    height: 100vh;
+
+    &__container { row-gap: 3rem; }
 
     &__content {
         display: grid;
@@ -51,6 +60,61 @@
             border: none;
             outline: none;
             cursor: pointer;
+        }
+    }
+
+    &__videos {
+        &-container {
+            display: grid;
+            row-gap: 2rem;
+        }
+
+        &-title {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        &-card {
+            background-color: $white-color;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,.3);
+            border-radius: .5rem;
+            cursor: default;
+            display: grid;
+            row-gap: 1rem;
+            transition: .5s;
+
+            &:hover { transform: scale(.95); }
+
+            &_data {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                & p {
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                }
+            }
+
+            &_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $primary-color-sub;
+                border-radius: 50%;
+                box-shadow: 0 4px 20px rgba(0,0,0,.4);
+                width: 60px;
+                height: 60px;
+                cursor: pointer;
+                animation: play-video 7s infinite;
+            }
+
+            &_icon {
+                font-size: 1.8rem;
+                color: $white-color;
+                animation: icon-video 7s infinite;
+            }
         }
     }
 }

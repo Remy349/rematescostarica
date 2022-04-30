@@ -22,6 +22,7 @@ def cursos():
     return render_template("routes/cursos.html", videos=videos)
 
 @app.route("/cursos/clase/<int:video_id>", methods=["GET"])
+@login_required
 def videos(video_id):
     """ Funcion para mostrar los videos de lass clases """
     videos = Videos.query.all()
@@ -34,5 +35,6 @@ def videos(video_id):
 def perfil(username):
     """ Funcion para mostrar el perfil de usuario """
     current_user = Users.query.filter_by(username=username).first()
+    videos = Videos.query.all()
 
-    return render_template("routes/perfil.html", current_user=current_user)
+    return render_template("routes/perfil.html", current_user=current_user, videos=videos)
