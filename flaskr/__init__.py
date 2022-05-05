@@ -1,3 +1,5 @@
+import os
+import paypalrestsdk
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
@@ -8,6 +10,16 @@ from config import Config
 load_dotenv()
 
 app = Flask(__name__)
+
+PAYPAL_MODE = os.getenv("PAYPAL_MODE")
+PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")
+PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET")
+
+paypalrestsdk.configure({
+    "mode": PAYPAL_MODE,
+    "client_id": PAYPAL_CLIENT_ID,
+    "client_secret": PAYPAL_CLIENT_SECRET,
+})
 
 if Config.SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
     Config.SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
@@ -31,4 +43,5 @@ def page_not_found(e):
 
 from flaskr import routes
 from flaskr import auth
+from flaskr import paypal
 from flaskr import models

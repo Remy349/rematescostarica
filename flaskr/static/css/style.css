@@ -692,6 +692,10 @@ video {
   transform: rotate(-180deg);
 }
 
+div#paypal-button {
+  opacity: 0.9;
+}
+
 /* PERFIL */
 @keyframes play-video {
   50% {
