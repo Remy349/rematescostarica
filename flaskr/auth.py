@@ -32,9 +32,10 @@ def registrate():
 
         if errors is None:
             gravatar = md5(email_adress.lower().encode("utf-8")).hexdigest()
+            payment_completed = "Sin Adquirir"
 
             new_user = Users(firstname=firstname, lastname=lastname, username=username, phonenumber=phonenumber, \
-                email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar
+                email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar, payment_completed=payment_completed
             )
             new_user.set_password(password)
             db.session.add(new_user)

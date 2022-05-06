@@ -56,7 +56,19 @@
                                 <p>Sin necesidad de trasladarse a ningun lugar.</p>
                             </div>
                         </div>
-                        <div id="paypal-button"></div>
+                        {% if session.user_id %}
+                            <div class="cursos__free-cards_btns">
+                                <a href="{{ url_for('perfil', username=session.username) }}" class="cursos__free-cards_btn">
+                                    Comprar curso ahora
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="cursos__free-cards_btns">
+                                <a href="{{ url_for('iniciar_sesion') }}" class="cursos__free-cards_btn">
+                                    Comprar curso ahora
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@ class Users(db.Model):
     adress = db.Column(db.String(160), nullable=True)
     postal_code = db.Column(db.String(60), nullable=True)
     gravatar = db.Column(db.String(120), nullable=False, unique=True)
+    payment_completed = db.Column(db.String(40), nullable=False)
     password_hash = db.Column(db.String(160), nullable=False)
 
     def set_password(self, password):
@@ -31,6 +32,7 @@ class Users(db.Model):
                 Phonenumber: {self.phonenumber},
                 Email_adress: {self.email_adress},
                 Gravatar: {self.gravatar},
+                Payment_completed: {self.payment_completed},
         """
 
 class Videos(db.Model):

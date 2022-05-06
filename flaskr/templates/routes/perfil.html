@@ -38,28 +38,51 @@
                     </button>
                 </div>
             </div>
-            <div class="perfil__videos">
-                <div class="perfil__videos-title">
-                    <h2>Mira los videos del curso!</h2>
-                </div>
-                <div class="perfil__videos-container">
-                    {% for video in videos %}
-                        <div class="perfil__videos-card">
-                            <div class="perfil__videos-card_video">
-                                <video>
-                                    <source src="{{ video.url_video }}" type="video/mp4">
-                                </video>
+            {% if current_user.payment_completed == "Sin Adquirir" %}
+                <div class="perfil__payment">
+                    <div class="perfil__payment-container">
+                        <div class="perfil__payment-card grid">
+                            <div class="perfil__payment-card_img">
+                                <img src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1651796944/rematescostarica/perfil_compra_dehsaq.png" alt="Compra de articulos por internet">
                             </div>
-                            <div class="perfil__videos-card_data">
-                                <p>{{ video.title }}</p>
-                                <a href="{{ url_for('videos', video_id=video.id) }}" class="perfil__videos-card_btn">
-                                    <i class="ri-play-circle-line perfil__videos-card_icon"></i>
-                                </a>
+                            <div class="perfil__payment-card_data grid">
+                                <div class="perfil__payment-card_info">
+                                    <h3>Adquiere nuestro curso!</h3>
+                                    <p>
+                                        Luego de realizar el pago mediante PayPal tendras acceso
+                                        a los videos y demas funciones especiales de ahora y otras
+                                        que se iran desarrollando proximamente!
+                                    </p>
+                                </div>
+                                <div id="paypal-button"></div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="perfil__videos">
+                    <div class="perfil__videos-title">
+                        <h2>Mira los videos del curso!</h2>
+                    </div>
+                    <div class="perfil__videos-container">
+                        {% for video in videos %}
+                            <div class="perfil__videos-card">
+                                <div class="perfil__videos-card_video">
+                                    <video>
+                                        <source src="{{ video.url_video }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="perfil__videos-card_data">
+                                    <p>{{ video.title }}</p>
+                                    <a href="{{ url_for('videos', video_id=video.id) }}" class="perfil__videos-card_btn">
+                                        <i class="ri-play-circle-line perfil__videos-card_icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock content %}

@@ -67,6 +67,8 @@
                 }
             }
 
+            &_btns { display: flex; }
+
             &_btn {
                 cursor: pointer;
                 outline: none;
@@ -78,6 +80,7 @@
                 width: 100%;
                 color: $white-color;
                 font-family: $raleway;
+                text-align: center;
             }
         }
     }

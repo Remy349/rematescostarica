@@ -1,43 +1,48 @@
 import paypalrestsdk
 from flaskr import app
-from flask import jsonify, request
+from flask import jsonify, request, session, redirect, url_for
 
 @app.route("/payment", methods=["POST"])
 def payment():
     """ Funcion para iniciar con el proceso de pago """
-    payment = paypalrestsdk.Payment({
-        "intent": "sale",
-        "payer": {
-            "payment_method": "paypal",
-        },
-        "redirect_urls": {
-            "return_url": "/payment",
-            "cancel_url": "/cursos",
-        },
-        "transactions": [{
-            "item_list": {
-                "items": [{
-                    "name": "curso",
-                    "sku": "12345",
-                    "price": "10.00",
-                    "currency": "USD",
-                    "quantity": 1,
-                }]
-            },
-            "amount": {
-                "total": "10.00",
-                "currency": "USD",
-            },
-            "description": "Compra para el curso de rematescostarica!"
-        }]
-    })
+    username = session["username"]
 
-    if payment.create():
-        print("Payment creted successfully!")
+    if username is None:
+        return redirect(url_for("iniciar_sesion"))
     else:
-        print(payment.error)
+        payment = paypalrestsdk.Payment({
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal",
+            },
+            "redirect_urls": {
+                "return_url": f"/perfil/{username}",
+                "cancel_url": f"/perfil/{username}",
+            },
+            "transactions": [{
+                "item_list": {
+                    "items": [{
+                        "name": "curso",
+                        "sku": "12345",
+                        "price": "10.00",
+                        "currency": "USD",
+                        "quantity": 1,
+                    }]
+                },
+                "amount": {
+                    "total": "10.00",
+                    "currency": "USD",
+                },
+                "description": "Compra para el curso de rematescostarica!"
+            }]
+        })
 
-    return jsonify({ "paymentID": payment.id })
+        if payment.create():
+            print("Payment creted successfully!")
+        else:
+            print(payment.error)
+
+        return jsonify({ "paymentID": payment.id })
 
 @app.route("/execute", methods=["POST"])
 def execute():

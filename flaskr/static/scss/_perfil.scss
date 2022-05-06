@@ -63,6 +63,31 @@
         }
     }
 
+    &__payment {
+        &-card {
+            background-color: $white-color;
+            border-radius: .5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,.3);
+
+            &_data { row-gap: 1.2rem; }
+
+            &_info {
+                & h3 {
+                    text-align: center;
+                    margin-bottom: 1.2rem;
+                    font-size: 1.5rem;
+                }
+
+                & p {
+                    line-height: 1.35;
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
     &__videos {
         &-container {
             display: grid;

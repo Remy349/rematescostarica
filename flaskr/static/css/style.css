@@ -609,6 +609,9 @@ video {
   font-size: 1.15rem;
   text-align: left;
 }
+.cursos__free-cards_btns {
+  display: flex;
+}
 .cursos__free-cards_btn {
   cursor: pointer;
   outline: none;
@@ -620,6 +623,7 @@ video {
   width: 100%;
   color: #fff;
   font-family: "Raleway", sans-serif;
+  text-align: center;
 }
 .cursos__more {
   display: grid;
@@ -759,6 +763,25 @@ div#paypal-button {
   border: none;
   outline: none;
   cursor: pointer;
+}
+.perfil__payment-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.perfil__payment-card_data {
+  row-gap: 1.2rem;
+}
+.perfil__payment-card_info h3 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+.perfil__payment-card_info p {
+  line-height: 1.35;
+  font-size: 1.2rem;
+  text-align: center;
 }
 .perfil__videos-container {
   display: grid;
