@@ -1,11 +1,13 @@
 import paypalrestsdk
-from flaskr import app
+from flaskr import app, db
 from flask import jsonify, request, session, redirect, url_for
+
+from flaskr.models import Users
 
 @app.route("/payment", methods=["POST"])
 def payment():
     """ Funcion para iniciar con el proceso de pago """
-    username = session["username"]
+    username = session.get("username")
 
     if username is None:
         return redirect(url_for("iniciar_sesion"))
@@ -17,7 +19,7 @@ def payment():
             },
             "redirect_urls": {
                 "return_url": f"/perfil/{username}",
-                "cancel_url": f"/perfil/{username}",
+                "cancel_url": "/cursos/comprar",
             },
             "transactions": [{
                 "item_list": {
@@ -64,4 +66,11 @@ def payment_completed():
         Luego de haber completado la compra del curso, se agrega un permiso
         especial para que el usuario tenga acceso a los videos del curso.
     """
-    return jsonify({ "message": "Compra completa!" })
+    username = session.get("username")
+
+    update_user_info = Users.query.filter_by(username=username).first()
+    update_user_info.payment_completed = "Adquirido"
+    db.session.add(update_user_info)
+    db.session.commit()
+
+    return jsonify({ "username": username })

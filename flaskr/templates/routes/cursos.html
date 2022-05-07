@@ -57,11 +57,19 @@
                             </div>
                         </div>
                         {% if session.user_id %}
-                            <div class="cursos__free-cards_btns">
-                                <a href="{{ url_for('perfil', username=session.username) }}" class="cursos__free-cards_btn">
-                                    Comprar curso ahora
-                                </a>
-                            </div>
+                            {% if current_user.payment_completed == "Sin Adquirir" %}
+                                <div class="cursos__free-cards_btns">
+                                    <a href="{{ url_for('comprar_curso') }}" class="cursos__free-cards_btn">
+                                        Comprar curso ahora
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="cursos__free-cards_btns" style="display: none;">
+                                    <a href="{{ url_for('comprar_curso') }}" class="cursos__free-cards_btn">
+                                        Comprar curso ahora
+                                    </a>
+                                </div>
+                            {% endif %}
                         {% else %}
                             <div class="cursos__free-cards_btns">
                                 <a href="{{ url_for('iniciar_sesion') }}" class="cursos__free-cards_btn">
@@ -72,47 +80,79 @@
                     </div>
                 </div>
             </div>
-            <div class="cursos__more">
-                {% for video in videos %}
-                    <div>
-                        <div class="cursos__more-content cursos__more-close">
-                            <div class="cursos__more-header">
-                                <div>
-                                    <h2 class="cursos__more-title">
-                                        {{ video.title }}
-                                    </h2>
+            {% if current_user.payment_completed == "Sin Adquirir" %}
+                <div class="cursos__more">
+                    {% for video in videos %}
+                        <div>
+                            <div class="cursos__more-content cursos__more-close">
+                                <div class="cursos__more-header">
+                                    <div>
+                                        <h2 class="cursos__more-title">
+                                            {{ video.title }}
+                                        </h2>
+                                    </div>
+                                    <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
                                 </div>
-                                <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
-                            </div>
-                            <div class="cursos__more-data">
-                                <div>
-                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="ri-checkbox-blank-circle-fill"></i>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                                    </p>
-                                </div>
-                                <div class="cursos__more-btns">
-                                    <a href="{{ url_for('videos', video_id=video.id) }}" class="cursos__more-btn">
-                                        Ver Clase
-                                    </a>
+                                <div class="cursos__more-data">
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div class="cursos__more-btns">
+                                        <a href="{{ url_for('comprar_curso') }}" class="cursos__more-btn">
+                                            Ver Clase
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="cursos__more">
+                    {% for video in videos %}
+                        <div>
+                            <div class="cursos__more-content cursos__more-close">
+                                <div class="cursos__more-header">
+                                    <div>
+                                        <h2 class="cursos__more-title">
+                                            {{ video.title }}
+                                        </h2>
+                                    </div>
+                                    <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
+                                </div>
+                                <div class="cursos__more-data">
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </div>
+                                    <div class="cursos__more-btns">
+                                        <a href="{{ url_for('videos', video_id=video.id) }}" class="cursos__more-btn">
+                                            Ver Clase
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock content %}

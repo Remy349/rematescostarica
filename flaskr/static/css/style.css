@@ -229,6 +229,25 @@ video {
 .home__data-icon {
   font-size: 1.5rem;
 }
+.home__social {
+  position: absolute;
+  left: 0;
+  bottom: 3.8rem;
+  display: flex;
+  column-gap: 1.5rem;
+}
+.home__social-link {
+  background-color: #fff;
+  color: #899a6f;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-size: 1.7rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .ofrecemos__container {
   grid-template-columns: 10% auto;
@@ -771,7 +790,7 @@ div#paypal-button {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 .perfil__payment-card_data {
-  row-gap: 1.2rem;
+  row-gap: 1.5rem;
 }
 .perfil__payment-card_info h3 {
   text-align: center;
@@ -781,6 +800,22 @@ div#paypal-button {
 .perfil__payment-card_info p {
   line-height: 1.35;
   font-size: 1.2rem;
+  text-align: center;
+}
+.perfil__payment-card_btns {
+  display: flex;
+}
+.perfil__payment-card_btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1rem 0;
+  background-color: #b0b878;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
   text-align: center;
 }
 .perfil__videos-container {
@@ -864,6 +899,73 @@ div#paypal-button {
 .videos__lists-card_cont p {
   color: #000;
   font-size: 1.1rem;
+}
+
+/* COMPRAR CURSO */
+.comprar {
+  font-family: "Raleway", sans-serif;
+}
+.comprar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.comprar__card {
+  padding: 3rem 2rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: grid;
+  row-gap: 1.5rem;
+}
+.comprar__card-header h3 {
+  text-align: left;
+  font-size: 1.3rem;
+}
+.comprar__card-data {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.comprar__card-data div {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: flex-start;
+}
+.comprar__card-data div i {
+  color: #b0b878;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.comprar__card-data div p {
+  line-height: 1.3;
+  font-size: 1.15rem;
+  text-align: left;
+}
+.comprar__card-img h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.comprar__card-thank p {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  text-align: center;
+}
+.comprar__card-btns {
+  display: flex;
+  justify-content: center;
+}
+.comprar__card-btn {
+  background: #b0b878;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 1rem 0;
+  font-family: "Raleway", sans-serif;
 }
 
 /* FOOTER */

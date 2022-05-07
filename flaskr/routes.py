@@ -1,5 +1,5 @@
 from flaskr import app
-from flask import render_template
+from flask import render_template, session, redirect, url_for
 from helpers import login_required
 
 from flaskr.models import Users, Videos
@@ -17,9 +17,18 @@ def quienes_somos():
 @app.route("/cursos", methods=["GET"])
 def cursos():
     """ Funcion para presentar la pagina de los cursos """
-    videos = Videos.query.all()
+    username = session.get("username")
 
-    return render_template("routes/cursos.html", videos=videos)
+    if username is None:
+        current_user = { "payment_completed": "Sin Adquirir" }
+        videos = Videos.query.all()
+
+        return render_template("routes/cursos.html", videos=videos, current_user=current_user)
+    else:
+        videos = Videos.query.all()
+        current_user = Users.query.filter_by(username=username).first()
+
+        return render_template("routes/cursos.html", videos=videos, current_user=current_user)
 
 @app.route("/cursos/clase/<int:video_id>", methods=["GET"])
 @login_required
@@ -29,6 +38,19 @@ def videos(video_id):
     video = Videos.query.filter_by(id=video_id).first()
 
     return render_template("routes/videos.html", video=video, videos=videos)
+
+@app.route("/cursos/comprar", methods=["GET"])
+@login_required
+def comprar_curso():
+    """ Funcion para mostrar una unica vista dde la compra del curso """
+    username = session.get("username")
+
+    current_user = Users.query.filter_by(username=username).first()
+
+    if current_user.payment_completed == "Sin Adquirir":
+        return render_template("routes/comprar_curso.html")
+    else:
+        return redirect(url_for("perfil", username=username))
 
 @app.route("/perfil/<string:username>", methods=["GET"])
 @login_required

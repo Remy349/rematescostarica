@@ -30,7 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
                             })
                                 .then(res => res.json())
                                 .then(data => {
-                                    console.log(data);
+                                    const comprarCursoCard = document.getElementById('comprarCursoCard');
+
+                                    comprarCursoCard.innerHTML = `
+                                        <div class="comprar__card-img">
+                                            <img
+                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1651881464/rematescostarica/compra_realizada_xtc2yy.png"
+                                                alt="Compra del curso completada!"
+                                            />
+                                            <h3>¡Gracias por tu compra!</h3>
+                                        </div>
+                                        <div class="comprar__card-thank">
+                                            <p>
+                                                Ahora tendras acceso a los videos del curso y otras funciones adicionales,
+                                                visita tu perfil para visualizar la lista de videos actual o ve directamente
+                                                al apartado del curso y ve los videos libremente!
+                                            </p>
+                                        </div>
+                                        <div class="comprar__card-btns">
+                                            <a href="/perfil/${data.username}" class="comprar__card-btn">
+                                                Ir a mi perfil
+                                            </a>
+                                        </div>
+                                    `;
                                 })
                                 .catch(error => console.log(error))
                             ;

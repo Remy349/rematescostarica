@@ -70,7 +70,7 @@
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,.3);
 
-            &_data { row-gap: 1.2rem; }
+            &_data { row-gap: 1.5rem; }
 
             &_info {
                 & h3 {
@@ -84,6 +84,22 @@
                     font-size: 1.2rem;
                     text-align: center;
                 }
+            }
+
+            &_btns { display: flex; }
+
+            &_btn {
+                cursor: pointer;
+                outline: none;
+                border: none;
+                padding: 1rem 0;
+                background-color: $primary-color-sub;
+                font-size: 1.2rem;
+                border-radius: .5rem;
+                width: 100%;
+                color: $white-color;
+                font-family: $raleway;
+                text-align: center;
             }
         }
     }
