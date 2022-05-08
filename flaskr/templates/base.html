@@ -31,19 +31,16 @@
                             <a href="{{ url_for('quienes_somos') }}" class="nav__link">¿Quiénes somos?</a>
                         </li>
                         <li class="nav__item">
-                            <a href="{{ url_for('cerrar_sesion') }}" class="nav__link">Cerrar sesión</a>
+                            <a href="{{ url_for('perfil', username=session.username) }}" class="nav__link nav__profile">
+                                <img
+                                    src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
+                                    class="nav__profile-img"
+                                    alt="Foto de perfil de usuario"
+                                />
+                                {{ session.username }}
+                            </a>
                         </li>
                     </ul>
-                    <div class="nav__profile">
-                        <a href="{{ url_for('perfil', username=session.username) }}" class="nav__profile-link">
-                            <img
-                                src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
-                                class="nav__profile-img"
-                                alt="Foto de perfil de usuario"
-                            />
-                            {{ session.username }}
-                        </a>
-                    </div>
                     <i class="ri-close-line nav__close" id="navClose"></i>
                 </div>
                 <div class="nav__toggle" id="navToggle">

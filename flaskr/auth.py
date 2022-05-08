@@ -9,7 +9,8 @@ def registrate():
     """ Funcion para manejar y realizar el proceso de registro de un nuevo usuario """
     if request.method == "GET":
         if "username" in session:
-            return redirect(url_for("cursos"))
+            username = session.get("username")
+            return redirect(url_for("perfil", username=username))
         else:
             return render_template("auth/registrate.html")
     elif request.method == "POST":

@@ -113,7 +113,7 @@
 .cards {
     &__card {
         box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
-        border-radius: 1rem;
+        border-radius: .5rem;
         padding: 3rem 2rem;
         display: grid;
         row-gap: 1.5rem;
@@ -163,7 +163,7 @@
             padding: 1rem 0;
             background-color: $primary-color-sub;
             color: $white-color;
-            border-radius: 2rem;
+            border-radius: .5rem;
             font-size: 1.2rem;
             cursor: pointer;
             font-weight: 500;

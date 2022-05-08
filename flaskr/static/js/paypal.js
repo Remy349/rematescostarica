@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 size: 'responsive',
                 tagline: false,
                 label: 'pay',
+                height: 45,
             },
             payment: function(data, actions) {
                 return actions.request.post('/payment')
