@@ -30,16 +30,29 @@
                         <li class="nav__item">
                             <a href="{{ url_for('quienes_somos') }}" class="nav__link">¿Quiénes somos?</a>
                         </li>
-                        <li class="nav__item">
-                            <a href="{{ url_for('perfil', username=session.username) }}" class="nav__link nav__profile">
-                                <img
-                                    src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
-                                    class="nav__profile-img"
-                                    alt="Foto de perfil de usuario"
-                                />
-                                {{ session.username }}
-                            </a>
-                        </li>
+                        {% if session.username == "SuperAdminUser" %}
+                            <li class="nav__item">
+                                <a href="{{ url_for('usuario_admin') }}" class="nav__link nav__profile">
+                                    <img
+                                        src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
+                                        class="nav__profile-img"
+                                        alt="Foto de perfil de usuario"
+                                    />
+                                    {{ session.username }}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav__item">
+                                <a href="{{ url_for('perfil', username=session.username) }}" class="nav__link nav__profile">
+                                    <img
+                                        src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
+                                        class="nav__profile-img"
+                                        alt="Foto de perfil de usuario"
+                                    />
+                                    {{ session.username }}
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                     <i class="ri-close-line nav__close" id="navClose"></i>
                 </div>

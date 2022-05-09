@@ -1,3 +1,4 @@
+import os
 from flaskr import app, db
 from flask import render_template, redirect, url_for, request, session, flash
 from hashlib import md5
@@ -10,7 +11,12 @@ def registrate():
     if request.method == "GET":
         if "username" in session:
             username = session.get("username")
-            return redirect(url_for("perfil", username=username))
+            admin_username =os.getenv("ADMIN_USERNAME")
+
+            if username == admin_username:
+                return redirect(url_for("usuario_admin"))
+            else:
+                return redirect(url_for("perfil", username=username))
         else:
             return render_template("auth/registrate.html")
     elif request.method == "POST":
@@ -54,7 +60,13 @@ def iniciar_sesion():
     """ Funcion para realizar el inicio de sesion de cada usuario """
     if request.method == "GET":
         if "username" in session:
-            return redirect(url_for("cursos"))
+            username = session.get("username")
+            admin_username =os.getenv("ADMIN_USERNAME")
+
+            if username == admin_username:
+                return redirect(url_for("usuario_admin"))
+            else:
+                return redirect(url_for("perfil", username=username))
         else:
             return render_template("auth/iniciar_sesion.html")
     elif request.method == "POST":

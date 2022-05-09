@@ -44,4 +44,5 @@ def page_not_found(e):
 from flaskr import routes
 from flaskr import auth
 from flaskr import paypal
+from flaskr import admin_user
 from flaskr import models

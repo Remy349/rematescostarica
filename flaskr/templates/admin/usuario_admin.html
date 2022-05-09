@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - Usuario Admin
+{% endblock title %}
+
+{% block content %}
+    <section class="admin section">
+        <div class="admin__container container">
+            <div class="admin__content">
+                <div class="admin__card">
+                    <div class="admin__card-profile">
+                        <div class="admin__card-img">
+                            <img
+                                src="http://www.gravatar.com/avatar/{{ admin_user.gravatar }}?d=identicon"
+                                alt="Perfil de usuario {{ admin_user.username }}"
+                            />
+                            <h1>{{ admin_user.username }}</h1>
+                        </div>
+                        <div class="admin__card-data grid">
+                            <p class="admin__card-data_title">
+                                Información personal
+                            </p>
+                            <p class="admin__card-data_info">
+                                Nombre: Sin agregar
+                            </p>
+                            <p class="admin__card-data_info">
+                                Apellido: Sin agregar
+                            </p>
+                            <p class="admin__card-data_info">
+                                Correo: {{ admin_user.email_adress }}
+                            </p>
+                        </div>
+                        <div class="admin__card-editar">
+                            <button class="admin__card-btn" id="editarPerfilBtn">
+                                Editar Perfil
+                            </button>
+                        </div>
+                        <div class="admin__card-cerrar">
+                            <a href="{{ url_for('cerrar_sesion') }}" class="admin__card-cerrar_btn">
+                                Cerrar sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin__tags">
+                    <div class="admin__tags-container grid">
+                        <div class="admin__tags-card">
+                            <div class="admin__tags-card_title">
+                                <h3>Total de usuarios</h3>
+                            </div>
+                            <div class="admin__tags-card_data">
+                                <div>{{ total_data_info.total_users }}</div>
+                                <i class="ri-group-fill admin__tags-card_icon"></i>
+                            </div>
+                        </div>
+                        <div class="admin__tags-card">
+                            <div class="admin__tags-card_title">
+                                <h3>Usuarios con acceso al curso</h3>
+                            </div>
+                            <div class="admin__tags-card_data">
+                                <div>{{ total_data_info.payment_completed_users }}</div>
+                                <i class="ri-lock-unlock-fill admin__tags-card_icon"></i>
+                            </div>
+                        </div>
+                        <div class="admin__tags-card">
+                            <div class="admin__tags-card_title">
+                                <h3>Usuarios sin acceso al curso</h3>
+                            </div>
+                            <div class="admin__tags-card_data">
+                                <div>{{ total_data_info.payment_uncompleted_users }}</div>
+                                <i class="ri-lock-fill admin__tags-card_icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="admin__table">
+                
+            </div>
+            <div class="admin__videos">
+                
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -880,6 +880,166 @@ div#paypal-button {
   animation: icon-video 7s infinite;
 }
 
+/* USUARIO ADMIN */
+.admin {
+  font-family: "Raleway", sans-serif;
+}
+.admin__content {
+  display: grid;
+  row-gap: 3rem;
+}
+.admin__card-profile {
+  display: grid;
+  row-gap: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+}
+.admin__card-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.admin__card-img img {
+  border-radius: 50%;
+}
+.admin__card-img h1 {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+.admin__card-data {
+  row-gap: 1rem;
+  text-align: center;
+}
+.admin__card-data_title {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.admin__card-data_info {
+  font-size: 1.1rem;
+}
+.admin__card-editar {
+  display: flex;
+  justify-content: center;
+}
+.admin__card-cerrar {
+  display: flex;
+  justify-content: center;
+}
+.admin__card-cerrar_btn {
+  width: 70%;
+  padding: 0.7rem 0;
+  border-radius: 0.5rem;
+  background-color: #ff0000;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+}
+.admin__card-btn {
+  width: 70%;
+  padding: 0.7rem 0;
+  border-radius: 0.5rem;
+  background-color: #b0b878;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.admin__tags-container {
+  row-gap: 2rem;
+}
+.admin__tags-card {
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem 2rem 1rem 2rem;
+  display: grid;
+  row-gap: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.admin__tags-card:hover {
+  background-color: #b0b878;
+}
+.admin__tags-card:hover .admin__tags-card_title h3 {
+  color: #fff;
+}
+.admin__tags-card:hover .admin__tags-card_icon {
+  color: #fff;
+}
+.admin__tags-card_title h3 {
+  font-size: 1.25rem;
+  color: #b0b878;
+}
+.admin__tags-card_data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin__tags-card_data div {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.admin__tags-card_icon {
+  color: #b0b878;
+  font-size: 1.8rem;
+}
+
+/* INICIAR SESION ADMIN */
+.iniciaradmin {
+  height: 100vh;
+}
+.iniciaradmin__form {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-family: "Raleway", sans-serif;
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 1.5rem;
+}
+.iniciaradmin__form-title h1 {
+  font-size: 1.65rem;
+  text-align: center;
+}
+.iniciaradmin__form-inputs {
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 0.3rem;
+}
+.iniciaradmin__form-inputs label {
+  font-size: 1.1rem;
+}
+.iniciaradmin__form-input {
+  background-color: #e7e5e5;
+  font-size: 1.15rem;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+.iniciaradmin__form-btn {
+  background-color: #b0b878;
+  border-radius: 0.5rem;
+  padding: 1.15rem 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+}
+
 /* VIDEOS */
 .videos {
   font-family: "Raleway", sans-serif;
