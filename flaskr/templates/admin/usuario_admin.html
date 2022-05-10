@@ -76,7 +76,51 @@
                 </div>
             </div>
             <div class="admin__table">
-                
+                <div class="admin__table-container">
+                    <div class="admin__table-info">
+                        <div>
+                            <h3 class="admin__table-info_title">
+                                Registro de Usuarios
+                            </h3>
+                        </div>
+                        <div>
+                            <a class="admin__table-info_btn">
+                                Descargar
+                                <i class="ri-download-fill admin__table-info_icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="admin__table-tablecont">
+                        <table class="admin__table-table">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Apellido</td>
+                                    <td>Nombre de usuario</td>
+                                    <td>Telefono</td>
+                                    <td>Correo</td>
+                                    <td>Dirección</td>
+                                    <td>Codigo postal</td>
+                                    <td>Curso</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                    <tr>
+                                        <td>{{ user.firstname }}</td>
+                                        <td>{{ user.lastname }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.phonenumber }}</td>
+                                        <td>{{ user.email_adress }}</td>
+                                        <td>{{ user.adress }}</td>
+                                        <td>{{ user.postal_code }}</td>
+                                        <td>{{ user.payment_completed }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="admin__videos">
                 

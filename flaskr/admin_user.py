@@ -66,7 +66,5 @@ def usuario_admin():
         "payment_uncompleted_users": payment_uncompleted_users,
     }
 
-    print(total_data_info)
-
     return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
                            total_data_info=total_data_info)
