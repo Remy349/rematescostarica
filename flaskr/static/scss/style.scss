@@ -56,6 +56,13 @@ video {
 
 .section { padding: 4.5rem 0 2.5rem; }
 
+#downloadLink { display: block; }
+
+.download-link {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
 /* HEADER */
 .header {
     position: fixed;

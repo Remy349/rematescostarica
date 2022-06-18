@@ -1,7 +1,8 @@
-from flaskr import app, db
+from flaskr import app
 from werkzeug.security import check_password_hash
-from flask import render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, session, flash, jsonify
 from helpers import login_required
+from openpyxl import Workbook
 
 from flaskr.models import Admin, Users, Videos
 
@@ -56,7 +57,7 @@ def usuario_admin():
 
         if user.payment_completed == "Sin Adquirir":
             payment_uncompleted_users = payment_uncompleted_users + 1
-        
+
         if user.payment_completed == "Adquirido":
             payment_completed_users = payment_completed_users + 1
 
@@ -68,3 +69,35 @@ def usuario_admin():
 
     return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
                            total_data_info=total_data_info)
+
+@app.route("/create_file", methods=["GET"])
+def create_file():
+    """ Crear archivo excel con los datos de los usuarios """
+    users = Users.query.all()
+    wb = Workbook()
+    user_array = []
+
+    hoja = wb.active
+    hoja.title = "Registro de usuarios"
+
+    for user in users:
+        user_array.append((
+            user.firstname,
+            user.lastname,
+            user.username,
+            user.phonenumber,
+            user.email_adress,
+            user.adress,
+            user.postal_code,
+            user.payment_completed
+        ))
+
+    hoja.append(("PrimerNombre", "PrimerApellido", "NombreDeUsuario", "NumeroTelefonico", \
+                 "DireccionDeCorreo", "Direccion", "CodigoPostal", "EstadoDelCurso"))
+
+    for item in user_array:
+        hoja.append(item)
+
+    wb.save("flaskr/static/files/Usuarios.xlsx")
+
+    return jsonify({"message": "Creating file..."})

@@ -68,6 +68,34 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Esta función estara disponible proximamente!');
         });
     }
+
+    /* LINK DE DESCARGA PARA ARCHIVO EXCEL */
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            fetch('/create_file', {
+                method: 'GET',
+            })
+                .then(resp => resp.json())
+                .then(data => {
+                    const downloadLink = document.getElementById('downloadLink');
+                    
+                    downloadLink.style.display = 'block';
+                    downloadLink.innerHTML = `
+                        <a href="${location.origin}/static/files/Usuarios.xlsx" class="download-link" download>
+                            Descargar archivo - Usuarios.xlsx
+                        </a>
+                    `;
+
+                    setTimeout(() => {
+                        downloadLink.style.display = 'none';
+                    }, 30000);
+                })
+                .catch(error => console.log(error))
+            ;
+        });
+    }
 });
 
 const validarFormulario = (e) => {
