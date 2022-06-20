@@ -54,6 +54,8 @@ class Admin(db.Model):
     """ Tabla para super usuario """
     __tablename__ = "admin"
     id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(25), nullable=False)
+    lastname = db.Column(db.String(25), nullable=False)
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(160), nullable=False)
     email_adress = db.Column(db.String(160), nullable=False, unique=True)
@@ -63,6 +65,8 @@ class Admin(db.Model):
         return f"""
             Admin:
                 Id: {self.id},
+                Firstname: {self.firstname},
+                Lastname: {self.lastname},
                 Username: {self.username},
                 Email_adress: {self.email_adress},
                 Gravatar: {self.gravatar},

@@ -53,20 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 7500);
     }
 
-    /* VALIDAR FORMULARIO DE REGISTRO DE USUARIO */
+    /* VALIDAR FORMULARIO DE REGISTRO DE USUARIO Y EDITAR PERFIL */
     const registrateForm = document.getElementById('registrateForm');
+    const editarAdminForm = document.getElementById('editarAdminForm');
 
     if (registrateForm) {
         registrateForm.addEventListener('submit', validarFormulario);
     }
 
-    /* EDITAR PERFIL - ALERTA TEMPORAL */
-    const editarPerfilBtn = document.getElementById('editarPerfilBtn');
-
-    if (editarPerfilBtn) {
-        editarPerfilBtn.addEventListener('click', () => {
-            alert('Esta función estara disponible proximamente!');
-        });
+    if (editarAdminForm) {
+        editarAdminForm.addEventListener('submit', editarAdminValidate);
     }
 
     /* LINK DE DESCARGA PARA ARCHIVO EXCEL */
@@ -97,6 +93,89 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const editarAdminValidate = (e) => {
+    let errors = false;
+    const firstname = document.getElementById('firstname').value,
+        lastname = document.getElementById('lastname').value,
+        email = document.getElementById('email').value;
+    const firstnameCont = document.getElementById('firstnameCont'),
+        lastnameCont = document.getElementById('lastnameCont'),
+        emailCont = document.getElementById('emailCont');
+    const firstnameLabel = document.getElementById('firstnameLabel'),
+        lastnameLabel = document.getElementById('lastnameLabel'),
+        emailLabel = document.getElementById('emailLabel');
+    const justLetters = new RegExp('^[A-Z\ áéíóúñü \]+$', 'i');
+    const notWhiteSpace = /\s/;
+    const validateEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    /* validar nombre */
+    if (notWhiteSpace.test(firstname)) {
+        errorInput(firstnameCont, firstnameLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (firstname.length == 0) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede estar vacio!');
+        errors = true;
+    } else if (firstname.length < 3) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser menor a 3 caracteres!');
+        errors = true;
+    } else if (firstname.length > 15) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(firstname)) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre solo debe contener letras!');
+        errors = true;
+    } else {
+        firstnameCont.style.border = 'none';
+        firstnameLabel.style.display = 'none';
+    }
+
+    /* validar apellido */
+    if (notWhiteSpace.test(lastname)) {
+        errorInput(lastnameCont, lastnameLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (lastname.length == 0) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede estar vacio!');
+        errors = true;
+    } else if (lastname.length < 4) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser menor a 4 caracteres!');
+        errors = true;
+    } else if (lastname.length > 15) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(lastname)) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido solo debe contener letras!');
+        errors = true;
+    } else {
+        lastnameCont.style.border = 'none';
+        lastnameLabel.style.display = 'none';
+    }
+
+    /* validar email */
+    if (notWhiteSpace.test(email)) {
+        errorInput(emailCont, emailLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (email.length == 0) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail no puede estar vacia!');
+        errors = true;
+    } else if (!validateEmail.test(email)) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail no permitida! Usa el siguiente formato "ejemplo@ejemplo.com"');
+        errors = true
+    } else if (email.length < 10) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail muy corta. No menos de 10 caracteres!');
+        errors = true;
+    } else if (email.length > 150) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail muy larga. No mas de 150 caracteres!');
+        errors = true;
+    } else {
+        emailCont.style.border = 'none';
+        emailLabel.style.display = 'none';
+    }
+
+    if (errors) {
+        e.preventDefault();
+    }
+}
 
 const validarFormulario = (e) => {
     let errors = false;

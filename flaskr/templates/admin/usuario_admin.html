@@ -22,19 +22,19 @@
                                 Información personal
                             </p>
                             <p class="admin__card-data_info">
-                                Nombre: Sin agregar
+                                Nombre: {{ admin_user.firstname }}
                             </p>
                             <p class="admin__card-data_info">
-                                Apellido: Sin agregar
+                                Apellido: {{ admin_user.lastname }}
                             </p>
                             <p class="admin__card-data_info">
                                 Correo: {{ admin_user.email_adress }}
                             </p>
                         </div>
                         <div class="admin__card-editar">
-                            <button class="admin__card-btn" id="editarPerfilBtn">
+                            <a href="{{ url_for('editar_perfil_admin') }}" class="admin__card-btn">
                                 Editar Perfil
-                            </button>
+                            </a>
                         </div>
                         <div class="admin__card-cerrar">
                             <a href="{{ url_for('cerrar_sesion') }}" class="admin__card-cerrar_btn">

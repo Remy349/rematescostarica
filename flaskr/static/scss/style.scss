@@ -19,6 +19,20 @@ $white-color: #fff;
     transition: all .5s ease-in-out;
 }
 
+@mixin edit-profile-btn($color) {
+    border: none;
+    outline: none;
+    padding: 1.15rem 0;
+    font-family: $raleway;
+    font-size: 1.15rem;
+    border-radius: .5rem;
+    color: $white-color;
+    cursor: pointer;
+    background-color: $color;
+    width: 100%;
+    text-align: center;
+}
+
 /* BASE */
 * {
     margin: 0;
@@ -193,6 +207,9 @@ video {
 
 /* INICIAR SESION ADMIN */
 @import './iniciar_sesion_admin';
+
+/* EDITAR PERFIL ADMIN */
+@import './editar_perfil_admin';
 
 /* VIDEOS */
 @import './videos';
