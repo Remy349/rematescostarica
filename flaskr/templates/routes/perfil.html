@@ -34,9 +34,9 @@
                         </p>
                     </div>
                     <div class="perfil__content-editar">
-                        <button class="perfil__content-btn" id="editarPerfilBtn">
+                        <a href="{{ url_for('editar_perfil', username=session.username) }}" class="perfil__content-btn">
                             Editar Perfil
-                        </button>
+                        </a>
                     </div>
                     <div class="perfil__content-cerrar">
                         <a href="{{ url_for('cerrar_sesion') }}" class="perfil__content-cerrar_btn">

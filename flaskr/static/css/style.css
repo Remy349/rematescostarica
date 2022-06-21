@@ -805,6 +805,7 @@ div#paypal-button {
   border: none;
   outline: none;
   cursor: pointer;
+  text-align: center;
 }
 .perfil__payment-card {
   background-color: #fff;
@@ -1192,6 +1193,7 @@ div#paypal-button {
   text-align: center;
 }
 
+/* EDITAR PERFIL USUARIO */
 /* VIDEOS */
 .videos {
   font-family: "Raleway", sans-serif;

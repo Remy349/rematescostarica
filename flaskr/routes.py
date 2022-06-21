@@ -1,5 +1,5 @@
 from flaskr import app
-from flask import render_template, session, redirect, url_for
+from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
 
 from flaskr.models import Users, Videos
@@ -60,3 +60,14 @@ def perfil(username):
     videos = Videos.query.all()
 
     return render_template("routes/perfil.html", current_user=current_user, videos=videos)
+
+@app.route("/perfil/<string:username>/editar", methods=["GET", "POST"])
+@login_required
+def editar_perfil(username):
+    """ Ruta para poder editar el perfil de los usuarios """
+    if request.method == "GET":
+        current_user = Users.query.filter_by(username=username).first()
+
+        return render_template("routes/editar_perfil.html", current_user=current_user)
+    elif request.method == "POST":
+        pass
