@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* VALIDAR FORMULARIO DE REGISTRO DE USUARIO Y EDITAR PERFIL */
     const registrateForm = document.getElementById('registrateForm');
     const editarAdminForm = document.getElementById('editarAdminForm');
+    const editarUserForm = document.getElementById('editarUserForm');
 
     if (registrateForm) {
         registrateForm.addEventListener('submit', validarFormulario);
@@ -63,6 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (editarAdminForm) {
         editarAdminForm.addEventListener('submit', editarAdminValidate);
+    }
+
+    if (editarUserForm) {
+        editarUserForm.addEventListener('submit', editarUserValidate);
     }
 
     /* LINK DE DESCARGA PARA ARCHIVO EXCEL */
@@ -93,6 +98,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const editarUserValidate = (e) => {
+    let errors = false;
+    const firstname = document.getElementById('firstname').value,
+        lastname = document.getElementById('lastname').value,
+        phone = document.getElementById('phone').value,
+        email = document.getElementById('email').value;
+    const firstnameCont = document.getElementById('firstnameCont'),
+        lastnameCont = document.getElementById('lastnameCont'),
+        phoneCont = document.getElementById('phoneCont'),
+        emailCont = document.getElementById('emailCont');
+    const firstnameLabel = document.getElementById('firstnameLabel'),
+        lastnameLabel = document.getElementById('lastnameLabel'),
+        phoneLabel = document.getElementById('phoneLabel'),
+        emailLabel = document.getElementById('emailLabel'); 
+    const justLetters = new RegExp('^[A-Z\ áéíóúñü \]+$', 'i');
+    const justNumbers = new RegExp('^[0-9]+$');
+    const notWhiteSpace = /\s/;
+    const validateEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    /* validar nombre */
+    if (notWhiteSpace.test(firstname)) {
+        errorInput(firstnameCont, firstnameLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (firstname.length == 0) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede estar vacio!');
+        errors = true;
+    } else if (firstname.length < 3) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser menor a 3 caracteres!');
+        errors = true;
+    } else if (firstname.length > 15) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(firstname)) {
+        errorInput(firstnameCont, firstnameLabel, 'Nombre solo debe contener letras!');
+        errors = true;
+    } else {
+        firstnameCont.style.border = 'none';
+        firstnameLabel.style.display = 'none';
+    }
+
+    /* validar apellido */
+    if (notWhiteSpace.test(lastname)) {
+        errorInput(lastnameCont, lastnameLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (lastname.length == 0) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede estar vacio!');
+        errors = true;
+    } else if (lastname.length < 4) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser menor a 4 caracteres!');
+        errors = true;
+    } else if (lastname.length > 15) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido no puede ser mayor a 15 caracteres!');
+        errors = true;
+    } else if (!justLetters.test(lastname)) {
+        errorInput(lastnameCont, lastnameLabel, 'Apellido solo debe contener letras!');
+        errors = true;
+    } else {
+        lastnameCont.style.border = 'none';
+        lastnameLabel.style.display = 'none';
+    }
+
+    /* validar telefono */
+    if (phone.length == 0) {
+        errorInput(phoneCont, phoneLabel, 'Telefono no puede estar vacio!');
+        errors = true;
+    } else if (phone.length < 8) {
+        errorInput(phoneCont, phoneLabel, 'Telefono no puder ser menor a 8 digitos!');
+        errors = true;
+    } else if (phone.length > 18) {
+        errorInput(phoneCont, phoneLabel, 'Telefono no puede ser mayor a 18 digitos!');
+        errors = true;
+    } else if (!justNumbers.test(phone)) {
+        errorInput(phoneCont, phoneLabel, 'Telefono solo debe contener digitos entre [0-9]!');
+        errors = true;
+    } else {
+        phoneCont.style.border = 'none';
+        phoneLabel.style.display = 'none';
+    }
+
+    /* validar email */
+    if (notWhiteSpace.test(email)) {
+        errorInput(emailCont, emailLabel, 'No ingresar espacios en blanco!');
+        errors = true;
+    } else if (email.length == 0) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail no puede estar vacia!');
+        errors = true;
+    } else if (!validateEmail.test(email)) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail no permitida! Usa el siguiente formato "ejemplo@ejemplo.com"');
+        errors = true
+    } else if (email.length < 10) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail muy corta. No menos de 10 caracteres!');
+        errors = true;
+    } else if (email.length > 150) {
+        errorInput(emailCont, emailLabel, 'Dirección E-Mail muy larga. No mas de 150 caracteres!');
+        errors = true;
+    } else {
+        emailCont.style.border = 'none';
+        emailLabel.style.display = 'none';
+    }
+
+    if (errors) {
+        e.preventDefault();
+    }
+}
 
 const editarAdminValidate = (e) => {
     let errors = false;

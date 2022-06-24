@@ -1154,6 +1154,7 @@ div#paypal-button {
   font-size: 1.15rem;
   width: 100%;
   font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 .editarA__form-danger {
   color: #ff2d2d;
@@ -1194,6 +1195,82 @@ div#paypal-button {
 }
 
 /* EDITAR PERFIL USUARIO */
+.editarU {
+  font-family: "Raleway", sans-serif;
+}
+.editarU__form {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+.editarU__form-title h1 {
+  text-align: center;
+  font-size: 1.85rem;
+}
+.editarU__form-inputscont {
+  row-gap: 1.5rem;
+}
+.editarU__form-inputs {
+  display: grid;
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  row-gap: 0.3rem;
+}
+.editarU__form-inputs label {
+  font-size: 1.1rem;
+}
+.editarU__form-input {
+  background-color: #e7e5e5;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+.editarU__form-danger {
+  color: #ff2d2d;
+  text-align: center;
+  font-size: 1.25rem;
+}
+.editarU__form-confirm {
+  display: flex;
+}
+.editarU__form-confirm_btn {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #b0b878;
+  width: 100%;
+  text-align: center;
+}
+.editarU__form-cancel {
+  display: flex;
+}
+.editarU__form-cancel_btn {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff2d2d;
+  width: 100%;
+  text-align: center;
+}
+
 /* VIDEOS */
 .videos {
   font-family: "Raleway", sans-serif;

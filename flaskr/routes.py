@@ -1,6 +1,7 @@
-from flaskr import app
+from flaskr import app, db
 from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
+from werkzeug.security import generate_password_hash
 
 from flaskr.models import Users, Videos
 
@@ -70,4 +71,34 @@ def editar_perfil(username):
 
         return render_template("routes/editar_perfil.html", current_user=current_user)
     elif request.method == "POST":
-        pass
+        firstname = request.form["firstname"]
+        lastname = request.form["lastname"]
+        email_adress = request.form["email_adress"]
+        phonenumber = request.form["phonenumber"]
+        postal_code = request.form["postal_code"]
+        adress = request.form["adress"]
+        password_value = request.form["password"]
+
+        current_user = Users.query.filter_by(username=username).first()
+        videos = Videos.query.all()
+
+        if password_value == "" or password_value == " ":
+            current_user.firstname = firstname
+            current_user.lastname = lastname
+            current_user.email_adress = email_adress
+            current_user.phonenumber = phonenumber
+            current_user.postal_code = postal_code
+            current_user.adress = adress
+        else:
+            current_user.firstname = firstname
+            current_user.lastname = lastname
+            current_user.email_adress = email_adress
+            current_user.phonenumber = phonenumber
+            current_user.postal_code = postal_code
+            current_user.adress = adress
+            current_user.password_hash = generate_password_hash(password_value)
+
+        db.session.add(current_user)
+        db.session.commit()
+
+        return render_template("routes/perfil.html", current_user=current_user, videos=videos)
