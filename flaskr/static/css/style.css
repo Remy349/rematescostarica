@@ -518,9 +518,6 @@ video {
 }
 
 /* INICIAR SESION */
-.iniciarsesion {
-  height: 100vh;
-}
 .iniciarsesion__form {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   font-family: "Raleway", sans-serif;
@@ -569,6 +566,10 @@ video {
   font-weight: 500;
   cursor: pointer;
   text-align: center;
+  color: #000;
+}
+.iniciarsesion__form-forgot:hover {
+  text-decoration: underline;
 }
 .iniciarsesion__form-registro {
   text-align: center;
@@ -578,6 +579,95 @@ video {
   cursor: pointer;
   font-weight: 500;
   color: #000;
+}
+.iniciarsesion__form-registro a:hover {
+  text-decoration: underline;
+}
+
+/* NEW PASSWORD */
+.newP {
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+}
+.newP__form {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+.newP__form-title h1 {
+  text-align: center;
+  font-size: 1.75rem;
+}
+.newP__form-error {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #ff2d2d;
+}
+.newP__form-success {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #b0b878;
+}
+.newP__form-inputs {
+  display: grid;
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  row-gap: 0.3rem;
+}
+.newP__form-inputs label {
+  font-size: 1.1rem;
+}
+.newP__form-input {
+  background-color: #e7e5e5;
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+.newP__form-btns {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.newP__form-btns_confirm {
+  display: flex;
+}
+.newP__form-btns_confirm_btn {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #b0b878;
+  width: 100%;
+  text-align: center;
+}
+.newP__form-btns_cancel {
+  display: flex;
+}
+.newP__form-btns_cancel_btn {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.15rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff2d2d;
+  width: 100%;
+  text-align: center;
 }
 
 /* CURSOS */

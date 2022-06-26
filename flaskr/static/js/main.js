@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 7500);
     }
 
-    /* VALIDAR FORMULARIO DE REGISTRO DE USUARIO Y EDITAR PERFIL */
+    /* VALIDAR FORMULARIOS */
     const registrateForm = document.getElementById('registrateForm');
     const editarAdminForm = document.getElementById('editarAdminForm');
     const editarUserForm = document.getElementById('editarUserForm');

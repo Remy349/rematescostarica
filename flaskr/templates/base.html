@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock title %}</title>
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!-- REMIX ICONS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- TITLE -->
+    <title>{% block title %} {% endblock title %}</title>
 </head>
 <body>
     <!-- HEADER -->
@@ -105,6 +108,8 @@
     
     <!-- SCRIPT JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
+    <!-- NEW PASSWORD -->
+    <script src="{{ url_for('static', filename='js/new-password.js') }}" charset="utf-8"></script>
     <!-- PAYPAL JS -->
     <script src="{{ url_for('static', filename='js/paypal.js') }}" charset="utf-8"></script>
     <!-- CHECKOUT JS -->
