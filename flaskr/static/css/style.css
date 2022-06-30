@@ -546,6 +546,8 @@ video {
   font-size: 1.15rem;
   border: none;
   outline: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
   width: 100%;
 }
 .iniciarsesion__form-btn {
@@ -1067,7 +1069,7 @@ div#paypal-button {
   padding: 1rem 2rem 1rem 2rem;
   display: grid;
   row-gap: 1rem;
-  cursor: pointer;
+  cursor: default;
   transition: 0.5s;
 }
 .admin__tags-card:hover {
@@ -1151,6 +1153,134 @@ div#paypal-button {
 .admin__table-table tr td {
   padding: 15px 25px;
 }
+.admin__videos {
+  margin-bottom: 4rem;
+}
+.admin__videos-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.admin__videos-content_btn {
+  display: flex;
+  justify-content: left;
+}
+.admin__videos-content_btn_add {
+  background: cornflowerblue;
+  color: #fff;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.admin__videos-content_btn_add i {
+  font-size: 1.3rem;
+}
+.admin__videos-content_slide_container {
+  max-width: 300px;
+  width: 100%;
+  padding: 3rem 0 2rem 0;
+}
+.admin__videos-content_slide_cont {
+  overflow: hidden;
+}
+.admin__videos-content_slide_card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: grid;
+  row-gap: 1rem;
+}
+.admin__videos-content_slide_card_data {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.admin__videos-content_slide_card_data p {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.admin__videos-content_slide_card_btns {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+.admin__videos-content_slide_card_btns div {
+  display: contents;
+}
+.admin__videos-content_slide_card_btns_edit {
+  background-color: cornflowerblue;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0;
+  border: none;
+  outline: none;
+  font-weight: 500;
+}
+.admin__videos-content_slide_card_btns_delete {
+  background-color: #ff2d2d;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0;
+  border: none;
+  outline: none;
+  font-weight: 500;
+}
+.admin__videos-content_slide_icon {
+  font-size: 6rem;
+  color: #b0b878;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #b0b878;
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-button-next {
+  right: 6px;
+}
+
+.swiper-button-prev {
+  left: 6px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  content: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-pagination {
+  outline: none;
+}
+
+/* AGREGAR VIDEO */
+.add {
+  font-family: "Raleway", sans-serif;
+}
+.add__form {
+  padding: 2rem 3rem;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 1.5rem;
+}
 
 /* INICIAR SESION ADMIN */
 .iniciaradmin {
@@ -1185,6 +1315,8 @@ div#paypal-button {
   border: none;
   outline: none;
   width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 .iniciaradmin__form-btn {
   background-color: #b0b878;
@@ -1951,9 +2083,6 @@ div#paypal-button {
     grid-template-columns: 1fr 1fr;
   }
 
-  .perfil {
-    height: 100vh;
-  }
   .perfil__container {
     grid-template-columns: 1fr 2fr;
     column-gap: 1.5rem;

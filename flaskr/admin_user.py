@@ -1,3 +1,4 @@
+import os
 from flaskr import app, db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for, session, flash, jsonify
@@ -44,31 +45,48 @@ def usuario_admin():
     """ Funcion para mostrar el perfil del usuario admin del sitio """
     username = session.get("username")
 
-    admin_user = Admin.query.filter_by(username=username).first()
-    videos = Videos.query.all()
-    users = Users.query.all()
+    if username != os.getenv("ADMIN_USERNAME"):
+        return redirect(url_for("perfil", username=username))
+    else:
+        admin_user = Admin.query.filter_by(username=username).first()
+        videos = Videos.query.all()
+        users = Users.query.all()
 
-    total_users = 0
-    payment_completed_users = 0
-    payment_uncompleted_users = 0
+        total_users = 0
+        payment_completed_users = 0
+        payment_uncompleted_users = 0
 
-    for user in users:
-        total_users = total_users + 1
+        for user in users:
+            total_users = total_users + 1
 
-        if user.payment_completed == "Sin Adquirir":
-            payment_uncompleted_users = payment_uncompleted_users + 1
+            if user.payment_completed == "Sin Adquirir":
+                payment_uncompleted_users = payment_uncompleted_users + 1
 
-        if user.payment_completed == "Adquirido":
-            payment_completed_users = payment_completed_users + 1
+            if user.payment_completed == "Adquirido":
+                payment_completed_users = payment_completed_users + 1
 
-    total_data_info = {
-        "total_users": total_users,
-        "payment_completed_users": payment_completed_users,
-        "payment_uncompleted_users": payment_uncompleted_users,
-    }
+        total_data_info = {
+            "total_users": total_users,
+            "payment_completed_users": payment_completed_users,
+            "payment_uncompleted_users": payment_uncompleted_users,
+        }
 
-    return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
-                           total_data_info=total_data_info)
+        return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
+                               total_data_info=total_data_info)
+
+@app.route("/perfil/usuario_admin/agregar_video", methods=["GET", "POST"])
+@login_required
+def agregar_video():
+    """ Ruta para agregar videos nuevos para el curso """
+    if request.method == "GET":
+        username = session.get("username")
+
+        if username != os.getenv("ADMIN_USERNAME"):
+            return redirect(url_for("perfil", username=username))
+        else:
+            return render_template("admin/agregar_video.html")
+    elif request.method == "POST":
+        return redirect(url_for("usuario_admin"))
 
 @app.route("/perfil/usuario_admin/editar_perfil", methods=["GET", "POST"])
 @login_required
@@ -77,9 +95,12 @@ def editar_perfil_admin():
     if request.method == "GET":
         username = session.get("username")
 
-        admin_user = Admin.query.filter_by(username=username).first()
+        if username != os.getenv("ADMIN_USERNAME"):
+            return redirect(url_for("perfil", username=username))
+        else:
+            admin_user = Admin.query.filter_by(username=username).first()
 
-        return render_template("admin/editar_perfil_admin.html", admin_user=admin_user)
+            return render_template("admin/editar_perfil_admin.html", admin_user=admin_user)
     elif request.method == "POST":
         firstname = request.form["firstname"]
         lastname = request.form["lastname"]

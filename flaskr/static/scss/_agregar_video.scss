@@ -1,0 +1,12 @@
+.add {
+    font-family: $raleway;
+
+    &__form {
+        padding: 2rem 3rem;
+        background-color: $white-color;
+        box-shadow: 0 4px 20px rgba(0,0,0,.2);
+        border-radius: .5rem;
+        display: grid;
+        row-gap: 1.5rem;
+    }
+}

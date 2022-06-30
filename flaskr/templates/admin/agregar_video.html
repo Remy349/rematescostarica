@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RematesCR - Agregar Video
+{% endblock title %}
+
+{% block content %}
+    <section class="add section">
+        <div class="add__container container">
+            <div class="add__forms">
+                <form
+                    action="{{ url_for('agregar_video') }}"
+                    class="add__form"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <div class="add__form-title">
+                        <h1>Agregar Video</h1>
+                    </div>
+                    <div class="add__form-inputs">
+                        <label>Titulo</label>
+                        <input
+                            type="text"
+                            name="title"
+                            class="add__form-input"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div class="add__form-inputs">
+                        <label>Descripción</label>
+                        <textarea name="description" class="add__form-textarea" rows="6"></textarea>
+                    </div>
+                    <div>
+                        <label>Elige un video</label>
+                        <input
+                            type="file"
+                            accept="video/*"
+                            name="file"
+                            class="add__form-file"
+                        />
+                    </div>
+                    <div class="add__form-btns">
+                        <div>
+                            <button type="submit" class="add__form-btns_add">
+                                Agregar
+                            </button>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('usuario_admin') }}" class="add__form-btns_cancel">
+                                Cancelar
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

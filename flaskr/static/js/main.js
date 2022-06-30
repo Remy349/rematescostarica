@@ -97,6 +97,36 @@ document.addEventListener('DOMContentLoaded', () => {
             ;
         });
     }
+
+    /* SWIPER VIDEOS */
+    const swiper = new Swiper('.admin__videos-content_slide_cont', {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: true,
+        fade: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            type: 'bullets',
+            dynamicBullets: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            //520: {
+                //slidesPerView: 2
+            //},
+            //950: {
+                //slidesPerView: 3
+            //}
+        }
+    });
 });
 
 const editarUserValidate = (e) => {

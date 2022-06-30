@@ -124,7 +124,62 @@
                 </div>
             </div>
             <div class="admin__videos">
-                
+                <div class="admin__videos-container">
+                    <h2 class="admin__videos-title">
+                        Control de videos
+                    </h2>
+                    <div class="admin__videos-content">
+                        <div class="admin__videos-content_btn">
+                            <a href="{{ url_for('agregar_video') }}" class="admin__videos-content_btn_add">
+                                Agregar video
+                                <i class="ri-add-box-line"></i>
+                            </a>
+                        </div>
+                        <div class="admin__videos-content_slide">
+                            {% if videos|length == 0 %}
+                                <h1>No hay videos agregados!</h1>
+                            {% else %}
+                                <div class="admin__videos-content_slide_container swiper">
+                                    <div class="admin__videos-content_slide_cont">
+                                        <div class="admin__videos-content_slide_wrapper swiper-wrapper">
+                                            {% for video in videos %}
+                                                <div class="admin__videos-content_slide_card swiper-slide">
+                                                    <div class="admin__videos-content_slide_card_header">
+                                                        <video>
+                                                            <source src="{{ video.url_video }}">
+                                                        </video>
+                                                    </div>
+                                                    <div class="admin__videos-content_slide_card_data">
+                                                        <p>{{ video.title }}</p>
+                                                    </div>
+                                                    <div class="admin__videos-content_slide_card_btns">
+                                                        <div>
+                                                            <a href="" class="admin__videos-content_slide_card_btns_edit">
+                                                                Editar
+                                                            </a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="" class="admin__videos-content_slide_card_btns_delete">
+                                                                Eliminar
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-next">
+                                        <i class="ri-arrow-right-s-fill admin__videos-content_slide_icon"></i>
+                                    </div>
+                                    <div class="swiper-button-prev">
+                                        <i class="ri-arrow-left-s-fill admin__videos-content_slide_icon"></i>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOXICONS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- SWIPER CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <!-- REMIX ICONS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- STYLE CSS -->
@@ -106,13 +108,15 @@
         </div>
     </footer>
     
-    <!-- SCRIPT JS -->
-    <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
-    <!-- NEW PASSWORD -->
-    <script src="{{ url_for('static', filename='js/new-password.js') }}" charset="utf-8"></script>
-    <!-- PAYPAL JS -->
-    <script src="{{ url_for('static', filename='js/paypal.js') }}" charset="utf-8"></script>
+    <!-- SWIPER JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <!-- CHECKOUT JS -->
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <!-- PAYPAL JS -->
+    <script src="{{ url_for('static', filename='js/paypal.js') }}" charset="utf-8"></script>
+    <!-- NEW PASSWORD -->
+    <script src="{{ url_for('static', filename='js/new-password.js') }}" charset="utf-8"></script>
+    <!-- SCRIPT JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" charset="utf-8"></script>
 </body>
 </html>
