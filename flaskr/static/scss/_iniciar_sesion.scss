@@ -1,6 +1,6 @@
 .iniciarsesion {
     &__form {
-        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
         font-family: $raleway;
         background-color: $white-color;
         padding: 3rem 2rem;
@@ -27,7 +27,7 @@
 
         &-input {
             background-color: $background-color;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             border: none;
             outline: none;
             font-family: $raleway;
@@ -42,11 +42,12 @@
             width: 100%;
             border: none;
             outline: none;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: $white-color;
             cursor: pointer;
             text-transform: uppercase;
             font-family: $raleway;
+            font-weight: 500;
         }
 
         &-forgot {

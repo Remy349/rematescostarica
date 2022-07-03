@@ -1,6 +1,6 @@
 .registrate {
     &__wrap {
-        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
         border-radius: .5rem;
     }
 
@@ -44,8 +44,10 @@
             background-color: $background-color;
             border: none;
             outline: none;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             width: 100%;
+            font-weight: 500;
+            font-family: $raleway;
         }
 
         &-btn {
@@ -53,11 +55,12 @@
             padding: 1.15rem 0;
             border: none;
             outline: none;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             background-color: $primary-color-sub;
             border-radius: 0.5rem;
             color: $white-color;
+            font-weight: 500;
             cursor: pointer;
             font-family: $raleway;
         }
@@ -83,7 +86,7 @@
         &-btn {
             background-color: $white-color;
             padding: 1rem 3rem;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             font-family: $raleway;
             color: #000;

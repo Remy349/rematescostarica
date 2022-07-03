@@ -1,5 +1,6 @@
 import os
 import paypalrestsdk
+import cloudinary
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
@@ -10,6 +11,12 @@ from config import Config
 load_dotenv()
 
 app = Flask(__name__)
+
+cloudinary.config(
+    cloud_name = os.getenv("CLOUD_NAME"),
+    api_key = os.getenv("API_KEY"),
+    api_secret = os.getenv("API_SECRET")
+)
 
 PAYPAL_MODE = os.getenv("PAYPAL_MODE")
 PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")

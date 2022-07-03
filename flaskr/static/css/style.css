@@ -287,7 +287,7 @@ video {
 }
 
 .cards__card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 3rem 2rem;
   display: grid;
@@ -394,7 +394,7 @@ video {
   background-color: #fff;
   padding: 3rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   cursor: default;
 }
 .about__cards-header {
@@ -435,7 +435,7 @@ video {
 
 /* REGISTRATE */
 .registrate__wrap {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
 .registrate__forms {
@@ -474,19 +474,22 @@ video {
   background-color: #e7e5e5;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   width: 100%;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
 }
 .registrate__form-btn {
   width: 100%;
   padding: 1.15rem 0;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   background-color: #b0b878;
   border-radius: 0.5rem;
   color: #fff;
+  font-weight: 500;
   cursor: pointer;
   font-family: "Raleway", sans-serif;
 }
@@ -508,7 +511,7 @@ video {
 .registrate__info-btn {
   background-color: #fff;
   padding: 1rem 3rem;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-family: "Raleway", sans-serif;
   color: #000;
@@ -519,7 +522,7 @@ video {
 
 /* INICIAR SESION */
 .iniciarsesion__form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   font-family: "Raleway", sans-serif;
   background-color: #fff;
   padding: 3rem 2rem;
@@ -543,7 +546,7 @@ video {
 }
 .iniciarsesion__form-input {
   background-color: #e7e5e5;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   font-family: "Raleway", sans-serif;
@@ -557,11 +560,12 @@ video {
   width: 100%;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: #fff;
   cursor: pointer;
   text-transform: uppercase;
   font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 .iniciarsesion__form-forgot {
   font-size: 1.15rem;
@@ -592,7 +596,7 @@ video {
   height: 100vh;
 }
 .newP__form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   padding: 3rem 2rem;
   border-radius: 0.5rem;
@@ -630,7 +634,7 @@ video {
   background-color: #e7e5e5;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   width: 100%;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
@@ -647,12 +651,13 @@ video {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #b0b878;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 .newP__form-btns_cancel {
@@ -663,12 +668,13 @@ video {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #ff2d2d;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -699,7 +705,7 @@ video {
   padding: 3rem 2rem;
   background-color: #fff;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: grid;
   row-gap: 1.5rem;
 }
@@ -741,6 +747,7 @@ video {
   color: #fff;
   font-family: "Raleway", sans-serif;
   text-align: center;
+  font-weight: 500;
 }
 .cursos__more {
   display: grid;
@@ -751,7 +758,7 @@ video {
   background-color: #fff;
   padding: 2rem 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .cursos__more-header {
   cursor: pointer;
@@ -796,8 +803,9 @@ video {
   border-radius: 0.5rem;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 .cursos__more-close .cursos__more-data {
@@ -838,7 +846,7 @@ div#paypal-button {
   display: grid;
   row-gap: 1.5rem;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 2rem 1rem;
   border-radius: 0.5rem;
 }
@@ -880,7 +888,7 @@ div#paypal-button {
   background-color: #ff0000;
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -893,7 +901,7 @@ div#paypal-button {
   background-color: #b0b878;
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -903,7 +911,7 @@ div#paypal-button {
   background-color: #fff;
   border-radius: 0.5rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .perfil__payment-card_data {
   row-gap: 1.5rem;
@@ -930,6 +938,7 @@ div#paypal-button {
   font-size: 1.2rem;
   border-radius: 0.5rem;
   width: 100%;
+  font-weight: 500;
   color: #fff;
   font-family: "Raleway", sans-serif;
   text-align: center;
@@ -945,7 +954,7 @@ div#paypal-button {
 .perfil__videos-card {
   background-color: #fff;
   padding: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   cursor: default;
   display: grid;
@@ -970,7 +979,7 @@ div#paypal-button {
   align-items: center;
   background-color: #b0b878;
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -998,7 +1007,7 @@ div#paypal-button {
   display: grid;
   row-gap: 1.5rem;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 2rem 1rem;
   border-radius: 0.5rem;
 }
@@ -1040,11 +1049,12 @@ div#paypal-button {
   background-color: #ff0000;
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   cursor: pointer;
   text-align: center;
+  font-weight: 500;
 }
 .admin__card-btn {
   width: 70%;
@@ -1053,18 +1063,19 @@ div#paypal-button {
   background-color: #b0b878;
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   cursor: pointer;
   text-align: center;
+  font-weight: 500;
 }
 .admin__tags-container {
   row-gap: 2rem;
 }
 .admin__tags-card {
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 1rem 2rem 1rem 2rem;
   display: grid;
@@ -1101,7 +1112,7 @@ div#paypal-button {
 .admin__table {
   overflow-x: auto;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
 .admin__table-container {
@@ -1131,6 +1142,7 @@ div#paypal-button {
   padding: 0.7rem 0.8rem;
   cursor: pointer;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 .admin__table-info_icon {
   font-size: 1.2rem;
@@ -1175,6 +1187,7 @@ div#paypal-button {
   padding: 0.7rem 0.8rem;
   cursor: pointer;
   font-size: 1.1rem;
+  font-weight: 500;
 }
 .admin__videos-content_btn_add i {
   font-size: 1.3rem;
@@ -1274,12 +1287,99 @@ div#paypal-button {
   font-family: "Raleway", sans-serif;
 }
 .add__form {
-  padding: 2rem 3rem;
+  padding: 3rem 2rem;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   display: grid;
   row-gap: 1.5rem;
+}
+.add__form-title h1 {
+  text-align: center;
+  font-size: 1.85rem;
+}
+.add__form-inputs {
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 0.3rem;
+}
+.add__form-inputs label {
+  font-size: 1.1rem;
+}
+.add__form-input {
+  background-color: #e7e5e5;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  width: 100%;
+}
+.add__form-textarea {
+  background-color: #e7e5e5;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  width: 100%;
+  resize: none;
+}
+.add__form-file {
+  visibility: hidden;
+  width: 100%;
+}
+.add__form-file::before {
+  content: "Seleccionar un archivo...";
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: #e7e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  visibility: visible;
+  width: -webkit-fill-available;
+  border: none;
+  outline: none;
+}
+.add__form-btns {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.add__form-btns div {
+  display: flex;
+}
+.add__form-btns_add {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #b0b878;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+.add__form-btns_cancel {
+  border: none;
+  outline: none;
+  padding: 1.15rem 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff2d2d;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* INICIAR SESION ADMIN */
@@ -1287,7 +1387,7 @@ div#paypal-button {
   height: 100vh;
 }
 .iniciaradmin__form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   font-family: "Raleway", sans-serif;
   background-color: #fff;
   padding: 3rem 2rem;
@@ -1311,7 +1411,7 @@ div#paypal-button {
 }
 .iniciaradmin__form-input {
   background-color: #e7e5e5;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   width: 100%;
@@ -1323,9 +1423,10 @@ div#paypal-button {
   border-radius: 0.5rem;
   padding: 1.15rem 0;
   width: 100%;
+  font-weight: 500;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: #fff;
   cursor: pointer;
   text-transform: uppercase;
@@ -1344,7 +1445,7 @@ div#paypal-button {
   font-family: "Raleway", sans-serif;
 }
 .editarA__form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   padding: 3rem 2rem;
   border-radius: 0.5rem;
@@ -1373,7 +1474,7 @@ div#paypal-button {
   background-color: #e7e5e5;
   border: none;
   outline: none;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   width: 100%;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
@@ -1391,12 +1492,13 @@ div#paypal-button {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #b0b878;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 .editarA__form-cancel {
@@ -1407,12 +1509,13 @@ div#paypal-button {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #ff2d2d;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -1421,7 +1524,7 @@ div#paypal-button {
   font-family: "Raleway", sans-serif;
 }
 .editarU__form {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   padding: 3rem 2rem;
   border-radius: 0.5rem;
@@ -1468,12 +1571,13 @@ div#paypal-button {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #b0b878;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 .editarU__form-cancel {
@@ -1484,12 +1588,13 @@ div#paypal-button {
   outline: none;
   padding: 1.15rem 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   color: #fff;
   cursor: pointer;
   background-color: #ff2d2d;
   width: 100%;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -1515,7 +1620,7 @@ div#paypal-button {
   background-color: #fff;
   padding: 1rem 2rem 1rem 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 .videos__lists-card_cont {
@@ -1541,7 +1646,7 @@ div#paypal-button {
   padding: 3rem 2rem;
   background-color: #fff;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: grid;
   row-gap: 1.5rem;
 }

@@ -2,11 +2,85 @@
     font-family: $raleway;
 
     &__form {
-        padding: 2rem 3rem;
+        padding: 3rem 2rem;
         background-color: $white-color;
-        box-shadow: 0 4px 20px rgba(0,0,0,.2);
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
         border-radius: .5rem;
         display: grid;
         row-gap: 1.5rem;
+
+        &-title {
+            & h1 {
+                text-align: center;
+                font-size: 1.85rem;
+            }
+        }
+
+        &-inputs {
+            background-color: $background-color;
+            padding: 1rem .5rem 1rem 1rem;
+            border-radius: .5rem;
+            display: grid;
+            row-gap: .3rem;
+
+            & label { font-size: 1.1rem; }
+        }
+
+        &-input {
+            background-color: $background-color;
+            font-size: 1.2rem;
+            border: none;
+            outline: none;
+            font-family: $raleway;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        &-textarea {
+            background-color: $background-color;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-family: $raleway;
+            font-weight: 500;
+            width: 100%;
+            resize: none;
+        }
+
+        &-file {
+            visibility: hidden;
+            width: 100%;
+
+            &::before {
+                content: 'Seleccionar un archivo...';
+                display: inline-block;
+                font-family: $raleway;
+                font-size: 1.1rem;
+                font-weight: 500;
+                background-color: $background-color;
+                border-radius: .5rem;
+                padding: 1rem;
+                cursor: pointer;
+                visibility: visible;
+                width: -webkit-fill-available;
+                border: none;
+                outline: none;
+            }
+        }
+
+        &-btns {
+            display: grid;
+            row-gap: 1.5rem;
+
+            & div { display: flex; }
+
+            &_add {
+                @include edit-profile-btn($primary-color-sub);
+            }
+
+            &_cancel {
+                @include edit-profile-btn(#ff2d2d);
+            }
+        }
     }
 }

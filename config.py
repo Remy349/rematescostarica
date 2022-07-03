@@ -11,3 +11,5 @@ class Config(object):
     # Configuracion para las sesiones
     PERMANENT_SESSION_LIFETIME = timedelta(days=1)
     SESSION_TYPE = "filesystem"
+    # Configuracion para guardar los videos temporalmente en el servidor
+    UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")

@@ -32,22 +32,30 @@ class Users(db.Model):
                 Phonenumber: {self.phonenumber},
                 Email_adress: {self.email_adress},
                 Gravatar: {self.gravatar},
-                Payment_completed: {self.payment_completed},
+                Payment_completed: {self.payment_completed}
         """
 
 class Videos(db.Model):
     """ Tabla para guardar la url de los videos del curso """
     __tablename__ = "videos"
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200), nullable=True, unique=False)
+    public_id = db.Column(db.String(140), nullable=False)
     url_video = db.Column(db.String(180), nullable=False, unique=True)
+    path_video = db.Column(db.String(140), nullable=False)
+    filename_video = db.Column(db.String(120), nullable=False)
 
     def __repr__(self):
         return f"""
             Video:
                 Id: {self.id},
                 Title: {self.title},
+                Description: {self.description},
+                PublicId: {self.public_id},
                 UrlVideo: {self.url_video},
+                PathVideo: {self.path_video},
+                FilenameVideo: {self.filename_video}
         """
 
 class Admin(db.Model):
@@ -69,5 +77,5 @@ class Admin(db.Model):
                 Lastname: {self.lastname},
                 Username: {self.username},
                 Email_adress: {self.email_adress},
-                Gravatar: {self.gravatar},
+                Gravatar: {self.gravatar}
         """

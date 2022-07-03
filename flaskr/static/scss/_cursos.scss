@@ -32,7 +32,7 @@
                 padding: 3rem 2rem;
                 background-color: $white-color;
                 border-radius: .5rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,.3);
+                box-shadow: 0 4px 20px rgba(0,0,0,.1);
                 display: grid;
                 row-gap: 1.5rem;
             }
@@ -81,6 +81,7 @@
                 color: $white-color;
                 font-family: $raleway;
                 text-align: center;
+                font-weight: 500;
             }
         }
     }
@@ -94,7 +95,7 @@
             background-color: $white-color;
             padding: 2rem 1rem;
             border-radius: .5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
         }
 
         &-header {
@@ -147,8 +148,9 @@
             border-radius: .5rem;
             font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
             font-family: $raleway;
+            font-weight: 500;
         }
     }
 }

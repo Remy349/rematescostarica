@@ -9,7 +9,7 @@
     font-family: $raleway;
 
     &__form {
-        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
         background-color: $white-color;
         padding: 3rem 2rem;
         border-radius: .5rem;
@@ -40,7 +40,7 @@
             background-color: $background-color;
             border: none;
             outline: none;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             width: 100%;
             font-family: $raleway;
             font-weight: 500;

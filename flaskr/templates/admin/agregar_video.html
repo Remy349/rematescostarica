@@ -7,6 +7,30 @@
 {% block content %}
     <section class="add section">
         <div class="add__container container">
+            <!-- NOTIFICATION -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="notification__container">
+                            <div class="notification">
+                                <div class="notification__content">
+                                    <i class="ri-error-warning-line notification__content-icon"></i>
+                                    <div class="notification__content-message">
+                                        <span class="notification__content-title">
+                                            Advertencia
+                                        </span>
+                                        <span class="notification__content-text">
+                                            {{ message }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="notification__content-progress"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- FORM -->
             <div class="add__forms">
                 <form
                     action="{{ url_for('agregar_video') }}"
@@ -24,14 +48,14 @@
                             name="title"
                             class="add__form-input"
                             autocomplete="off"
+                            required
                         />
                     </div>
                     <div class="add__form-inputs">
                         <label>Descripción</label>
-                        <textarea name="description" class="add__form-textarea" rows="6"></textarea>
+                        <textarea name="description" class="add__form-textarea" rows="6" maxlength="200"></textarea>
                     </div>
-                    <div>
-                        <label>Elige un video</label>
+                    <div class="add__form-upload">
                         <input
                             type="file"
                             accept="video/*"
