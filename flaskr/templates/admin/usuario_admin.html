@@ -137,7 +137,19 @@
                         </div>
                         <div class="admin__videos-content_slide">
                             {% if videos|length == 0 %}
-                                <h1>No hay videos agregados!</h1>
+                                <div class="admin__videos-content_slide_empty">
+                                    <div class="admin__videos-content_slide_empty_header">
+                                        <h2>No hay videos disponibles en estos momentos</h2>
+                                        <p>Agrega contenido nuevo para el sitio</p>
+                                    </div>
+                                    <div class="admin__videos-content_slide_empty_images">
+                                        <img
+                                            src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656871656/rematescostarica/empty-videos_mfpl1q.png"
+                                            alt="Imgen de referencia en caso de no haber videos agregados"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </div>
                             {% else %}
                                 <div class="admin__videos-content_slide_container swiper">
                                     <div class="admin__videos-content_slide_cont">

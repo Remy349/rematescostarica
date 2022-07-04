@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                     comprarCursoCard.innerHTML = `
                                         <div class="comprar__card-img">
                                             <img
-                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1651881464/rematescostarica/compra_realizada_xtc2yy.png"
+                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656886393/rematescostarica/compra-realizada_embnd0.png"
                                                 alt="Compra del curso completada!"
+                                                loading="lazy"
                                             />
                                             <h3>¡Gracias por tu compra!</h3>
                                         </div>

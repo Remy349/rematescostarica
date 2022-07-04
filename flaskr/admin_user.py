@@ -129,6 +129,17 @@ def agregar_video():
             flash("Tipo de archivo no permitido!")
             return redirect(request.url)
 
+@app.route("/perfil/usuario_admin/editar_video/<int:video_id>", methods=["GET", "POST"])
+@login_required
+def editar_video(video_id):
+    """ Ruta para editar la informacion de cada video """
+    pass
+
+@app.route("/perfil/usuario_admin/eliminar_video/<int:video_id>", methods=["GET"])
+@login_required
+def eliminar_video(video_id):
+    pass
+
 @app.route("/perfil/usuario_admin/editar_perfil", methods=["GET", "POST"])
 @login_required
 def editar_perfil_admin():

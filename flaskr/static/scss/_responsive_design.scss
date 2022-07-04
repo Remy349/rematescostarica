@@ -251,6 +251,18 @@
                 column-gap: 2rem;
             }
         }
+
+        &__videos {
+            &-content {
+                &_slide {
+                    &_empty {
+                        &_images {
+                            & img { width: 70%; }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .perfil {
@@ -274,6 +286,12 @@
             &-container {
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 1.5rem;
+            }
+
+            &-empty {
+                &_images {
+                    & img { width: 70%; }
+                }
             }
 
             &-card {
@@ -302,6 +320,12 @@
         &__more {
             grid-template-columns: repeat(2, 1fr);
             column-gap: 1rem;
+        }
+
+        &__empty {
+            &-images {
+                & img { width: 70%; }
+            }
         }
 
         &__free {
@@ -341,6 +365,36 @@
         &__form { width: 70%; }
     }
 
+    .add {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__forms { width: 70%; }
+    }
+
+    .editarA {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__forms { width: 70%; }
+    }
+
+    .newP {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__content { width: 70%; }
+    }
+
     .registrate {
         &__cont {
             display: flex;
@@ -349,6 +403,16 @@
         }
 
         &__wrap { width: 80%; }
+    }
+
+    .editarU {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__forms { width: 80%; }
     }
 }
 
@@ -415,6 +479,15 @@
         }
     }
 
+    .editarU {
+        &__form {
+            &-inputscont {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1rem;
+            }
+        }
+    }
+
     .admin {
         &__content {
             grid-template-columns: 1fr 1fr;
@@ -427,6 +500,26 @@
 
         &__tags {
             &-container { grid-template-columns: 1fr; }
+        }
+
+        &__videos {
+            &-content {
+                &_slide {
+                    &_empty {
+                        &_images {
+                            & img { width: 60%; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cursos {
+        &__empty {
+            &-images {
+                & img { width: 60%; }
+            }
         }
     }
 
@@ -460,6 +553,12 @@
         &__videos {
             &-container { grid-template-columns: repeat(3, 1fr); }
 
+            &-empty {
+                &_images {
+                    & img { width: 50%; }
+                }
+            }
+
             &-card {
                 &_btn { height: 40px; }
             }
@@ -476,6 +575,18 @@
 
     .iniciarsesion {
         &__form { width: 60%; }
+    }
+
+    .newP {
+        &__content { width: 60%; }
+    }
+
+    .editarA {
+        &__forms { width: 60%; }
+    }
+
+    .add {
+        &__forms { width: 60%; }
     }
 }
 
@@ -543,12 +654,32 @@
         &__tags {
             &-container { grid-template-columns: 1fr 1fr; }
         }
+
+        &__videos {
+            &-content {
+                &_slide {
+                    &_empty {
+                        &_images {
+                            & img { width: 40%; }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .perfil {
         &__container {
             grid-template-columns: 1fr 2fr;
             column-gap: 1.5rem;
+        }
+
+        &__videos {
+            &-empty {
+                &_images {
+                    & img { width: 60%; }
+                }
+            }
         }
 
         &__content { width: 100%; }
@@ -563,7 +694,19 @@
 
         &__profesor { text-align: left; }
 
+        &__empty {
+            margin-top: 5rem;
+
+            &-images {
+                & img { width: 40%; }
+            }
+        }
+
         &__free { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .editarU {
+        &__forms { width: 60%; }
     }
 
     .registrate {
@@ -583,6 +726,18 @@
 
     .iniciarsesion {
         &__form { width: 40%; }
+    }
+
+    .editarA {
+        &__forms { width: 40%; }
+    }
+
+    .newP {
+        &__content { width: 40%; }
+    }
+
+    .add {
+        &__forms { width: 40%; }
     }
 }
 

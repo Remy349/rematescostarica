@@ -46,6 +46,11 @@
         }
 
         &-img {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
             & h3 {
                 font-size: 1.5rem;
                 text-align: center;
@@ -76,6 +81,7 @@
             border-radius: 0.5rem;
             cursor: pointer;
             padding: 1rem 0;
+            font-weight: 500;
             font-family: $raleway;
         }
     }

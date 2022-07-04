@@ -749,6 +749,22 @@ video {
   text-align: center;
   font-weight: 500;
 }
+.cursos__empty {
+  margin-top: 3rem;
+}
+.cursos__empty-header {
+  text-align: center;
+  display: grid;
+  row-gap: 1rem;
+}
+.cursos__empty-header p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.cursos__empty-images {
+  display: flex;
+  justify-content: center;
+}
 .cursos__more {
   display: grid;
   row-gap: 1.5rem;
@@ -892,6 +908,7 @@ div#paypal-button {
   border: none;
   outline: none;
   cursor: pointer;
+  font-weight: 500;
   text-align: center;
 }
 .perfil__content-btn {
@@ -902,6 +919,7 @@ div#paypal-button {
   color: #fff;
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
+  font-weight: 500;
   border: none;
   outline: none;
   cursor: pointer;
@@ -946,6 +964,19 @@ div#paypal-button {
 .perfil__videos-container {
   display: grid;
   row-gap: 2rem;
+}
+.perfil__videos-empty_header {
+  text-align: center;
+  display: grid;
+  row-gap: 1rem;
+}
+.perfil__videos-empty_header p {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.perfil__videos-empty_images {
+  display: flex;
+  justify-content: center;
 }
 .perfil__videos-title {
   margin-bottom: 2rem;
@@ -1191,6 +1222,22 @@ div#paypal-button {
 }
 .admin__videos-content_btn_add i {
   font-size: 1.3rem;
+}
+.admin__videos-content_slide_empty {
+  margin-top: 3rem;
+}
+.admin__videos-content_slide_empty_header {
+  text-align: center;
+}
+.admin__videos-content_slide_empty_header p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.admin__videos-content_slide_empty_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .admin__videos-content_slide_container {
   max-width: 300px;
@@ -1673,6 +1720,12 @@ div#paypal-button {
   font-size: 1.15rem;
   text-align: left;
 }
+.comprar__card-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .comprar__card-img h3 {
   font-size: 1.5rem;
   text-align: center;
@@ -1697,6 +1750,7 @@ div#paypal-button {
   border-radius: 0.5rem;
   cursor: pointer;
   padding: 1rem 0;
+  font-weight: 500;
   font-family: "Raleway", sans-serif;
 }
 
@@ -1940,6 +1994,9 @@ div#paypal-button {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
   }
+  .admin__videos-content_slide_empty_images img {
+    width: 70%;
+  }
 
   .perfil__cardcont {
     display: flex;
@@ -1959,6 +2016,9 @@ div#paypal-button {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
   }
+  .perfil__videos-empty_images img {
+    width: 70%;
+  }
   .perfil__videos-card_data p {
     font-size: 1.1rem;
   }
@@ -1975,6 +2035,9 @@ div#paypal-button {
   .cursos__more {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
+  }
+  .cursos__empty-images img {
+    width: 70%;
   }
   .cursos__free-videos_video {
     display: flex;
@@ -2006,12 +2069,48 @@ div#paypal-button {
     width: 70%;
   }
 
+  .add__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .add__forms {
+    width: 70%;
+  }
+
+  .editarA__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .editarA__forms {
+    width: 70%;
+  }
+
+  .newP__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .newP__content {
+    width: 70%;
+  }
+
   .registrate__cont {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .registrate__wrap {
+    width: 80%;
+  }
+
+  .editarU__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .editarU__forms {
     width: 80%;
   }
 }
@@ -2073,6 +2172,11 @@ div#paypal-button {
     column-gap: 1rem;
   }
 
+  .editarU__form-inputscont {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+
   .admin__content {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
@@ -2082,6 +2186,13 @@ div#paypal-button {
   }
   .admin__tags-container {
     grid-template-columns: 1fr;
+  }
+  .admin__videos-content_slide_empty_images img {
+    width: 60%;
+  }
+
+  .cursos__empty-images img {
+    width: 60%;
   }
 
   .perfil__content {
@@ -2109,6 +2220,9 @@ div#paypal-button {
   .perfil__videos-container {
     grid-template-columns: repeat(3, 1fr);
   }
+  .perfil__videos-empty_images img {
+    width: 50%;
+  }
   .perfil__videos-card_btn {
     height: 40px;
   }
@@ -2122,6 +2236,18 @@ div#paypal-button {
   }
 
   .iniciarsesion__form {
+    width: 60%;
+  }
+
+  .newP__content {
+    width: 60%;
+  }
+
+  .editarA__forms {
+    width: 60%;
+  }
+
+  .add__forms {
     width: 60%;
   }
 }
@@ -2187,10 +2313,16 @@ div#paypal-button {
   .admin__tags-container {
     grid-template-columns: 1fr 1fr;
   }
+  .admin__videos-content_slide_empty_images img {
+    width: 40%;
+  }
 
   .perfil__container {
     grid-template-columns: 1fr 2fr;
     column-gap: 1.5rem;
+  }
+  .perfil__videos-empty_images img {
+    width: 60%;
   }
   .perfil__content {
     width: 100%;
@@ -2205,8 +2337,18 @@ div#paypal-button {
   .cursos__profesor {
     text-align: left;
   }
+  .cursos__empty {
+    margin-top: 5rem;
+  }
+  .cursos__empty-images img {
+    width: 40%;
+  }
   .cursos__free {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .editarU__forms {
+    width: 60%;
   }
 
   .registrate__wrap {
@@ -2225,6 +2367,18 @@ div#paypal-button {
   }
 
   .iniciarsesion__form {
+    width: 40%;
+  }
+
+  .editarA__forms {
+    width: 40%;
+  }
+
+  .newP__content {
+    width: 40%;
+  }
+
+  .add__forms {
     width: 40%;
   }
 }

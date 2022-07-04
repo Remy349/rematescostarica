@@ -222,6 +222,26 @@
             }
 
             &_slide {
+                &_empty {
+                    margin-top: 3rem;
+
+                    &_header {
+                        text-align: center;
+
+                        & p {
+                            margin-top: 1rem;
+                            font-size: 1.1rem;
+                            font-weight: 500;
+                        }
+                    }
+
+                    &_images {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
                 &_container {
                     max-width: 300px;
                     width: 100%;

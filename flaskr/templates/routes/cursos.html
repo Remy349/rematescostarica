@@ -81,77 +81,109 @@
                 </div>
             </div>
             {% if current_user.payment_completed == "Sin Adquirir" %}
-                <div class="cursos__more">
-                    {% for video in videos %}
-                        <div>
-                            <div class="cursos__more-content cursos__more-close">
-                                <div class="cursos__more-header">
-                                    <div>
-                                        <h2 class="cursos__more-title">
-                                            {{ video.title }}
-                                        </h2>
+                {% if videos|length == 0 %}
+                    <div class="cursos__empty">
+                        <div class="cursos__empty-header">
+                            <h2>No hay videos disponibles en estos momentos</h2>
+                            <p>El administrador del sitio los agregara proximamente</p>
+                        </div>
+                        <div class="cursos__empty-images">
+                            <img
+                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656871656/rematescostarica/empty-videos_mfpl1q.png"
+                                alt="Imgen de referencia en caso de no haber videos agregados"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="cursos__more">
+                        {% for video in videos %}
+                            <div>
+                                <div class="cursos__more-content cursos__more-close">
+                                    <div class="cursos__more-header">
+                                        <div>
+                                            <h2 class="cursos__more-title">
+                                                {{ video.title }}
+                                            </h2>
+                                        </div>
+                                        <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
                                     </div>
-                                    <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
-                                </div>
-                                <div class="cursos__more-data">
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div class="cursos__more-btns">
-                                        <a href="{{ url_for('comprar_curso') }}" class="cursos__more-btn">
-                                            Ver Clase
-                                        </a>
+                                    <div class="cursos__more-data">
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div class="cursos__more-btns">
+                                            <a href="{{ url_for('comprar_curso') }}" class="cursos__more-btn">
+                                                Ver Clase
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% else %}
-                <div class="cursos__more">
-                    {% for video in videos %}
-                        <div>
-                            <div class="cursos__more-content cursos__more-close">
-                                <div class="cursos__more-header">
-                                    <div>
-                                        <h2 class="cursos__more-title">
-                                            {{ video.title }}
-                                        </h2>
+                {% if videos|length == 0 %}
+                    <div class="cursos__empty">
+                        <div class="cursos__empty-header">
+                            <h2>No hay videos disponibles en estos momentos</h2>
+                            <p>El administrador del sitio los agregara proximamente</p>
+                        </div>
+                        <div class="cursos__empty-images">
+                            <img
+                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656871656/rematescostarica/empty-videos_mfpl1q.png"
+                                alt="Imgen de referencia en caso de no haber videos agregados"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="cursos__more">
+                        {% for video in videos %}
+                            <div>
+                                <div class="cursos__more-content cursos__more-close">
+                                    <div class="cursos__more-header">
+                                        <div>
+                                            <h2 class="cursos__more-title">
+                                                {{ video.title }}
+                                            </h2>
+                                        </div>
+                                        <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
                                     </div>
-                                    <i class="ri-arrow-down-s-line cursos__more-arrow"></i>
-                                </div>
-                                <div class="cursos__more-data">
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div>
-                                        <i class="ri-checkbox-blank-circle-fill"></i>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
-                                    </div>
-                                    <div class="cursos__more-btns">
-                                        <a href="{{ url_for('videos', video_id=video.id) }}" class="cursos__more-btn">
-                                            Ver Clase
-                                        </a>
+                                    <div class="cursos__more-data">
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div>
+                                            <i class="ri-checkbox-blank-circle-fill"></i>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div>
+                                        <div class="cursos__more-btns">
+                                            <a href="{{ url_for('videos', video_id=video.id) }}" class="cursos__more-btn">
+                                                Ver Clase
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </section>
