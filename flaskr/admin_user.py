@@ -110,8 +110,9 @@ def agregar_video():
             file.save(path_video)
 
             upload_result = upload_large(f"{path_video}",
-                                         folder = "rematescostarica/videos",
-                                         resource_type = "video")
+                                        chunk_size = 500000000,
+                                        folder = "rematescostarica/videos",
+                                        resource_type = "video")
             os.remove(path_video)
 
             public_id = upload_result["public_id"]
