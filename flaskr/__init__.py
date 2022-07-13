@@ -12,12 +12,6 @@ load_dotenv()
 
 app = Flask(__name__)
 
-cloudinary.config(
-    cloud_name = os.getenv("CLOUD_NAME"),
-    api_key = os.getenv("API_KEY"),
-    api_secret = os.getenv("API_SECRET")
-)
-
 PAYPAL_MODE = os.getenv("PAYPAL_MODE")
 PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")
 PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET")
