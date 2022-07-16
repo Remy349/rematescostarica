@@ -3,12 +3,14 @@ from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
 from werkzeug.security import generate_password_hash
 
-from flaskr.models import Users, Videos
+from flaskr.models import Users, Videos, Posts
 
 @app.route("/", methods=["GET"])
 def index():
     """ Funcion para mostrar la pagina principal """
-    return render_template("index.html")
+    posts = Posts.query.all()
+
+    return render_template("index.html", posts=posts)
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():

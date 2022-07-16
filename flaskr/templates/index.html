@@ -20,8 +20,8 @@
                     antes de comprar una propiedad.
                 </p>
                 <div class="home__data-btns">
-                    <a href="#more" class="home__data-btn">
-                        MÁS <i class="ri-arrow-down-line home__data-icon"></i>
+                    <a href="#posts" class="home__data-btn">
+                        Publicaciones <i class="ri-arrow-down-line home__data-icon"></i>
                     </a>
                 </div>
             </div>
@@ -38,61 +38,239 @@
     <!-- LO QUE OFRECEMOS -->
     <section class="ofrecemos section" id="more">
         <div class="ofrecemos__container container grid">
-            <div class="ofrecemos__decoration">
-                <div class="ofrecemos__decoration-line"></div>
-                <div class="ofrecemos__decoration-line"></div>
-                <div class="ofrecemos__decoration-line"></div>
+            <div class="ofrecemos__info">
+                <div class="ofrecemos__decoration">
+                    <div class="ofrecemos__decoration-line"></div>
+                    <div class="ofrecemos__decoration-line"></div>
+                    <div class="ofrecemos__decoration-line"></div>
+                </div>
+                <div class="ofrecemos__data">
+                    <p class="ofrecemos__data-desc">
+                        El objetivo de de REMATESCOSTARICA es enfocarse en remates de propiedades 100% comerciales.
+                        A la hora de negociar puedes dar tus casas como parte de pago y evitas sacar efectivo de tu bolsa.
+                        CAMBIAS TUS CASITAS POR CASONAS.
+                    </p>
+                    <br></br>
+                    <p class="ofrecemos__data-desc">
+                        Para esto REMATESCOSTARICA te ofrece la posibilidad de tomar cursos especializados en dicho tema.
+                        La idea es que quien lleve este curso, tenga la tranquilidad y seguridad del respaldo de un experto en el tema,
+                        que sea su apoyo y guía en este negocio.
+                        Para nosotros es importante que usted realmente aprenda a comprar y a multiplicar sus ingresos.
+                    </p>
+                    <br></br>
+                    <p class="ofrecemos__data-desc">
+                        Adquiera nuestro curso para poder empezar en esta aventura y que usted consiga todo lo que necesita
+                        para comenzar a construir su propio negocio a partir de los remates judiciales.
+                    </p>
+                </div>
             </div>
-            <div class="ofrecemos__data">
-                <p class="ofrecemos__data-desc">
-                    El objetivo de de REMATESCOSTARICA es enfocarse en remates de propiedades 100% comerciales.
-                    A la hora de negociar puedes dar tus casas como parte de pago y evitas sacar efectivo de tu bolsa.
-                    CAMBIAS TUS CASITAS POR CASONAS.
-                </p>
-                <br></br>
-                <p class="ofrecemos__data-desc">
-                    Para esto REMATESCOSTARICA te ofrece la posibilidad de tomar cursos especializados en dicho tema.
-                    La idea es que quien lleve este curso, tenga la tranquilidad y seguridad del respaldo de un experto en el tema,
-                    que sea su apoyo y guía en este negocio.
-                    Para nosotros es importante que usted realmente aprenda a comprar y a multiplicar sus ingresos.
-                </p>
-                <br></br>
-                <p class="ofrecemos__data-desc">
-                    Adquiera nuestro curso para poder empezar en esta aventura y que usted consiga todo lo que necesita
-                    para comenzar a construir su propio negocio a partir de los remates judiciales.
-                </p>
+            <div class="ofrecemos__card">
+                <div class="ofrecemos__card-container">
+                    <div class="ofrecemos__card-header">
+                        <h2 class="ofrecemos__card-title">Beneficios del curso</h2>
+                    </div>
+                    <div class="ofrecemos__card-data">
+                        <div class="ofrecemos__card-desc">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <p>El curso tiene una duración de cinco días de sesiones de trabajo.</p>
+                        </div>
+                        <div class="ofrecemos__card-desc">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <p>Cada clase tiene una duración de dos horas cuarenta minutos.</p>
+                        </div>
+                        <div class="ofrecemos__card-desc">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <p>Cada sesión de trabajo es grabada y los alumnos tienen acceso 24/7.</p>
+                        </div>
+                        <div class="ofrecemos__card-desc">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <p>Toda la orientación gratis después del curso.</p>
+                        </div>
+                    </div>
+                    <div class="ofrecemos__card-btns">
+                        <a href="{{ url_for('registrate') }}" class="ofrecemos__card-btn">Registrate</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- TARJETAS DE INFORMACION -->
-    <section class="cards section">
-        <div class="cards__container container grid">
-            <div class="cards__card">
-                <div class="cards__card-header">
-                    <h2 class="cards__card-title">Beneficios del curso</h2>
-                </div>
-                <div class="cards__card-data">
-                    <div class="cards__card-desc">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <p>El curso tiene una duración de cinco días de sesiones de trabajo.</p>
+    <!-- POSTS -->
+    <section class="posts section" id="posts">
+        <div class="posts__container container">
+            <h2 class="posts__title">Sección de publicaciones</h2>
+            {% if session.username == "SuperAdminUser" %}
+                {% if posts|length == 0 %}
+                    <div class="posts__comment">
+                        <div class="posts__comment-forms">
+                            <form action="{{ url_for('agregar_post') }}" class="posts__comment-form" method="POST">
+                                <div class="posts__comment-inputscont">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="title"
+                                            class="posts__comment-input"
+                                            autocomplete="off"
+                                            placeholder="Titulo..."
+                                        />
+                                    </div>
+                                    <div>
+                                        <textarea
+                                                name="description"
+                                                class="posts__comment-textarea"
+                                                maxlength="199"
+                                                rows="4"
+                                                placeholder="Descripción..."
+                                                autocomplete="off"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <div class="posts__comment-btns">
+                                    <button class="posts__comment-btn" type="submit">
+                                        Agregar publicacion
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="cards__card-desc">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <p>Cada clase tiene una duración de dos horas cuarenta minutos.</p>
+                    <div class="posts__empty">
+                        <div class="posts__empty-container">
+                            <img
+                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1657765451/rematescostarica/empty-posts_ers0f0.png"
+                                class="posts__empty-img"
+                                alt="Imagen de referencia para las publicaciones"
+                                loading="lazy"
+                            />
+                            <p>
+                                Esta sección aún no cuenta con publicaciones realizadas
+                                <br>
+                                Puedes realizar pequeñas publicaciones informativas para tus usuarios
+                            </p>
+                        </div>
                     </div>
-                    <div class="cards__card-desc">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <p>Cada sesión de trabajo es grabada y los alumnos tienen acceso 24/7.</p>
+                {% else %}
+                    <div class="posts__comment">
+                        <div class="posts__comment-forms">
+                            <form action="{{ url_for('agregar_post') }}" class="posts__comment-form" method="POST">
+                                <div class="posts__comment-inputscont">
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="title"
+                                            class="posts__comment-input"
+                                            autocomplete="off"
+                                            placeholder="Titulo..."
+                                        />
+                                    </div>
+                                    <div>
+                                        <textarea
+                                                name="description"
+                                                class="posts__comment-textarea"
+                                                maxlength="199"
+                                                rows="4"
+                                                placeholder="Descripción..."
+                                                autocomplete="off"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                                <div class="posts__comment-btns">
+                                    <button class="posts__comment-btn" type="submit">
+                                        Agregar publicacion
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="cards__card-desc">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <p>Toda la orientación gratis después del curso.</p>
+                    <div class="posts__results">
+                        <div class="posts__results-container">
+                            {% for p in posts %}
+                                <div class="posts__results-card">
+                                    <div class="posts__results-card_image">
+                                        <img
+                                            src="{{ p.user_image }}"
+                                            alt="Perfil de usuario admin"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div class="posts__results-card_data">
+                                        <div>
+                                            <h3 class="posts__results-card_data_title">
+                                                {{ p.title }}
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <span class="posts__results-card_data_time">
+                                                {{ moment(p.timestamp).fromNow() }}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <p class="posts__results-card_data_description">
+                                                {{ p.description }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <a href="{{ url_for('eliminar_post', post_id=p.id) }}" class="posts__results-card_data_delete">
+                                                Eliminar
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class="cards__card-btns">
-                    <a href="{{ url_for('registrate') }}" class="cards__card-btn">Registrate</a>
-                </div>
-            </div>
+                {% endif %}
+            {% else %}
+                {% if posts|length == 0 %}
+                    <div class="posts__empty">
+                        <div class="posts__empty-container">
+                            <img
+                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1657765451/rematescostarica/empty-posts_ers0f0.png"
+                                class="posts__empty-img"
+                                alt="Imagen de referencia para las publicaciones"
+                                loading="lazy"
+                            />
+                            <p>
+                                Esta sección aún no cuenta con publicaciones realizadas
+                                <br>
+                                por parte del administrador del sitio
+                            </p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="posts__results">
+                        <div class="posts__results-container">
+                            {% for p in posts %}
+                                <div class="posts__results-card">
+                                    <div class="posts__results-card_image">
+                                        <img
+                                            src="{{ p.user_image }}"
+                                            alt="Perfil de usuario admin"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div class="posts__results-card_data">
+                                        <div>
+                                            <h3 class="posts__results-card_data_title">
+                                                {{ p.title }}
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <span class="posts__results-card_data_time">
+                                                {{ moment(p.timestamp).fromNow() }}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <p class="posts__results-card_data_description">
+                                                {{ p.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
         </div>
     </section>
 {% endblock content %}

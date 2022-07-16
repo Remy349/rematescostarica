@@ -1,12 +1,12 @@
 import os
 import paypalrestsdk
-import cloudinary
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_migrate import Migrate
 from config import Config
+from flask_moment import Moment
 
 load_dotenv()
 
@@ -37,6 +37,8 @@ migrate = Migrate(app, db)
 
 Session(app)
 
+moment = Moment(app)
+
 @app.errorhandler(404)
 def page_not_found(e):
     """ Funcion para manejar el error 404 """
@@ -46,4 +48,5 @@ from flaskr import routes
 from flaskr import auth
 from flaskr import paypal
 from flaskr import admin_user
+from flaskr import admin_posts
 from flaskr import models

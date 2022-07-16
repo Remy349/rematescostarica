@@ -1,3 +1,4 @@
+from datetime import datetime
 from flaskr import db
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -56,6 +57,25 @@ class Videos(db.Model):
                 UrlVideo: {self.url_video},
                 PathVideo: {self.path_video},
                 FilenameVideo: {self.filename_video}
+        """
+
+class Posts(db.Model):
+    """ Tabla para que el usuario admin pueda guardar sus publicaciones """
+    __tablename__ = "posts"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=True)
+    description = db.Column(db.String(200), nullable=False)
+    user_image = db.Column(db.String(200), nullable=False)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"""
+            Posts:
+                Id: {self.id},
+                Title: {self.title},
+                Description: {self.description},
+                UserImage: {self.user_image},
+                Timestamp: {self.timestamp}
         """
 
 class Admin(db.Model):
