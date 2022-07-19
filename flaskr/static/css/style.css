@@ -266,6 +266,42 @@ video {
   grid-template-columns: 10% auto;
   column-gap: 0.5rem;
 }
+.ofrecemos__content {
+  display: grid;
+  row-gap: 3rem;
+}
+.ofrecemos__comment-form {
+  display: grid;
+  row-gap: 1rem;
+  width: 100%;
+}
+.ofrecemos__comment-textarea {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  resize: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+.ofrecemos__comment-btn {
+  background-color: cornflowerblue;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 0;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: none;
+  outline: none;
+}
 .ofrecemos__decoration {
   display: flex;
   align-items: center;
@@ -413,7 +449,7 @@ video {
   column-gap: 1rem;
   width: 100%;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #cccccc;
   padding: 1rem;
 }
 .posts__results-card_image {
@@ -2069,6 +2105,14 @@ div#paypal-button {
   .ofrecemos__card-container {
     width: 80%;
   }
+  .ofrecemos__comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ofrecemos__comment-forms {
+    width: 80%;
+  }
   .posts__comment {
     display: flex;
     justify-content: center;
@@ -2280,6 +2324,13 @@ div#paypal-button {
   .ofrecemos__card-container {
     width: 70%;
   }
+  .ofrecemos__comment-forms {
+    width: 100%;
+  }
+  .ofrecemos__comment-form {
+    grid-template-columns: auto 30%;
+    column-gap: 1rem;
+  }
   .posts__comment-forms {
     width: 100%;
   }
@@ -2405,7 +2456,7 @@ div#paypal-button {
   .home__social {
     left: 42rem;
   }
-  .ofrecemos__container {
+  .ofrecemos__content {
     grid-template-columns: auto 40%;
     column-gap: 2rem;
   }
@@ -2414,6 +2465,9 @@ div#paypal-button {
   }
   .ofrecemos__card-container {
     width: 100%;
+  }
+  .ofrecemos__comment-form {
+    grid-template-columns: auto 25%;
   }
   .posts__results-card_image img {
     width: 40%;
@@ -2521,12 +2575,16 @@ div#paypal-button {
   .home__social {
     left: 50rem;
   }
-  .ofrecemos__container {
+  .ofrecemos__content {
     grid-template-columns: auto 35%;
     column-gap: 3rem;
   }
+  .ofrecemos__comment-form {
+    grid-template-columns: auto 25%;
+    column-gap: 1.5rem;
+  }
   .posts__comment-form {
-    grid-template-columns: auto 20%;
+    grid-template-columns: auto 25%;
     column-gap: 1.5rem;
   }
 }

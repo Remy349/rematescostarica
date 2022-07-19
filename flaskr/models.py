@@ -64,7 +64,7 @@ class Posts(db.Model):
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=True)
-    description = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.String(1000), nullable=False)
     user_image = db.Column(db.String(200), nullable=False)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 

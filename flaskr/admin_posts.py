@@ -5,7 +5,7 @@ from helpers import login_required
 
 from flaskr.models import Posts, Admin
 
-@app.route("/post/agregar", methods=["POST"])
+@app.route("/post/agregar", methods=["GET", "POST"])
 @login_required
 def agregar_post():
     """ Ruta/Funcion para manejar la creacion de publicaciones por parte del usuario admin """

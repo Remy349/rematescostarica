@@ -38,60 +38,143 @@
     <!-- LO QUE OFRECEMOS -->
     <section class="ofrecemos section" id="more">
         <div class="ofrecemos__container container grid">
-            <div class="ofrecemos__info">
-                <div class="ofrecemos__decoration">
-                    <div class="ofrecemos__decoration-line"></div>
-                    <div class="ofrecemos__decoration-line"></div>
-                    <div class="ofrecemos__decoration-line"></div>
-                </div>
-                <div class="ofrecemos__data">
-                    <p class="ofrecemos__data-desc">
-                        El objetivo de de REMATESCOSTARICA es enfocarse en remates de propiedades 100% comerciales.
-                        A la hora de negociar puedes dar tus casas como parte de pago y evitas sacar efectivo de tu bolsa.
-                        CAMBIAS TUS CASITAS POR CASONAS.
-                    </p>
-                    <br></br>
-                    <p class="ofrecemos__data-desc">
-                        Para esto REMATESCOSTARICA te ofrece la posibilidad de tomar cursos especializados en dicho tema.
-                        La idea es que quien lleve este curso, tenga la tranquilidad y seguridad del respaldo de un experto en el tema,
-                        que sea su apoyo y guía en este negocio.
-                        Para nosotros es importante que usted realmente aprenda a comprar y a multiplicar sus ingresos.
-                    </p>
-                    <br></br>
-                    <p class="ofrecemos__data-desc">
-                        Adquiera nuestro curso para poder empezar en esta aventura y que usted consiga todo lo que necesita
-                        para comenzar a construir su propio negocio a partir de los remates judiciales.
-                    </p>
-                </div>
-            </div>
-            <div class="ofrecemos__card">
-                <div class="ofrecemos__card-container">
-                    <div class="ofrecemos__card-header">
-                        <h2 class="ofrecemos__card-title">Beneficios del curso</h2>
-                    </div>
-                    <div class="ofrecemos__card-data">
-                        <div class="ofrecemos__card-desc">
-                            <i class="ri-checkbox-circle-line"></i>
-                            <p>El curso tiene una duración de cinco días de sesiones de trabajo.</p>
-                        </div>
-                        <div class="ofrecemos__card-desc">
-                            <i class="ri-checkbox-circle-line"></i>
-                            <p>Cada clase tiene una duración de dos horas cuarenta minutos.</p>
-                        </div>
-                        <div class="ofrecemos__card-desc">
-                            <i class="ri-checkbox-circle-line"></i>
-                            <p>Cada sesión de trabajo es grabada y los alumnos tienen acceso 24/7.</p>
-                        </div>
-                        <div class="ofrecemos__card-desc">
-                            <i class="ri-checkbox-circle-line"></i>
-                            <p>Toda la orientación gratis después del curso.</p>
-                        </div>
-                    </div>
-                    <div class="ofrecemos__card-btns">
-                        <a href="{{ url_for('registrate') }}" class="ofrecemos__card-btn">Registrate</a>
+            {% if session.username == "SuperAdminUser" %}
+                <div class="ofrecemos__comment">
+                    <div class="ofrecemos__comment-forms">
+                        <form action="" class="ofrecemos__comment-form" method="POST">
+                            <div class="ofrecemos__comment-inputs">
+                                <textarea
+                                        name="information_content"
+                                        class="ofrecemos__comment-textarea"
+                                        rows="4"
+                                        placeholder="Contenido Informatico..."
+                                        autocomplete="off"
+                                ></textarea>
+                            </div>
+                            <div class="ofrecemos__comment-btns">
+                                <button class="ofrecemos__comment-btn" type="submit">
+                                    Agregar contenido
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
+                <div class="ofrecemos__content">
+                    <div class="ofrecemos__info">
+                            <div class="ofrecemos__decoration">
+                                <div class="ofrecemos__decoration-line"></div>
+                                <div class="ofrecemos__decoration-line"></div>
+                                <div class="ofrecemos__decoration-line"></div>
+                            </div>
+                            <div class="ofrecemos__data">
+                                <p class="ofrecemos__data-desc">
+                                    El objetivo de de REMATESCOSTARICA es enfocarse en remates de propiedades 100% comerciales.
+                                    A la hora de negociar puedes dar tus casas como parte de pago y evitas sacar efectivo de tu bolsa.
+                                    CAMBIAS TUS CASITAS POR CASONAS.
+                                </p>
+                                <br></br>
+                                <p class="ofrecemos__data-desc">
+                                    Para esto REMATESCOSTARICA te ofrece la posibilidad de tomar cursos especializados en dicho tema.
+                                    La idea es que quien lleve este curso, tenga la tranquilidad y seguridad del respaldo de un experto en el tema,
+                                    que sea su apoyo y guía en este negocio.
+                                    Para nosotros es importante que usted realmente aprenda a comprar y a multiplicar sus ingresos.
+                                </p>
+                                <br></br>
+                                <p class="ofrecemos__data-desc">
+                                    Adquiera nuestro curso para poder empezar en esta aventura y que usted consiga todo lo que necesita
+                                    para comenzar a construir su propio negocio a partir de los remates judiciales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ofrecemos__card">
+                            <div class="ofrecemos__card-container">
+                                <div class="ofrecemos__card-header">
+                                    <h2 class="ofrecemos__card-title">Beneficios del curso</h2>
+                                </div>
+                                <div class="ofrecemos__card-data">
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>El curso tiene una duración de cinco días de sesiones de trabajo.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Cada clase tiene una duración de dos horas cuarenta minutos.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Cada sesión de trabajo es grabada y los alumnos tienen acceso 24/7.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Toda la orientación gratis después del curso.</p>
+                                    </div>
+                                </div>
+                                <div class="ofrecemos__card-btns">
+                                    <a href="{{ url_for('registrate') }}" class="ofrecemos__card-btn">Registrate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="ofrecemos__content">
+                    <div class="ofrecemos__info">
+                            <div class="ofrecemos__decoration">
+                                <div class="ofrecemos__decoration-line"></div>
+                                <div class="ofrecemos__decoration-line"></div>
+                                <div class="ofrecemos__decoration-line"></div>
+                            </div>
+                            <div class="ofrecemos__data">
+                                <p class="ofrecemos__data-desc">
+                                    El objetivo de de REMATESCOSTARICA es enfocarse en remates de propiedades 100% comerciales.
+                                    A la hora de negociar puedes dar tus casas como parte de pago y evitas sacar efectivo de tu bolsa.
+                                    CAMBIAS TUS CASITAS POR CASONAS.
+                                </p>
+                                <br></br>
+                                <p class="ofrecemos__data-desc">
+                                    Para esto REMATESCOSTARICA te ofrece la posibilidad de tomar cursos especializados en dicho tema.
+                                    La idea es que quien lleve este curso, tenga la tranquilidad y seguridad del respaldo de un experto en el tema,
+                                    que sea su apoyo y guía en este negocio.
+                                    Para nosotros es importante que usted realmente aprenda a comprar y a multiplicar sus ingresos.
+                                </p>
+                                <br></br>
+                                <p class="ofrecemos__data-desc">
+                                    Adquiera nuestro curso para poder empezar en esta aventura y que usted consiga todo lo que necesita
+                                    para comenzar a construir su propio negocio a partir de los remates judiciales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ofrecemos__card">
+                            <div class="ofrecemos__card-container">
+                                <div class="ofrecemos__card-header">
+                                    <h2 class="ofrecemos__card-title">Beneficios del curso</h2>
+                                </div>
+                                <div class="ofrecemos__card-data">
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>El curso tiene una duración de cinco días de sesiones de trabajo.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Cada clase tiene una duración de dos horas cuarenta minutos.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Cada sesión de trabajo es grabada y los alumnos tienen acceso 24/7.</p>
+                                    </div>
+                                    <div class="ofrecemos__card-desc">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                        <p>Toda la orientación gratis después del curso.</p>
+                                    </div>
+                                </div>
+                                <div class="ofrecemos__card-btns">
+                                    <a href="{{ url_for('registrate') }}" class="ofrecemos__card-btn">Registrate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </section>
     <!-- POSTS -->
@@ -117,7 +200,7 @@
                                         <textarea
                                                 name="description"
                                                 class="posts__comment-textarea"
-                                                maxlength="199"
+                                                maxlength="999"
                                                 rows="4"
                                                 placeholder="Descripción..."
                                                 autocomplete="off"
@@ -165,7 +248,7 @@
                                         <textarea
                                                 name="description"
                                                 class="posts__comment-textarea"
-                                                maxlength="199"
+                                                maxlength="999"
                                                 rows="4"
                                                 placeholder="Descripción..."
                                                 autocomplete="off"

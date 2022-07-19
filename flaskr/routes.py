@@ -8,7 +8,7 @@ from flaskr.models import Users, Videos, Posts
 @app.route("/", methods=["GET"])
 def index():
     """ Funcion para mostrar la pagina principal """
-    posts = Posts.query.all()
+    posts = Posts.query.order_by(Posts.id.desc()).all()
 
     return render_template("index.html", posts=posts)
 
