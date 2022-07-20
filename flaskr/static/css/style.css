@@ -261,11 +261,6 @@ video {
 .ofrecemos__container {
   row-gap: 3rem;
 }
-.ofrecemos__info {
-  display: grid;
-  grid-template-columns: 10% auto;
-  column-gap: 0.5rem;
-}
 .ofrecemos__content {
   display: grid;
   row-gap: 3rem;
@@ -302,30 +297,28 @@ video {
   border: none;
   outline: none;
 }
-.ofrecemos__decoration {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 1rem;
-}
-.ofrecemos__decoration-line {
-  background-color: #b0b878;
-  width: 3px;
-}
-.ofrecemos__decoration-line:nth-child(1) {
-  height: 100%;
-}
-.ofrecemos__decoration-line:nth-child(2) {
-  height: 20%;
-}
-.ofrecemos__decoration-line:nth-child(3) {
-  height: 10%;
+.ofrecemos__data {
+  display: grid;
+  row-gap: 2rem;
 }
 .ofrecemos__data-desc {
   font-size: 1.2rem;
   text-align: left;
   line-height: 1.4;
   font-weight: 500;
+}
+.ofrecemos__data-delete {
+  margin-top: 0.5rem;
+  color: #ff2d2d;
+  font-size: 1.05rem;
+  font-weight: 500;
+  display: flex;
+  width: 15%;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.ofrecemos__data-delete i {
+  font-size: 1.2rem;
 }
 .ofrecemos__card-container {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

@@ -49,4 +49,5 @@ from flaskr import auth
 from flaskr import paypal
 from flaskr import admin_user
 from flaskr import admin_posts
+from flaskr import admin_content
 from flaskr import models

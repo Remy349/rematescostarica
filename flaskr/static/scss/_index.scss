@@ -84,12 +84,6 @@
         row-gap: 3rem;
     }
 
-    &__info {
-        display: grid;
-        grid-template-columns: 10% auto;
-        column-gap: .5rem;
-    }
-
     &__content {
         display: grid;
         row-gap: 3rem;
@@ -132,28 +126,28 @@
         }
     }
 
-    &__decoration {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        row-gap: 1rem;
-
-        &-line {
-            background-color: $primary-color-sub;
-            width: 3px;
-        }
-
-        &-line:nth-child(1) { height: 100%; }
-        &-line:nth-child(2) { height: 20%; }
-        &-line:nth-child(3) { height: 10%; }
-    }
-
     &__data {
+        display: grid;
+        row-gap: 2rem;
+
         &-desc {
             font-size: 1.2rem;
             text-align: left;
             line-height: 1.4;
             font-weight: 500;
+        }
+
+        &-delete {
+            margin-top: .5rem;
+            color: #ff2d2d;
+            font-size: 1.05rem;
+            font-weight: 500;
+            display: flex;
+            width: 15%;
+            align-items: center;
+            column-gap: .5rem;
+
+            & i { font-size: 1.2rem; }
         }
     }
 

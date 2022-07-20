@@ -78,6 +78,23 @@ class Posts(db.Model):
                 Timestamp: {self.timestamp}
         """
 
+class ContentPage(db.Model):
+    """ Tabla para guardar la informacion de cada pagina del sitio """
+    __tablename__ = "content_page"
+    id = db.Column(db.Integer, primary_key=True)
+    information_content = db.Column(db.String(1500), nullable=False)
+    from_page = db.Column(db.String(50), nullable=False)
+    from_section = db.Column(db.String(10), nullable=False)
+
+    def __repr__(self):
+        return f"""
+            ContentPage:
+                Id: {self.id},
+                InformationContent: {self.information_content},
+                FromPage: {self.from_page},
+                FromSection: {self.from_section}
+        """
+
 class Admin(db.Model):
     """ Tabla para super usuario """
     __tablename__ = "admin"
