@@ -484,7 +484,6 @@ video {
 /* ABOUT US */
 .about {
   font-family: "Raleway", sans-serif;
-  background: linear-gradient(180deg, transparent 49%, #b0b878 49%);
 }
 .about__title {
   text-align: center;
@@ -493,10 +492,42 @@ video {
 .about__container {
   row-gap: 4rem;
 }
+.about__comment-form {
+  display: grid;
+  row-gap: 1rem;
+  width: 100%;
+}
+.about__comment-textarea {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  resize: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+.about__comment-btn {
+  background-color: cornflowerblue;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem 0;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: none;
+  outline: none;
+}
 .about__data-title {
   text-align: left;
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: -1rem;
 }
 .about__data-container {
   display: grid;
@@ -522,11 +553,28 @@ video {
 .about__data-line:nth-child(3) {
   height: 10%;
 }
-.about__data-desc p {
+.about__data-info {
   font-size: 1.15rem;
   font-weight: 500;
   text-align: left;
   line-height: 1.4;
+}
+.about__data-desc {
+  display: grid;
+  row-gap: 2rem;
+}
+.about__data-delete {
+  margin-top: 0.5rem;
+  color: #ff2d2d;
+  font-size: 1.05rem;
+  font-weight: 500;
+  display: flex;
+  width: 15%;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.about__data-delete i {
+  font-size: 1.2rem;
 }
 .about__cards {
   row-gap: 2rem;
@@ -1516,23 +1564,13 @@ div#paypal-button {
   resize: none;
 }
 .add__form-file {
-  visibility: hidden;
-  width: 100%;
-}
-.add__form-file::before {
-  content: "Seleccionar un archivo...";
-  display: inline-block;
-  font-family: "Raleway", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
   background-color: #e7e5e5;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  cursor: pointer;
-  visibility: visible;
-  width: -webkit-fill-available;
-  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
   outline: none;
+  border-radius: 0.5rem;
 }
 .add__form-btns {
   display: grid;
@@ -1568,6 +1606,16 @@ div#paypal-button {
   width: 100%;
   font-weight: 500;
   text-align: center;
+}
+
+::-webkit-file-upload-button {
+  background-color: #b0b878;
+  font-family: "Raleway", sans-serif;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 1rem 0.5rem;
 }
 
 /* INICIAR SESION ADMIN */
@@ -1666,6 +1714,10 @@ div#paypal-button {
   width: 100%;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
+}
+.editarA__form-btns {
+  display: grid;
+  row-gap: 1.5rem;
 }
 .editarA__form-danger {
   color: #ff2d2d;
@@ -1958,9 +2010,6 @@ div#paypal-button {
     font-size: 1.33rem;
   }
   /* QUIENES SOMOS */
-  .about {
-    background: linear-gradient(180deg, transparent 48%, #b0b878 48%);
-  }
   .about__title {
     font-size: 1.4rem;
   }
@@ -2081,11 +2130,6 @@ div#paypal-button {
     font-size: 1rem;
   }
 }
-@media screen and (min-width: 400px) {
-  .about {
-    background: linear-gradient(180deg, transparent 51%, #b0b878 47%);
-  }
-}
 @media screen and (min-width: 568px) {
   .main {
     overflow-y: hidden;
@@ -2134,12 +2178,17 @@ div#paypal-button {
   .cards__card {
     width: 80%;
   }
-  .about {
-    background: linear-gradient(180deg, transparent 53%, #b0b878 47%);
-  }
   .about__cards {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1rem;
+  }
+  .about__comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .about__comment-forms {
+    width: 80%;
   }
   .comprar__container {
     display: flex;
@@ -2242,7 +2291,7 @@ div#paypal-button {
     align-items: center;
   }
   .editarA__forms {
-    width: 70%;
+    width: 80%;
   }
   .newP__container {
     display: flex;
@@ -2337,8 +2386,12 @@ div#paypal-button {
   .posts__results-card_image img {
     width: 45%;
   }
-  .about {
-    background: linear-gradient(180deg, transparent 56%, #b0b878 47%);
+  .about__comment-forms {
+    width: 100%;
+  }
+  .about__comment-form {
+    grid-template-columns: auto 30%;
+    column-gap: 1rem;
   }
   .registrate__form-inputscont {
     grid-template-columns: repeat(2, 1fr);
@@ -2407,11 +2460,20 @@ div#paypal-button {
   .newP__content {
     width: 60%;
   }
-  .editarA__forms {
-    width: 60%;
+  .editarA__form-inputscont {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+  .editarA__form-btns {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
   }
   .add__forms {
     width: 60%;
+  }
+  .add__form-btns {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -2469,6 +2531,9 @@ div#paypal-button {
     width: 40%;
   }
   .posts__comment-form {
+    grid-template-columns: auto 25%;
+  }
+  .about__comment-form {
     grid-template-columns: auto 25%;
   }
   .comprar {
@@ -2544,7 +2609,7 @@ div#paypal-button {
     width: 40%;
   }
   .editarA__forms {
-    width: 40%;
+    width: 60%;
   }
   .newP__content {
     width: 40%;
@@ -2573,6 +2638,10 @@ div#paypal-button {
     column-gap: 3rem;
   }
   .ofrecemos__comment-form {
+    grid-template-columns: auto 25%;
+    column-gap: 1.5rem;
+  }
+  .about__comment-form {
     grid-template-columns: auto 25%;
     column-gap: 1.5rem;
   }

@@ -9,15 +9,18 @@ from flaskr.models import Users, Videos, Posts, ContentPage
 def index():
     """ Funcion para mostrar la pagina principal """
     posts = Posts.query.order_by(Posts.id.desc()).all()
-    content_page_one = ContentPage.query.filter_by(from_page="home", \
+    content_page_home_one = ContentPage.query.filter_by(from_page="home", \
             from_section="1").all()
 
-    return render_template("index.html", posts=posts, content_page_one=content_page_one)
+    return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one)
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():
     """ Funcion para mostrar la pagina de ¿quienes somos? """
-    return render_template("routes/quienes_somos.html")
+    content_page_about_one = ContentPage.query.filter_by(from_page="quienes_somos", \
+            from_section="1").all()
+
+    return render_template("routes/quienes_somos.html", content_page_about_one=content_page_about_one)
 
 @app.route("/cursos", methods=["GET"])
 def cursos():

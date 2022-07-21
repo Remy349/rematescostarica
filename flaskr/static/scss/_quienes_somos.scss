@@ -1,6 +1,5 @@
 .about {
     font-family: $raleway;
-    background: linear-gradient(180deg, transparent 49%, $primary-color-sub 49%);
 
     &__title {
         text-align: center;
@@ -9,11 +8,48 @@
 
     &__container { row-gap: 4rem; }
 
+    &__comment {
+        &-form {
+            display: grid;
+            row-gap: 1rem;
+            width: 100%;
+        }
+
+        &-textarea {
+            background-color: $white-color;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            resize: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+            padding: 1rem .5rem 1rem 1rem;
+            font-family: $raleway;
+            width: 100%;
+        }
+
+        &-btn {
+            background-color: cornflowerblue;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            color: $white-color;
+            font-family: $raleway;
+            cursor: pointer;
+            border-radius: .5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+    }
+
     &__data {
         &-title {
             text-align: left;
             font-size: 1.25rem;
-            margin-bottom: 1rem;
+            margin-bottom: -1rem;
         }
 
         &-container {
@@ -38,13 +74,29 @@
         &-line:nth-child(2) { height: 30%; }
         &-line:nth-child(3) { height: 10%; }
 
+        &-info {
+            font-size: 1.15rem;
+            font-weight: 500;
+            text-align: left;
+            line-height: 1.4;
+        }
+
         &-desc {
-            & p {
-                font-size: 1.15rem;
-                font-weight: 500;
-                text-align: left;
-                line-height: 1.4;
-            }
+            display: grid;
+            row-gap: 2rem;
+        }
+
+        &-delete {
+            margin-top: .5rem;
+            color: #ff2d2d;
+            font-size: 1.05rem;
+            font-weight: 500;
+            display: flex;
+            width: 15%;
+            align-items: center;
+            column-gap: .5rem;
+
+            & i { font-size: 1.2rem; }
         }
     }
 

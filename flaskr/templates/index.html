@@ -74,12 +74,12 @@
                 <div class="ofrecemos__content">
                     <div class="ofrecemos__info">
                             <div class="ofrecemos__data">
-                                {% for cpo in content_page_one %}
+                                {% for cpho in content_page_home_one %}
                                     <div>
                                         <p class="ofrecemos__data-desc">
-                                            {{ cpo.information_content }}
+                                            {{ cpho.information_content }}
                                         </p>
-                                        <a href="{{ url_for('eliminar_contenido', content_page_id=cpo.id) }}" class="ofrecemos__data-delete">
+                                        <a href="{{ url_for('eliminar_contenido', content_page_id=cpho.id) }}" class="ofrecemos__data-delete">
                                             Eliminar
                                             <i class="ri-delete-bin-5-line"></i>
                                         </a>
@@ -122,9 +122,9 @@
                     <div class="ofrecemos__info">
                             <div class="ofrecemos__data">
                                 <div class="ofrecemos__data">
-                                    {% for cpo in content_page_one %}
+                                    {% for cpho in content_page_home_one %}
                                         <p class="ofrecemos__data-desc">
-                                            {{ cpo.information_content }}
+                                            {{ cpho.information_content }}
                                         </p>
                                     {% endfor %}
                                 </div>

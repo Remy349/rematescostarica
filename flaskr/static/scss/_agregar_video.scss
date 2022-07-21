@@ -48,24 +48,13 @@
         }
 
         &-file {
-            visibility: hidden;
+            background-color: $background-color;
+            font-size: 1.2rem;
+            font-weight: 500;
             width: 100%;
-
-            &::before {
-                content: 'Seleccionar un archivo...';
-                display: inline-block;
-                font-family: $raleway;
-                font-size: 1.1rem;
-                font-weight: 500;
-                background-color: $background-color;
-                border-radius: .5rem;
-                padding: 1rem;
-                cursor: pointer;
-                visibility: visible;
-                width: -webkit-fill-available;
-                border: none;
-                outline: none;
-            }
+            font-family: $raleway;
+            outline: none;
+            border-radius: .5rem;
         }
 
         &-btns {
@@ -83,4 +72,14 @@
             }
         }
     }
+}
+
+::-webkit-file-upload-button {
+    background-color: $primary-color-sub;
+    font-family: $raleway;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 1rem .5rem;
 }

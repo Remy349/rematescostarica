@@ -16,13 +16,20 @@ def agregar_contenido():
         from_page = request.form["from_page"]
         from_section = request.form["from_section"]
 
+        redirect_page = None
+
         new_content_page = ContentPage(information_content=information_content, \
                 from_page=from_page, from_section=from_section)
 
         db.session.add(new_content_page)
         db.session.commit()
 
-        return redirect(url_for("index"))
+        if from_page == "home":
+            redirect_page = "index"
+        elif from_page == "quienes_somos":
+            redirect_page = "quienes_somos"
+
+        return redirect(url_for(f"{redirect_page}"))
 
 @app.route("/contenido/eliminar/<int:content_page_id>", methods=["GET"])
 @login_required
@@ -33,9 +40,15 @@ def eliminar_contenido(content_page_id):
     if username != os.getenv("ADMIN_USERNAME"):
         return redirect(url_for("index"))
     else:
+        redirect_page = None
         delete_content_page = ContentPage.query.filter_by(id=content_page_id).first()
-        
+
+        if delete_content_page.from_page == "home":
+            redirect_page = "index"
+        elif delete_content_page.from_page == "quienes_somos":
+            redirect_page = "quienes_somos"
+
         db.session.delete(delete_content_page)
         db.session.commit()
 
-        return redirect(url_for("index"))
+        return redirect(url_for(f"{redirect_page}"))
