@@ -307,17 +307,66 @@ video {
   line-height: 1.4;
   font-weight: 500;
 }
-.ofrecemos__data-delete {
+.ofrecemos__data-form {
+  display: grid;
+  width: 100%;
+}
+.ofrecemos__data-textarea {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  resize: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+.ofrecemos__data-links, .ofrecemos__data-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
   margin-top: 0.5rem;
-  color: #ff2d2d;
-  font-size: 1.05rem;
+  column-gap: 2rem;
+}
+.ofrecemos__data-save {
+  color: cornflowerblue;
+  font-size: 1.15rem;
   font-weight: 500;
   display: flex;
-  width: 15%;
+  cursor: pointer;
+  align-items: center;
+  column-gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #e7e5e5;
+  font-family: "Raleway", sans-serif;
+}
+.ofrecemos__data-save i {
+  font-size: 1.2rem;
+}
+.ofrecemos__data-edit {
+  color: cornflowerblue;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
   align-items: center;
   column-gap: 0.5rem;
 }
-.ofrecemos__data-delete i {
+.ofrecemos__data-edit i {
+  font-size: 1.2rem;
+}
+.ofrecemos__data-delete, .ofrecemos__data-cancel {
+  color: #ff2d2d;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.ofrecemos__data-delete i, .ofrecemos__data-cancel i {
   font-size: 1.2rem;
 }
 .ofrecemos__card-container {
@@ -470,7 +519,7 @@ video {
 }
 .posts__results-card_data_delete {
   color: #ff2d2d;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 500;
   width: 40%;
   display: flex;
@@ -563,17 +612,66 @@ video {
   display: grid;
   row-gap: 2rem;
 }
-.about__data-delete {
+.about__data-form {
+  display: grid;
+  width: 100%;
+}
+.about__data-textarea {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  resize: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+.about__data-links, .about__data-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
   margin-top: 0.5rem;
-  color: #ff2d2d;
-  font-size: 1.05rem;
+  column-gap: 2rem;
+}
+.about__data-save {
+  color: cornflowerblue;
+  font-size: 1.15rem;
   font-weight: 500;
   display: flex;
-  width: 15%;
+  cursor: pointer;
+  align-items: center;
+  column-gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #e7e5e5;
+  font-family: "Raleway", sans-serif;
+}
+.about__data-save i {
+  font-size: 1.2rem;
+}
+.about__data-edit {
+  color: cornflowerblue;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
   align-items: center;
   column-gap: 0.5rem;
 }
-.about__data-delete i {
+.about__data-edit i {
+  font-size: 1.2rem;
+}
+.about__data-delete, .about__data-cancel {
+  color: #ff2d2d;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.about__data-delete i, .about__data-cancel i {
   font-size: 1.2rem;
 }
 .about__cards {
@@ -1571,6 +1669,7 @@ div#paypal-button {
   font-family: "Raleway", sans-serif;
   outline: none;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 .add__form-btns {
   display: grid;
@@ -1609,13 +1708,15 @@ div#paypal-button {
 }
 
 ::-webkit-file-upload-button {
-  background-color: #b0b878;
+  background-color: cornflowerblue;
   font-family: "Raleway", sans-serif;
   border: none;
   border-radius: 0.5rem;
   outline: none;
   font-size: 1.2rem;
   padding: 1rem 0.5rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* INICIAR SESION ADMIN */

@@ -75,15 +75,89 @@
                     <div class="ofrecemos__info">
                             <div class="ofrecemos__data">
                                 {% for cpho in content_page_home_one %}
-                                    <div>
-                                        <p class="ofrecemos__data-desc">
-                                            {{ cpho.information_content }}
-                                        </p>
-                                        <a href="{{ url_for('eliminar_contenido', content_page_id=cpho.id) }}" class="ofrecemos__data-delete">
-                                            Eliminar
-                                            <i class="ri-delete-bin-5-line"></i>
-                                        </a>
-                                    </div>
+                                    {% if session.is_edit == "true" %}
+                                        {% if session.is_edit_id == cpho.id %}
+                                            <div>
+                                                <form
+                                                    action="{{ url_for('editar_contenido', content_page_id=cpho.id) }}"
+                                                    class="ofrecemos__data-form"
+                                                    method="POST"
+                                                >
+                                                    <div class="ofrecemos__data-inputs">
+                                                        <textarea
+                                                                name="information_content"
+                                                                class="ofrecemos__data-textarea"
+                                                                maxlength="1499"
+                                                                rows="4"
+                                                                placeholder="Contenido Informatico..."
+                                                                autocomplete="off"
+                                                                required
+                                                        >{{ cpho.information_content }}</textarea>
+                                                    </div>
+                                                    <div class="ofrecemos__data-btns">
+                                                        <a
+                                                            href="{{ url_for('cancelar_contenido', content_page_id=cpho.id) }}"
+                                                            class="ofrecemos__data-cancel"
+                                                        >
+                                                            Cancelar
+                                                            <i class="ri-close-line"></i>
+                                                        </a>
+                                                        <button
+                                                            type="submit"
+                                                            class="ofrecemos__data-save"
+                                                        >
+                                                            Guardar
+                                                            <i class="ri-check-line"></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        {% else %}
+                                            <div>
+                                                <p class="ofrecemos__data-desc">
+                                                    {{ cpho.information_content }}
+                                                </p>
+                                                <div class="ofrecemos__data-links">
+                                                    <a
+                                                        href="{{ url_for('eliminar_contenido', content_page_id=cpho.id) }}"
+                                                        class="ofrecemos__data-delete"
+                                                    >
+                                                        Eliminar
+                                                        <i class="ri-delete-bin-5-line"></i>
+                                                    </a>
+                                                    <a
+                                                        href="{{ url_for('editar_contenido', content_page_id=cpho.id) }}"
+                                                        class="ofrecemos__data-edit"
+                                                    >
+                                                        Editar
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% else %}
+                                        <div>
+                                            <p class="ofrecemos__data-desc">
+                                                {{ cpho.information_content }}
+                                            </p>
+                                            <div class="ofrecemos__data-links">
+                                                <a
+                                                    href="{{ url_for('eliminar_contenido', content_page_id=cpho.id) }}"
+                                                    class="ofrecemos__data-delete"
+                                                >
+                                                    Eliminar
+                                                    <i class="ri-delete-bin-5-line"></i>
+                                                </a>
+                                                <a
+                                                    href="{{ url_for('editar_contenido', content_page_id=cpho.id) }}"
+                                                    class="ofrecemos__data-edit"
+                                                >
+                                                    Editar
+                                                    <i class="ri-edit-line"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>

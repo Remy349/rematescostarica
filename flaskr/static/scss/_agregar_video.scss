@@ -55,6 +55,7 @@
             font-family: $raleway;
             outline: none;
             border-radius: .5rem;
+            cursor: pointer;
         }
 
         &-btns {
@@ -75,11 +76,13 @@
 }
 
 ::-webkit-file-upload-button {
-    background-color: $primary-color-sub;
+    background-color: cornflowerblue;
     font-family: $raleway;
     border: none;
     border-radius: .5rem;
     outline: none;
     font-size: 1.2rem;
     padding: 1rem .5rem;
+    color: $white-color;
+    cursor: pointer;
 }

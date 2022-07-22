@@ -86,13 +86,67 @@
             row-gap: 2rem;
         }
 
-        &-delete {
+        &-form {
+            display: grid;
+            width: 100%;
+        }
+
+        &-textarea {
+            background-color: $white-color;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            resize: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+            border-radius: .5rem;
+            padding: 1rem .5rem 1rem 1rem;
+            font-family: $raleway;
+            width: 100%;
+        }
+
+        &-links,
+        &-btns {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: left;
             margin-top: .5rem;
-            color: #ff2d2d;
-            font-size: 1.05rem;
+            column-gap: 2rem;
+        }
+
+        &-save {
+            color: cornflowerblue;
+            font-size: 1.15rem;
             font-weight: 500;
             display: flex;
-            width: 15%;
+            cursor: pointer;
+            align-items: center;
+            column-gap: .5rem;
+            border: none;
+            outline: none;
+            background-color: $background-color;
+            font-family: $raleway;
+
+            & i { font-size: 1.2rem; }
+        }
+
+        &-edit {
+            color: cornflowerblue;
+            font-size: 1.15rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            column-gap: .5rem;
+
+            & i { font-size: 1.2rem; }
+        }
+
+        &-delete,
+        &-cancel {
+            color: #ff2d2d;
+            font-size: 1.15rem;
+            font-weight: 500;
+            display: flex;
             align-items: center;
             column-gap: .5rem;
 
