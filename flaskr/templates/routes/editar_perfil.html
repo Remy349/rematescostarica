@@ -106,15 +106,17 @@
                         />
                     </div>
                     <div class="line-horizontal"></div>
-                    <div class="editarU__form-confirm">
-                        <button class="editarU__form-confirm_btn" type="submit">
-                            Confirmar
-                        </button>
-                    </div>
-                    <div class="editarU__form-cancel">
-                        <a href="{{ url_for('perfil', username=session.username) }}" class="editarU__form-cancel_btn">
-                            Cancelar
-                        </a>
+                    <div class="editarU__form-btns">
+                        <div class="editarU__form-confirm">
+                            <button class="editarU__form-confirm_btn" type="submit">
+                                Confirmar
+                            </button>
+                        </div>
+                        <div class="editarU__form-cancel">
+                            <a href="{{ url_for('perfil', username=session.username) }}" class="editarU__form-cancel_btn">
+                                Cancelar
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>

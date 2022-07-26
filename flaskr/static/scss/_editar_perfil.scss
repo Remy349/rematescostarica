@@ -39,6 +39,11 @@
             font-weight: 500;
         }
 
+        &-btns {
+            display: grid;
+            row-gap: 1.5rem;
+        }
+
         &-danger {
             color: #ff2d2d;
             text-align: center;

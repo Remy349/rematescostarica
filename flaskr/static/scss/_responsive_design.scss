@@ -217,6 +217,32 @@
 
             &-forms { width: 80%; }
         }
+
+        &__contentTwo {
+            &-imageSection {
+                &_forms {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &_form { width: 80%; }
+
+                &_empty {
+                    & img { width: 70%; }
+                }
+            }
+
+            &-contentSection {
+                &_forms {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &_form { width: 80%; }
+            }
+        }
     }
 
     .posts {
@@ -527,6 +553,34 @@
                 column-gap: 1rem;
             }
         }
+
+        &__contentTwo {
+            &-imageSection {
+                &_form {
+                    width: 100%;
+
+                    &_container {
+                        grid-template-columns: auto 30%;
+                        column-gap: 1rem;
+                    }
+                }
+
+                &_empty {
+                    & img { width: 60%; }
+                }
+            }
+
+            &-contentSection {
+                &_form {
+                    width: 100%;
+
+                    &_container {
+                        grid-template-columns: auto 30%;
+                        column-gap: 1rem;
+                    }
+                }
+            }
+        }
     }
 
     .posts {
@@ -579,6 +633,11 @@
             &-inputscont {
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 1rem;
+            }
+
+            &-btns {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1.5rem;
             }
         }
     }
@@ -755,6 +814,28 @@
 
         &__comment {
             &-form { grid-template-columns: auto 25%; }
+        }
+
+        &__contentTwo {
+            &-imageSection {
+                &_form {
+                    width: 100%;
+
+                    &_container { grid-template-columns: auto 25%; }
+                }
+
+                &_empty {
+                    & img { width: 40%; }
+                }
+            }
+
+            &-contentSection {
+                &_form {
+                    width: 100%;
+
+                    &_container { grid-template-columns: auto 25%; }
+                }
+            }
         }
     }
 
