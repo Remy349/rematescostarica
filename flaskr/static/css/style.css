@@ -410,13 +410,11 @@ video {
 }
 .ofrecemos__contentTwo-title {
   text-align: center;
+  margin-bottom: 2rem;
 }
 .ofrecemos__contentTwo-container {
   display: grid;
   row-gap: 3rem;
-}
-.ofrecemos__contentTwo-imageSection {
-  margin-top: 2rem;
 }
 .ofrecemos__contentTwo-imageSection_form {
   width: 100%;
@@ -469,6 +467,9 @@ video {
   font-weight: 500;
   text-align: center;
 }
+.ofrecemos__contentTwo-contentSection_forms {
+  margin-bottom: 3rem;
+}
 .ofrecemos__contentTwo-contentSection_form {
   width: 100%;
 }
@@ -510,6 +511,78 @@ video {
   width: 100%;
   border: none;
   outline: none;
+}
+.ofrecemos__contentTwo-contentSection_data {
+  display: grid;
+  row-gap: 2rem;
+}
+.ofrecemos__contentTwo-contentSection_data_desc {
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.ofrecemos__contentTwo-contentSection_data_form {
+  display: grid;
+  width: 100%;
+}
+.ofrecemos__contentTwo-contentSection_data_textarea {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  resize: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 0.5rem 1rem 1rem;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+.ofrecemos__contentTwo-contentSection_data_links, .ofrecemos__contentTwo-contentSection_data_btns {
+  display: flex;
+  justify-content: left;
+  flex-direction: row-reverse;
+  column-gap: 2rem;
+  margin-top: 0.5rem;
+}
+.ofrecemos__contentTwo-contentSection_data_save {
+  color: cornflowerblue;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  column-gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #e7e5e5;
+  font-family: "Raleway", sans-serif;
+}
+.ofrecemos__contentTwo-contentSection_data_save i {
+  font-size: 1.2rem;
+}
+.ofrecemos__contentTwo-contentSection_data_edit {
+  color: cornflowerblue;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.ofrecemos__contentTwo-contentSection_data_edit i {
+  font-size: 1.2rem;
+}
+.ofrecemos__contentTwo-contentSection_data_delete, .ofrecemos__contentTwo-contentSection_data_cancel {
+  color: #ff2d2d;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.ofrecemos__contentTwo-contentSection_data_delete i, .ofrecemos__contentTwo-contentSection_data_cancel i {
+  font-size: 1.2rem;
 }
 
 .posts {

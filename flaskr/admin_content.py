@@ -1,4 +1,4 @@
-from flask_session import os
+import os
 from flaskr import app, db
 from flask import redirect, request, session, url_for
 from helpers import login_required

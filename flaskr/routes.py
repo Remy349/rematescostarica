@@ -11,8 +11,11 @@ def index():
     posts = Posts.query.order_by(Posts.id.desc()).all()
     content_page_home_one = ContentPage.query.filter_by(from_page="home", \
             from_section="1").all()
+    content_page_home_two = ContentPage.query.filter_by(from_page="home", \
+            from_section="2").all()
 
-    return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one)
+    return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one, \
+            content_page_home_two=content_page_home_two)
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():

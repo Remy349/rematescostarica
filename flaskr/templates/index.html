@@ -36,7 +36,7 @@
         </div>
     </section>
     <!-- LO QUE OFRECEMOS -->
-    <section class="ofrecemos section" id="more">
+    <section class="ofrecemos section">
         <div class="ofrecemos__container container grid">
             {% if session.username == "SuperAdminUser" %}
                 <div class="ofrecemos__comment">
@@ -240,7 +240,7 @@
                             <div class="ofrecemos__contentTwo-contentSection">
                                 <div class="ofrecemos__contentTwo-contentSection_forms">
                                     <form
-                                        action=""
+                                        action="{{ url_for('agregar_contenido') }}"
                                         class="ofrecemos__contentTwo-contentSection_form"
                                         method="POST"
                                     >
@@ -277,7 +277,95 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div></div>
+                                <div class="ofrecemos__contentTwo-contentSection_info">
+                                    <div class="ofrecemos__contentTwo-contentSection_data">
+                                        {% for cpht in content_page_home_two %}
+                                            {% if session.is_edit == "true" %}
+                                                {% if session.is_edit_id == cpht.id %}
+                                                    <div>
+                                                        <form
+                                                            action="{{ url_for('editar_contenido', content_page_id=cpht.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_form"
+                                                            method="POST"
+                                                        >
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_inputs">
+                                                                <textarea
+                                                                        name="information_content"
+                                                                        class="ofrecemos__contentTwo-contentSection_data_textarea"
+                                                                        maxlength="1499"
+                                                                        rows="4"
+                                                                        placeholder="Contenido Informatico..."
+                                                                        autocomplete="off"
+                                                                        required
+                                                                >{{ cpht.information_content }}</textarea>
+                                                            </div>
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_btns">
+                                                                <a
+                                                                    href="{{ url_for('cancelar_contenido', content_page_id=cpht.id) }}"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_cancel"
+                                                                >
+                                                                    Cancelar
+                                                                    <i class="ri-close-line"></i>
+                                                                </a>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_save"
+                                                                >
+                                                                    Guardar
+                                                                    <i class="ri-check-line"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                {% else %}
+                                                    <div>
+                                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                            {{ cpht.information_content }}
+                                                        </p>
+                                                        <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                            <a
+                                                                href="{{ url_for('eliminar_contenido', content_page_id=cpht.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                            >
+                                                                Eliminar
+                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            </a>
+                                                            <a
+                                                                href="{{ url_for('editar_contenido', content_page_id=cpht.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                            >
+                                                                Editar
+                                                                <i class="ri-edit-line"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% else %}
+                                                <div>
+                                                    <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                        {{ cpht.information_content }}
+                                                    </p>
+                                                    <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                        <a
+                                                            href="{{ url_for('eliminar_contenido', content_page_id=cpht.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                        >
+                                                            Eliminar
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </a>
+                                                        <a
+                                                            href="{{ url_for('editar_contenido', content_page_id=cpht.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                        >
+                                                            Editar
+                                                            <i class="ri-edit-line"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -320,6 +408,20 @@
                                 </div>
                                 <div class="ofrecemos__card-btns">
                                     <a href="{{ url_for('registrate') }}" class="ofrecemos__card-btn">Registrate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ofrecemos__contentTwo">
+                        <div class="ofrecemos__contentTwo-container">
+                            <div class="ofrecemos__contentTwo-imageSection"></div>
+                            <div class="ofrecemos__contentTwo-contentSection">
+                                <div class="ofrecemos__contentTwo-contentSection_data">
+                                    {% for cpht in content_page_home_two %}
+                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                            {{ cpht.information_content }}
+                                        </p>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
