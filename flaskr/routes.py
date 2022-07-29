@@ -3,19 +3,23 @@ from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
 from werkzeug.security import generate_password_hash
 
-from flaskr.models import Users, Videos, Posts, ContentPage
+from flaskr.models import Users, Videos, Posts, ContentPage, Images
 
 @app.route("/", methods=["GET"])
 def index():
     """ Funcion para mostrar la pagina principal """
     posts = Posts.query.order_by(Posts.id.desc()).all()
+    
     content_page_home_one = ContentPage.query.filter_by(from_page="home", \
             from_section="1").all()
     content_page_home_two = ContentPage.query.filter_by(from_page="home", \
             from_section="2").all()
 
+    image_page_home_two = Images.query.filter_by(from_page="home", \
+            from_section="2").first()
+
     return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one, \
-            content_page_home_two=content_page_home_two)
+            content_page_home_two=content_page_home_two, image_page_home_two=image_page_home_two)
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():

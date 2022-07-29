@@ -59,6 +59,27 @@ class Videos(db.Model):
                 FilenameVideo: {self.filename_video}
         """
 
+class Images(db.Model):
+    """ Tabla para guardar las imagenes del sitio """
+    __tablename__ = "images"
+    id = db.Column(db.Integer, primary_key=True)
+    path_image = db.Column(db.String(140), nullable=False)
+    filename_image = db.Column(db.String(120), nullable=False)
+    from_page = db.Column(db.String(50), nullable=False)
+    from_section = db.Column(db.String(10), nullable=False)
+    relative_path_image = db.Column(db.String(140), nullable=False)
+
+    def __repr__(self):
+        return f"""
+            Image:
+                Id: {self.id},
+                PathImage: {self.path_image},
+                FilenameImage: {self.filename_image},
+                FromPage: {self.from_page},
+                FromSection: {self.from_section},
+                RelativePathImage: {self.relative_path_image}
+        """
+
 class Posts(db.Model):
     """ Tabla para que el usuario admin pueda guardar sus publicaciones """
     __tablename__ = "posts"

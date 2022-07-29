@@ -12,7 +12,7 @@ from flaskr.models import Admin, Users, Videos
 ALLOWED_EXTENSIONS = {"mp4", "mp3"}
 
 def allowed_file(filename):
-    """ Funcion para validar la extension de los videos a subir """
+    """ Funcion para validar la extension de los archivos a subir """
     return "." in filename and \
         filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -98,37 +98,9 @@ def agregar_video():
         title = request.form["title"]
         description = request.form["description"]
         file = request.files["file"]
+        print(title, description, file)
 
-        if file.filename == "":
-            flash("Seleccione un archivo!")
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            path_video = os.path.join(os.getenv("UPLOAD_FOLDER"), filename)
-
-            file.save(path_video)
-
-            upload_result = upload_large(f"{path_video}",
-                                        chunk_size = 500000000,
-                                        folder = "rematescostarica/videos",
-                                        resource_type = "video")
-            os.remove(path_video)
-
-            public_id = upload_result["public_id"]
-            url_video = upload_result["secure_url"]
-            filename_video = filename
-
-            new_video = Videos(title=title, description=description, public_id=public_id, \
-                              url_video=url_video, path_video=path_video, filename_video=filename_video)
-
-            db.session.add(new_video)
-            db.session.commit()
-
-            return redirect(url_for("usuario_admin"))
-        else:
-            flash("Tipo de archivo no permitido!")
-            return redirect(request.url)
+        return redirect(url_for("usuario_admin"))
 
 @app.route("/perfil/usuario_admin/editar_video/<int:video_id>", methods=["GET", "POST"])
 @login_required

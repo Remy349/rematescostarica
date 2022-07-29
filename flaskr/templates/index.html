@@ -195,47 +195,135 @@
                         <div class="ofrecemos__contentTwo-container">
                             <div class="ofrecemos__contentTwo-imageSection">
                                 <div class="ofrecemos__contentTwo-imageSection_forms">
-                                    <form
-                                        action=""
-                                        class="ofrecemos__contentTwo-imageSection_form"
-                                        method="POST"
-                                        enctype="multipart/form-data"
-                                    >
-                                        <div class="ofrecemos__contentTwo-imageSection_form_title">
-                                            <h3>Agregar nueva imagen</h3>
-                                        </div>
-                                        <div class="ofrecemos__contentTwo-imageSection_form_container">
-                                            <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                    {% if image_page_home_two %}
+                                        <form
+                                            action="{{ url_for('editar_imagen_contenido', image_page_id=image_page_home_two.id) }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>  
                                                 <input
-                                                    type="file"
-                                                    name="file"
-                                                    accept="image/*"
-                                                    class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
                                                 />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="2"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="ofrecemos__contentTwo-imageSection_form_btns">
-                                                <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
-                                                    Agregar imagen
-                                                </button>
+                                        </form>
+                                    {% else %}
+                                        <form
+                                            action="{{ url_for('agregar_imagen_contenido') }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>
+                                                <input
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="2"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                                {% if image_page_home_two %}
+                                    <div class="ofrecemos__contentTwo-imageSection_image">
+                                        <div class="ofrecemos__contentTwo-imageSection_image_container">
+                                            <img
+                                                src="{{ image_page_home_two.relative_path_image }}"
+                                                loading="lazy"
+                                                class="ofrecemos__contentTwo-imageSection_image_img"
+                                                alt="Imagen de portada, rematescostarica"
+                                            />
+                                            <div>
+                                                <a
+                                                    href="{{ url_for('eliminar_imagen_contenido', image_page_id=image_page_home_two.id) }}"
+                                                    class="ofrecemos__contentTwo-imageSection_image_delete"
+                                                >
+                                                    Eliminar imagen
+                                                    <i class="ri-delete-bin-5-line"></i>
+                                                </a>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="ofrecemos__contentTwo-imageSection_empty">
-                                    <div class="ofrecemos__contentTwo-imageSection_empty_container">
-                                        <img
-                                            src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1658788672/rematescostarica/empty-image_v8iyjt.png"
-                                            alt="Imagen como referencia para sesion de imagen vacia"
-                                            class="ofrecemos__contentTwo-imageSection_empty_img"
-                                            loading="lazy"
-                                        />
-                                        <p>
-                                            Agrega una imagen para proporcionar una mejor apariencia al sitio
-                                            <br>
-                                            o para brindar una mejor información
-                                        </p>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="ofrecemos__contentTwo-imageSection_empty">
+                                        <div class="ofrecemos__contentTwo-imageSection_empty_container">
+                                            <img
+                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1658788672/rematescostarica/empty-image_v8iyjt.png"
+                                                alt="Imagen como referencia para sesion de imagen vacia"
+                                                class="ofrecemos__contentTwo-imageSection_empty_img"
+                                                loading="lazy"
+                                            />
+                                            <p>
+                                                Agrega una imagen para proporcionar una mejor apariencia al sitio
+                                                <br>
+                                                o para brindar una mejor información
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="ofrecemos__contentTwo-contentSection">
                                 <div class="ofrecemos__contentTwo-contentSection_forms">
@@ -414,7 +502,17 @@
                     </div>
                     <div class="ofrecemos__contentTwo">
                         <div class="ofrecemos__contentTwo-container">
-                            <div class="ofrecemos__contentTwo-imageSection"></div>
+                            <div class="ofrecemos__contentTwo-imageSection">
+                                {% if image_page_home_two %}
+                                    <div class="ofrecemos__contentTwo-imageSection_hasImage">
+                                        <img
+                                            src="{{ image_page_home_two.relative_path_image }}"
+                                            alt="Curso pregrabado, banner, rematescostarica"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                {% endif %}
+                            </div>
                             <div class="ofrecemos__contentTwo-contentSection">
                                 <div class="ofrecemos__contentTwo-contentSection_data">
                                     {% for cpht in content_page_home_two %}
