@@ -14,12 +14,22 @@ def index():
             from_section="1").all()
     content_page_home_two = ContentPage.query.filter_by(from_page="home", \
             from_section="2").all()
+    content_page_home_three = ContentPage.query.filter_by(from_page="home", \
+            from_section="3").all()
+    content_page_home_four = ContentPage.query.filter_by(from_page="home", \
+            from_section="4").all()
 
     image_page_home_two = Images.query.filter_by(from_page="home", \
             from_section="2").first()
+    image_page_home_three = Images.query.filter_by(from_page="home", \
+            from_section="3").first()
+    image_page_home_four = Images.query.filter_by(from_page="home", \
+            from_section="4").first()
 
     return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one, \
-            content_page_home_two=content_page_home_two, image_page_home_two=image_page_home_two)
+            content_page_home_two=content_page_home_two, image_page_home_two=image_page_home_two, \
+            content_page_home_three=content_page_home_three, image_page_home_three=image_page_home_three, \
+            content_page_home_four=content_page_home_four, image_page_home_four=image_page_home_four)
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():

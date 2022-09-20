@@ -457,6 +457,539 @@
                             </div>
                         </div>
                     </div>
+                    <div class="ofrecemos__contentTwo">
+                        <h2 class="ofrecemos__contentTwo-title">Tercera Sección</h2>
+                        <div class="ofrecemos__contentTwo-container">
+                            <div class="ofrecemos__contentTwo-imageSection">
+                                <div class="ofrecemos__contentTwo-imageSection_forms">
+                                    {% if image_page_home_three %}
+                                        <form
+                                            action="{{ url_for('editar_imagen_contenido', image_page_id=image_page_home_three.id) }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>  
+                                                <input
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="3"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% else %}
+                                        <form
+                                            action="{{ url_for('agregar_imagen_contenido') }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>
+                                                <input
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="3"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                                {% if image_page_home_three %}
+                                    <div class="ofrecemos__contentTwo-imageSection_image">
+                                        <div class="ofrecemos__contentTwo-imageSection_image_container">
+                                            <img
+                                                src="{{ image_page_home_three.relative_path_image }}"
+                                                loading="lazy"
+                                                class="ofrecemos__contentTwo-imageSection_image_img"
+                                                alt="Imagen de portada, rematescostarica"
+                                            />
+                                            <div>
+                                                <a
+                                                    href="{{ url_for('eliminar_imagen_contenido', image_page_id=image_page_home_three.id) }}"
+                                                    class="ofrecemos__contentTwo-imageSection_image_delete"
+                                                >
+                                                    Eliminar imagen
+                                                    <i class="ri-delete-bin-5-line"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="ofrecemos__contentTwo-imageSection_empty">
+                                        <div class="ofrecemos__contentTwo-imageSection_empty_container">
+                                            <img
+                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1658788672/rematescostarica/empty-image_v8iyjt.png"
+                                                alt="Imagen como referencia para sesion de imagen vacia"
+                                                class="ofrecemos__contentTwo-imageSection_empty_img"
+                                                loading="lazy"
+                                            />
+                                            <p>
+                                                Agrega una imagen para proporcionar una mejor apariencia al sitio
+                                                <br>
+                                                o para brindar una mejor información
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="ofrecemos__contentTwo-contentSection">
+                                <div class="ofrecemos__contentTwo-contentSection_forms">
+                                    <form
+                                        action="{{ url_for('agregar_contenido') }}"
+                                        class="ofrecemos__contentTwo-contentSection_form"
+                                        method="POST"
+                                    >
+                                        <div class="ofrecemos__contentTwo-contentSection_form_title">
+                                            <h3>Agregar nuevo contenido informatico</h3>
+                                        </div>
+                                        <div class="ofrecemos__contentTwo-contentSection_form_container">
+                                            <div class="ofrecemos__contentTwo-contentSection_form_inputs">
+                                                <textarea
+                                                        name="information_content"
+                                                        class="ofrecemos__contentTwo-contentSection_form_textarea"
+                                                        maxlength="1499"
+                                                        rows="4"
+                                                        placeholder="Contenido Informatico..."
+                                                        autocomplete="off"
+                                                        required
+                                                ></textarea>
+                                            </div>
+                                            <input
+                                                type="hidden"
+                                                name="from_page"
+                                                value="home"
+                                            />
+                                            <input
+                                                type="hidden"
+                                                name="from_section"
+                                                value="3"
+                                            />
+                                            <div class="ofrecemos__contentTwo-contentSection_form_btns">
+                                                <button class="ofrecemos__contentTwo-contentSection_form_btn" type="submit">
+                                                    Agregar contenido
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="ofrecemos__contentTwo-contentSection_info">
+                                    <div class="ofrecemos__contentTwo-contentSection_data">
+                                        {% for cphth in content_page_home_three %}
+                                            {% if session.is_edit == "true" %}
+                                                {% if session.is_edit_id == cphth.id %}
+                                                    <div>
+                                                        <form
+                                                            action="{{ url_for('editar_contenido', content_page_id=cphth.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_form"
+                                                            method="POST"
+                                                        >
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_inputs">
+                                                                <textarea
+                                                                        name="information_content"
+                                                                        class="ofrecemos__contentTwo-contentSection_data_textarea"
+                                                                        maxlength="1499"
+                                                                        rows="4"
+                                                                        placeholder="Contenido Informatico..."
+                                                                        autocomplete="off"
+                                                                        required
+                                                                >{{ cphth.information_content }}</textarea>
+                                                            </div>
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_btns">
+                                                                <a
+                                                                    href="{{ url_for('cancelar_contenido', content_page_id=cphth.id) }}"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_cancel"
+                                                                >
+                                                                    Cancelar
+                                                                    <i class="ri-close-line"></i>
+                                                                </a>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_save"
+                                                                >
+                                                                    Guardar
+                                                                    <i class="ri-check-line"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                {% else %}
+                                                    <div>
+                                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                            {{ cphth.information_content }}
+                                                        </p>
+                                                        <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                            <a
+                                                                href="{{ url_for('eliminar_contenido', content_page_id=cphth.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                            >
+                                                                Eliminar
+                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            </a>
+                                                            <a
+                                                                href="{{ url_for('editar_contenido', content_page_id=cphth.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                            >
+                                                                Editar
+                                                                <i class="ri-edit-line"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% else %}
+                                                <div>
+                                                    <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                        {{ cphth.information_content }}
+                                                    </p>
+                                                    <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                        <a
+                                                            href="{{ url_for('eliminar_contenido', content_page_id=cphth.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                        >
+                                                            Eliminar
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </a>
+                                                        <a
+                                                            href="{{ url_for('editar_contenido', content_page_id=cphth.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                        >
+                                                            Editar
+                                                            <i class="ri-edit-line"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ofrecemos__contentTwo">
+                        <h2 class="ofrecemos__contentTwo-title">Cuarta Sección</h2>
+                        <div class="ofrecemos__contentTwo-container">
+                            <div class="ofrecemos__contentTwo-imageSection">
+                                <div class="ofrecemos__contentTwo-imageSection_forms">
+                                    {% if image_page_home_four %}
+                                        <form
+                                            action="{{ url_for('editar_imagen_contenido', image_page_id=image_page_home_four.id) }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>  
+                                                <input
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="4"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% else %}
+                                        <form
+                                            action="{{ url_for('agregar_imagen_contenido') }}"
+                                            class="ofrecemos__contentTwo-imageSection_form"
+                                            method="POST"
+                                            enctype="multipart/form-data"
+                                        >
+                                            <div class="ofrecemos__contentTwo-imageSection_form_title">
+                                                <h3>Agregar nueva imagen</h3>
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_message">
+                                                {% with messages = get_flashed_messages() %}
+                                                    {% if messages %}
+                                                        {% for message in messages %}
+                                                            <p>{{ message }}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="ofrecemos__contentTwo-imageSection_form_container">
+                                                <div class="ofrecemos__contentTwo-imageSection_form_inputs">
+                                                    <input
+                                                        type="file"
+                                                        name="file"
+                                                        accept="image/*"
+                                                        class="ofrecemos__contentTwo-imageSection_form_file"
+                                                    />
+                                                </div>
+                                                <input
+                                                    type="hidden"
+                                                    name="from_page"
+                                                    value="home"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="from_section"
+                                                    value="4"
+                                                />
+                                                <div class="ofrecemos__contentTwo-imageSection_form_btns">
+                                                    <button class="ofrecemos__contentTwo-imageSection_form_btn" type="submitsubmit">
+                                                        Agregar imagen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                                {% if image_page_home_four %}
+                                    <div class="ofrecemos__contentTwo-imageSection_image">
+                                        <div class="ofrecemos__contentTwo-imageSection_image_container">
+                                            <img
+                                                src="{{ image_page_home_four.relative_path_image }}"
+                                                loading="lazy"
+                                                class="ofrecemos__contentTwo-imageSection_image_img"
+                                                alt="Imagen de portada, rematescostarica"
+                                            />
+                                            <div>
+                                                <a
+                                                    href="{{ url_for('eliminar_imagen_contenido', image_page_id=image_page_home_four.id) }}"
+                                                    class="ofrecemos__contentTwo-imageSection_image_delete"
+                                                >
+                                                    Eliminar imagen
+                                                    <i class="ri-delete-bin-5-line"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="ofrecemos__contentTwo-imageSection_empty">
+                                        <div class="ofrecemos__contentTwo-imageSection_empty_container">
+                                            <img
+                                                src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1658788672/rematescostarica/empty-image_v8iyjt.png"
+                                                alt="Imagen como referencia para sesion de imagen vacia"
+                                                class="ofrecemos__contentTwo-imageSection_empty_img"
+                                                loading="lazy"
+                                            />
+                                            <p>
+                                                Agrega una imagen para proporcionar una mejor apariencia al sitio
+                                                <br>
+                                                o para brindar una mejor información
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="ofrecemos__contentTwo-contentSection">
+                                <div class="ofrecemos__contentTwo-contentSection_forms">
+                                    <form
+                                        action="{{ url_for('agregar_contenido') }}"
+                                        class="ofrecemos__contentTwo-contentSection_form"
+                                        method="POST"
+                                    >
+                                        <div class="ofrecemos__contentTwo-contentSection_form_title">
+                                            <h3>Agregar nuevo contenido informatico</h3>
+                                        </div>
+                                        <div class="ofrecemos__contentTwo-contentSection_form_container">
+                                            <div class="ofrecemos__contentTwo-contentSection_form_inputs">
+                                                <textarea
+                                                        name="information_content"
+                                                        class="ofrecemos__contentTwo-contentSection_form_textarea"
+                                                        maxlength="1499"
+                                                        rows="4"
+                                                        placeholder="Contenido Informatico..."
+                                                        autocomplete="off"
+                                                        required
+                                                ></textarea>
+                                            </div>
+                                            <input
+                                                type="hidden"
+                                                name="from_page"
+                                                value="home"
+                                            />
+                                            <input
+                                                type="hidden"
+                                                name="from_section"
+                                                value="4"
+                                            />
+                                            <div class="ofrecemos__contentTwo-contentSection_form_btns">
+                                                <button class="ofrecemos__contentTwo-contentSection_form_btn" type="submit">
+                                                    Agregar contenido
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="ofrecemos__contentTwo-contentSection_info">
+                                    <div class="ofrecemos__contentTwo-contentSection_data">
+                                        {% for cphf in content_page_home_four %}
+                                            {% if session.is_edit == "true" %}
+                                                {% if session.is_edit_id == cphf.id %}
+                                                    <div>
+                                                        <form
+                                                            action="{{ url_for('editar_contenido', content_page_id=cphf.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_form"
+                                                            method="POST"
+                                                        >
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_inputs">
+                                                                <textarea
+                                                                        name="information_content"
+                                                                        class="ofrecemos__contentTwo-contentSection_data_textarea"
+                                                                        maxlength="1499"
+                                                                        rows="4"
+                                                                        placeholder="Contenido Informatico..."
+                                                                        autocomplete="off"
+                                                                        required
+                                                                >{{ cphf.information_content }}</textarea>
+                                                            </div>
+                                                            <div class="ofrecemos__contentTwo-contentSection_data_btns">
+                                                                <a
+                                                                    href="{{ url_for('cancelar_contenido', content_page_id=cphf.id) }}"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_cancel"
+                                                                >
+                                                                    Cancelar
+                                                                    <i class="ri-close-line"></i>
+                                                                </a>
+                                                                <button
+                                                                    type="submit"
+                                                                    class="ofrecemos__contentTwo-contentSection_data_save"
+                                                                >
+                                                                    Guardar
+                                                                    <i class="ri-check-line"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                {% else %}
+                                                    <div>
+                                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                            {{ cphf.information_content }}
+                                                        </p>
+                                                        <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                            <a
+                                                                href="{{ url_for('eliminar_contenido', content_page_id=cphf.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                            >
+                                                                Eliminar
+                                                                <i class="ri-delete-bin-5-line"></i>
+                                                            </a>
+                                                            <a
+                                                                href="{{ url_for('editar_contenido', content_page_id=cphf.id) }}"
+                                                                class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                            >
+                                                                Editar
+                                                                <i class="ri-edit-line"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% else %}
+                                                <div>
+                                                    <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                                        {{ cphf.information_content }}
+                                                    </p>
+                                                    <div class="ofrecemos__contentTwo-contentSection_data_links">
+                                                        <a
+                                                            href="{{ url_for('eliminar_contenido', content_page_id=cphf.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_delete"
+                                                        >
+                                                            Eliminar
+                                                            <i class="ri-delete-bin-5-line"></i>
+                                                        </a>
+                                                        <a
+                                                            href="{{ url_for('editar_contenido', content_page_id=cphf.id) }}"
+                                                            class="ofrecemos__contentTwo-contentSection_data_edit"
+                                                        >
+                                                            Editar
+                                                            <i class="ri-edit-line"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             {% else %}
                 <div class="ofrecemos__content">
@@ -518,6 +1051,54 @@
                                     {% for cpht in content_page_home_two %}
                                         <p class="ofrecemos__contentTwo-contentSection_data_desc">
                                             {{ cpht.information_content }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ofrecemos__contentTwo">
+                        <div class="ofrecemos__contentTwo-container">
+                            <div class="ofrecemos__contentTwo-imageSection">
+                                {% if image_page_home_three %}
+                                    <div class="ofrecemos__contentTwo-imageSection_hasImage">
+                                        <img
+                                            src="{{ image_page_home_three.relative_path_image }}"
+                                            alt="Curso pregrabado, banner, rematescostarica"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="ofrecemos__contentTwo-contentSection">
+                                <div class="ofrecemos__contentTwo-contentSection_data">
+                                    {% for cphth in content_page_home_three %}
+                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                            {{ cphth.information_content }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ofrecemos__contentTwo">
+                        <div class="ofrecemos__contentTwo-container">
+                            <div class="ofrecemos__contentTwo-imageSection">
+                                {% if image_page_home_four %}
+                                    <div class="ofrecemos__contentTwo-imageSection_hasImage">
+                                        <img
+                                            src="{{ image_page_home_four.relative_path_image }}"
+                                            alt="Curso pregrabado, banner, rematescostarica"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="ofrecemos__contentTwo-contentSection">
+                                <div class="ofrecemos__contentTwo-contentSection_data">
+                                    {% for cphf in content_page_home_four %}
+                                        <p class="ofrecemos__contentTwo-contentSection_data_desc">
+                                            {{ cphf.information_content }}
                                         </p>
                                     {% endfor %}
                                 </div>
