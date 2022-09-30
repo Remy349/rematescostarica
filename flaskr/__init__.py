@@ -22,9 +22,6 @@ paypalrestsdk.configure({
     "client_secret": PAYPAL_CLIENT_SECRET,
 })
 
-if Config.SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-    Config.SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
-
 if not Config.SQLALCHEMY_DATABASE_URI:
     raise RuntimeError("DATABASE_URI is not set!")
 else:
