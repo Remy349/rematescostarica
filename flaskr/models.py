@@ -42,10 +42,9 @@ class Videos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(200), nullable=True, unique=False)
-    public_id = db.Column(db.String(140), nullable=False)
-    url_video = db.Column(db.String(180), nullable=False, unique=True)
     path_video = db.Column(db.String(140), nullable=False)
     filename_video = db.Column(db.String(120), nullable=False)
+    relative_path_video = db.Column(db.String(140), nullable=False)
 
     def __repr__(self):
         return f"""
@@ -53,10 +52,9 @@ class Videos(db.Model):
                 Id: {self.id},
                 Title: {self.title},
                 Description: {self.description},
-                PublicId: {self.public_id},
-                UrlVideo: {self.url_video},
                 PathVideo: {self.path_video},
-                FilenameVideo: {self.filename_video}
+                FilenameVideo: {self.filename_video},
+                RelativePathVideo: {self.relative_path_video}
         """
 
 class Images(db.Model):

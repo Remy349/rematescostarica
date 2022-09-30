@@ -4,7 +4,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for, session, flash, jsonify
 from helpers import login_required
 from openpyxl import Workbook
-from cloudinary.uploader import upload_large, destroy
 from werkzeug.utils import secure_filename
 
 from flaskr.models import Admin, Users, Videos
@@ -98,7 +97,30 @@ def agregar_video():
         title = request.form["title"]
         description = request.form["description"]
         file = request.files["file"]
-        print(title, description, file)
+
+        if file.filename == "":
+            flash("Seleccione un archivo!")
+            return redirect(request.url)
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            path_video = os.path.join(os.getenv("UPLOAD_FOLDER"), filename)
+            relative_path_video = f"static/img/{filename}"
+
+            file.save(path_video)
+
+            new_video = Videos(title=title, description=description, path_video=path_video, \
+                    filename_video=filename, relative_path_video=relative_path_video)
+
+            db.session.add(new_video)
+            db.session.commit()
+
+            print(new_video)
+
+            return redirect(url_for("index"))
+        else:
+            flash("Tipo de archivo no permitido!")
+            return redirect(request.url)
 
         return redirect(url_for("usuario_admin"))
 
