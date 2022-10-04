@@ -94,34 +94,6 @@ def agregar_video():
         else:
             return render_template("admin/agregar_video.html")
     elif request.method == "POST":
-        title = request.form["title"]
-        description = request.form["description"]
-        file = request.files["file"]
-
-        if file.filename == "":
-            flash("Seleccione un archivo!")
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            path_video = os.path.join(os.getenv("UPLOAD_FOLDER"), filename)
-            relative_path_video = f"static/img/{filename}"
-
-            file.save(path_video)
-
-            new_video = Videos(title=title, description=description, path_video=path_video, \
-                    filename_video=filename, relative_path_video=relative_path_video)
-
-            db.session.add(new_video)
-            db.session.commit()
-
-            print(new_video)
-
-            return redirect(url_for("index"))
-        else:
-            flash("Tipo de archivo no permitido!")
-            return redirect(request.url)
-
         return redirect(url_for("usuario_admin"))
 
 @app.route("/perfil/usuario_admin/editar_video/<int:video_id>", methods=["GET", "POST"])

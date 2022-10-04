@@ -170,7 +170,7 @@ def agregar_imagen_contenido():
 
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                path_image = os.path.join(os.getenv("UPLOAD_FOLDER"), filename)
+                path_image = os.path.join(app.config["UPLOAD_FOLDER"], filename)
                 relative_path_image = f"static/img/{filename}"
 
                 file.save(path_image)
@@ -212,7 +212,7 @@ def editar_imagen_contenido(image_page_id):
                 os.remove(edit_image.path_image)
 
                 filename = secure_filename(file.filename)
-                path_image = os.path.join(os.getenv("UPLOAD_FOLDER"), filename)
+                path_image = os.path.join(app.config["UPLOAD_FOLDER"], filename)
                 relative_path_image = f"static/img/{filename}"
 
                 file.save(path_image)

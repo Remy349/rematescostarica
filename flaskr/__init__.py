@@ -29,6 +29,8 @@ else:
 
 app.config.from_object(Config)
 
+app.config["UPLOAD_FOLDER"] = "flaskr/static/img"
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, compare_type=True)
 
