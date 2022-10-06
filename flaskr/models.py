@@ -42,9 +42,9 @@ class Videos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(200), nullable=True, unique=False)
-    path_video = db.Column(db.String(140), nullable=False)
     filename_video = db.Column(db.String(120), nullable=False)
-    relative_path_video = db.Column(db.String(140), nullable=False)
+    public_id = db.Column(db.String(100), nullable=False)
+    secure_url = db.Column(db.String(140), nullable=False)
 
     def __repr__(self):
         return f"""
@@ -52,30 +52,30 @@ class Videos(db.Model):
                 Id: {self.id},
                 Title: {self.title},
                 Description: {self.description},
-                PathVideo: {self.path_video},
                 FilenameVideo: {self.filename_video},
-                RelativePathVideo: {self.relative_path_video}
+                PublicId: {self.public_id},
+                SecureUrl: {self.secure_url}
         """
 
 class Images(db.Model):
     """ Tabla para guardar las imagenes del sitio """
     __tablename__ = "images"
     id = db.Column(db.Integer, primary_key=True)
-    path_image = db.Column(db.String(140), nullable=False)
-    filename_image = db.Column(db.String(120), nullable=False)
+    filename_image = db.Column(db.String(60), nullable=False)
     from_page = db.Column(db.String(50), nullable=False)
     from_section = db.Column(db.String(10), nullable=False)
-    relative_path_image = db.Column(db.String(140), nullable=False)
+    public_id = db.Column(db.String(100), nullable=False)
+    secure_url = db.Column(db.String(140), nullable=False)
 
     def __repr__(self):
         return f"""
             Image:
                 Id: {self.id},
-                PathImage: {self.path_image},
                 FilenameImage: {self.filename_image},
                 FromPage: {self.from_page},
                 FromSection: {self.from_section},
-                RelativePathImage: {self.relative_path_image}
+                PublicId: {self.public_id},
+                SecureUrl: {self.secure_url}
         """
 
 class Posts(db.Model):

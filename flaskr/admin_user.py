@@ -4,7 +4,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for, session, flash, jsonify
 from helpers import login_required
 from openpyxl import Workbook
-from werkzeug.utils import secure_filename
 
 from flaskr.models import Admin, Users, Videos
 

@@ -1,5 +1,5 @@
 import os
-from werkzeug.utils import secure_filename
+from cloudinary.uploader import upload, destroy
 from flaskr import app, db
 from flask import flash, redirect, request, session, url_for
 from helpers import login_required
@@ -169,14 +169,17 @@ def agregar_imagen_contenido():
                 return redirect(request.url)
 
             if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                path_image = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-                relative_path_image = f"static/img/{filename}"
+                filename = file.filename
 
-                file.save(path_image)
+                upload_result = upload(file,
+                                       resource_type="image",
+                                       folder="/rematescostarica")
 
-                new_image = Images(path_image=path_image, filename_image=filename, from_page=from_page, \
-                        from_section=from_section, relative_path_image=relative_path_image)
+                public_id = upload_result["public_id"]
+                secure_url = upload_result["secure_url"]
+
+                new_image = Images(filename_image=filename, from_page=from_page, \
+                                   from_section=from_section, public_id=public_id, secure_url=secure_url)
 
                 db.session.add(new_image)
                 db.session.commit()
@@ -209,19 +212,22 @@ def editar_imagen_contenido(image_page_id):
             if file and allowed_file(file.filename):
                 edit_image = Images.query.filter_by(id=image_page_id).first()
 
-                os.remove(edit_image.path_image)
+                destroy(edit_image.public_id)
 
-                filename = secure_filename(file.filename)
-                path_image = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-                relative_path_image = f"static/img/{filename}"
+                filename = file.filename
 
-                file.save(path_image)
+                upload_result = upload(file,
+                                       resource_type="image",
+                                       folder="/rematescostarica")
 
-                edit_image.path_image = path_image
+                public_id = upload_result["public_id"]
+                secure_url = upload_result["secure_url"]
+
                 edit_image.filename_image = filename
                 edit_image.from_page = from_page
                 edit_image.from_section = from_section
-                edit_image.relative_path_image = relative_path_image
+                edit_image.public_id = public_id
+                edit_image.secure_url = secure_url
 
                 db.session.add(edit_image)
                 db.session.commit()
@@ -242,7 +248,7 @@ def eliminar_imagen_contenido(image_page_id):
     else:
         delete_image = Images.query.filter_by(id=image_page_id).first()
 
-        os.remove(delete_image.path_image)
+        destroy(delete_image.public_id)
 
         db.session.delete(delete_image)
         db.session.commit()

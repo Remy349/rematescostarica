@@ -1,5 +1,6 @@
 import os
 import paypalrestsdk
+import cloudinary
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +22,12 @@ paypalrestsdk.configure({
     "client_id": PAYPAL_CLIENT_ID,
     "client_secret": PAYPAL_CLIENT_SECRET,
 })
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+)
 
 if not Config.SQLALCHEMY_DATABASE_URI:
     raise RuntimeError("DATABASE_URI is not set!")
