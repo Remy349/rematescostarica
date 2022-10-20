@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (paypalBtn) {
         paypal.Button.render({
-            env: 'sandbox',
+            env: 'live',
             style: {
                 color: 'gold',
                 shape: 'rect',

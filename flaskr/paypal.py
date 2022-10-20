@@ -24,15 +24,15 @@ def payment():
             "transactions": [{
                 "item_list": {
                     "items": [{
-                        "name": "curso",
+                        "name": "curso pregrabado",
                         "sku": "12345",
-                        "price": "10.00",
+                        "price": "137.04",
                         "currency": "USD",
                         "quantity": 1,
                     }]
                 },
                 "amount": {
-                    "total": "10.00",
+                    "total": "137.04",
                     "currency": "USD",
                 },
                 "description": "Compra para el curso de rematescostarica!"

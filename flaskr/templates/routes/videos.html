@@ -10,11 +10,12 @@
             <div class="videos__current">
                 <div class="videos__current-content">
                     <video controls>
-                        <source src="{{ video.url_video }}" type="video/mp4">
+                        <source src="{{ video.secure_url }}" type="video/mp4">
                     </video>
                 </div>
                 <div class="videos__current-title">
                     <h3>{{ video.title }}</h3>
+                    <p style="margin-top: 2rem; font-size: 1.5rem;">{{ video.description }}</p>
                 </div>
             </div>
             <div class="videos__lists">
@@ -24,7 +25,7 @@
                         <a class="videos__lists-card" style="display: none;">
                                 <div class="videos__lists-card_cont">
                                     <video>
-                                        <source src="{{ v.url_video }}" type="video/mp4">
+                                        <source src="{{ v.secure_url }}" type="video/mp4">
                                     </video>
                                     <p>{{ v.title }}</p>
                                 </div>
@@ -33,7 +34,7 @@
                         <a href="{{ url_for('videos', video_id=v.id) }}" class="videos__lists-card">
                                 <div class="videos__lists-card_cont">
                                     <video>
-                                        <source src="{{ v.url_video }}" type="video/mp4">
+                                        <source src="{{ v.secure_url }}" type="video/mp4">
                                     </video>
                                     <p>{{ v.title }}</p>
                                 </div>
