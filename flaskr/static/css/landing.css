@@ -1,0 +1,13 @@
+.randall-img {
+  border-radius: 2rem;
+  opacity: .8;
+  display: block;
+}
+
+.randall-margin-top {
+  margin-top: 3rem;
+}
+
+.randall-padding-bottom {
+  padding-bottom: 5rem;
+}

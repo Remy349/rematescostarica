@@ -5,39 +5,47 @@ from werkzeug.security import generate_password_hash
 
 from flaskr.models import Users, Videos, Posts, ContentPage, Images
 
+
 @app.route("/", methods=["GET"])
 def index():
     """ Funcion para mostrar la pagina principal """
     posts = Posts.query.order_by(Posts.id.desc()).all()
-    
-    content_page_home_one = ContentPage.query.filter_by(from_page="home", \
-            from_section="1").all()
-    content_page_home_two = ContentPage.query.filter_by(from_page="home", \
-            from_section="2").all()
-    content_page_home_three = ContentPage.query.filter_by(from_page="home", \
-            from_section="3").all()
-    content_page_home_four = ContentPage.query.filter_by(from_page="home", \
-            from_section="4").all()
 
-    image_page_home_two = Images.query.filter_by(from_page="home", \
-            from_section="2").first()
-    image_page_home_three = Images.query.filter_by(from_page="home", \
-            from_section="3").first()
-    image_page_home_four = Images.query.filter_by(from_page="home", \
-            from_section="4").first()
+    content_page_home_one = ContentPage.query.filter_by(from_page="home",
+                                                        from_section="1").all()
+    content_page_home_two = ContentPage.query.filter_by(from_page="home",
+                                                        from_section="2").all()
+    content_page_home_three = ContentPage.query.filter_by(from_page="home",
+                                                          from_section="3").all()
+    content_page_home_four = ContentPage.query.filter_by(from_page="home",
+                                                         from_section="4").all()
 
-    return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one, \
-            content_page_home_two=content_page_home_two, image_page_home_two=image_page_home_two, \
-            content_page_home_three=content_page_home_three, image_page_home_three=image_page_home_three, \
-            content_page_home_four=content_page_home_four, image_page_home_four=image_page_home_four)
+    image_page_home_two = Images.query.filter_by(from_page="home",
+                                                 from_section="2").first()
+    image_page_home_three = Images.query.filter_by(from_page="home",
+                                                   from_section="3").first()
+    image_page_home_four = Images.query.filter_by(from_page="home",
+                                                  from_section="4").first()
+
+    return render_template("index.html", posts=posts, content_page_home_one=content_page_home_one,
+                           content_page_home_two=content_page_home_two, image_page_home_two=image_page_home_two,
+                           content_page_home_three=content_page_home_three, image_page_home_three=image_page_home_three,
+                           content_page_home_four=content_page_home_four, image_page_home_four=image_page_home_four)
+
+
+@app.route("/landing-page", methods=["GET"])
+def landing_page():
+    return render_template("routes/landing.html")
+
 
 @app.route("/quienes_somos", methods=["GET"])
 def quienes_somos():
     """ Funcion para mostrar la pagina de ¿quienes somos? """
-    content_page_about_one = ContentPage.query.filter_by(from_page="quienes_somos", \
-            from_section="1").all()
+    content_page_about_one = ContentPage.query.filter_by(from_page="quienes_somos",
+                                                         from_section="1").all()
 
     return render_template("routes/quienes_somos.html", content_page_about_one=content_page_about_one)
+
 
 @app.route("/cursos", methods=["GET"])
 def cursos():
@@ -45,7 +53,7 @@ def cursos():
     username = session.get("username")
 
     if username is None:
-        current_user = { "payment_completed": "Sin Adquirir" }
+        current_user = {"payment_completed": "Sin Adquirir"}
         videos = Videos.query.all()
 
         return render_template("routes/cursos.html", videos=videos, current_user=current_user)
@@ -55,6 +63,7 @@ def cursos():
 
         return render_template("routes/cursos.html", videos=videos, current_user=current_user)
 
+
 @app.route("/cursos/clase/<int:video_id>", methods=["GET"])
 @login_required
 def videos(video_id):
@@ -63,6 +72,7 @@ def videos(video_id):
     video = Videos.query.filter_by(id=video_id).first()
 
     return render_template("routes/videos.html", video=video, videos=videos)
+
 
 @app.route("/cursos/comprar", methods=["GET"])
 @login_required
@@ -77,6 +87,7 @@ def comprar_curso():
     else:
         return redirect(url_for("perfil", username=username))
 
+
 @app.route("/perfil/<string:username>", methods=["GET"])
 @login_required
 def perfil(username):
@@ -85,6 +96,7 @@ def perfil(username):
     videos = Videos.query.all()
 
     return render_template("routes/perfil.html", current_user=current_user, videos=videos)
+
 
 @app.route("/perfil/<string:username>/editar", methods=["GET", "POST"])
 @login_required
