@@ -4,6 +4,7 @@ from flask import jsonify, request, session, redirect, url_for
 
 from flaskr.models import Users
 
+
 @app.route("/payment", methods=["POST"])
 def payment():
     """ Funcion para iniciar con el proceso de pago """
@@ -44,7 +45,8 @@ def payment():
         else:
             print(payment.error)
 
-        return jsonify({ "paymentID": payment.id })
+        return jsonify({"paymentID": payment.id})
+
 
 @app.route("/execute", methods=["POST"])
 def execute():
@@ -58,7 +60,8 @@ def execute():
     else:
         print(payment.error)
 
-    return jsonify({ "success": success })
+    return jsonify({"success": success})
+
 
 @app.route("/payment_completed", methods=["GET"])
 def payment_completed():
@@ -73,4 +76,4 @@ def payment_completed():
     db.session.add(update_user_info)
     db.session.commit()
 
-    return jsonify({ "username": username })
+    return jsonify({"username": username})

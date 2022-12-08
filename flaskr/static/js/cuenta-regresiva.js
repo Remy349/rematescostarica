@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const countdown = (deadline, elem) => {
+  const countdown = (deadline, elem, finalMessage) => {
     const el = document.getElementById(elem)
 
     const timerUpdate = setInterval(() => {
@@ -24,11 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (time.remainTime <= 1) {
         clearInterval(timerUpdate)
-        countdown(`Dec 06 2022 00:00:00 GMT-0600`, 'cuentaRegresiva')
-        el.innerHTML = `La oferta termina en: ${time.remainHours}h:${time.remainMinutes}m:${time.remainSeconds}s`
+        el.innerHTML = finalMessage
       }
     }, 1000)
   }
 
-  countdown('Dec 06 2022 00:00:00 GMT-0600', 'cuentaRegresiva')
+  countdown(
+    'Dec 31 2022 00:00:00 GMT-0600',
+    'cuentaRegresiva',
+    'Fin de la oferta!'
+  )
 })

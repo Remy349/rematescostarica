@@ -1,39 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const paypalBtn = document.getElementById('paypal-button');
+  const paypalBtn = document.getElementById('paypal-button')
 
-    if (paypalBtn) {
-        paypal.Button.render({
-            env: 'live',
-            style: {
-                color: 'gold',
-                shape: 'rect',
-                size: 'responsive',
-                tagline: false,
-                label: 'pay',
-                height: 45,
-            },
-            payment: function(data, actions) {
-                return actions.request.post('/payment')
-                    .then(function(res) {
-                        return res.paymentID;
-                    })
-                ;
-            },
-            onAuthorize: function(data, actions) {
-                return actions.request.post('/execute', {
-                    paymentID: data.paymentID,
-                    payerID: data.payerID,
+  if (paypalBtn) {
+    paypal.Button.render(
+      {
+        env: 'production',
+        style: {
+          color: 'gold',
+          shape: 'rect',
+          size: 'responsive',
+          tagline: false,
+          label: 'pay',
+          height: 45,
+        },
+        payment: function (data, actions) {
+          return actions.request.post('/payment').then(function (res) {
+            return res.paymentID
+          })
+        },
+        onAuthorize: function (data, actions) {
+          return actions.request
+            .post('/execute', {
+              paymentID: data.paymentID,
+              payerID: data.payerID,
+            })
+            .then(function (res) {
+              if (res.success === true) {
+                fetch('/payment_completed', {
+                  method: 'GET',
                 })
-                    .then(function(res) {
-                        if (res.success === true) {
-                            fetch('/payment_completed', {
-                                method: 'GET',
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    const comprarCursoCard = document.getElementById('comprarCursoCard');
+                  .then((res) => res.json())
+                  .then((data) => {
+                    const comprarCursoCard =
+                      document.getElementById('comprarCursoCard')
 
-                                    comprarCursoCard.innerHTML = `
+                    comprarCursoCard.innerHTML = `
                                         <div class="comprar__card-img">
                                             <img
                                                 src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656886393/rematescostarica/compra-realizada_embnd0.png"
@@ -54,16 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                                 Ir a mi perfil
                                             </a>
                                         </div>
-                                    `;
-                                })
-                                .catch(error => console.log(error))
-                            ;
-                        } else {
-                            console.log(res.success);
-                        }
-                    })
-                ;
-            }
-        }, paypalBtn);
-    }
-});
+                                    `
+                  })
+                  .catch((error) => console.log(error))
+              } else {
+                console.log(res.success)
+              }
+            })
+        },
+      },
+      paypalBtn
+    )
+  }
+})

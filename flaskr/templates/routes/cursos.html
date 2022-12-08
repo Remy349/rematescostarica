@@ -59,20 +59,20 @@
                         {% if session.user_id %}
                             {% if current_user.payment_completed == "Sin Adquirir" %}
                                 <div class="cursos__free-cards_btns">
-                                    <a href="{{ url_for('comprar_curso') }}" class="cursos__free-cards_btn">
+                                    <a href="{{ url_for('landing_page') }}" class="cursos__free-cards_btn">
                                         Comprar curso ahora
                                     </a>
                                 </div>
                             {% else %}
                                 <div class="cursos__free-cards_btns" style="display: none;">
-                                    <a href="{{ url_for('comprar_curso') }}" class="cursos__free-cards_btn">
+                                    <a href="{{ url_for('landing_page') }}" class="cursos__free-cards_btn">
                                         Comprar curso ahora
                                     </a>
                                 </div>
                             {% endif %}
                         {% else %}
                             <div class="cursos__free-cards_btns">
-                                <a href="{{ url_for('iniciar_sesion') }}" class="cursos__free-cards_btn">
+                                <a href="{{ url_for('landing_page') }}" class="cursos__free-cards_btn">
                                     Comprar curso ahora
                                 </a>
                             </div>

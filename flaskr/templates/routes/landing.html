@@ -88,7 +88,7 @@
   <body>
     <header class="nav">
       <div class="container">
-        <div class="row items-center mb-lg">
+        <div class="row items-center mb-lg randall-nav">
           <div class="column align-left">
             <a
               href="{{ url_for('index') }}"
@@ -116,7 +116,10 @@
               y vender propiedades para obtener un gran rendimiento de la
               inversión.
             </p>
-            <a href="#" class="button xl main mt-lg w-button">
+            <a
+              href="{{ url_for('comprar_curso') }}"
+              class="button xl main mt-lg w-button"
+            >
               Inscríbase hoy mismo.</a
             >
           </div>

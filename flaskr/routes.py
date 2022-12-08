@@ -75,17 +75,18 @@ def videos(video_id):
 
 
 @app.route("/cursos/comprar", methods=["GET"])
-@login_required
+# @login_required
 def comprar_curso():
     """ Funcion para mostrar una unica vista dde la compra del curso """
-    username = session.get("username")
+    return render_template("routes/comprar_curso.html")
+    # username = session.get("username")
 
-    current_user = Users.query.filter_by(username=username).first()
+    # current_user = Users.query.filter_by(username=username).first()
 
-    if current_user.payment_completed == "Sin Adquirir":
-        return render_template("routes/comprar_curso.html")
-    else:
-        return redirect(url_for("perfil", username=username))
+    # if current_user.payment_completed == "Sin Adquirir":
+        # return render_template("routes/comprar_curso.html")
+    # else:
+        # return redirect(url_for("perfil", username=username))
 
 
 @app.route("/perfil/<string:username>", methods=["GET"])
