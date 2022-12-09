@@ -28,6 +28,7 @@
     <!-- TITLE -->
     <title>{% block title %} {% endblock title %}</title>
   </head>
+
   <body>
     <!-- HEADER -->
     <header class="header">
@@ -134,10 +135,10 @@
     <!-- SWIPER JS -->
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <!-- CHECKOUT JS -->
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Af4hPc9QqMN_Nh-eeBU7og-5pr6PqGialT50doGcGwQC8UpZbDzmTM13OYYp83i4pGNSNhyPK-DpZWly&disable-funding=card,credit"></script>
     <!-- PAYPAL JS -->
     <script
-      src="{{ url_for('static', filename='js/paypal.js') }}"
+      src="{{ url_for('static', filename='js/checkout.js') }}"
       charset="utf-8"
     ></script>
     <!-- NEW PASSWORD -->

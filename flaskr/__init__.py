@@ -1,5 +1,4 @@
 import os
-import paypalrestsdk
 import cloudinary
 from flask import Flask, render_template
 from dotenv import load_dotenv
@@ -12,16 +11,6 @@ from flask_moment import Moment
 load_dotenv()
 
 app = Flask(__name__)
-
-PAYPAL_MODE = os.getenv("PAYPAL_MODE")
-PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")
-PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET")
-
-paypalrestsdk.configure({
-    "mode": PAYPAL_MODE,
-    "client_id": PAYPAL_CLIENT_ID,
-    "client_secret": PAYPAL_CLIENT_SECRET,
-})
 
 cloudinary.config(
     cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
@@ -52,7 +41,6 @@ def page_not_found(e):
 
 from flaskr import routes
 from flaskr import auth
-from flaskr import paypal
 from flaskr import admin_user
 from flaskr import admin_posts
 from flaskr import admin_content
