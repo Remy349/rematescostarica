@@ -54,9 +54,17 @@ video {
   display: block;
 }
 
+#downloadBtnTwo {
+  display: block;
+}
+
 .download-link {
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+div#paypal-button-container {
+  opacity: 0.99;
 }
 
 /* HEADER */
@@ -2189,9 +2197,90 @@ div#paypal-button {
   font-size: 1.1rem;
 }
 
+/* PASARELA */
+.registro {
+  font-family: "Raleway", sans-serif;
+  min-height: 100vh;
+}
+.registro__form {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+.registro__form-title {
+  font-size: 1.85rem;
+  text-align: center;
+}
+.registro__form-text {
+  text-align: center;
+  font-size: 1.15rem;
+}
+.registro__form-inputscont {
+  row-gap: 1.15rem;
+}
+.registro__form-inputs {
+  display: grid;
+  background-color: #e7e5e5;
+  padding: 1rem 0.5rem 1rem 1rem;
+  border-radius: 0.5rem;
+  row-gap: 0.3rem;
+}
+.registro__form-inputs label {
+  font-size: 1.1rem;
+}
+.registro__form-input {
+  background-color: #e7e5e5;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  width: 100%;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+.registro__form-subtitle {
+  text-align: center;
+}
+.registro__form-radioscont {
+  row-gap: 1.5rem;
+}
+.registro__form-radios {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.registro__form-radios label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.registro__form-radio {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.registro__form-btn {
+  width: 100%;
+  padding: 1.15rem 0;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #b0b878;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+}
+
 /* COMPRAR CURSO */
 .comprar {
   font-family: "Raleway", sans-serif;
+  min-height: 100vh;
 }
 .comprar__container {
   display: flex;
@@ -2655,6 +2744,14 @@ div#paypal-button {
   .editarU__forms {
     width: 80%;
   }
+  .registro__forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .registro__form {
+    width: 80%;
+  }
 }
 @media screen and (min-width: 768px) {
   body {
@@ -2762,6 +2859,14 @@ div#paypal-button {
   .editarU__form-btns {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
+  }
+  .registro__form-inputscont {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+  .registro__form-radioscont {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
   }
   .admin__content {
     grid-template-columns: 1fr 1fr;
@@ -2916,9 +3021,6 @@ div#paypal-button {
   .about__comment-form {
     grid-template-columns: auto 25%;
   }
-  .comprar {
-    height: 100vh;
-  }
   .comprar__card {
     width: 60%;
   }
@@ -2971,6 +3073,12 @@ div#paypal-button {
   }
   .editarU__forms {
     width: 60%;
+  }
+  .registro__form {
+    row-gap: 2rem;
+  }
+  .registro__form-inputscont {
+    column-gap: 1.5rem;
   }
   .registrate__wrap {
     width: 100%;

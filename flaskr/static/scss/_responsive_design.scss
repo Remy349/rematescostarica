@@ -491,6 +491,18 @@
 
         &__forms { width: 80%; }
     }
+
+    .registro {
+        &__forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__form {
+            width: 80%;
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -648,6 +660,20 @@
             &-btns {
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 1.5rem;
+            }
+        }
+    }
+
+    .registro {
+        &__form {
+            &-inputscont {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1rem;
+            }
+
+            &-radioscont {
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1rem;
             }
         }
     }
@@ -881,8 +907,6 @@
     }
 
     .comprar {
-        height: 100vh;
-
         &__card { width: 60%; }
     }
 
@@ -958,6 +982,16 @@
 
     .editarU {
         &__forms { width: 60%; }
+    }
+
+    .registro {
+        &__form {
+            row-gap: 2rem;
+
+            &-inputscont {
+                column-gap: 1.5rem;
+            }
+        }
     }
 
     .registrate {

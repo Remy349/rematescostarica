@@ -73,9 +73,15 @@ video {
 
 #downloadLink { display: block; }
 
+#downloadBtnTwo { display: block; }
+
 .download-link {
     font-size: 1.1rem;
     cursor: pointer;
+}
+
+div#paypal-button-container {
+  opacity: .99;
 }
 
 /* HEADER */
@@ -223,6 +229,9 @@ video {
 
 /* VIDEOS */
 @import './videos';
+
+/* PASARELA */
+@import './pasarela';
 
 /* COMPRAR CURSO */
 @import './comprar_curso';

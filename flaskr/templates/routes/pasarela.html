@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+RematesCR - Registro
+{% endblock title %}
+
+{% block content %}
+<section class="registro section">
+  <div class="registro__container container">
+    <div class="registro__forms">
+      <form action="{{ url_for('registro') }}" id="registroForm" method="POST" class="registro__form">
+        <h1 class="registro__form-title">
+          Registro
+        </h1>
+        <p class="registro__form-text">
+          Información de datos para el registro
+        </p>
+        <div class="registro__form-inputscont grid">
+          <div class="registro__form-inputs" id="firstnameCont">
+            <p id="firstnameLabel"></p>
+            <label>Nombre</label>
+            <input
+              class="registro__form-input"
+              autocomplete="off"
+              name="firstname"
+              type="text"
+              id="firstname"
+            />
+          </div>
+          <div class="registro__form-inputs" id="lastnameCont">
+            <p id="lastnameLabel"></p>
+            <label>Apellido</label>
+            <input
+              class="registro__form-input"
+              autocomplete="off"
+              name="lastname"
+              type="text"
+              id="lastname"
+            />
+          </div>
+        </div>
+        <div class="registro__form-inputscont grid">
+          <div class="registro__form-inputs" id="emailCont">
+            <p id="emailLabel"></p>
+            <label>Dirección E-Mail</label>
+            <input
+              class="registro__form-input"
+              autocomplete="off"
+              name="email_adress"
+              type="text"
+              id="email"
+            />
+          </div>
+          <div class="registro__form-inputs" id="phoneCont">
+            <p id="phoneLabel"></p>
+            <label>Teléfono</label>
+            <input
+              class="registro__form-input"
+              autocomplete="off"
+              name="phonenumber"
+              type="text"
+              id="phone"
+            />
+          </div>
+        </div>
+        <h2 class="registro__form-subtitle">
+          Tipo de Curso
+        </h2>
+        <div class="registro__form-radioscont grid">
+          <div class="registro__form-radios">
+            <input
+              type="radio"
+              name="course_type"
+              value="vivo"
+              id="vivo"
+              class="registro__form-radio"
+              checked
+            />
+            <label for="vivo">Curso en vivo: ₡95,000/$164</label>
+          </div>
+          <div class="registro__form-radios">
+            <input
+              type="radio"
+              name="course_type"
+              value="pregrabado"
+              id="pregrabado"
+              class="registro__form-radio"
+            />
+            <label for="pregrabado">Curso pregrabado: ₡75,000/$129</label>
+          </div>
+        </div>
+        <div class="registro__form-btns">
+          <button class="registro__form-btn" type="submit">
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+

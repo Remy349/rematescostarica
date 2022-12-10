@@ -123,6 +123,50 @@
                     </div>
                 </div>
             </div>
+            <div class="admin__table">
+                <div class="admin__table-container">
+                    <div class="admin__table-info">
+                        <div>
+                            <h3 class="admin__table-info_title">
+                                Compra de Cursos
+                            </h3>
+                        </div>
+                        <div>
+                            <a class="admin__table-info_btn" id="downloadBtnTwo">
+                                Descargar
+                                <i class="ri-download-fill admin__table-info_icon"></i>
+                            </a>
+                        </div>
+                        <div id="downloadLinkTwo"></div>
+                    </div>
+                    <div class="admin__table-tablecont">
+                        <table class="admin__table-table">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Apellido</td>
+                                    <td>Telefono</td>
+                                    <td>Correo</td>
+                                    <td>Tipo de Curso</td>
+                                    <td>Pago Completo</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for registro in registros %}
+                                    <tr>
+                                        <td>{{ registro.firstname }}</td>
+                                        <td>{{ registro.lastname }}</td>
+                                        <td>{{ registro.phonenumber }}</td>
+                                        <td>{{ registro.email_adress }}</td>
+                                        <td>{{ registro.course_type }}</td>
+                                        <td>{{ registro.payment_completed }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="admin__videos">
                 <div class="admin__videos-container">
                     <h2 class="admin__videos-title">

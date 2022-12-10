@@ -1,0 +1,91 @@
+.registro {
+  font-family: $raleway;
+  min-height: 100vh;
+
+  &__form {
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    background-color: $white-color;
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+    display: grid;
+    row-gap: 1.5rem;
+    width: 100%;
+
+    &-title {
+      font-size: 1.85rem;
+      text-align: center;
+    }
+
+    &-text {
+      text-align: center;
+      font-size: 1.15rem;
+    }
+
+    &-inputscont {
+      row-gap: 1.15rem;
+    }
+
+    &-inputs {
+      display: grid;
+      background-color: $background-color;
+      padding: 1rem .5rem 1rem 1rem;
+      border-radius: .5rem;
+      row-gap: .3rem;
+
+      & label {
+        font-size: 1.1rem;
+      }
+    }
+
+    &-input {
+      background-color: $background-color;
+      border: none;
+      outline: none;
+      font-size: 1.2rem ;
+      width: 100%;
+      font-weight: 500;
+      font-family: $raleway;
+    }
+
+    &-subtitle {
+      text-align: center;
+    }
+
+    &-radioscont {
+      row-gap: 1.5rem;
+    }
+
+    &-radios {
+      display: flex;
+      column-gap: 1rem;
+      align-items: center;
+      justify-content: center;
+
+      & label {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+
+    &-radio {
+      width: 1.5rem;
+      height: 1.5rem;
+      cursor: pointer;
+    }
+
+    &-btn {
+      width: 100%;
+      padding: 1.15rem 0;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      background-color: $primary-color-sub;
+      border-radius: 0.5rem;
+      color: $white-color;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: $raleway;
+    }
+  }
+}

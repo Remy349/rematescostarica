@@ -74,10 +74,10 @@ def videos(video_id):
     return render_template("routes/videos.html", video=video, videos=videos)
 
 
-@app.route("/cursos/comprar", methods=["GET"])
+@app.route("/cursos/comprar/vivo", methods=["GET"])
 # @login_required
 def comprar_curso():
-    """ Funcion para mostrar una unica vista dde la compra del curso """
+    """ Funcion para mostrar una unica vista de la compra del curso """
     return render_template("routes/comprar_curso.html")
     # username = session.get("username")
 
@@ -87,6 +87,13 @@ def comprar_curso():
         # return render_template("routes/comprar_curso.html")
     # else:
         # return redirect(url_for("perfil", username=username))
+
+
+@app.route("/cursos/comprar/pregrabado", methods=["GET"])
+def comprar_curso_two():
+    """ Funcion para mostrar una unica vista de la compra del curso """
+    return render_template("routes/comprar_curso_two.html")
+
 
 
 @app.route("/perfil/<string:username>", methods=["GET"])

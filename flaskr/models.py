@@ -2,6 +2,17 @@ from datetime import datetime
 from flaskr import db
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
+class Registro(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(25), nullable=False)
+    lastname = db.Column(db.String(25), nullable=False)
+    phonenumber = db.Column(db.String(25), nullable=False)
+    email_adress = db.Column(db.String(160), nullable=False, unique=True)
+    course_type = db.Column(db.String(25), nullable=False)
+    payment_completed = db.Column(db.String(40), nullable=False)
+
+
 class Users(db.Model):
     """ Tabla para guardar los datos del usuario """
     __tablename__ = "users"

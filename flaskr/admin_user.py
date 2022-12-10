@@ -5,7 +5,7 @@ from flask import render_template, request, redirect, url_for, session, flash, j
 from helpers import login_required
 from openpyxl import Workbook
 
-from flaskr.models import Admin, Users, Videos
+from flaskr.models import Admin, Users, Videos, Registro
 
 ALLOWED_EXTENSIONS = {"mp4", "mp3"}
 
@@ -58,6 +58,7 @@ def usuario_admin():
         admin_user = Admin.query.filter_by(username=username).first()
         videos = Videos.query.all()
         users = Users.query.all()
+        registros = Registro.query.all()
 
         total_users = 0
         payment_completed_users = 0
@@ -79,7 +80,7 @@ def usuario_admin():
         }
 
         return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
-                               total_data_info=total_data_info)
+                               total_data_info=total_data_info, registros=registros)
 
 @app.route("/perfil/usuario_admin/agregar_video", methods=["GET", "POST"])
 @login_required
@@ -178,6 +179,36 @@ def editar_perfil_admin():
 
         return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
                                total_data_info=total_data_info)
+
+@app.route("/create_file_two", methods=["GET"])
+def create_file_two():
+    """ Crear archivo excel con los datos de los usuarios """
+    registros = Registro.query.all()
+    wb = Workbook()
+    registro_array = []
+
+    hoja = wb.active
+    hoja.title = "Compra de Curso"
+
+    for registro in registros:
+        registro_array.append((
+            registro.firstname,
+            registro.lastname,
+            registro.phonenumber,
+            registro.email_adress,
+            registro.course_type,
+            registro.payment_completed
+        ))
+
+    hoja.append(("PrimerNombre", "PrimerApellido", "NumeroTelefonico", \
+                 "DireccionDeCorreo", "TipoDeCurso", "PagoDelCurso"))
+
+    for item in registro_array:
+        hoja.append(item)
+
+    wb.save("flaskr/static/files/Registros.xlsx")
+
+    return jsonify({"message": "Creating file..."})
 
 @app.route("/create_file", methods=["GET"])
 def create_file():

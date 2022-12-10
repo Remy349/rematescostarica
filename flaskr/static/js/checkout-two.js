@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const paypalButton = document.getElementById('paypal-button-container')
+  const paypalButtonTwo = document.getElementById('paypal-button-container-two')
 
-  if (paypalButton) {
+  if (paypalButtonTwo) {
     paypal
       .Buttons({
         style: {
@@ -13,20 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
               {
                 amount: {
                   currency_code: 'USD',
-                  value: '164',
+                  value: '129',
                   breakdown: {
                     item_total: {
                       currency_code: 'USD',
-                      value: '164',
+                      value: '129',
                     },
                   },
                 },
                 items: [
                   {
-                    name: 'Curso en vivo',
+                    name: 'Curso pregrabado',
                     unit_amount: {
                       currency_code: 'USD',
-                      value: '164',
+                      value: '129',
                     },
                     quantity: '1',
                   },
@@ -55,6 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         },
       })
-      .render(paypalButton)
+      .render(paypalButtonTwo)
   }
 })
