@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
               {
                 amount: {
                   currency_code: 'USD',
-                  value: '164',
+                  value: '2',
                   breakdown: {
                     item_total: {
                       currency_code: 'USD',
-                      value: '164',
+                      value: '2',
                     },
                   },
                 },
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: 'Curso en vivo',
                     unit_amount: {
                       currency_code: 'USD',
-                      value: '164',
+                      value: '2',
                     },
                     quantity: '1',
                   },
