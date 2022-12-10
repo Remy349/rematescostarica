@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (downloadBtnTwo) {
-    downloadBtn.addEventListener('click', () => {
+    downloadBtnTwo.addEventListener('click', () => {
       fetch('/create_file_two', {
         method: 'GET',
       })
