@@ -33,7 +33,7 @@
                             Telefono: {{ current_user.phonenumber }}
                         </p>
                     </div>
-                    <div class="perfil__content-editar">
+                    <div class="perfil__content-editar" style="display: none;">
                         <a href="{{ url_for('editar_perfil', username=session.username) }}" class="perfil__content-btn">
                             Editar Perfil
                         </a>
@@ -65,7 +65,35 @@
                                     </p>
                                 </div>
                                 <div class="perfil__payment-card_btns">
-                                    <a href="{{ url_for('comprar_curso') }}" class="perfil__payment-card_btn">
+                                    <a href="{{ url_for('landing_page') }}" class="perfil__payment-card_btn">
+                                        Comprar curso ahora
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif registro.course_type == "vivo" %}
+                <div class="perfil__payment">
+                    <div class="perfil__payment-container">
+                        <div class="perfil__payment-card grid">
+                            <div class="perfil__payment-card_img">
+                                <img
+                                    src="https://res.cloudinary.com/dajvxg9wj/image/upload/v1656886393/rematescostarica/comprar_cnuejb.png"
+                                    alt="Compra de articulos por internet"
+                                >
+                            </div>
+                            <div class="perfil__payment-card_data grid">
+                                <div class="perfil__payment-card_info">
+                                    <h3>Tipo de curso: Vivo!</h3>
+                                    <p>
+                                        Luego de realizar el pago mediante PayPal tendras acceso
+                                        a los videos y demas funciones especiales de ahora y otras
+                                        que se iran desarrollando proximamente!
+                                    </p>
+                                </div>
+                                <div class="perfil__payment-card_btns" style="display: none;">
+                                    <a href="{{ url_for('landing_page') }}" class="perfil__payment-card_btn">
                                         Comprar curso ahora
                                     </a>
                                 </div>
@@ -96,11 +124,6 @@
                         <div class="perfil__videos-container">
                             {% for video in videos %}
                                 <div class="perfil__videos-card">
-                                    <div class="perfil__videos-card_video">
-                                        <video>
-                                            <source src="{{ video.url_video }}" type="video/mp4">
-                                        </video>
-                                    </div>
                                     <div class="perfil__videos-card_data">
                                         <p>{{ video.title }}</p>
                                         <a href="{{ url_for('videos', video_id=video.id) }}" class="perfil__videos-card_btn">

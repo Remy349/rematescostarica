@@ -51,11 +51,6 @@
                 >¿Quiénes somos?</a
               >
             </li>
-            <li class="nav__item">
-              <a href="{{ url_for('landing_page') }}" class="nav__link"
-                >Prices</a
-              >
-            </li>
             {% if session.username == "SuperAdminUser" %}
             <li class="nav__item">
               <a
@@ -107,8 +102,8 @@
               >
             </li>
             <li class="nav__item">
-              <a href="{{ url_for('landing_page') }}" class="nav__link"
-                >Prices</a
+              <a href="{{ url_for('iniciar_sesion') }}" class="nav__link"
+                >Iniciar sesión</a
               >
             </li>
           </ul>

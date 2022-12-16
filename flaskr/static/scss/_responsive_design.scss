@@ -388,7 +388,7 @@
         &__lists {
             &-content {
                 grid-template-columns: repeat(2, 1fr);
-                column-gap: 1rem;
+                column-gap: 2rem;
             }
         }
     }
@@ -915,7 +915,7 @@
 
         &__container {
             grid-template-columns: 2fr 1fr;
-            column-gap: 1rem;
+            column-gap: 2rem;
         }
 
         &__lists {

@@ -1,4 +1,5 @@
 import os
+import vimeo
 import cloudinary
 from flask import Flask, render_template
 from dotenv import load_dotenv
@@ -12,12 +13,6 @@ load_dotenv()
 
 app = Flask(__name__)
 
-cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
-    api_key=os.getenv("CLOUDINARY_API_KEY"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET")
-)
-
 if not Config.SQLALCHEMY_DATABASE_URI:
     raise RuntimeError("DATABASE_URI is not set!")
 else:
@@ -26,6 +21,18 @@ else:
 app.config.from_object(Config)
 
 app.config["UPLOAD_FOLDER"] = "flaskr/static/videos"
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+)
+
+client = vimeo.VimeoClient(
+    token=os.getenv("VIMEO_ACCESS_TOKEN"),
+    key=os.getenv("VIMEO_CLIENT_ID"),
+    secret=os.getenv("VIMEO_CLIENT_SECRET")
+)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, compare_type=True)

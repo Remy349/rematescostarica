@@ -1,4 +1,8 @@
 import os
+
+import vimeo
+from flaskr import client
+from werkzeug.utils import secure_filename
 from flaskr import app, db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import render_template, request, redirect, url_for, session, flash, jsonify
@@ -103,21 +107,41 @@ def agregar_video():
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
-            return redirect(url_for("usuario_admin"))
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            
+            path_video = f"{app.config['UPLOAD_FOLDER']}/{filename}"
+
+            try:
+                uri = client.upload(path_video, data={
+                                        'name': title,
+                                        'description': description
+                                    })
+                
+                video_data = client.get(uri + "?fields=player_embed_url").json()
+
+                new_video = Videos(title=title, description=description, uri=video_data["player_embed_url"])
+                db.session.add(new_video)
+                db.session.commit()
+
+                os.remove(path_video)
+
+                return redirect(url_for("usuario_admin"))
+            except vimeo.exceptions.VideoUploadFailure as e:
+                print("Server reported: %s" % e.message)
         else:
             flash("Tipo de archivo no permitido!")
             return redirect(request.url)
 
-@app.route("/perfil/usuario_admin/editar_video/<int:video_id>", methods=["GET", "POST"])
-@login_required
-def editar_video(video_id):
-    """ Ruta para editar la informacion de cada video """
-    pass
-
 @app.route("/perfil/usuario_admin/eliminar_video/<int:video_id>", methods=["GET"])
 @login_required
 def eliminar_video(video_id):
-    pass
+    delete_video = Videos.query.filter_by(id=video_id).first()
+
+    db.session.delete(delete_video)
+    db.session.commit()
+
+    return redirect(url_for("usuario_admin"))
 
 @app.route("/perfil/usuario_admin/editar_perfil", methods=["GET", "POST"])
 @login_required

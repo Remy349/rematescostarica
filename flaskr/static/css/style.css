@@ -2169,6 +2169,13 @@ div#paypal-button {
 .videos__container {
   row-gap: 3rem;
 }
+.videos__current-content {
+  width: 100%;
+}
+.videos__current-content_iframe {
+  height: 20rem;
+  width: 100%;
+}
 .videos__current-title {
   margin-top: 1rem;
 }
@@ -2189,7 +2196,7 @@ div#paypal-button {
 }
 .videos__lists-card_cont {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 0.7rem;
 }
 .videos__lists-card_cont p {
@@ -2668,7 +2675,7 @@ div#paypal-button {
   }
   .videos__lists-content {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 1rem;
+    column-gap: 2rem;
   }
   .cursos__more {
     grid-template-columns: repeat(2, 1fr);
@@ -3029,7 +3036,7 @@ div#paypal-button {
   }
   .videos__container {
     grid-template-columns: 2fr 1fr;
-    column-gap: 1rem;
+    column-gap: 2rem;
   }
   .videos__lists-content {
     grid-template-columns: 1fr;

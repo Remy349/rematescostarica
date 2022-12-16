@@ -9,9 +9,7 @@
         <div class="videos__container container grid">
             <div class="videos__current">
                 <div class="videos__current-content">
-                    <video controls>
-                        <source src="{{ video.secure_url }}" type="video/mp4">
-                    </video>
+                    <iframe class="videos__current-content_iframe" src="{{ video.uri }}" loading="lazy" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
                 <div class="videos__current-title">
                     <h3>{{ video.title }}</h3>
@@ -24,18 +22,12 @@
                         {% if v.id == video.id %}
                         <a class="videos__lists-card" style="display: none;">
                                 <div class="videos__lists-card_cont">
-                                    <video>
-                                        <source src="{{ v.secure_url }}" type="video/mp4">
-                                    </video>
                                     <p>{{ v.title }}</p>
                                 </div>
                             </a>
                         {% else %}
                         <a href="{{ url_for('videos', video_id=v.id) }}" class="videos__lists-card">
                                 <div class="videos__lists-card_cont">
-                                    <video>
-                                        <source src="{{ v.secure_url }}" type="video/mp4">
-                                    </video>
                                     <p>{{ v.title }}</p>
                                 </div>
                             </a>

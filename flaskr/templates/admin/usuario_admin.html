@@ -31,7 +31,7 @@
                                 Correo: {{ admin_user.email_adress }}
                             </p>
                         </div>
-                        <div class="admin__card-editar">
+                        <div class="admin__card-editar" style="display: none;">
                             <a href="{{ url_for('editar_perfil_admin') }}" class="admin__card-btn">
                                 Editar Perfil
                             </a>
@@ -201,21 +201,14 @@
                                             {% for video in videos %}
                                                 <div class="admin__videos-content_slide_card swiper-slide">
                                                     <div class="admin__videos-content_slide_card_header">
-                                                        <video>
-                                                            <source src="{{ video.secure_url }}">
-                                                        </video>
+                                                        <iframe src="{{ video.uri }}" loading="lazy" width="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                                     </div>
                                                     <div class="admin__videos-content_slide_card_data">
                                                         <p>{{ video.title }}</p>
                                                     </div>
                                                     <div class="admin__videos-content_slide_card_btns">
                                                         <div>
-                                                            <a href="" class="admin__videos-content_slide_card_btns_edit">
-                                                                Editar
-                                                            </a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="" class="admin__videos-content_slide_card_btns_delete">
+                                                            <a href="{{ url_for('eliminar_video', video_id=video.id) }}" class="admin__videos-content_slide_card_btns_delete">
                                                                 Eliminar
                                                             </a>
                                                         </div>

@@ -3,7 +3,7 @@ from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
 from werkzeug.security import generate_password_hash
 
-from flaskr.models import Users, Videos, Posts, ContentPage, Images
+from flaskr.models import Users, Videos, Posts, ContentPage, Images, Registro
 
 
 @app.route("/", methods=["GET"])
@@ -61,7 +61,16 @@ def cursos():
         videos = Videos.query.all()
         current_user = Users.query.filter_by(username=username).first()
 
-        return render_template("routes/cursos.html", videos=videos, current_user=current_user)
+        if current_user is None:
+            registro = {
+                "course_type": "pregrabado"
+            }
+
+            return render_template("routes/cursos.html", videos=videos, current_user=current_user, registro=registro)
+        else:
+            registro = Registro.query.filter_by(firstname=current_user.firstname).first()
+
+            return render_template("routes/cursos.html", videos=videos, current_user=current_user, registro=registro)
 
 
 @app.route("/cursos/clase/<int:video_id>", methods=["GET"])
@@ -75,25 +84,17 @@ def videos(video_id):
 
 
 @app.route("/cursos/comprar/vivo", methods=["GET"])
-# @login_required
+@login_required
 def comprar_curso():
     """ Funcion para mostrar una unica vista de la compra del curso """
     return render_template("routes/comprar_curso.html")
-    # username = session.get("username")
-
-    # current_user = Users.query.filter_by(username=username).first()
-
-    # if current_user.payment_completed == "Sin Adquirir":
-        # return render_template("routes/comprar_curso.html")
-    # else:
-        # return redirect(url_for("perfil", username=username))
 
 
 @app.route("/cursos/comprar/pregrabado", methods=["GET"])
+@login_required
 def comprar_curso_two():
     """ Funcion para mostrar una unica vista de la compra del curso """
     return render_template("routes/comprar_curso_two.html")
-
 
 
 @app.route("/perfil/<string:username>", methods=["GET"])
@@ -101,9 +102,11 @@ def comprar_curso_two():
 def perfil(username):
     """ Funcion para mostrar el perfil de usuario """
     current_user = Users.query.filter_by(username=username).first()
+    firstname = current_user.firstname.lower()
+    registro = Registro.query.filter_by(firstname=firstname).first()
     videos = Videos.query.all()
 
-    return render_template("routes/perfil.html", current_user=current_user, videos=videos)
+    return render_template("routes/perfil.html", current_user=current_user, videos=videos, registro=registro)
 
 
 @app.route("/perfil/<string:username>/editar", methods=["GET", "POST"])
@@ -124,6 +127,7 @@ def editar_perfil(username):
         password_value = request.form["password"]
 
         current_user = Users.query.filter_by(username=username).first()
+        registro = Registro.query.filter_by(firstname=current_user.firstname).first()
         videos = Videos.query.all()
 
         if password_value == "" or password_value == " ":
@@ -145,4 +149,4 @@ def editar_perfil(username):
         db.session.add(current_user)
         db.session.commit()
 
-        return render_template("routes/perfil.html", current_user=current_user, videos=videos)
+        return render_template("routes/perfil.html", current_user=current_user, videos=videos, registro=registro)

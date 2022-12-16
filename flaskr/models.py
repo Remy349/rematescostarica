@@ -53,9 +53,7 @@ class Videos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(200), nullable=True, unique=False)
-    filename_video = db.Column(db.String(120), nullable=False)
-    public_id = db.Column(db.String(100), nullable=False)
-    secure_url = db.Column(db.String(140), nullable=False)
+    uri = db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
         return f"""
@@ -63,9 +61,7 @@ class Videos(db.Model):
                 Id: {self.id},
                 Title: {self.title},
                 Description: {self.description},
-                FilenameVideo: {self.filename_video},
-                PublicId: {self.public_id},
-                SecureUrl: {self.secure_url}
+                Uri: {self.uri}
         """
 
 class Images(db.Model):
