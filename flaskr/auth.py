@@ -31,8 +31,8 @@ def registro():
             payment_completed = "Sin Adquirir"
             print(firstname, lastname, phonenumber, email_adress, course_type, payment_completed)
 
-            new_registro = Registro(firstname=firstname.lower(), lastname=lastname.lower(),
-                                    phonenumber=phonenumber, email_adress=email_adress.lower(),
+            new_registro = Registro(firstname=firstname, lastname=lastname,
+                                    phonenumber=phonenumber, email_adress=email_adress,
                                     course_type=course_type, payment_completed=payment_completed)
 
             db.session.add(new_registro)
@@ -85,8 +85,8 @@ def registrate():
             gravatar = md5(email_adress.lower().encode("utf-8")).hexdigest()
             payment_completed = "Sin Adquirir"
 
-            new_user = Users(firstname=firstname.lower(), lastname=lastname.lower(), username=username, phonenumber=phonenumber, \
-                email_adress=email_adress.lower(), adress=adress, postal_code=postal_code, gravatar=gravatar, payment_completed=payment_completed
+            new_user = Users(firstname=firstname, lastname=lastname, username=username, phonenumber=phonenumber, \
+                email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar, payment_completed=payment_completed
             )
             new_user.set_password(password)
             db.session.add(new_user)
