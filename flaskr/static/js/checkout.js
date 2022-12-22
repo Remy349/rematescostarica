@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
               },
               body: JSON.stringify({
                 success: orderData.status,
+                course_type: 'vivo',
               }),
             })
 

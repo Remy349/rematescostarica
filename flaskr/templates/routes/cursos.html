@@ -94,10 +94,15 @@ RematesCR - Cursos
                             </div>
                         </div>
                         {% if session.user_id %}
-                            {% if current_user.payment_completed == "Sin Adquirir" %}
+                            {% if current_user.payment_completed == "Sin Adquirir" or current_user.course_type == "Ninguno" %}
                                 <div class="cursos__free-cards_btns">
-                                    <a href="{{ url_for('landing_page') }}" class="cursos__free-cards_btn">
-                                        Comprar curso ahora
+                                    <a href="{{ url_for('comprar_curso') }}" class="cursos__free-cards_btn">
+                                        Comprar curso: Vivo
+                                    </a>
+                                </div>
+                                <div class="cursos__free-cards_btns">
+                                    <a href="{{ url_for('comprar_curso_two') }}" class="cursos__free-cards_btn">
+                                        Comprar curso: Pregrabado
                                     </a>
                                 </div>
                             {% else %}
@@ -117,7 +122,7 @@ RematesCR - Cursos
                     </div>
                 </div>
             </div>
-            {% if current_user.payment_completed == "Sin Adquirir" %}
+            {% if current_user.payment_completed == "Sin Adquirir" or current_user.course_type == "Ninguno" %}
                 {% if videos|length == 0 %}
                     <div class="cursos__empty">
                         <div class="cursos__empty-header">
@@ -150,7 +155,7 @@ RematesCR - Cursos
                                             <p>{{ video.description }}</p>
                                         </div>
                                         <div class="cursos__more-btns">
-                                            <a href="{{ url_for('landing_page') }}" class="cursos__more-btn">
+                                            <a href="{{ url_for('registrate') }}" class="cursos__more-btn">
                                                 Ver Clase
                                             </a>
                                         </div>
@@ -160,7 +165,7 @@ RematesCR - Cursos
                         {% endfor %}
                     </div>
                 {% endif %}
-            {% elif registro.course_type == "vivo" %}
+            {% elif current_user.course_type == "vivo" %}
                 {% if videos|length == 0 %}
                     <div class="cursos__empty">
                         <div class="cursos__empty-header">

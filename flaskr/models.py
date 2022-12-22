@@ -26,6 +26,7 @@ class Users(db.Model):
     postal_code = db.Column(db.String(60), nullable=True)
     gravatar = db.Column(db.String(120), nullable=False, unique=True)
     payment_completed = db.Column(db.String(40), nullable=False)
+    course_type = db.Column(db.String(25), nullable=True)
     password_hash = db.Column(db.String(160), nullable=False)
 
     def set_password(self, password):
@@ -42,9 +43,10 @@ class Users(db.Model):
                 Lastname: {self.lastname},
                 Username: {self.username},
                 Phonenumber: {self.phonenumber},
-                Email_adress: {self.email_adress},
+                EmailAdress: {self.email_adress},
                 Gravatar: {self.gravatar},
-                Payment_completed: {self.payment_completed}
+                PaymentCompleted: {self.payment_completed},
+                CourseType: {self.course_type}
         """
 
 class Videos(db.Model):

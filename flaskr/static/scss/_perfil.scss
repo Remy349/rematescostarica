@@ -8,6 +8,7 @@
 
 .perfil {
     font-family: $raleway;
+    min-height: 100vh;
 
     &__container { row-gap: 3rem; }
 
@@ -57,7 +58,7 @@
                 width: 70%;
                 padding: .7rem 0;
                 border-radius: .5rem;
-                background-color: #ff0000;
+                background-color: #ff2d2d;
                 color: $white-color;
                 font-family: $raleway;
                 font-size: 1.2rem;

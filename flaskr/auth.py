@@ -8,45 +8,45 @@ from flaskr.models import Users, Registro
 from helpers import login_required
 
 
-@app.route("/registro", methods=["GET", "POST"])
-@login_required
-def registro():
-    if request.method == "GET":
-        return render_template("routes/pasarela.html")
-    elif request.method == "POST":
-        firstname = request.form["firstname"]
-        lastname = request.form["lastname"]
-        email_adress = request.form["email_adress"]
-        phonenumber = request.form["phonenumber"]
-        course_type = request.form["course_type"]
+# @app.route("/registro", methods=["GET", "POST"])
+# @login_required
+# def registro():
+    # if request.method == "GET":
+        # return render_template("routes/pasarela.html")
+    # elif request.method == "POST":
+        # firstname = request.form["firstname"]
+        # lastname = request.form["lastname"]
+        # email_adress = request.form["email_adress"]
+        # phonenumber = request.form["phonenumber"]
+        # course_type = request.form["course_type"]
 
-        errors = None
+        # errors = None
 
-        registro = Registro.query.filter_by(email_adress=email_adress).first()
+        # registro = Registro.query.filter_by(email_adress=email_adress).first()
 
-        if registro is not None:
-            errors = "Ese correo ya esta registrado!"
+        # if registro is not None:
+            # errors = "Ese correo ya esta registrado!"
 
-        if errors is None:
-            payment_completed = "Sin Adquirir"
-            print(firstname, lastname, phonenumber, email_adress, course_type, payment_completed)
+        # if errors is None:
+            # payment_completed = "Sin Adquirir"
+            # print(firstname, lastname, phonenumber, email_adress, course_type, payment_completed)
 
-            new_registro = Registro(firstname=firstname, lastname=lastname,
-                                    phonenumber=phonenumber, email_adress=email_adress,
-                                    course_type=course_type, payment_completed=payment_completed)
+            # new_registro = Registro(firstname=firstname, lastname=lastname,
+                                    # phonenumber=phonenumber, email_adress=email_adress,
+                                    # course_type=course_type, payment_completed=payment_completed)
 
-            db.session.add(new_registro)
-            db.session.commit()
+            # db.session.add(new_registro)
+            # db.session.commit()
 
-            session["email_adress"] = email_adress
+            # session["email_adress"] = email_adress
 
-            if course_type == "vivo":
-                return redirect(url_for("comprar_curso"))
-            elif course_type == "pregrabado":
-                return redirect(url_for("comprar_curso_two"))
+            # if course_type == "vivo":
+                # return redirect(url_for("comprar_curso"))
+            # elif course_type == "pregrabado":
+                # return redirect(url_for("comprar_curso_two"))
 
-        if errors:
-            return redirect(url_for("registro"))
+        # if errors:
+            # return redirect(url_for("registro"))
 
 
 @app.route("/registrate", methods=["GET", "POST"])
@@ -84,10 +84,12 @@ def registrate():
         if errors is None:
             gravatar = md5(email_adress.lower().encode("utf-8")).hexdigest()
             payment_completed = "Sin Adquirir"
+            course_type = 'Ninguno'
 
-            new_user = Users(firstname=firstname, lastname=lastname, username=username, phonenumber=phonenumber, \
-                email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar, payment_completed=payment_completed
-            )
+            new_user = Users(firstname=firstname, lastname=lastname, username=username, phonenumber=phonenumber,
+                             email_adress=email_adress, adress=adress, postal_code=postal_code, gravatar=gravatar, payment_completed=payment_completed,
+                             course_type=course_type)
+
             new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()

@@ -692,6 +692,14 @@
             &-container { grid-template-columns: 1fr; }
         }
 
+        &__table {
+            &-info {
+                flex-direction: row;
+                column-gap: 3rem;
+                align-items: center;
+            }
+        }
+
         &__videos {
             &-content {
                 &_slide {

@@ -61,14 +61,22 @@ def usuario_admin():
     else:
         admin_user = Admin.query.filter_by(username=username).first()
         videos = Videos.query.all()
-        users = Users.query.all()
-        registros = Registro.query.all()
+        all_users = Users.query.all()
+
+        page = request.args.get("page", 1, type=int)
+        users = Users.query.order_by(Users.id).paginate(
+            page, 6, False)
+
+        next_url = url_for("usuario_admin", page=users.next_num) \
+            if users.has_next else None
+        prev_url = url_for("usuario_admin", page=users.prev_num) \
+            if users.has_prev else None
 
         total_users = 0
         payment_completed_users = 0
         payment_uncompleted_users = 0
 
-        for user in users:
+        for user in all_users:
             total_users = total_users + 1
 
             if user.payment_completed == "Sin Adquirir":
@@ -83,8 +91,8 @@ def usuario_admin():
             "payment_uncompleted_users": payment_uncompleted_users,
         }
 
-        return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
-                               total_data_info=total_data_info, registros=registros)
+        return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users.items, \
+                               total_data_info=total_data_info, next_url=next_url, prev_url=prev_url)
 
 @app.route("/perfil/usuario_admin/agregar_video", methods=["GET", "POST"])
 @login_required
@@ -142,6 +150,49 @@ def eliminar_video(video_id):
     db.session.commit()
 
     return redirect(url_for("usuario_admin"))
+
+
+@app.route("/acceso/permitir/<int:user_id>", methods=["GET"])
+@login_required
+def permitir_acceso(user_id):
+    user = Users.query.filter_by(id=user_id).first()
+
+    user.payment_completed = "Adquirido"
+
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect(url_for("usuario_admin"))
+
+
+@app.route("/acceso/denegar/<int:user_id>", methods=["GET"])
+@login_required
+def denegar_acceso(user_id):
+    user = Users.query.filter_by(id=user_id).first()
+
+    user.payment_completed = "Sin Adquirir"
+
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect(url_for("usuario_admin"))
+
+
+@app.route("/otorgar-tipo-curso", methods=["POST"])
+@login_required
+def otorgar_tipo_curso():
+    course_type = request.form["course_type"]
+    user_id = request.form["user_id"]
+
+    user = Users.query.filter_by(id=user_id).first()
+
+    user.course_type = course_type
+
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect(url_for("usuario_admin"))
+
 
 @app.route("/perfil/usuario_admin/editar_perfil", methods=["GET", "POST"])
 @login_required
@@ -204,35 +255,35 @@ def editar_perfil_admin():
         return render_template("admin/usuario_admin.html", admin_user=admin_user, videos=videos, users=users, \
                                total_data_info=total_data_info)
 
-@app.route("/create_file_two", methods=["GET"])
-def create_file_two():
-    """ Crear archivo excel con los datos de los usuarios """
-    registros = Registro.query.all()
-    wb = Workbook()
-    registro_array = []
+# @app.route("/create_file_two", methods=["GET"])
+# def create_file_two():
+    # """ Crear archivo excel con los datos de los usuarios """
+    # registros = Registro.query.all()
+    # wb = Workbook()
+    # registro_array = []
 
-    hoja = wb.active
-    hoja.title = "Compra de Curso"
+    # hoja = wb.active
+    # hoja.title = "Compra de Curso"
 
-    for registro in registros:
-        registro_array.append((
-            registro.firstname,
-            registro.lastname,
-            registro.phonenumber,
-            registro.email_adress,
-            registro.course_type,
-            registro.payment_completed
-        ))
+    # for registro in registros:
+        # registro_array.append((
+            # registro.firstname,
+            # registro.lastname,
+            # registro.phonenumber,
+            # registro.email_adress,
+            # registro.course_type,
+            # registro.payment_completed
+        # ))
 
-    hoja.append(("PrimerNombre", "PrimerApellido", "NumeroTelefonico", \
-                 "DireccionDeCorreo", "TipoDeCurso", "PagoDelCurso"))
+    # hoja.append(("PrimerNombre", "PrimerApellido", "NumeroTelefonico", \
+                 # "DireccionDeCorreo", "TipoDeCurso", "PagoDelCurso"))
 
-    for item in registro_array:
-        hoja.append(item)
+    # for item in registro_array:
+        # hoja.append(item)
 
-    wb.save("flaskr/static/files/Registros.xlsx")
+    # wb.save("flaskr/static/files/Registros.xlsx")
 
-    return jsonify({"message": "Creating file..."})
+    # return jsonify({"message": "Creating file..."})
 
 @app.route("/create_file", methods=["GET"])
 def create_file():
@@ -253,11 +304,12 @@ def create_file():
             user.email_adress,
             user.adress,
             user.postal_code,
-            user.payment_completed
+            user.payment_completed,
+            user.course_type
         ))
 
     hoja.append(("PrimerNombre", "PrimerApellido", "NombreDeUsuario", "NumeroTelefonico", \
-                 "DireccionDeCorreo", "Direccion", "CodigoPostal", "EstadoDelCurso"))
+                 "DireccionDeCorreo", "Direccion", "CodigoPostal", "EstadoDelCurso", "TipoDeCurso"))
 
     for item in user_array:
         hoja.append(item)

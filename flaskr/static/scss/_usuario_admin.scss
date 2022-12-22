@@ -59,7 +59,7 @@
                 width: 70%;
                 padding: .7rem 0;
                 border-radius: .5rem;
-                background-color: #ff0000;
+                background-color: #ff2d2d;
                 color: $white-color;
                 font-family: $raleway;
                 font-size: 1.2rem;
@@ -147,7 +147,7 @@
 
         &-info {
             display: flex;
-            row-gap: 1.5rem;
+            row-gap: 1rem;
             flex-direction: column;
 
             & div { display: flex; }
@@ -168,6 +168,31 @@
                 font-weight: 500;
             }
 
+            &_content {
+                flex-direction: column;
+                row-gap: 1.5rem;
+            }
+
+            &_pagination {
+                column-gap: 2rem;
+
+                &_btn {
+                    background-color: cornflowerblue;
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+
+                    & i {
+                        color: $white-color;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
             &_icon { font-size: 1.2rem; }
         }
 
@@ -177,6 +202,48 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+
+            &_acceso {
+                color: $white-color;
+                border-radius: .5rem;
+                padding: .7rem 1rem;
+                font-weight: 500;
+                cursor: pointer;
+                font-size: 1.1rem;
+            }
+
+            &_form {
+                display: grid;
+                place-content: center;
+                row-gap: 1rem;
+
+                &_label {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                &_input {
+                    font-size: 1.1rem;
+                    font-family: $raleway;
+                    font-weight: 500;
+                    outline: none;
+                    border-radius: .5rem;
+                    padding: .5rem;
+                }
+
+                &_btn {
+                    color: $white-color;
+                    background-color: cornflowerblue;
+                    font-family: $raleway;
+                    border-radius: .5rem;
+                    padding: .5rem 1rem;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
 
             & thead td {
                 font-size: 1.1rem;
