@@ -3,7 +3,7 @@ from flask import render_template, session, redirect, url_for, request
 from helpers import login_required
 from werkzeug.security import generate_password_hash
 
-from flaskr.models import Users, Videos, Posts, ContentPage, Images, Registro
+from flaskr.models import Users, Videos, Posts, ContentPage, Images, Admin
 
 
 @app.route("/", methods=["GET"])
@@ -72,12 +72,17 @@ def videos(video_id):
 
     videos = Videos.query.all()
     video = Videos.query.filter_by(id=video_id).first()
-    current_user = Users.query.filter_by(username=username).first()
+    user_admin = Admin.query.filter_by(username="SuperAdminUser").first()
 
-    if current_user.course_type == "vivo" or current_user.payment_completed == "Sin Adquirir" or current_user.course_type == "Ninguno":
-        return redirect(url_for("perfil", username=current_user.username))
+    if user_admin.username == username:
+        return render_template("routes/videos.html", video=video, videos=videos) 
+    else:
+        current_user = Users.query.filter_by(username=username).first()
 
-    return render_template("routes/videos.html", video=video, videos=videos)
+        if current_user.course_type == "vivo" or current_user.payment_completed == "Sin Adquirir" or current_user.course_type == "Ninguno":
+            return redirect(url_for("perfil", username=current_user.username))
+
+        return render_template("routes/videos.html", video=video, videos=videos)
 
 
 @app.route("/cursos/comprar/vivo", methods=["GET"])
