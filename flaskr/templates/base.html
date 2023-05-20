@@ -1,156 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- BOXICONS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- SWIPER CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-    />
-    <!-- REMIX ICONS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <!-- FLASK MOMENT -->
-    {{ moment.include_moment() }}
-    <!-- STYLE CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
-    <!-- TITLE -->
-    <title>{% block title %} {% endblock title %}</title>
-    <!-- PIXEL -->
-    {% block pixel %} {% endblock pixel %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% if title %}
+      {{ title }} | Remates Costa Rica
+      {% else %}
+      Remates Costa Rica
+      {% endif %}
+    </title>
+    <!-- STYLES CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   </head>
-
   <body>
-    <!-- HEADER -->
-    <header class="header">
-      <!-- NAV -->
-      <nav class="nav container">
-        {% if session.user_id %}
-        <a href="{{ url_for('index') }}" class="nav__logo">RematesCR</a>
-        <div class="nav__menu" id="navMenu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="{{ url_for('index') }}" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="{{ url_for('cursos') }}" class="nav__link">Curso</a>
-            </li>
-            <li class="nav__item">
-              <a href="{{ url_for('quienes_somos') }}" class="nav__link"
-                >¿Quiénes somos?</a
-              >
-            </li>
-            {% if session.username == "SuperAdminUser" %}
-            <li class="nav__item">
-              <a
-                href="{{ url_for('usuario_admin') }}"
-                class="nav__link nav__profile"
-              >
-                <img
-                  src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
-                  class="nav__profile-img"
-                  alt="Foto de perfil de usuario"
-                />
-                {{ session.username }}
-              </a>
-            </li>
-            {% else %}
-            <li class="nav__item">
-              <a
-                href="{{ url_for('perfil', username=session.username) }}"
-                class="nav__link nav__profile"
-              >
-                <img
-                  src="http://www.gravatar.com/avatar/{{ session.gravatar }}?d=identicon"
-                  class="nav__profile-img"
-                  alt="Foto de perfil de usuario"
-                />
-                {{ session.username }}
-              </a>
-            </li>
-            {% endif %}
-          </ul>
-          <i class="ri-close-line nav__close" id="navClose"></i>
-        </div>
-        <div class="nav__toggle" id="navToggle">
-          <i class="ri-menu-line"></i>
-        </div>
-        {% else %}
-        <a href="{{ url_for('index') }}" class="nav__logo">RematesCR</a>
-        <div class="nav__menu" id="navMenu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="{{ url_for('index') }}" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="{{ url_for('cursos') }}" class="nav__link">Curso</a>
-            </li>
-            <li class="nav__item">
-              <a href="{{ url_for('quienes_somos') }}" class="nav__link"
-                >¿Quiénes somos?</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="{{ url_for('iniciar_sesion') }}" class="nav__link"
-                >Iniciar sesión</a
-              >
-            </li>
-          </ul>
-          <i class="ri-close-line nav__close" id="navClose"></i>
-        </div>
-        <div class="nav__toggle" id="navToggle">
-          <i class="ri-menu-line"></i>
-        </div>
-        {% endif %}
-      </nav>
-    </header>
-    <!-- MAIN -->
-    <main class="main">{% block content %} {% endblock content %}</main>
-    <!-- FOOTER -->
-    <footer class="footer section">
-      <div class="footer__container container">
-        <h3 class="footer__title">REMATESCOSTARICA.COM</h3>
-        <p class="footer__creador">
-          &#169; 2022 Glitch. Todos los derechos reservados.
-          <br />
-          Desarrollado por el equipo de SantiagoMoraga.
-        </p>
-      </div>
-    </footer>
-
-    <!-- SWIPER JS -->
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <!-- CHECKOUT JS -->
-    <script src="https://www.paypal.com/sdk/js?client-id=Af4hPc9QqMN_Nh-eeBU7og-5pr6PqGialT50doGcGwQC8UpZbDzmTM13OYYp83i4pGNSNhyPK-DpZWly&locale=es_CR"></script>
-    <!-- PAYPAL JS -->
-    <script
-      src="{{ url_for('static', filename='js/checkout.js') }}"
-      charset="utf-8"
-    ></script>
-    <script
-      src="{{ url_for('static', filename='js/checkout-two.js') }}"
-      charset="utf-8"
-    ></script>
-    <!-- NEW PASSWORD -->
-    <script
-      src="{{ url_for('static', filename='js/new-password.js') }}"
-      charset="utf-8"
-    ></script>
-    <!-- SCRIPT JS -->
-    <script
-      src="{{ url_for('static', filename='js/main.js') }}"
-      charset="utf-8"
-    ></script>
+    <main class="main">
+      {% block content %} {% endblock content %}
+    </main>
   </body>
 </html>
