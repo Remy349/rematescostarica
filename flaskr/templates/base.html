@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       {% if title %}
       {{ title }} | Remates Costa Rica
@@ -11,11 +11,19 @@
       {% endif %}
     </title>
     <!-- STYLES CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   </head>
   <body>
+    <!-- HEADER -->
+    {% include "partials/header.html" %}
+    <!-- MAIN -->
     <main class="main">
       {% block content %} {% endblock content %}
     </main>
+    <!-- FOOTER -->
+    {% include "partials/footer.html" %}
+
+    <!-- MAIN JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>

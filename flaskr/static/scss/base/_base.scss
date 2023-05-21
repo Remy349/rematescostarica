@@ -1,7 +1,36 @@
+@use '../utils/colors' as c;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: c.$Dark-slate-gray;
+  margin: 5rem 0 0 0;
+  font-size: 1.25rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+svg {
+  width: 1.5rem;
+}
+
+.container {
+  max-width: 768px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
 }
