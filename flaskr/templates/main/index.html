@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="index"></section>
+<section class="hero">
+  <div class="hero__container container">
+    <div class="hero__content">
+      <h1 class="hero__content-title">
+        <span class="hero__content-title_white">Ayudando</span> a que
+        consigas tu <span class="hero__content-title_white">próximo</span>
+        <span class="hero__content-title_red">hogar!</span>
+      </h1>
+      <p class="hero__content-desc">
+        Estamos enfocados en que tomes las mejores decisiones
+        antes de comprar una propiedad.
+      </p>
+      <a href="" class="hero__content-btn">Regístrate</a>
+    </div>
+    <div class="hero__image">
+      <img
+        class="hero__image-img"
+        src="{{ url_for('static', filename='img/hero-image.jpg') }}"
+        alt="Imagen de una propiedad"
+      />
+    </div>
+  </div>
+</section>
+<section class="about section" id="nosotros"></section>
 {% endblock content %}

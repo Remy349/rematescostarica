@@ -1,1 +1,63 @@
 @use '../utils/colors' as c;
+
+.hero {
+  position: relative;
+    min-height: calc(100vh - 5rem);
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../static/img/bg-hero.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom -1px left -20rem;
+  }
+
+  &__content {
+    &-title {
+      text-align: left;
+      font-size: 2.5rem;
+      font-weight: 900;
+
+      &_white {
+        color: c.$White;
+      }
+
+      &_red {
+        color: c.$Imperial-red;
+        text-transform: uppercase;
+      }
+    }
+
+    &-desc {
+      text-align: left;
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    &-btn {
+      background-color: c.$Imperial-red;
+      color: c.$White;
+      padding: .75rem 1.25rem;
+      font-weight: 500;
+      border-radius: .5rem;
+      box-shadow: 0 3px 5px rgba(0,0,0,.2);
+    }
+  }
+
+  &__image {
+    display: none;
+
+    &-img {
+      border-radius: 1rem;
+    }
+  }
+}
+
+.about {
+  background-color: c.$White;
+}

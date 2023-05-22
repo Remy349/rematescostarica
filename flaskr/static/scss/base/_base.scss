@@ -10,11 +10,16 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: c.$Dark-slate-gray;
   margin: 5rem 0 0 0;
   font-size: 1.25rem;
+  color: c.$Gunmetal;
 }
 
 a {
@@ -29,8 +34,17 @@ svg {
   width: 1.5rem;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .container {
   max-width: 768px;
   margin-right: 1.5rem;
   margin-left: 1.5rem;
+}
+
+.section {
+  padding: 4.5rem 0 2.5rem;
 }
