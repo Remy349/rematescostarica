@@ -1,6 +1,7 @@
 @use '../utils/colors' as c;
 
 .header {
+  background-color: c.$Dark-slate-gray;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@
       background-color: rgba(255,255,255,.3);
       backdrop-filter: blur(5px);
       padding: 6rem 2rem 0 3rem;
-      box-shadow: -10px 0 10px 1px rgba(0,0,0,.1);
+      box-shadow: -10px 0 10px 1px rgba(0,0,0,.2);
     }
   }
 
@@ -59,7 +60,7 @@
     padding: .75rem 1.25rem;
     border-radius: .5rem;
     color: c.$White;
-    box-shadow: 0 3px 5px rgba(0,0,0,.1);
+    box-shadow: 0 3px 5px rgba(0,0,0,.2);
   }
 
   &__toggle {
@@ -84,6 +85,12 @@
       fill: c.$Gunmetal;
     }
   }
+}
+
+.scrolling-header {
+  background-color: rgba(255,255,255,.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 15px -10px rgba(0,0,0,.2);
 }
 
 .show-menu {

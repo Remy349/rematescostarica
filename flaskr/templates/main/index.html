@@ -24,5 +24,53 @@
     </div>
   </div>
 </section>
-<section class="about section" id="nosotros"></section>
+<section class="about section" id="nosotros">
+  <div class="about__container container">
+    <div class="about__content">
+      <h2 class="about__content-title section__title">
+        Sobre
+        <br />
+        Nosotros
+      </h2>
+      <div class="about__content-info">
+        <p>
+          Remates Judiciales es un empresa dedicada a la
+          enseñanza del proceso de Remate inmobiliario.
+          Enseñamos a nuestros alumnos a identificar
+          fácilmente, negociar y participar en un
+          remate judicial y adjudicarse propiedades.
+        </p>
+        <p>
+          Desde 2002 compramos propiedades para
+          nosotros y asesoramos a nacionales y extranjeros
+          para la compra de propiedades en Remates
+          Judiciales y en quema.
+        </p>
+        <p>
+          Somos la única página web que educa, orienta,
+          participa y compra propiedades en remate.
+        </p>
+        <p>
+          Nuestro fundador es el Lic. Randall Hernández, conocido en
+          el mundo de los remates como Mr. Remate. Ha participado
+          en más de 500 remates, y se ha adjudicado fincas, casas,
+          lotes y condominios para él y para muchos clientes
+          deseosos de multiplicar su capital
+        </p>
+      </div>
+    </div>
+    <div class="about__image">
+      <div class="about__image-container">
+        <div class="about__image-circle"></div>
+        <img
+          class="about__image-img"
+          src="{{ url_for('static', filename='img/about-image.jpg') }}"
+          alt="Lic. Randall Hernández"
+        />
+        <div class="about__image-circle"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cursos section"></section>
 {% endblock content %}
