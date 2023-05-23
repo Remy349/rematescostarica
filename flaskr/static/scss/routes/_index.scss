@@ -152,7 +152,7 @@
   &__cards {
     display: grid;
     row-gap: 2.5rem;
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
 
     &-card {
       background-color: c.$Platinum;
@@ -199,6 +199,78 @@
           color: c.$Imperial-red;
           font-weight: 300;
           text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.testimonios {
+  background-color: c.$Platinum;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: c.$Dark-slate-gray;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__title {
+    text-align: left;
+  }
+
+  &__desc {
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.5rem;
+    margin-top: 5.5rem;
+
+    &-card {
+      background-color: c.$White;
+      border-radius: 1rem;
+      padding: 3.5rem 2rem 2rem;
+      position: relative;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+      & svg {
+        height: 8rem;
+        width: 8rem;
+        fill: c.$Imperial-red;
+        position: absolute;
+        top: -4rem;
+        left: 1rem;
+      }
+
+      &_testimonio {
+        font-weight: 300;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      &_perfil {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        &_img {
+          border-radius: 50%;
+          width: 4rem;
+          height: 4rem;
+          object-fit: cover;
+        }
+
+        &_name {
+          font-weight: 500;
         }
       }
     }
