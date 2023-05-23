@@ -72,5 +72,56 @@
     </div>
   </div>
 </section>
-<section class="cursos section"></section>
+<section class="cursos section" id="cursos">
+  <div class="cursos__container container">
+    <h2 class="cursos__title section__title">Cursos</h2>
+    <p class="cursos__desc">
+      Aprendera a generar un ingreso real y constante.
+      Participe en este curso y conozca el secreto de adjudicarse
+      propiedades antes que los bancos en los Remates
+      Inmobiliarios de los Juzgados!
+    </p>
+    <div class="cursos__cards">
+      <article class="cursos__cards-card">
+        <img
+          class="cursos__cards-card_img"
+          src="{{ url_for('static', filename='img/cursos-vivo.jpg') }}"
+          alt="Curso en vivo"
+        />
+        <div class="cursos__cards-card_type">
+          Vivo
+        </div>
+        <div class="cursos__cards-card_body">
+          <p>
+            Clase en vivo, toda la orientación
+            gratis después del curso.
+          </p>
+        </div>
+        <div class="cursos__cards-card_link">
+          <a href="">Más Detalle</a>
+        </div>
+      </article>
+      <article class="cursos__cards-card">
+        <img
+          class="cursos__cards-card_img"
+          src="{{ url_for('static', filename='img/cursos-pregrabado.jpeg') }}"
+          alt="Curso pregrabado"
+        />
+        <div class="cursos__cards-card_type">
+          Pregrabado
+        </div>
+        <div class="cursos__cards-card_body">
+          <p>
+            Cada sesión de trabajo es grabada
+            y los alumnos tienen acceso 24/7.
+          </p>
+        </div>
+        <div class="cursos__cards-card_link">
+          <a href="">Más Detalle</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="testimonios section"></section>
 {% endblock content %}

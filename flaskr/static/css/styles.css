@@ -206,7 +206,7 @@ img {
 }
 .about__content-info p {
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
 }
 .about__image {
@@ -230,7 +230,7 @@ img {
   left: -2rem;
 }
 .about__image-circle:last-child {
-  background-color: #395B64;
+  background-color: #F05454;
   bottom: -2rem;
   right: -2rem;
 }
@@ -239,6 +239,77 @@ img {
   border-radius: 10rem;
   position: relative;
   z-index: 10;
+}
+
+.cursos {
+  position: relative;
+}
+.cursos::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+  z-index: -10;
+}
+.cursos__title {
+  text-align: left;
+  color: #fff;
+}
+.cursos__desc {
+  text-align: left;
+  line-height: 1.7;
+  color: #D9D9D9;
+  font-weight: 400;
+}
+.cursos__cards {
+  display: grid;
+  row-gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+.cursos__cards-card {
+  background-color: #D9D9D9;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.cursos__cards-card_img {
+  display: block;
+  object-fit: cover;
+  height: 12rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+.cursos__cards-card_type {
+  background-color: #F05454;
+  color: #fff;
+  border-radius: 1rem;
+  position: absolute;
+  left: 50%;
+  font-weight: 500;
+  padding: 0.75rem 0;
+  width: 12rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  top: 10rem;
+  transform: translateX(-50%);
+}
+.cursos__cards-card_body {
+  text-align: center;
+  line-height: 1.7;
+  padding: 3rem 1.2rem 1.5rem 1.2rem;
+}
+.cursos__cards-card_link {
+  padding: 0.5rem 1.2rem 3rem 1.2rem;
+  text-align: center;
+}
+.cursos__cards-card_link a {
+  color: #F05454;
+  font-weight: 300;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=styles.css.map */
