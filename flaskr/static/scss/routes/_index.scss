@@ -46,7 +46,7 @@
       color: c.$White;
       padding: .75rem 1.25rem;
       font-weight: 500;
-      border-radius: .5rem;
+      border-radius: 1rem;
       box-shadow: 0 3px 5px rgba(0,0,0,.2);
     }
   }
@@ -207,17 +207,6 @@
 
 .testimonios {
   background-color: c.$Platinum;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    background-color: c.$Dark-slate-gray;
-    bottom: 0;
-    left: 0;
-  }
 
   &__title {
     text-align: left;
@@ -253,6 +242,8 @@
 
       &_testimonio {
         font-weight: 300;
+        line-height: 1.7;
+        font-size: 1.15rem;
         font-style: italic;
         margin-bottom: 1.5rem;
       }
@@ -271,6 +262,103 @@
 
         &_name {
           font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.precios {
+  &__title {
+    color: c.$White;
+    text-align: left;
+  }
+
+  &__desc {
+    text-align: left;
+    color: c.$Platinum;
+    line-height: 1.7;
+  }
+
+  &__cards {
+    margin-top: 4.5rem;
+    display: grid;
+    row-gap: 3.5rem;
+
+    &-card {
+      background-color: c.$White;
+      border-radius: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      padding: 4rem 2rem 2rem;
+      position: relative;
+
+      &_type {
+        position: absolute;
+        top: -1rem;
+        left: 1rem;
+        background-color: c.$Imperial-red;
+        font-weight: 500;
+        color: c.$White;
+        border-radius: 1rem;
+        padding: .75rem 1.25rem;
+      }
+
+      &_money {
+        color: c.$Dark-slate-gray;
+        display: flex;
+        column-gap: .5rem;
+        align-items: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+
+        & svg {
+          fill: c.$Dark-slate-gray;
+          width: 2.5rem;
+        }
+      }
+
+      &_body {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+
+        & ul, ol {
+          & li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid c.$Dark-slate-gray;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+
+            &:first-child {
+              border-top: 1px solid c.$Dark-slate-gray;
+              padding-top: 1rem;
+            }
+
+            &:last-child {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      &_btn {
+        &_comprar {
+          background-color: c.$Imperial-red;
+          color: c.$White;
+          border-radius: 1rem;
+          padding: .75rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: .75rem;
+          font-weight: 500;
+          box-shadow: 0 3px 5px rgba(0,0,0,.2);
+
+          & svg {
+            fill: c.$White;
+          }
         }
       }
     }
