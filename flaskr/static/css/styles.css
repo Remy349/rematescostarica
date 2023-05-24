@@ -538,4 +538,42 @@ img {
   height: 1.75rem;
 }
 
+.footer__title {
+  color: #fff;
+  text-align: left;
+  text-transform: capitalize;
+}
+.footer__content-list {
+  display: flex;
+  flex-direction: row;
+  row-gap: 1.5rem;
+  column-gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.footer__content-link {
+  color: #D9D9D9;
+  font-weight: 400;
+}
+.footer__copy {
+  color: #D9D9D9;
+  text-align: left;
+  margin-top: 5.5rem;
+}
+.footer__copy-company {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.footer__copy-author {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.footer__copy-author a {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=styles.css.map */

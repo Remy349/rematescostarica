@@ -1,0 +1,49 @@
+@use '../utils/colors' as c;
+
+.footer {
+  &__title {
+    color: c.$White;
+    text-align: left;
+    text-transform: capitalize;
+  }
+
+  &__content {
+    &-list {
+      display: flex;
+      flex-direction: row;
+      row-gap: 1.5rem;
+      column-gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    &-link {
+      color: c.$Platinum;
+      font-weight: 400;
+    }
+  }
+
+  &__copy {
+    color: c.$Platinum;
+    text-align: left;
+    margin-top: 5.5rem;
+
+    &-company {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    &-author {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+
+      & a {
+        cursor: pointer;
+        color: c.$White;
+        text-decoration: underline;
+      }
+    }
+  }
+}
