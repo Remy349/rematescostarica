@@ -55,6 +55,7 @@ img {
   line-height: 1.3;
   font-weight: 700;
   margin-bottom: 2.5rem;
+  color: #395B64;
 }
 
 .header {
@@ -445,6 +446,58 @@ img {
 }
 .precios__cards-card_btn_comprar svg {
   fill: #fff;
+}
+
+.faq {
+  background-color: #fff;
+}
+.faq__title {
+  text-align: left;
+  margin-bottom: 4.5rem;
+}
+.faq__content-faq {
+  border-bottom: 1px solid #395B64;
+  padding-bottom: 1.2rem;
+  padding-top: 1.2rem;
+}
+.faq__content-faq[open] .faq__content-faq_question {
+  font-weight: 700;
+}
+.faq__content-faq[open] .faq__content-faq_question::after {
+  transform: rotate(180deg);
+}
+.faq__content-faq:first-child {
+  border-top: 1px solid #395B64;
+  padding-top: 1.2rem;
+}
+.faq__content-faq_question {
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  outline: none;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  list-style: none;
+  padding-right: 1.5rem;
+  position: relative;
+}
+.faq__content-faq_question::after {
+  content: "";
+  background-image: url(../../../static/img/angle-down.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.faq__content-faq_answer {
+  line-height: 1.7;
+  font-size: 1.15rem;
+  font-weight: 300;
+  text-align: left;
+  padding-right: 1.5rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
