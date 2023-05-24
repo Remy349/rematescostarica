@@ -426,3 +426,48 @@
     }
   }
 }
+
+.contact {
+  background-color: c.$White;
+
+  &__title {
+    text-align: left;
+
+    & span {
+      color: c.$Imperial-red;
+    }
+  }
+
+  &__email {
+    text-align: left;
+    margin-bottom: 2.5rem;
+
+    &-link {
+      color: c.$Imperial-red;
+      font-weight: 600;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 1rem;
+
+    &-link {
+      background-color: c.$Dark-slate-gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+
+      & svg {
+        fill: c.$White;
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+}
