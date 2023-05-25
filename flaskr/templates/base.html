@@ -10,6 +10,8 @@
       Remates Costa Rica
       {% endif %}
     </title>
+    <!-- SCROLLREVEAL JS -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <!-- STYLES CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   </head>
@@ -25,5 +27,7 @@
 
     <!-- MAIN JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- SCROLLREVEAL JS - LOCAL -->
+    <script src="{{ url_for('static', filename='js/scrollreveal.js') }}"></script>
   </body>
 </html>
