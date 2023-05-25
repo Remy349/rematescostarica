@@ -173,9 +173,6 @@
 
 @media screen and (min-width: 1024px) {
   .hero {
-    margin-top: 0;
-    min-height: calc(100vh - 5rem);
-
     &__container {
       position: relative;
     }

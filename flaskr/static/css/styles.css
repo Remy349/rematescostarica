@@ -59,6 +59,10 @@ img {
   color: #395B64;
 }
 
+.main {
+  overflow: hidden;
+}
+
 .header {
   background-color: #395B64;
   position: fixed;
@@ -147,8 +151,7 @@ img {
 
 .hero {
   position: relative;
-  margin-top: 7rem;
-  min-height: calc(100vh - 7rem);
+  min-height: calc(100vh - 5rem);
 }
 .hero::before {
   content: "";
