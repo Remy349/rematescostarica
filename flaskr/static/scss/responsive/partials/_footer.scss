@@ -1,0 +1,23 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .footer {
+    &__content {
+      &-link {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          color: c.$White;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    &__copy {
+      margin-top: 8.5rem;
+    }
+  }
+}

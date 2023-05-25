@@ -6,14 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (navToggle) {
     navToggle.addEventListener('click', () => {
-      header.classList.remove('scrolling-header')
       navMenu.classList.add('show-menu')
     })
   }
 
   if (navClose) {
     navClose.addEventListener('click', () => {
-      header.classList.add('scrolling-header')
       navMenu.classList.remove('show-menu')
     })
   }

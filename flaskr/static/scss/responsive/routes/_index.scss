@@ -1,0 +1,399 @@
+@use '../../utils/colors' as c;
+
+@media screen and (max-width: 300px) {
+  .hero {
+    &__content {
+      &-title {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .contact {
+    &__email {
+      &-link {
+        font-size: 1rem;
+      }
+    }
+
+    &__social {
+      &-link {
+        width: 3rem;
+        height: 3rem;
+
+        & svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 568px) {
+  .hero {
+    &__content {
+      &-title {
+        max-width: 27rem;
+      }
+
+      &-desc {
+        max-width: 22rem;
+      }
+    }
+  }
+
+  .contact {
+    &__email {
+      &-link {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    &::before {
+      background-position: bottom -1px left 0;
+    }
+
+    &__content {
+      &-desc {
+        margin-bottom: 5.5rem;
+      }
+    }
+  }
+
+  .about {
+    &__content {
+      &-info {
+        & p {
+          max-width: 38rem;
+        }
+      }
+    }
+  }
+
+  .cursos {
+    &__desc {
+      max-width: 35rem;
+    }
+
+    &__cards {
+      flex-direction: row;
+      column-gap: 2.5rem;
+      justify-content: center;
+
+      &-card {
+        max-width: 20rem;
+
+        &_link {
+          a {
+            transition: all .3s ease-in-out;
+
+            &:hover {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .testimonios {
+    &__desc {
+      max-width: 35rem;
+    }
+  }
+
+  .precios {
+    &__desc {
+      max-width: 35rem;
+    }
+
+    &__cards {
+      flex-direction: row;
+      align-items: flex-start;
+      column-gap: 2.5rem;
+
+      &-card {
+        &_money {
+          font-size: 3rem;
+
+          & svg {
+            width: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .faq {
+    &__content {
+      &-faq {
+        &_question {
+          padding-right: 5rem;
+          font-size: 1.35rem;
+
+          &:hover {
+            color: c.$Imperial-red;
+          }
+        }
+
+        &_answer {
+          padding-right: 3rem;
+        }
+      }
+    }
+  }
+
+  .contact {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__email {
+      &-link {
+        font-size: 1.75rem;
+      }
+    }
+
+    &__social {
+      column-gap: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    margin-top: 0;
+    min-height: calc(100vh - 5rem);
+
+    &__container {
+      position: relative;
+    }
+
+    &__content {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+
+      &-title {
+        font-size: 3rem;
+      }
+
+      &-desc {
+        margin-bottom: 4.5rem;
+      }
+    }
+
+    &__image {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      display: block;
+
+      &-img {
+        max-width: 22rem;
+      }
+    }
+  }
+
+  .about {
+    &__content {
+      &-info {
+        & p {
+          max-width: 58rem;
+        }
+      }
+    }
+  }
+
+  .cursos {
+    &__desc {
+      max-width: 48rem;
+    }
+
+    &__cards {
+      margin-top: 6.5rem;
+
+      &-card {
+        max-width: 27rem;
+      }
+    }
+  }
+
+  .testimonios {
+    position: relative;
+
+    &::before {
+      content: '';
+      background-image: url(../../../../static/img/bg-testimonio.png);
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom 6.3rem left 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__desc {
+      max-width: 48rem;
+    }
+
+    &__cards {
+      margin-top: 10.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3.5rem;
+
+      &-card {
+        &:first-child {
+          transform: translateY(-4rem);
+        }
+
+        &:nth-child(2) {
+          transform: translateY(8rem);
+        }
+
+        &:last-child {
+          transform: translateY(-4rem);
+        }
+      }
+    }
+  }
+
+  .precios {
+    position: relative;
+
+    &::before {
+      content: '';
+      background-image: url(../../../../static/img/bg-precio.png);
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom 6.3rem left 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__desc {
+      max-width: 48rem;
+    }
+
+    &__cards {
+      margin-top: 6.5rem;
+      justify-content: center;
+
+      &-card {
+        max-width: 27rem;
+      }
+    }
+  }
+
+  .faq {
+    &__title {
+      margin-bottom: 6.5rem;
+    }
+
+    &__content {
+      &-faq {
+        &_question {
+          font-size: 1.5rem;
+        }
+
+        &_answer {
+          padding-right: 6rem;
+        }
+      }
+    }
+  }
+
+  .contact {
+    &__title {
+      margin-bottom: 4.5rem;
+    }
+
+    &__email {
+      margin-bottom: 3.5rem;
+
+      &-link {
+        font-size: 2.75rem;
+      }
+    }
+
+    &__social {
+      column-gap: 3rem;
+
+      &-link {
+        width: 4rem;
+        height: 4rem;
+
+        & svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    &__content {
+      top: 3rem;
+      left: 3rem;
+
+      &-title {
+        font-size: 3.5rem;
+        max-width: 37rem;
+      }
+    }
+
+    &__image {
+      top: 3rem;
+      right: 4rem;
+    }
+  }
+
+  .testimonios {
+    &__cards {
+      row-gap: 6.5rem;
+    }
+  }
+
+  .precios {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__title,
+    &__desc {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-height: 730px) {
+  .hero {
+    &__content {
+      top: 5rem;
+    }
+
+    &__image {
+      top: 5rem;
+
+      &-img {
+        max-width: 25rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@use '../../utils/colors' as c;
+
+@media screen and (max-width: 300px) {
+  .nav {
+    &__link {
+      font-size: 1.15rem;
+    }
+  }
+}
+
+@media screen and (min-width: 568px) {
+  .nav {
+    &__list {
+      row-gap: 2rem;
+    }
+
+    &__hover {
+      position: relative;
+
+      &::after {
+        content: '';
+        background-color: c.$Imperial-red;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        top: 1.7rem;
+        left: 0;
+        transform: scaleX(0);
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    &__logo {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .nav {
+    &__list {
+      flex-direction: row;
+      align-items: center;
+      column-gap: 1rem;
+    }
+
+    &__last {
+      margin-top: 0;
+    }
+
+    &__toggle,
+    &__close {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    &__list {
+      column-gap: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    &__list {
+      column-gap: 2rem;
+    }
+  }
+}

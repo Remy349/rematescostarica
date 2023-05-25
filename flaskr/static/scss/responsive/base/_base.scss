@@ -1,0 +1,63 @@
+@media screen and (max-width: 360px) {
+  body {
+    font-size: 1.15rem;
+  }
+
+  .container {
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+  }
+
+  .section {
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .section {
+    &__title {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    &__title {
+      font-size: 2.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .section {
+    padding: 6.5rem 0 4.5rem;
+
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
