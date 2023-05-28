@@ -4,5 +4,7 @@
 @forward './partials/header';
 // ROUTES
 @forward './routes/routes';
+// AUTH
+@forward './auth/auth';
 // FOOTER
 @forward './partials/footer';

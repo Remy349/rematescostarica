@@ -1004,6 +1004,67 @@ img {
     max-width: 25rem;
   }
 }
+@media screen and (min-width: 568px) {
+  .ingresar__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .ingresar__form {
+    max-width: 550px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .ingresar__content-title {
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+  }
+  .ingresar__form-wrapper a {
+    transition: all 0.3s ease-in-out;
+  }
+  .ingresar__form-wrapper a:hover {
+    color: #395B64;
+  }
+  .ingresar__form-submit {
+    transition: all 0.3s ease-in-out;
+  }
+  .ingresar__form-submit:hover {
+    background-color: #1B262C;
+  }
+  .ingresar__link {
+    font-size: 1.15rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .ingresar__container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ingresar__image {
+    height: 100%;
+  }
+  .ingresar__wrapper {
+    margin-top: 2.5rem;
+  }
+  .ingresar__content {
+    max-width: 600px;
+  }
+  .ingresar__content-title {
+    font-size: 2.5rem;
+  }
+  .ingresar__form {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .ingresar__content {
+    padding: 3rem 0 2.5rem 2.5rem;
+  }
+  .ingresar__form-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 @media screen and (min-width: 768px) {
   .footer__content-link {
     transition: all 0.3s ease-in-out;

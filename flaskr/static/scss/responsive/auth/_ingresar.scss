@@ -1,0 +1,94 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 568px) {
+  .ingresar {
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__form {
+      max-width: 550px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ingresar {
+    &__content {
+      &-title {
+        max-width: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 2rem;
+      }
+    }
+
+    &__form {
+      &-wrapper {
+        & a {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            color: c.$Dark-slate-gray;
+          }
+        }
+      }
+
+      &-submit {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &__link {
+      font-size: 1.15rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ingresar {
+    &__container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__image {
+      height: 100%;
+    }
+
+    &__wrapper {
+      margin-top: 2.5rem;
+    }
+
+    &__content {
+      &-title {
+        font-size: 2.5rem;
+      }
+
+      max-width: 600px;
+    }
+
+    &__form {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .ingresar {
+    &__content {
+      padding: 3rem 0 2.5rem 2.5rem;
+    }
+
+    &__form {
+      &-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+}
