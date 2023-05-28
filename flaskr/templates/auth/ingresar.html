@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="ingresar">
+  <div class="ingresar__container">
+    <div class="ingresar__image"></div>
+    <div class="ingresar__content">
+      <h1 class="ingresar__content-title">
+        ¡Ingresa a tu espacio de <span>trabajo!</span>
+      </h1>
+      <div class="ingresar__wrapper">
+        <form action="" method="POST" class="ingresar__form">
+          {{ form.hidden_tag() }}
+          <div class="ingresar__form-container">
+            {{ form.email(class_='ingresar__form-input', autocomplete='off') }}
+            {{ form.email.label(class_='ingresar__form-label') }}
+          </div>
+          <div class="ingresar__form-container">
+            {{ form.password(class_='ingresar__form-input', autocomplete='off') }}
+            {{ form.password.label(class_='ingresar__form-label') }}
+          </div>
+          <div class="ingresar__form-wrapper">
+            <p>
+              {{ form.remember_me(class_='ingresar__form-checkbox') }}
+              {{ form.remember_me.label(class_='ingresar__form-checkbox_label') }}
+            </p>
+            <a href="">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+          {{ form.submit(class_='ingresar__form-submit') }}
+        </form>
+      </div>
+      <a href="" class="ingresar__link">
+        ¿Aún no tienes una cuenta?
+        <br />
+        Regístrate
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock content %}

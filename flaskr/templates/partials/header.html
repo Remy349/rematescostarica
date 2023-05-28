@@ -23,7 +23,9 @@
           <a href="#contacto" class="nav__link nav__hover">Contacto</a>
         </li>
         <li class="nav__item nav__last">
-          <a href="" class="nav__link nav__btn">Ingresar</a>
+          <a href="{{ url_for('auth.ingresar') }}" class="nav__link nav__btn">
+            Ingresar
+          </a>
         </li>
       </ul>
       <div class="nav__close" id="navClose">
