@@ -9,7 +9,7 @@
   }
 
   &__image {
-    background-image: url('../../../static/img/zyro-image.png');
+    background-image: url('../../../static/img/ingresar-image.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -49,7 +49,7 @@
     &-input {
       width: 100%;
       border-radius: 1rem;
-      border: 1px solid c.$Dark-slate-gray;
+      border: 2px solid c.$Dark-slate-gray;
       outline: none;
       font-family: inherit;
       font-size: 1.15rem;

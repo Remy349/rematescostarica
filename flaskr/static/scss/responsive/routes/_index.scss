@@ -87,6 +87,11 @@
 
       &-card {
         max-width: 20rem;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(-20px);
+        }
 
         &_link {
           a {
@@ -123,6 +128,16 @@
 
           & svg {
             width: 3rem;
+          }
+        }
+
+        &_btn {
+          &_comprar {
+            transition: all .3s ease-in-out;
+
+            &:hover {
+              background-color: c.$Tang-blue;
+            }
           }
         }
       }

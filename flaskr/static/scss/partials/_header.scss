@@ -18,8 +18,12 @@
   &__logo {
     font-size: 1.45rem;
     font-weight: 700;
-    color: c.$Gunmetal;
+    color: c.$White;
     cursor: pointer;
+
+    &.scrolling-nav-logo {
+      color: c.$Dark-slate-gray;
+    }
   }
 
   &__menu {
@@ -49,6 +53,10 @@
     color: c.$Gunmetal;
     font-size: 1.25rem;
     font-weight: 500;
+
+    &.scrolling-nav-link {
+      color: c.$Dark-slate-gray;
+    }
   }
 
   &__last {
@@ -61,6 +69,11 @@
     border-radius: 1rem;
     color: c.$White;
     box-shadow: 0 3px 5px rgba(0,0,0,.2);
+
+    &.scrolling-nav-btn {
+      color: c.$White;
+      background-color: c.$Dark-slate-gray;
+    }
   }
 
   &__toggle {

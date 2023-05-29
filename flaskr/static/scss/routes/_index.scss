@@ -21,12 +21,13 @@
       text-align: left;
       font-size: 2.5rem;
       font-weight: 900;
-
-      &_white {
-        color: c.$White;
-      }
+      color: c.$White;
 
       &_red {
+        &:first-child {
+          text-transform: capitalize;
+        }
+
         color: c.$Imperial-red;
         text-transform: uppercase;
       }
@@ -130,7 +131,7 @@
       }
 
       &_type {
-        background-color: c.$Imperial-red;
+        background-color: c.$Blue-crayola;
         color: c.$White;
         border-radius: 1rem;
         position: absolute;
@@ -304,7 +305,7 @@
 
       &_btn {
         &_comprar {
-          background-color: c.$Imperial-red;
+          background-color: c.$Blue-crayola;
           color: c.$White;
           border-radius: 1rem;
           padding: .75rem 0;

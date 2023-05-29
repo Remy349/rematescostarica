@@ -81,8 +81,11 @@ img {
 .nav__logo {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #1B262C;
+  color: #fff;
   cursor: pointer;
+}
+.nav__logo.scrolling-nav-logo {
+  color: #395B64;
 }
 @media screen and (max-width: 849px) {
   .nav__menu {
@@ -110,6 +113,9 @@ img {
   font-size: 1.25rem;
   font-weight: 500;
 }
+.nav__link.scrolling-nav-link {
+  color: #395B64;
+}
 .nav__last {
   margin-top: 4rem;
 }
@@ -119,6 +125,10 @@ img {
   border-radius: 1rem;
   color: #fff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.nav__btn.scrolling-nav-btn {
+  color: #fff;
+  background-color: #395B64;
 }
 .nav__toggle {
   cursor: pointer;
@@ -168,13 +178,14 @@ img {
   text-align: left;
   font-size: 2.5rem;
   font-weight: 900;
-}
-.hero__content-title_white {
   color: #fff;
 }
 .hero__content-title_red {
   color: #F05454;
   text-transform: uppercase;
+}
+.hero__content-title_red:first-child {
+  text-transform: capitalize;
 }
 .hero__content-desc {
   text-align: left;
@@ -259,7 +270,7 @@ img {
   border-radius: 1rem;
 }
 .cursos__cards-card_type {
-  background-color: #F05454;
+  background-color: #1478FC;
   color: #fff;
   border-radius: 1rem;
   position: absolute;
@@ -403,7 +414,7 @@ img {
   font-weight: 600;
 }
 .precios__cards-card_btn_comprar {
-  background-color: #F05454;
+  background-color: #1478FC;
   color: #fff;
   border-radius: 1rem;
   padding: 0.75rem 0;
@@ -516,7 +527,7 @@ img {
   display: grid;
 }
 .ingresar__image {
-  background-image: url("../../../static/img/zyro-image.png");
+  background-image: url("../../../static/img/ingresar-image.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -550,7 +561,7 @@ img {
 .ingresar__form-input {
   width: 100%;
   border-radius: 1rem;
-  border: 1px solid #395B64;
+  border: 2px solid #395B64;
   outline: none;
   font-family: inherit;
   font-size: 1.15rem;
@@ -736,8 +747,15 @@ img {
     align-items: center;
     column-gap: 1rem;
   }
+  .nav__link {
+    color: #fff;
+  }
   .nav__last {
     margin-top: 0;
+  }
+  .nav__btn {
+    color: #395B64;
+    background-color: #fff;
   }
   .nav__toggle, .nav__close {
     display: none;
@@ -800,6 +818,10 @@ img {
   }
   .cursos__cards-card {
     max-width: 20rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .cursos__cards-card:hover {
+    transform: translateY(-20px);
   }
   .cursos__cards-card_link a {
     transition: all 0.3s ease-in-out;
@@ -823,6 +845,12 @@ img {
   }
   .precios__cards-card_money svg {
     width: 3rem;
+  }
+  .precios__cards-card_btn_comprar {
+    transition: all 0.3s ease-in-out;
+  }
+  .precios__cards-card_btn_comprar:hover {
+    background-color: #0059CC;
   }
   .faq__content-faq_question {
     padding-right: 5rem;
