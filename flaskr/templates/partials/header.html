@@ -22,11 +22,27 @@
         <li class="nav__item">
           <a href="#contacto" class="nav__link nav__hover">Contacto</a>
         </li>
+        {% if current_user.is_authenticated %}
+        {% if current_user.is_admin == True %}
+        <li class="nav__item nav__last">
+          <a href="{{ url_for('auth.ingresar') }}" class="nav__link nav__btn">
+            Ir al dashboard
+          </a>
+        </li>
+        {% else %}
+        <li class="nav__item nav__last">
+          <a href="{{ url_for('auth.ingresar') }}" class="nav__link nav__btn">
+            Ir al dashboard
+          </a>
+        </li>
+        {% endif %}
+        {% else %}
         <li class="nav__item nav__last">
           <a href="{{ url_for('auth.ingresar') }}" class="nav__link nav__btn">
             Ingresar
           </a>
         </li>
+        {% endif %}
       </ul>
       <div class="nav__close" id="navClose">
         <span class="nav__close-icon">

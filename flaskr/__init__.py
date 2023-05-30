@@ -2,9 +2,15 @@ from flask import Flask
 from config import DevelopmentConfig, ProductionConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 
 db = SQLAlchemy(engine_options={"pool_pre_ping": True})
 migrate = Migrate()
+login_manager = LoginManager()
+
+login_manager.login_view = "auth.ingresar"
+login_manager.login_message = "Inicia sesión antes de acceder!"
+login_manager.login_message_category = "error"
 
 
 def create_app(config_class=DevelopmentConfig):
@@ -14,6 +20,7 @@ def create_app(config_class=DevelopmentConfig):
 
     db.init_app(app)
     migrate.init_app(app, db, compare_type=True)
+    login_manager.init_app(app)
 
     from flaskr.main.routes import bp as main_bp
     app.register_blueprint(main_bp)

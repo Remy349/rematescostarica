@@ -1,9 +1,10 @@
 import sqlalchemy as sa
-from flaskr import db
+from flaskr import db, login_manager
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class Person(db.Model):
+class Person(UserMixin, db.Model):
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     firstname = sa.Column(sa.String(20), nullable=False)
     first_lastname = sa.Column(sa.String(20), nullable=False)
@@ -31,3 +32,10 @@ class Person(db.Model):
                 id: {self.id},
                 is_admin: {self.is_admin},
         """
+
+
+@login_manager.user_loader
+def load_user(id):
+    return db.session.execute(
+        db.select(Person).filter_by(id=int(id)),
+    ).scalar_one()

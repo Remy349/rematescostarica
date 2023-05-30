@@ -49,6 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  // Close notifications
+  const notification = document.getElementById('notification')
+
+  if (notification) {
+    const notificationBtnsClose = document.querySelectorAll(
+      '.notification__close'
+    )
+    const notificationItems = document.querySelectorAll('.notification__item')
+
+    notificationBtnsClose.forEach((notificationBtnClose, pos) => {
+      notificationBtnClose.addEventListener('click', () => {
+        notificationItems[pos].style.display = 'none'
+      })
+    })
+  }
+
   // Multi step form
   const registroForm = document.getElementById('registroForm')
   const btnsPrev = document.querySelectorAll('.registro__btn-prev')
