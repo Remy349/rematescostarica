@@ -1299,6 +1299,57 @@ img {
     justify-content: space-between;
   }
 }
+@media screen and (min-width: 568px) {
+  .registro__form-data_container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .registro__form-prices_wrapper {
+    flex-direction: row;
+    column-gap: 1.5rem;
+  }
+  .registro__form-prices_card {
+    padding: 1.3rem;
+    flex-direction: column;
+    height: 10rem;
+    width: 12rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .registro__form-btn_next, .registro__form-btns_next {
+    transition: all 0.3s ease-in-out;
+  }
+  .registro__form-btn_next:hover, .registro__form-btns_next:hover {
+    background-color: #1B262C;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .registro__container {
+    grid-template-columns: 1fr 2fr;
+  }
+  .registro__info {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+    row-gap: 1.5rem;
+  }
+  .registro__info-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+  .registro__info-text {
+    display: block;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  .registro__wrapper {
+    margin-top: 2rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .footer__content-link {
     transition: all 0.3s ease-in-out;

@@ -1,0 +1,79 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 568px) {
+  .registro {
+    &__form {
+      &-data {
+        &_container {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .registro {
+    &__form {
+      &-prices {
+        &_wrapper {
+          flex-direction: row;
+          column-gap: 1.5rem;
+        }
+
+        &_card {
+          padding: 1.3rem;
+          flex-direction: column;
+          height: 10rem;
+          width: 12rem;
+          align-items: flex-start;
+          justify-content: space-between;
+        }
+      }
+
+      &-btn,
+      &-btns {
+        &_next {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Gunmetal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .registro {
+    &__container {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    &__info {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 3rem 2rem;
+      row-gap: 1.5rem;
+
+      &-wrapper {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+      }
+
+      &-text {
+        display: block;
+        font-size: 1.2rem;
+        color: c.$White;
+      }
+    }
+
+    &__wrapper {
+      margin-top: 2rem;
+    }
+  }
+}
