@@ -1,0 +1,235 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+
+.registro {
+  background-color: c.$Platinum-light;
+
+  &__container {
+    display: grid;
+    background-color: c.$White;
+    box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px,
+      rgb(0 0 0 / 23%) 0px 3px 6px;
+    border-radius: 1rem;
+  }
+
+  &__info {
+    background-color: c.$Dark-slate-gray;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1.5rem;
+    margin: 2rem 1.5rem;
+    padding: 1.5rem 0;
+
+    &-step {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: c.$Platinum-light;
+      color: c.$Gunmetal;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      font-weight: 600;
+
+      &.current-step {
+        background-color: c.$Gunmetal;
+        color: c.$White;
+        box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      }
+    }
+
+    &-text {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    margin: 0 1.5rem 2rem;
+    overflow-x: hidden;
+  }
+
+  &__form {
+    display: flex;
+    width: 300%;
+
+    &-section {
+      width: calc(100% / 3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    &-title,
+    &-text {
+      text-align: left;
+    }
+
+    &-title {
+      font-size: 1.5rem;
+      color: c.$Dark-slate-gray;
+    }
+
+    &-text {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    &-data {
+      display: grid;
+      row-gap: 1.5rem;
+
+      &_container {
+        display: grid;
+        row-gap: 1.5rem;
+      }
+
+      &_input {
+        border: 1px solid c.$Silver;
+        @include m.input(c.$Platinum-light, c.$Gunmetal, 1rem);
+      }
+    }
+
+    &-prices {
+      &_wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+      }
+
+      &_card {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+        padding: .7rem 1rem;
+        border: 1px solid c.$Silver;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &.current-price {
+          border: 1px solid c.$Gunmetal;
+          background-color: c.$Platinum-light;
+        }
+
+        &:hover {
+          border: 1px solid c.$Gunmetal;
+        }
+      }
+
+      &_icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: c.$Imperial-red;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg {
+          width: 1.5rem;
+          height: 1.5rem;
+          fill: c.$White;
+        }
+      }
+
+      &_info {
+        display: flex;
+        flex-direction: column;
+        row-gap: .3rem;
+
+        & h2 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: c.$Dark-slate-gray;
+        }
+      }
+
+      &_price {
+        font-weight: 500;
+        font-size: 1.15rem;
+        color: c.$Imperial-red;
+      }
+    }
+
+    &-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 3rem;
+
+      &_next {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        padding: .7rem 1.2rem;
+        font-size: 1.15rem;
+        box-shadow: 0 3px 5px rgba(0,0,0,.2);
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        border-radius: 1rem;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: c.$Dark-slate-gray;
+        color: c.$White;
+      }
+    }
+
+    &-btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 3rem;
+
+      &_prev {
+        font-family: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: c.$White;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: c.$Dark-slate-gray;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          color: c.$Gunmetal;
+        }
+      }
+
+      &_next {
+        outline: none;
+        border: none;
+        padding: .7rem 1.2rem;
+        font-size: 1.15rem;
+        box-shadow: 0 3px 5px rgba(0,0,0,.2);
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        border-radius: 1rem;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: c.$Dark-slate-gray;
+        color: c.$White;
+        cursor: pointer;
+      }
+
+      &_submit {
+        outline: none;
+        border: none;
+        padding: .7rem 1.2rem;
+        font-size: 1.15rem;
+        box-shadow: 0 3px 5px rgba(0,0,0,.2);
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        border-radius: 1rem;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: c.$Blue-crayola;
+        color: c.$White;
+        cursor: pointer;
+      }
+    }
+  }
+}

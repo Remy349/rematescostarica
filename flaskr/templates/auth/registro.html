@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="registro section">
+  <div class="registro__container container">
+    <div class="registro__info">
+      <div class="registro__info-wrapper">
+        <span class="registro__info-step current-step">1</span>
+        <p class="registro__info-text">Tu información</p>
+      </div>
+      <div class="registro__info-wrapper">
+        <span class="registro__info-step">2</span>
+        <p class="registro__info-text">Tu curso</p>
+      </div>
+      <div class="registro__info-wrapper">
+        <span class="registro__info-step">3</span>
+        <p class="registro__info-text">Resumen</p>
+      </div>
+    </div>
+    <div class="registro__wrapper">
+      <form action="" method="POST" class="registro__form" id="registroForm">
+        {{ form.hidden_tag() }}
+        <!-- INFORMACION -->
+        <div class="registro__form-section">
+          <div>
+            <h1 class="registro__form-title">Información personal</h1>
+            <p class="registro__form-text">
+              Por favor, llena el siguiente formulario para tu registro.
+            </p>
+            <div class="registro__form-data">
+              {{ form.firstname(class_='registro__form-data_input',
+              placeholder='Nombre', autocomplete='off') }}
+              <div class="registro__form-data_container">
+                {{ form.first_lastname(class_='registro__form-data_input',
+                placeholder='Primer Apellido', autocomplete='off') }}
+                {{ form.second_lastname(class_='registro__form-data_input',
+                placeholder='Segundo Apellido', autocomplete='off') }}
+              </div>
+              {{ form.email(class_='registro__form-data_input',
+              placeholder='correo@ejemplo.com', autocomplete='off') }}
+              {{ form.phone_number(class_='registro__form-data_input',
+              placeholder='+506 1234 5678', autocomplete='off') }}
+            </div>
+          </div>
+          <div class="registro__form-btn">
+            <button type="button" class="registro__form-btn_next registro__btn-next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+        <!-- CURSOS -->
+        <div class="registro__form-section">
+          <div>
+            <h1 class="registro__form-title">Elige tu curso</h1>
+            <p class="registro__form-text">
+              Elige el curso de tu preferencia.
+            </p>
+            <div class="registro__form-prices">
+              <div class="registro__form-prices_wrapper">
+                <article class="registro__form-prices_card current-price" id="registroPricingCardOne">
+                  <span class="registro__form-prices_icon flex-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                      <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                    </svg>
+                  </span>
+                  <div class="registro__form-prices_info">
+                    <h2>Vivo</h2>
+                    <p class="registro__form-prices_price" id="priceOnePayment">
+                      ₡55,000
+                    </p>
+                  </div>
+                </article>
+                <article class="registro__form-prices_card" id="registroPricingCardTwo">
+                  <span class="registro__form-prices_icon flex-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                      <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                    </svg>
+                  </span>
+                  <div class="registro__form-prices_info">
+                    <h2>Pregrabado</h2>
+                    <p class="registro__form-prices_price" id="priceTwoPayment">
+                      ₡75,000
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="registro__form-btns">
+            <button type="button" class="registro__form-btns_prev registro__btn-prev">
+              Atrás
+            </button>
+            <button type="button" class="registro__form-btns_next registro__btn-next">
+              Siguiente
+            </button>
+          </div>
+        </div>
+        <!-- RESUMEN -->
+        <div class="registro__form-section">
+          <div>
+            <h1 class="registro__form-title">Resumen</h1>
+            <p class="registro__form-text">
+              Confirma que tus datos están bien antes de proceder con la compra.
+            </p>
+            <div class="registro__form-summary" id="registroFormSummary"></div>
+          </div>
+          <div class="registro__form-btns">
+            <button type="button" class="registro__form-btns_prev registro__btn-prev">
+              Atrás
+            </button>
+            {{ form.submit(class_='registro__form-btns_submit') }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}

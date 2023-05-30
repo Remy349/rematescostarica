@@ -521,7 +521,6 @@ img {
 
 .ingresar {
   background-color: #fff;
-  min-height: calc(100vh - 5rem);
 }
 .ingresar__container {
   display: grid;
@@ -622,6 +621,213 @@ img {
   color: #F05454;
   text-decoration: underline;
   font-size: 1rem;
+}
+
+.registro {
+  background-color: #E6E6E6;
+}
+.registro__container {
+  display: grid;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 1rem;
+}
+.registro__info {
+  background-color: #395B64;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1.5rem;
+  margin: 2rem 1.5rem;
+  padding: 1.5rem 0;
+}
+.registro__info-step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-weight: 600;
+}
+.registro__info-step.current-step {
+  background-color: #1B262C;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.registro__info-text {
+  display: none;
+}
+.registro__wrapper {
+  margin: 0 1.5rem 2rem;
+  overflow-x: hidden;
+}
+.registro__form {
+  display: flex;
+  width: 300%;
+}
+.registro__form-section {
+  width: 33.3333333333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.registro__form-title, .registro__form-text {
+  text-align: left;
+}
+.registro__form-title {
+  font-size: 1.5rem;
+  color: #395B64;
+}
+.registro__form-text {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.registro__form-data {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.registro__form-data_container {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.registro__form-data_input {
+  border: 1px solid #CCC;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.registro__form-prices_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.registro__form-prices_card {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #CCC;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.registro__form-prices_card.current-price {
+  border: 1px solid #1B262C;
+  background-color: #E6E6E6;
+}
+.registro__form-prices_card:hover {
+  border: 1px solid #1B262C;
+}
+.registro__form-prices_icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #F05454;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.registro__form-prices_icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+.registro__form-prices_info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}
+.registro__form-prices_info h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #395B64;
+}
+.registro__form-prices_price {
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: #F05454;
+}
+.registro__form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 3rem;
+}
+.registro__form-btn_next {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.15rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #395B64;
+  color: #fff;
+}
+.registro__form-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+.registro__form-btns_prev {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #395B64;
+  transition: all 0.3s ease-in-out;
+}
+.registro__form-btns_prev:hover {
+  color: #1B262C;
+}
+.registro__form-btns_next {
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.15rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #395B64;
+  color: #fff;
+  cursor: pointer;
+}
+.registro__form-btns_submit {
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.15rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1478FC;
+  color: #fff;
+  cursor: pointer;
 }
 
 .footer__title {

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Nav and header
   const header = document.getElementById('header')
   const navMenu = document.getElementById('navMenu')
   const navToggle = document.getElementById('navToggle')
@@ -45,6 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
           navLink.classList.remove('scrolling-nav-link')
         })
       }
+    })
+  }
+
+  // Multi step form
+  const registroForm = document.getElementById('registroForm')
+  const btnsPrev = document.querySelectorAll('.registro__btn-prev')
+  const btnsNext = document.querySelectorAll('.registro__btn-next')
+  const registroStep = document.querySelectorAll('.registro__info-step')
+
+  if (registroForm) {
+    btnsPrev.forEach((btnPrev, pos) => {
+      let position = pos
+      let operation = position * -100
+
+      btnPrev.addEventListener('click', () => {
+        registroForm.style.marginLeft = `${operation}%`
+        registroStep[pos + 1].classList.remove('current-step')
+      })
+    })
+
+    btnsNext.forEach((btnNext, pos) => {
+      let position = pos + 1
+      let operation = position * -100
+
+      btnNext.addEventListener('click', () => {
+        registroForm.style.marginLeft = `${operation}%`
+        registroStep[pos + 1].classList.add('current-step')
+      })
     })
   }
 })

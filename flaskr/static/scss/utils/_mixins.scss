@@ -1,0 +1,11 @@
+@mixin input($bg-color, $color, $b-radius) {
+  width: 100%;
+  border-radius: $b-radius;
+  outline: none;
+  padding: .7rem 1.5rem .7rem 1.2rem;
+  font-family: inherit;
+  background-color: $bg-color;
+  color: $color;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
