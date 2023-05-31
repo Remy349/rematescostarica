@@ -1,12 +1,22 @@
+import os
+import cloudinary
 from flask import Flask
 from config import DevelopmentConfig, ProductionConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_ckeditor import CKEditor
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
 
 db = SQLAlchemy(engine_options={"pool_pre_ping": True})
 migrate = Migrate()
 login_manager = LoginManager()
+ckeditor = CKEditor()
 
 login_manager.login_view = "auth.ingresar"
 login_manager.login_message = "Inicia sesión antes de acceder!"
@@ -21,6 +31,7 @@ def create_app(config_class=DevelopmentConfig):
     db.init_app(app)
     migrate.init_app(app, db, compare_type=True)
     login_manager.init_app(app)
+    ckeditor.init_app(app)
 
     from flaskr.main.routes import bp as main_bp
     app.register_blueprint(main_bp)
@@ -36,3 +47,4 @@ def create_app(config_class=DevelopmentConfig):
 
 from flaskr.models.person import Person
 from flaskr.models.student import Student
+from flaskr.models.course import Course

@@ -1,3 +1,11 @@
+@mixin btn($bg-color, $color, $b-radius) {
+  background-color: $bg-color;
+  border-radius: $b-radius;
+  font-weight: 500;
+  color: $color;
+  box-shadow: 0 3px 5px rgba(0,0,0,.2);
+}
+
 @mixin input($bg-color, $color, $b-radius) {
   width: 100%;
   border-radius: $b-radius;

@@ -1,0 +1,58 @@
+@use '../../utils/colors' as c;
+@use '../../utils/mixins' as m;
+
+.admin__addcurso {
+  &-desc {
+    background-color: c.$Silver;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    margin-bottom: 2.5rem;
+
+    & span {
+      font-weight: 600;
+    }
+  }
+
+  &-form {
+    background-color: c.$White;
+    width: 100%;
+    display: grid;
+    row-gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+      rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    &_input {
+      border: 1px solid c.$Silver;
+      @include m.input(c.$Platinum-light, c.$Gunmetal, 1rem);
+    }
+
+    &_file {
+      border: 1px solid c.$Silver;
+      width: 100%;
+      background-color: c.$Platinum-light;
+      border-radius: 1rem;
+      cursor: pointer;
+      font-size: 1.15rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    &_submit {
+      font-size: 1.2rem;
+      padding: .75rem 0;
+      border: none;
+      outline: none;
+      @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
+    }
+
+    &_cancel {
+      text-align: center;
+      padding: .75rem 0;
+      font-size: 1.2rem;
+      @include m.btn(c.$Bittersweet, c.$White, 1rem);
+    }
+  }
+}

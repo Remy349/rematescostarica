@@ -1,0 +1,29 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__addcurso">
+  <p class="admin__addcurso-desc">
+    <span>Nota: </span> El tamaño maximo de la imagen debe ser de 10MB (Megas). Esta
+    imagen se usara para la imagen de portada del curso.
+  </p>
+  <form action="" method="POST" class="admin__addcurso-form" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ form.course_name(class_='admin__addcurso-form_input', placeholder='Nombre del curso',
+    autocomplete='off') }}
+    {{ form.course_price(class_='admin__addcurso-form_input', placeholder='Precio del curso: ₡00,000',
+    autocomplete='off') }}
+    {{ form.course_desc() }}
+    {{ form.course_image(class_='admin__addcurso-form_file') }}
+    {{ form.submit(class_='admin__addcurso-form_submit') }}
+    <a
+      href="{{ url_for('admin.cursos') }}"
+      class="admin__addcurso-form_cancel"
+    >
+      Cancelar
+    </a>
+  </form>
+</section>
+{{ ckeditor.load(pkg_type='basic') }}
+{{ ckeditor.config(name='course_desc', height=300) }}
+{% endblock content %}

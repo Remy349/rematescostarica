@@ -70,3 +70,17 @@ button {
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
+
+::-webkit-file-upload-button {
+  background-color: c.$Blue-crayola;
+  color: c.$White;
+  font-family: inherit;
+  font-size: 1.15rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  cursor: pointer;
+  padding: .7rem 1.2rem;
+  margin-right: 1.2rem;
+  font-weight: 500;
+  border: none;
+}

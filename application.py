@@ -2,6 +2,7 @@ from flaskr import create_app, db
 
 from flaskr.models.person import Person
 from flaskr.models.student import Student
+from flaskr.models.course import Course
 
 app = create_app()
 
@@ -12,4 +13,5 @@ def make_shell_context():
         "db": db,
         "person": Person,
         "student": Student,
+        "course": Course,
     }

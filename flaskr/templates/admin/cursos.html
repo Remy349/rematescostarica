@@ -1,0 +1,43 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__cursos">
+  <h2 class="admin__cursos-title">Cursos actuales</h2>
+  <div class="admin__cursos-actions">
+    <a
+      href="{{ url_for('admin.cursos_agregar_curso') }}"
+      class="admin__cursos-actions_create"
+    >
+      Agregar
+    </a>
+  </div>
+  {% if courses|length < 1 %}
+  <div class="admin__cursos-image">
+    <img
+      src="{{ url_for('static', filename='img/add-files.png') }}"
+      class="admin__cursos-image_img" alt="No hay datos almacenados."
+    />
+    <p class="admin__cursos-image_text">
+      Aún no hay cursos registrados.
+    </p>
+  </div>
+  {% else %}
+  <div class="admin__cursos-wrapper">
+    {% for course in courses %}
+    <a href="" class="admin__cursos-card">
+      <img src="{{ course.secure_url }}" alt="Imagen del curso {{ course.course_name }}" />
+      <div class="admin__cursos-card_content">
+        <h3>Curso: {{ course.course_name }}</h3>
+        {% if course.course_description == "" %}
+        <p>Sin descripción.</p>
+        {% else %}
+        {{ course.course_description|safe }}
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endblock content %}

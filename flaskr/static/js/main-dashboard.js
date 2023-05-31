@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // =======================>
   const navLinks = document.querySelectorAll('.nav__link')
 
   if (localStorage.getItem('currentPage') === null) {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  // =======================>
   const navDashboard = document.getElementById('navDashboard')
   const navToggleDashboard = document.getElementById('navToggleDashboard')
   const navCloseDashboard = document.getElementById('navCloseDashboard')

@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('currentPage')) {
+    localStorage.removeItem('currentPage')
+  }
+
   // Nav and header
   const header = document.getElementById('header')
   const navMenu = document.getElementById('navMenu')
