@@ -1,0 +1,43 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__cursos {
+    &-title {
+      margin-bottom: 2.5rem;
+      font-size: 1.75rem;
+    }
+
+    &-actions {
+      margin-bottom: 3.5rem;
+
+      &_create {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &-card {
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-14px);
+      }
+    }
+
+    &-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin__cursos {
+    &-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

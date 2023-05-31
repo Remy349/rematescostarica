@@ -1,0 +1,25 @@
+@use '../../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__addcurso {
+    &-form {
+      padding: 2.5rem;
+
+      &_submit {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+
+      &_cancel {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: #D72323;
+        }
+      }
+    }
+  }
+}

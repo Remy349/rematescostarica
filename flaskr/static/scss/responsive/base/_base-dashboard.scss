@@ -7,18 +7,6 @@
 
   .section {
     padding: 6rem 0 4.5rem;
-
-    &__title {
-      font-size: 2rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .section {
-    &__title {
-      font-size: 2.5rem;
-    }
   }
 }
 
@@ -26,12 +14,6 @@
   .container {
     max-width: 100%;
     margin-right: 0;
-  }
-
-  .section {
-    &__title {
-      font-size: 2.75rem;
-    }
   }
 
   .main {
