@@ -1,0 +1,95 @@
+@use '../utils/colors' as c;
+
+.nav {
+  background-color: c.$White;
+  width: 280px;
+  height: 100vh;
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  border-radius: 2rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 5px 0 5px 0 rgba(0,0,0,.2);
+  transition: all .5s ease-in-out;
+
+  &__logo {
+    padding: 3rem 1.5rem 2rem;
+    border-bottom: 1px solid c.$Silver;
+    position: relative;
+
+    &-link {
+      color: c.$Dark-slate-gray;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+
+    & svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: c.$Gunmetal;
+    }
+  }
+
+  &__menu {
+    padding: 2rem 1.5rem;
+  }
+
+  &__list {
+    display: flex;
+    row-gap: .5rem;
+    flex-direction: column;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    border-radius: 1rem;
+    padding: .7rem;
+
+    &.current-page {
+      background-color: c.$Platinum-light;
+      border-radius: 1rem;
+      padding: .7rem;
+    }
+
+    &.current-page &-icon {
+      background-color: c.$Dark-slate-gray;
+      border-radius: 1rem;
+      padding: .5rem;
+
+      & svg {
+        fill: c.$White;
+      }
+    }
+
+    &-icon {
+      padding: .5rem;
+
+      & svg {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: c.$Dark-slate-gray;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    color: c.$Dark-slate-gray;
+    font-size: 1.25rem;
+  }
+}
+
+.show-nav {
+  left: 0;
+}

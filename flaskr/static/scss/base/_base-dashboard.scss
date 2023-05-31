@@ -1,0 +1,72 @@
+@use '../utils/colors' as c;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  background-color: c.$Platinum-light;
+  color: c.$Gunmetal;
+}
+
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+svg {
+  width: 1.5rem;
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 768px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.section {
+  padding: 4.5rem 0 2.5rem;
+
+  &__title {
+    font-size: 1.75rem;
+  }
+}
+
+.main {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}

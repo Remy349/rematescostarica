@@ -33,7 +33,7 @@ def ingresar():
             login_user(user, remember=remember_me)
 
             if user.is_admin is True:
-                return "Admin"
+                return redirect(url_for("admin.dashboard"))
             else:
                 return "Student"
         except NoResultFound:

@@ -1,0 +1,37 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    &__link {
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        background-color: c.$Platinum-light;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    width: 300px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    border-radius: 2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &__logo {
+      text-align: center;
+
+      &-link {
+        font-size: 2rem;
+      }
+    }
+
+    &__close {
+      display: none;
+    }
+  }
+}

@@ -28,6 +28,9 @@ def create_app(config_class=DevelopmentConfig):
     from flaskr.auth.routes import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
 
+    from flaskr.admin.base import bp as admin_bp
+    app.register_blueprint(admin_bp, url_prefix="/admin")
+
     return app
 
 

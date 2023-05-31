@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% if title %}
+      {{ title }} | Remates Costa Rica
+      {% else %}
+      Remates Costa Rica
+      {% endif %}
+    </title>
+    <!-- STYLES CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles-dashboard.css') }}" />
+  </head>
+  <body>
+    <!-- NAV -->
+    {% include "partials/nav-dashboard.html" %}
+    <!-- MAIN -->
+    <main class="main container">
+      {% block content %} {% endblock content %}
+    </main>
+
+    <!-- MAIN JS -->
+    <script src="{{ url_for('static', filename='js/main-dashboard.js') }}"></script>
+  </body>
+</html>
