@@ -1,7 +1,7 @@
 import os
 import cloudinary
 from flask import Flask
-from config import DevelopmentConfig, ProductionConfig
+from config import DevelopmentConfig, ProductionConfig, ProductionTestConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -23,7 +23,7 @@ login_manager.login_message = "Inicia sesión antes de acceder!"
 login_manager.login_message_category = "error"
 
 
-def create_app(config_class=DevelopmentConfig):
+def create_app(config_class=ProductionTestConfig):
     app = Flask(__name__)
 
     app.config.from_object(config_class)

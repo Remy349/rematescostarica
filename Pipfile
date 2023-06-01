@@ -25,6 +25,7 @@ gunicorn = "==20.1.0"
 flask-login = "==0.6.2"
 flask-ckeditor = "*"
 cloudinary = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

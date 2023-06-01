@@ -17,5 +17,9 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:////" + os.path.join(basedir, "remates.db")
 
 
+class ProductionTestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.getenv("REMATES_DB_URL_TEST")
+
+
 class ProductionConfig(Config):
     pass
