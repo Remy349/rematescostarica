@@ -3,7 +3,7 @@
 {% block content %}
 {% include "partials/header-dashboard.html" %}
 <section class="admin__cursos">
-  <h2 class="admin__cursos-title">Cursos actuales</h2>
+  <h2 class="admin__cursos-title section__title">Cursos actuales</h2>
   <div class="admin__cursos-actions">
     <a
       href="{{ url_for('admin.cursos_agregar_curso') }}"
@@ -25,7 +25,7 @@
   {% else %}
   <div class="admin__cursos-wrapper">
     {% for course in courses %}
-    <a href="" class="admin__cursos-card">
+    <a href="{{ url_for('admin.cursos_control', course_code=course.course_code) }}" class="admin__cursos-card">
       <img src="{{ course.secure_url }}" alt="Imagen del curso {{ course.course_name }}" />
       <div class="admin__cursos-card_content">
         <h3>Curso: {{ course.course_name }}</h3>

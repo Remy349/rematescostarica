@@ -1,0 +1,49 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__control">
+  <h2 class="section__title">Ciclos del curso</h2>
+  <div class="admin__control-actions">
+    <a
+      href=""
+      class="admin__control-actions_create"
+    >
+      Agregar
+    </a>
+  </div>
+</section>
+<section class="admin__control section">
+  <h2 class="section__title">Editar información del curso</h2>
+  <p class="admin__control-desc">
+    <span>Nota: </span> El tamaño maximo de la imagen debe ser de 10MB (Megas). Esta
+    imagen se usara para la imagen de portada del curso. Formatos permitidos (png, jpg, jpeg).
+  </p>
+  <div class="admin__control-update">
+    <form action="" method="POST" class="admin__control-update_form" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      {{ form.course_name(class_='admin__control-update_form_input', placeholder='Nombre del curso',
+      autocomplete='off') }}
+      {{ form.course_price(class_='admin__control-update_form_input', placeholder='Precio del curso: ₡00000',
+      autocomplete='off') }}
+      {{ form.course_desc() }}
+      {{ form.course_image(class_='admin__control-update_form_file') }}
+      {{ form.submit(class_='admin__control-update_form_submit',
+      value='Actualizar') }}
+    </form>
+    <article class="admin__control-update_preview">
+      <img src="{{ course.secure_url }}" alt="Imagen del curso {{ course.course_name }}" />
+      <div class="admin__control-update_preview_content">
+        <h3>Curso: {{ course.course_name }}</h3>
+        {% if course.course_desc == "" %}
+        <p>Sin descripción.</p>
+        {% else %}
+        {{ course.course_desc|safe }}
+        {% endif %}
+      </div>
+    </article>
+  </div>
+</section>
+{{ ckeditor.load(pkg_type='basic') }}
+{{ ckeditor.config(name='course_desc', height=300) }}
+{% endblock content %}

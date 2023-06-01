@@ -7,6 +7,11 @@
 
   .section {
     padding: 6rem 0 4.5rem;
+
+    &__title {
+      margin-bottom: 2.5rem;
+      font-size: 1.75rem;
+    }
   }
 }
 

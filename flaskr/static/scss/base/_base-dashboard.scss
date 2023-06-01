@@ -60,6 +60,12 @@ button {
 
 .section {
   padding: 4.5rem 0 2.5rem;
+
+  &__title {
+    font-size: 1.45rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
 }
 
 .main {

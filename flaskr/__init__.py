@@ -48,3 +48,4 @@ def create_app(config_class=DevelopmentConfig):
 from flaskr.models.person import Person
 from flaskr.models.student import Student
 from flaskr.models.course import Course
+from flaskr.models.change import Change

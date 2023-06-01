@@ -2,12 +2,6 @@
 @use '../utils/mixins' as m;
 
 .admin__cursos {
-  &-title {
-    font-size: 1.45rem;
-    margin-bottom: 2.5rem;
-    text-align: left;
-  }
-
   &-actions {
     margin-bottom: 2.5rem;
 

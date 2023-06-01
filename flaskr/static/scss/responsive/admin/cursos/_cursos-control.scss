@@ -1,0 +1,52 @@
+@use '../../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__control {
+    &-actions {
+      margin-bottom: 3.5rem;
+
+      &_create {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &-update {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2.5rem;
+
+      &_form {
+        padding: 2.5rem;
+
+        &_submit {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Gunmetal;
+          }
+        }
+      }
+
+      &_preview {
+        align-self: baseline;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin__control {
+    &-update {
+      grid-template-columns: auto 320px;
+    }
+
+    &-subjects {
+      &_cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
