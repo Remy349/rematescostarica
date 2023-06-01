@@ -65,7 +65,7 @@ button {
 }
 
 ::-webkit-file-upload-button {
-  background-color: #1478FC;
+  background-color: #0059CC;
   color: #FFF;
   font-family: inherit;
   font-size: 1.15rem;
@@ -199,6 +199,46 @@ button {
   width: 1.75rem;
   height: 1.75rem;
   fill: #1B262C;
+}
+
+.notification {
+  display: flex;
+  width: 330px;
+  flex-direction: column;
+  row-gap: 1rem;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.notification__error {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F05D5E;
+  color: #FFF;
+  padding: 0.75rem 1rem;
+}
+.notification__success {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #058C42;
+  color: #FFF;
+  padding: 0.75rem 1rem;
+}
+.notification__close {
+  display: inherit;
+  cursor: pointer;
+}
+.notification__close svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: #FFF;
 }
 
 .admin__cursos-title {
@@ -398,6 +438,34 @@ button {
 @media screen and (min-width: 1280px) {
   .header__toggle {
     display: none;
+  }
+}
+@media screen and (max-width: 330px) {
+  .notification {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .notification {
+    width: 270px;
+  }
+}
+@media screen and (min-width: 568px) {
+  .notification {
+    width: 540px;
+  }
+  .notification__error, .notification__success {
+    font-weight: 500;
+    padding: 0.85rem 1.25rem;
+  }
+  .notification__close svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .notification {
+    width: 700px;
   }
 }
 @media screen and (min-width: 768px) {

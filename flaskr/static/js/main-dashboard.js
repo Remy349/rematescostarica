@@ -17,6 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // =======================>
+  const notification = document.getElementById('notification')
+
+  if (notification) {
+    const notificationBtnsClose = document.querySelectorAll(
+      '.notification__close'
+    )
+    const notificationItems = document.querySelectorAll('.notification__item')
+
+    notificationBtnsClose.forEach((notificationBtnClose, pos) => {
+      notificationBtnClose.addEventListener('click', () => {
+        notificationItems[pos].style.display = 'none'
+      })
+    })
+  }
+
+  // =======================>
   const navDashboard = document.getElementById('navDashboard')
   const navToggleDashboard = document.getElementById('navToggleDashboard')
   const navCloseDashboard = document.getElementById('navCloseDashboard')
