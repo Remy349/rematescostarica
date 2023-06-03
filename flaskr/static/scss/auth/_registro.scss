@@ -86,6 +86,18 @@
         row-gap: 1.5rem;
       }
 
+      &_messages {
+        display: grid;
+        row-gap: .5rem;
+
+        &_error {
+          color: c.$Bittersweet;
+          font-size: 1.15rem;
+          text-align: center;
+          font-weight: 500;
+        }
+      }
+
       &_input {
         border: 1px solid c.$Silver;
         @include m.input(c.$Platinum-light, c.$Gunmetal, 1rem);
@@ -151,6 +163,32 @@
         font-weight: 500;
         font-size: 1.15rem;
         color: c.$Imperial-red;
+      }
+    }
+
+    &-summary {
+      background-color: c.$Platinum-light;
+      border-radius: 1rem;
+      padding: 1.2rem;
+      display: grid;
+      row-gap: 1rem;
+      overflow-x: auto;
+
+      &_subtitle {
+        color: c.$Dark-slate-gray;
+        font-size: 1.35rem;
+        margin-bottom: .7rem;
+      }
+
+      &_text {
+        color: c.$Gunmetal;
+        margin-bottom: .5rem;
+
+        & span {
+          text-decoration: underline;
+          font-weight: 600;
+          color: c.$Gunmetal;
+        }
       }
     }
 

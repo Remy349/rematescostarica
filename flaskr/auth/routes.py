@@ -1,8 +1,9 @@
 from flask_login import current_user, login_user, logout_user
 from flaskr import db
-from flask import Blueprint, flash, redirect, render_template, url_for
+from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from sqlalchemy.exc import NoResultFound
 from flaskr.auth.forms import IngresarForm, RegistroForm
+from flaskr.helpers import generate_code
 
 from flaskr.models.person import Person
 
@@ -49,7 +50,44 @@ def registro():
 
     form = RegistroForm()
 
+    if form.validate_on_submit():
+        firstname = form.firstname.data
+        first_lastname = form.first_lastname.data
+        second_lastname = form.second_lastname.data
+        email = form.email.data
+        phone_number = form.phone_number.data
+
+        payment_code = generate_code()
+
+        session["firstname"] = firstname
+        session["first_lastname"] = first_lastname
+        session["second_lastname"] = second_lastname
+        session["email"] = email
+        session["phone_number"] = phone_number
+        session["payment_code"] = payment_code
+
+        return redirect(
+            url_for(
+                "auth.registro_realizar_compra",
+                payment_code=payment_code,
+            )
+        )
+
     return render_template("auth/registro.html", form=form)
+
+
+@bp.route("/registro/realizar-compra/<payment_code>", methods=["GET"])
+def registro_realizar_compra(payment_code):
+    if current_user.is_authenticated:
+        return redirect(url_for("main.index"))
+
+    if (
+        session.get("payment_code") is None
+        or session.get("payment_code") != payment_code
+    ):
+        return redirect(url_for("auth.registro"))
+
+    return render_template("auth/realizar-compra.html")
 
 
 @bp.route("/cerrar-sesion", methods=["GET"])

@@ -36,8 +36,15 @@
                 {{ form.second_lastname(class_='registro__form-data_input',
                 placeholder='Segundo Apellido', autocomplete='off') }}
               </div>
-              {{ form.email(class_='registro__form-data_input',
-              placeholder='correo@ejemplo.com', autocomplete='off') }}
+              <div class="registro__form-data_messages">
+                {{ form.email(class_='registro__form-data_input',
+                placeholder='correo@ejemplo.com', autocomplete='off') }}
+                {% for error in form.email.errors %}
+                <span class="registro__form-data_messages_error">
+                  [{{ error }}]
+                </span>
+                {% endfor %}
+              </div>
               {{ form.phone_number(class_='registro__form-data_input',
               placeholder='+506 1234 5678', autocomplete='off') }}
             </div>
@@ -64,7 +71,7 @@
                     </svg>
                   </span>
                   <div class="registro__form-prices_info">
-                    <h2>Vivo</h2>
+                    <h2>Pregrabado</h2>
                     <p class="registro__form-prices_price" id="priceOnePayment">
                       ₡55,000
                     </p>
@@ -77,7 +84,7 @@
                     </svg>
                   </span>
                   <div class="registro__form-prices_info">
-                    <h2>Pregrabado</h2>
+                    <h2>Vivo</h2>
                     <p class="registro__form-prices_price" id="priceTwoPayment">
                       ₡75,000
                     </p>

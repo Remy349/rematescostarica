@@ -1,0 +1,35 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 568px) {
+  .payment {
+    &__title {
+      max-width: 500px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .payment {
+    &__image {
+      & img {
+        max-width: 22rem;
+      }
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-top: -1rem;
+    }
+
+    &__btn {
+      &-buy {
+        padding: .85rem 2.25rem;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Tang-blue;
+        }
+      }
+    }
+  }
+}

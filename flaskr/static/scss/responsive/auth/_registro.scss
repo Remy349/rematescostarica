@@ -32,6 +32,16 @@
         }
       }
 
+      &-btns {
+        &_submit {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Tang-blue;
+          }
+        }
+      }
+
       &-btn,
       &-btns {
         &_next {

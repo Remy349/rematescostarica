@@ -10,7 +10,7 @@ class Person(UserMixin, db.Model):
     firstname = sa.Column(sa.String(20), nullable=False)
     first_lastname = sa.Column(sa.String(20), nullable=False)
     second_lastname = sa.Column(sa.String(20), nullable=False)
-    email = sa.Column(sa.String(180), nullable=False, unique=True, index=True)
+    email = sa.Column(sa.String(280), nullable=False, unique=True, index=True)
     password_hash = sa.Column(sa.String(180))
     is_admin = sa.Column(sa.Boolean, default=False)
 

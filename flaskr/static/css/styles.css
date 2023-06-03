@@ -34,6 +34,7 @@ ol {
 
 svg {
   width: 1.5rem;
+  display: block;
 }
 
 img {
@@ -736,6 +737,16 @@ img {
   display: grid;
   row-gap: 1.5rem;
 }
+.registro__form-data_messages {
+  display: grid;
+  row-gap: 0.5rem;
+}
+.registro__form-data_messages_error {
+  color: #F05D5E;
+  font-size: 1.15rem;
+  text-align: center;
+  font-weight: 500;
+}
 .registro__form-data_input {
   border: 1px solid #CCC;
   width: 100%;
@@ -798,6 +809,28 @@ img {
   font-weight: 500;
   font-size: 1.15rem;
   color: #F05454;
+}
+.registro__form-summary {
+  background-color: #E6E6E6;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  display: grid;
+  row-gap: 1rem;
+  overflow-x: auto;
+}
+.registro__form-summary_subtitle {
+  color: #395B64;
+  font-size: 1.35rem;
+  margin-bottom: 0.7rem;
+}
+.registro__form-summary_text {
+  color: #1B262C;
+  margin-bottom: 0.5rem;
+}
+.registro__form-summary_text span {
+  text-decoration: underline;
+  font-weight: 600;
+  color: #1B262C;
 }
 .registro__form-btn {
   display: flex;
@@ -869,6 +902,45 @@ img {
   background-color: #1478FC;
   color: #FFF;
   cursor: pointer;
+}
+
+.payment {
+  background-color: #FFF;
+}
+.payment__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.payment__image img {
+  max-width: 18rem;
+}
+.payment__title {
+  text-align: center;
+  color: #395B64;
+  margin-top: -0.5rem;
+  margin-bottom: 3.5rem;
+}
+.payment__btn-buy {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 2.25rem;
+  font-size: 1.25rem;
+  background-color: #0070ba;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+.payment__btn-buy svg {
+  fill: #FFF;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .footer__title {
@@ -1387,6 +1459,12 @@ img {
     align-items: flex-start;
     justify-content: space-between;
   }
+  .registro__form-btns_submit {
+    transition: all 0.3s ease-in-out;
+  }
+  .registro__form-btns_submit:hover {
+    background-color: #0059CC;
+  }
   .registro__form-btn_next, .registro__form-btns_next {
     transition: all 0.3s ease-in-out;
   }
@@ -1417,6 +1495,27 @@ img {
   }
   .registro__wrapper {
     margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 568px) {
+  .payment__title {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .payment__image img {
+    max-width: 22rem;
+  }
+  .payment__title {
+    font-size: 2rem;
+    margin-top: -1rem;
+  }
+  .payment__btn-buy {
+    padding: 0.85rem 2.25rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .payment__btn-buy:hover {
+    background-color: #0059CC;
   }
 }
 @media screen and (min-width: 768px) {
