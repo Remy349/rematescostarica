@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('currentPage')
   }
 
+  // Clear local storage - registroPaymentData
+  if (
+    window.location.pathname === '/' ||
+    window.location.pathname === '/auth/ingresar'
+  ) {
+    localStorage.removeItem('registroPaymentData')
+  }
+
   // Nav and header
   const header = document.getElementById('header')
   const navMenu = document.getElementById('navMenu')
@@ -102,7 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
         courseName,
       }
 
-      localStorage.setItem('registroPaymentData', registroPaymentData)
+      localStorage.setItem(
+        'registroPaymentData',
+        JSON.stringify({ ...registroPaymentData })
+      )
     })
 
     // ======================>
@@ -200,6 +211,25 @@ document.addEventListener('DOMContentLoaded', () => {
           <span>Precio</span>: ${coursePrice}
         </p>
       `
+    })
+  }
+
+  // Paypal button - Buy
+  const btnPaypalBuy = document.getElementById('btnPaypalBuy')
+
+  if (btnPaypalBuy) {
+    btnPaypalBuy.addEventListener('click', async () => {
+      const registroPaymentData = localStorage.getItem('registroPaymentData')
+
+      const res = await fetch('/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: registroPaymentData,
+      })
+
+      const data = await res.json()
+
+      window.location.href = data.links[1].href
     })
   }
 })

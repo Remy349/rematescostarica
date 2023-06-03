@@ -27,6 +27,7 @@ flask-ckeditor = "*"
 cloudinary = "*"
 psycopg2-binary = "*"
 email-validator = "*"
+requests = "*"
 
 [dev-packages]
 

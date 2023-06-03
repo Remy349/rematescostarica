@@ -90,6 +90,25 @@ def registro_realizar_compra(payment_code):
     return render_template("auth/realizar-compra.html")
 
 
+@bp.route(
+    "/registro/realizar-compra/<payment_code>/compra-finalizada",
+    methods=["GET"],
+)
+def registro_compra_finalizada(payment_code):
+    if current_user.is_authenticated:
+        return redirect(url_for("main.index"))
+
+    if (
+        session.get("payment_code") is None
+        or session.get("payment_code") != payment_code
+    ):
+        return redirect(url_for("main.index"))
+
+    session.clear()
+
+    return render_template("auth/compra-finalizada.html")
+
+
 @bp.route("/cerrar-sesion", methods=["GET"])
 def cerrar_sesion():
     logout_user()
