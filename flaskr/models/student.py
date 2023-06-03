@@ -2,6 +2,8 @@ import sqlalchemy as sa
 from flaskr import db
 from datetime import datetime
 
+from flaskr.models.student_course import student_course
+
 
 class Student(db.Model):
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
@@ -14,6 +16,13 @@ class Student(db.Model):
         sa.ForeignKey("person.id"),
         unique=True,
         nullable=False,
+    )
+
+    courses = db.relationship(
+        "Course",
+        secondary=student_course,
+        backref="students",
+        lazy="dynamic",
     )
 
     def __repr__(self):

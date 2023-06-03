@@ -52,3 +52,4 @@ from flaskr.models.person import Person
 from flaskr.models.student import Student
 from flaskr.models.course import Course
 from flaskr.models.change import Change
+from flaskr.models.student_course import student_course
