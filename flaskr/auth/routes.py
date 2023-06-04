@@ -1,9 +1,9 @@
 from flask_login import current_user, login_user, logout_user
 from flaskr import db
-from flask import Blueprint, flash, redirect, render_template, request, session, url_for
+from flask import Blueprint, flash, redirect, render_template, session, url_for
 from sqlalchemy.exc import NoResultFound
 from flaskr.auth.forms import IngresarForm, RegistroForm
-from flaskr.helpers import generate_code
+from flaskr.helpers import clear_form_data_session, generate_code
 
 from flaskr.models.person import Person
 
@@ -58,7 +58,6 @@ def registro():
         second_lastname = form.second_lastname.data
         email = form.email.data
         phone_number = form.phone_number.data
-        print(phone_number)
 
         payment_code = generate_code()
 
@@ -107,7 +106,7 @@ def registro_compra_finalizada(payment_code):
     ):
         return redirect(url_for("main.index"))
 
-    clear_form_data_session()
+    # clear_form_data_session()
 
     return render_template("auth/compra-finalizada.html")
 
@@ -116,12 +115,3 @@ def registro_compra_finalizada(payment_code):
 def cerrar_sesion():
     logout_user()
     return redirect(url_for("auth.ingresar"))
-
-
-def clear_form_data_session():
-    session.pop("firstname", None)
-    session.pop("first_lastname", None)
-    session.pop("second_lastname", None)
-    session.pop("email", None)
-    session.pop("phone_number", None)
-    session.pop("payment_code", None)

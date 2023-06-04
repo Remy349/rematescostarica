@@ -2,6 +2,8 @@ import os
 import base64
 import requests
 from flaskr import db
+from flaskr.auth.email import send_user_information_email
+from flaskr.helpers import clear_form_data_session, generate_code
 from flask import (
     Blueprint,
     session,
@@ -12,6 +14,10 @@ from flask import (
 )
 
 from flaskr.models.change import Change
+from flaskr.models.course import Course
+from flaskr.models.person import Person
+from flaskr.models.student import Student
+from flaskr.models.purchase_paypal import PurchasePaypal
 
 bp = Blueprint("paypal", __name__)
 
@@ -82,8 +88,64 @@ def capture_order():
     response = requests.post(
         f"{api_url}/v2/checkout/orders/{token}/capture",
         headers=headers,
+    ).json()
+
+    gross_amount = response["purchase_units"][0]["payments"]["captures"][0][
+        "seller_receivable_breakdown"
+    ]["gross_amount"]["value"]
+    paypal_fee = response["purchase_units"][0]["payments"]["captures"][0][
+        "seller_receivable_breakdown"
+    ]["paypal_fee"]["value"]
+    net_amount = response["purchase_units"][0]["payments"]["captures"][0][
+        "seller_receivable_breakdown"
+    ]["net_amount"]["value"]
+
+    firstname = session.get("firstname")
+    first_lastname = session.get("first_lastname")
+    second_lastname = session.get("second_lastname")
+    email = session.get("email")
+    phone_number = session.get("phone_number")
+    course_name = session.get("course_name")
+
+    password = generate_code()
+    student_code = generate_code()
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_name=course_name)
+    ).scalar_one()
+
+    person = Person(
+        firstname=firstname,
+        first_lastname=first_lastname,
+        second_lastname=second_lastname,
+        email=email,
     )
-    print(response.json())
+
+    person.is_admin = False
+    person.set_password(password)
+
+    student = Student(
+        phone_number=phone_number,
+        student_code=student_code,
+        person=person,
+    )
+
+    student.courses.append(course)
+
+    purchase_paypal = PurchasePaypal(
+        purchase_gross_amount=gross_amount,
+        purchase_paypal_fee=paypal_fee,
+        purchase_net_amount=net_amount,
+        student=student,
+        course=course,
+    )
+
+    db.session.add(person)
+    db.session.add(student)
+    db.session.add(purchase_paypal)
+    db.session.commit()
+
+    send_user_information_email(email=email, password=password)
 
     return redirect(
         url_for(
@@ -95,7 +157,7 @@ def capture_order():
 
 @bp.route("/cancel-order", methods=["GET"])
 def cancel_order():
-    session.clear()
+    clear_form_data_session()
     return redirect(url_for("main.index"))
 
 

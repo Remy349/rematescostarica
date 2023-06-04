@@ -2,7 +2,7 @@ from flask import current_app, render_template
 from flaskr.email import send_email
 
 
-def send_student_information_email(email, password):
+def send_user_information_email(email, password):
     user_info = {"email": email, "password": password}
 
     send_email(

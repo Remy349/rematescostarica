@@ -25,6 +25,12 @@ class Student(db.Model):
         lazy="dynamic",
     )
 
+    purchases_paypal = db.relationship(
+        "PurchasePaypal",
+        backref="student",
+        lazy="dynamic",
+    )
+
     def __repr__(self):
         return f"""
             student:
