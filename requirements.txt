@@ -10,6 +10,7 @@ email-validator==2.0.0.post2
 flask==2.3.2
 flask-ckeditor==0.4.6
 flask-login==0.6.2
+flask-mail==0.9.1
 flask-migrate==4.0.4
 flask-sqlalchemy==3.0.3
 flask-wtf==1.1.1

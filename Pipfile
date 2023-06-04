@@ -28,6 +28,7 @@ cloudinary = "*"
 psycopg2-binary = "*"
 email-validator = "*"
 requests = "*"
+flask-mail = "*"
 
 [dev-packages]
 

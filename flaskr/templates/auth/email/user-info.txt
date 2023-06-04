@@ -1,0 +1,8 @@
+¡Bienvenido/a a Remates Costa Rica!
+
+Esta es la información de usuario para poder acceder a tu espacio de trabajo:
+
+correo: {{ user_info.email }}
+contraseña: {{ user_info.password }}
+
+Te saluda el Lic. Randall Hernández.
