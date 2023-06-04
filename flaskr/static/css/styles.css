@@ -943,6 +943,34 @@ img {
   height: 1.75rem;
 }
 
+.completed {
+  background-color: #FFF;
+}
+.completed__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.completed__image img {
+  max-width: 18rem;
+}
+.completed__title {
+  text-align: center;
+  color: #395B64;
+  margin-bottom: 1.5rem;
+  margin-top: -0.5rem;
+}
+.completed__info {
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.completed__link {
+  color: #395B64;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
 .footer__title {
   color: #FFF;
   text-align: left;
@@ -1516,6 +1544,25 @@ img {
   }
   .payment__btn-buy:hover {
     background-color: #0059CC;
+  }
+}
+@media screen and (min-width: 568px) {
+  .completed__info {
+    max-width: 550px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .completed__image img {
+    max-width: 22rem;
+  }
+  .completed__title {
+    font-size: 2.25rem;
+  }
+  .completed__link {
+    transition: all 0.3s ease-in-out;
+  }
+  .completed__link:hover {
+    color: #1B262C;
   }
 }
 @media screen and (min-width: 768px) {

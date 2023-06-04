@@ -1,0 +1,36 @@
+@use '../utils/colors' as c;
+
+.completed {
+  background-color: c.$White;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    & img {
+      max-width: 18rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: c.$Dark-slate-gray;
+    margin-bottom: 1.5rem;
+    margin-top: -.5rem;
+  }
+
+  &__info {
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  &__link {
+    color: c.$Dark-slate-gray;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}

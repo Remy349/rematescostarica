@@ -3,7 +3,19 @@
 {% block content %}
 <section class="completed section">
   <div class="completed__container container">
-    <h1>Payment Completed</h1>
+    <div class="completed__image">
+      <img src="{{ url_for('static', filename='img/send-email-message.png') }}" alt="Mensaje enviado al correo" />
+    </div>
+    <h1 class="completed__title">
+      ¡Gracias por tu compra!
+    </h1>
+    <p class="completed__info">
+      Tu registro se ha completado exitosamente.
+      Hemos enviado a tu correo un mensaje con la información de tu usuario.
+    </p>
+    <a href="{{ url_for('main.index') }}" class="completed__link">
+      Inicio
+    </a>
   </div>
 </section>
 {% endblock content %}

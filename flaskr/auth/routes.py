@@ -106,7 +106,7 @@ def registro_compra_finalizada(payment_code):
     ):
         return redirect(url_for("main.index"))
 
-    # clear_form_data_session()
+    clear_form_data_session()
 
     return render_template("auth/compra-finalizada.html")
 

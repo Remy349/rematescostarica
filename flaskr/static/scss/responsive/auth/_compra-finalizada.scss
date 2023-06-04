@@ -1,0 +1,31 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 568px) {
+  .completed {
+    &__info {
+      max-width: 550px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .completed {
+    &__image {
+      & img {
+        max-width: 22rem;
+      }
+    }
+
+    &__title {
+      font-size: 2.25rem;
+    }
+
+    &__link {
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        color: c.$Gunmetal;
+      }
+    }
+  }
+}
