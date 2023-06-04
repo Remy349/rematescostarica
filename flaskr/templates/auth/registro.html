@@ -45,8 +45,15 @@
                 </span>
                 {% endfor %}
               </div>
-              {{ form.phone_number(class_='registro__form-data_input',
-              placeholder='+506 1234 5678', autocomplete='off') }}
+              <div class="registro__form-data_messages">
+                {{ form.phone_number(class_='registro__form-data_input',
+                autocomplete='off') }}
+                {% for error in form.phone_number.errors %}
+                <span class="registro__form-data_messages_error">
+                  [{{ error }}]
+                </span>
+                {% endfor %}
+              </div>
             </div>
           </div>
           <div class="registro__form-btn">

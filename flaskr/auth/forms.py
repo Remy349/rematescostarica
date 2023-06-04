@@ -1,3 +1,4 @@
+import phonenumbers
 from sqlalchemy.exc import NoResultFound
 from flaskr import db
 from flask_wtf import FlaskForm
@@ -57,3 +58,12 @@ class RegistroForm(FlaskForm):
                 raise ValidationError("Correo electrónico ya registrado!")
         except NoResultFound:
             pass
+
+    def validate_phone_number(self, phone_number):
+        try:
+            p = phonenumbers.parse(phone_number.data)
+
+            if not phonenumbers.is_valid_number(p):
+                raise ValueError()
+        except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
+            raise ValidationError("Número de teléfono no válido")

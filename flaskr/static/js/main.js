@@ -85,9 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (registroForm) {
     // ======================>
+    const phoneNumberInput = document.getElementById('phone_number')
+
+    const iti = window.intlTelInput(phoneNumberInput, {
+      separateDialCode: true,
+      initialCountry: 'auto',
+      geoIpLookup: (callback) => {
+        fetch('https://ipapi.co/json')
+          .then((res) => res.json())
+          .then((data) => callback(data.country_code))
+          .catch(() => callback('us'))
+      },
+      utilsScript:
+        'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
+    })
+
+    iti.setNumber(phoneNumberInput.value)
+
+    phoneNumberInput.addEventListener('blur', () => {
+      phoneNumberInput.value = iti.getNumber()
+    })
+
+    // ======================>
     registroForm.addEventListener('submit', () => {
       let courseName = ''
-      let coursePrice = ''
 
       const registroPriceCards = document.querySelectorAll(
         '.registro__form-prices_card'
@@ -97,16 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (registroPriceCard.classList[1] === 'current-price') {
           courseName =
             registroPriceCard.lastElementChild.firstElementChild.outerText
-          coursePrice =
-            registroPriceCard.lastElementChild.lastElementChild.outerText
         }
       })
 
-      coursePrice = coursePrice.substring(1)
-      coursePrice = coursePrice.replace(',', '')
-
       const registroPaymentData = {
-        coursePrice,
         courseName,
       }
 

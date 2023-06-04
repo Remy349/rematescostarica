@@ -29,6 +29,7 @@ psycopg2-binary = "*"
 email-validator = "*"
 requests = "*"
 flask-mail = "*"
+phonenumbers = "*"
 
 [dev-packages]
 

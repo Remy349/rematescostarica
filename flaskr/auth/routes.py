@@ -15,6 +15,8 @@ def ingresar():
     if current_user.is_authenticated:
         return redirect(url_for("main.index"))
 
+    clear_form_data_session()
+
     form = IngresarForm()
 
     if form.validate_on_submit():
@@ -56,6 +58,7 @@ def registro():
         second_lastname = form.second_lastname.data
         email = form.email.data
         phone_number = form.phone_number.data
+        print(phone_number)
 
         payment_code = generate_code()
 
@@ -104,7 +107,7 @@ def registro_compra_finalizada(payment_code):
     ):
         return redirect(url_for("main.index"))
 
-    session.clear()
+    clear_form_data_session()
 
     return render_template("auth/compra-finalizada.html")
 
@@ -113,3 +116,12 @@ def registro_compra_finalizada(payment_code):
 def cerrar_sesion():
     logout_user()
     return redirect(url_for("auth.ingresar"))
+
+
+def clear_form_data_session():
+    session.pop("firstname", None)
+    session.pop("first_lastname", None)
+    session.pop("second_lastname", None)
+    session.pop("email", None)
+    session.pop("phone_number", None)
+    session.pop("payment_code", None)
