@@ -9,6 +9,7 @@ class Student(db.Model):
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     phone_number = sa.Column(sa.String(40), nullable=False)
     student_code = sa.Column(sa.String(30))
+    is_active = sa.Column(sa.Boolean, default=False)
     joined_in = sa.Column(sa.DateTime, default=datetime.utcnow)
 
     person_id = sa.Column(
@@ -23,6 +24,7 @@ class Student(db.Model):
         secondary=student_course,
         backref="students",
         lazy="dynamic",
+        cascade="all, delete",
     )
 
     purchases_paypal = db.relationship(

@@ -1,0 +1,52 @@
+@media screen and (min-width: 568px) {
+  .admin__index {
+    &-data {
+      &_card {
+        &_info {
+          & span {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .admin__index {
+    &-data {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin__index {
+    &-data {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.5rem;
+    }
+
+    &-charts {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+
+      &_card {
+        width: 98%;
+      }
+
+      &_container {
+        width: 98%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .admin__index {
+    &-charts {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+}

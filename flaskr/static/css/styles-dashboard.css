@@ -246,6 +246,62 @@ button {
   fill: #FFF;
 }
 
+.admin__index-data {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.admin__index-data_card {
+  user-select: none;
+  background-color: #FFF;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 1rem;
+  display: flex;
+  column-gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.admin__index-data_card_title h3 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #395B64;
+}
+.admin__index-data_card_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin__index-data_card_info svg {
+  fill: #395B64;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.admin__index-data_card_info span {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.admin__index-charts {
+  display: grid;
+  row-gap: 1.5rem;
+}
+.admin__index-charts_card {
+  background-color: #FFF;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 1.5rem;
+  width: 98%;
+  margin: auto;
+}
+.admin__index-charts_title {
+  font-size: 1.25rem;
+  color: #395B64;
+  margin-bottom: 2rem;
+}
+.admin__index-charts_container {
+  position: relative;
+  height: 40vh;
+}
+
 .admin__cursos-actions {
   margin-bottom: 2.5rem;
 }
@@ -562,6 +618,38 @@ button {
 @media screen and (min-width: 768px) {
   .notification {
     width: 700px;
+  }
+}
+@media screen and (min-width: 568px) {
+  .admin__index-data_card_info span {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .admin__index-data {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .admin__index-data {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+  }
+  .admin__index-charts {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+  .admin__index-charts_card {
+    width: 98%;
+  }
+  .admin__index-charts_container {
+    width: 98%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .admin__index-charts {
+    grid-template-columns: 2fr 1fr;
   }
 }
 @media screen and (min-width: 768px) {

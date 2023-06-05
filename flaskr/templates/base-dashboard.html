@@ -23,6 +23,10 @@
       {% block content %} {% endblock content %}
     </main>
 
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <!-- CHART JS - LOCAL -->
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
     <!-- MAIN JS -->
     <script src="{{ url_for('static', filename='js/main-dashboard.js') }}"></script>
   </body>
