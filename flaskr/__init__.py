@@ -25,7 +25,7 @@ login_manager.login_message = "Inicia sesión antes de acceder!"
 login_manager.login_message_category = "error"
 
 
-def create_app(config_class=ProductionTestConfig):
+def create_app(config_class=DevelopmentConfig):
     app = Flask(__name__)
 
     app.config.from_object(config_class)
