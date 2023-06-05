@@ -71,7 +71,10 @@ def dashboard_data():
     courses = db.session.execute(db.select(Course)).scalars().all()
 
     purchases_paypal = db.session.execute(
-        db.select(PurchasePaypal.purchase_net_amount, PurchasePaypal.purchase_date)
+        db.select(
+            PurchasePaypal.purchase_net_amount,
+            PurchasePaypal.purchase_date,
+        )
         .group_by(PurchasePaypal.purchase_date)
         .order_by(PurchasePaypal.purchase_date)
     ).all()

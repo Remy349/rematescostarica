@@ -1,0 +1,45 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 568px) {
+  .admin__pagos {
+    &-data {
+      &_card {
+        &_info {
+          & span {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .admin__pagos {
+    &-data {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+    }
+
+    &-change {
+      &_form {
+        &_submit {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Gunmetal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin__pagos {
+    &-data {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.5rem;
+    }
+  }
+}

@@ -130,6 +130,7 @@ def capture_order():
         person=person,
     )
 
+    student.is_active = True
     student.courses.append(course)
 
     purchase_paypal = PurchasePaypal(

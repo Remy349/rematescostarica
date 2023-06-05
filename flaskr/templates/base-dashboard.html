@@ -10,6 +10,8 @@
       Remates Costa Rica
       {% endif %}
     </title>
+    <!-- GRIDJS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <!-- STYLES CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles-dashboard.css') }}" />
   </head>
@@ -23,8 +25,12 @@
       {% block content %} {% endblock content %}
     </main>
 
+    <!-- GRIDJS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
     <!-- CHART JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <!-- GRIDJS JS - LOCAL -->
+    <script src="{{ url_for('static', filename='js/gridjs.js') }}"></script>
     <!-- CHART JS - LOCAL -->
     <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
     <!-- MAIN JS -->

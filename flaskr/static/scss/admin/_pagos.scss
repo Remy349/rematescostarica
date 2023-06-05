@@ -1,0 +1,82 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+
+.admin__pagos {
+  &-desc {
+    background-color: c.$Silver;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    margin-bottom: 2.5rem;
+
+    & span {
+      font-weight: 600;
+    }
+  }
+
+  &-data {
+    display: grid;
+    row-gap: 1.5rem;
+
+    &_card {
+      user-select: none;
+      background-color: c.$White;
+      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px,
+        rgb(0 0 0 / 23%) 0px 3px 6px;
+      border-radius: 1rem;
+      display: flex;
+      column-gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      &_title {
+        & h3 {
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: c.$Dark-slate-gray;
+        }
+      }
+
+      &_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & svg {
+          fill: c.$Dark-slate-gray;
+          width: 2.25rem;
+          height: 2.25rem;
+        }
+
+        & span {
+          font-weight: 700;
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+
+  &-change {
+    &_form {
+      display: grid;
+      row-gap: 1.5rem;
+      width: 100%;
+
+      &_input {
+        border: 1px solid c.$Silver;
+        @include m.input(c.$White, c.$Gunmetal, 1rem);
+        font-size: 1.25rem;
+      }
+
+      &_submit {
+        border: none;
+        outline: none;
+        padding: .7rem 2rem;
+        font-size: 1.2rem;
+        font-family: inherit;
+        @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
+      }
+    }
+  }
+}

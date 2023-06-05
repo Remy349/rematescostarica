@@ -10,3 +10,8 @@ class AddUpdateCourse(FlaskForm):
     course_price = StringField("course_price", validators=[InputRequired()])
     course_image = FileField("course_image")
     submit = SubmitField("Agregar")
+
+
+class AddUpdateChange(FlaskForm):
+    change_price = StringField("course_price", validators=[InputRequired()])
+    submit = SubmitField("Actualizar")
