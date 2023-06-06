@@ -82,6 +82,34 @@ def pagos_data():
         .join(Course)
     )
 
+    search = request.args.get("search")
+
+    if search:
+        purchases_paypal = db.session.execute(
+            db.select(
+                Person.firstname,
+                Person.first_lastname,
+                Person.second_lastname,
+                Person.email,
+                Course.course_name,
+                PurchasePaypal.purchase_gross_amount,
+                PurchasePaypal.purchase_paypal_fee,
+                PurchasePaypal.purchase_net_amount,
+                PurchasePaypal.purchase_date,
+            )
+            .select_from(PurchasePaypal)
+            .join(Student)
+            .join(Person)
+            .join(Course)
+            .filter(
+                db.or_(
+                    Course.course_name.like(f"%{search}%"),
+                    Person.email.like(f"%{search}%"),
+                    Person.firstname.like(f"%{search}%"),
+                )
+            )
+        )
+
     for purchase in purchases_paypal:
         purchases_paypal_items.append(
             {
