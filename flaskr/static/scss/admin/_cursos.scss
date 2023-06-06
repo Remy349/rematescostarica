@@ -56,6 +56,14 @@
         font-size: 1.25rem;
         margin-bottom: 1rem;
       }
+
+      & p {
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
     }
   }
 }

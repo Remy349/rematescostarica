@@ -426,6 +426,13 @@ button {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+.admin__cursos-card_content p {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
 
 .admin__addcurso-desc {
   background-color: #CCC;

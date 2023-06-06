@@ -28,4 +28,4 @@ class ProductionTestConfig(Config):
 
 
 class ProductionConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = os.getenv("REMATES_DB_URL")
