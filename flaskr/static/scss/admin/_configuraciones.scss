@@ -1,0 +1,27 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+
+.admin__config {
+  &-password {
+    &_form {
+      display: grid;
+      row-gap: 1.5rem;
+      width: 100%;
+
+      &_input {
+        border: 1px solid c.$Silver;
+        @include m.input(c.$White, c.$Gunmetal, 1rem);
+        font-size: 1.25rem;
+      }
+
+      &_submit {
+        border: none;
+        outline: none;
+        padding: .7rem 2rem;
+        font-size: 1.2rem;
+        font-family: inherit;
+        @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
+      }
+    }
+  }
+}

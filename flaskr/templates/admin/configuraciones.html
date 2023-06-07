@@ -3,6 +3,18 @@
 {% block content %}
 {% include "partials/header-dashboard.html" %}
 <section class="admin__config">
-  <h1>Config</h1>
+  <h2 class="section__title">
+    Actualizar contraseña
+  </h2>
+  <div class="admin__config-password">
+    <form action="" method="POST" class="admin__config-password_form">
+      {{ form.hidden_tag() }}
+      {{ form.password(class_='admin__config-password_form_input',
+      placeholder='Contraseña') }}
+      <div class="admin__config-password_form_btn">
+        {{ form.submit(class_='admin__config-password_form_submit') }}
+      </div>
+    </form>
+  </div>
 </section>
 {% endblock content %}

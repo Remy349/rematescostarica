@@ -42,7 +42,11 @@ def ingresar():
         except NoResultFound:
             flash("Usuario no registrado!", "error")
 
-    return render_template("auth/ingresar.html", form=form)
+    return render_template(
+        "auth/ingresar.html",
+        form=form,
+        title="Ingresar",
+    )
 
 
 @bp.route("/registro", methods=["GET", "POST"])
@@ -75,7 +79,11 @@ def registro():
             )
         )
 
-    return render_template("auth/registro.html", form=form)
+    return render_template(
+        "auth/registro.html",
+        form=form,
+        title="Registro",
+    )
 
 
 @bp.route("/registro/realizar-compra/<payment_code>", methods=["GET"])
@@ -89,7 +97,10 @@ def registro_realizar_compra(payment_code):
     ):
         return redirect(url_for("auth.registro"))
 
-    return render_template("auth/realizar-compra.html")
+    return render_template(
+        "auth/realizar-compra.html",
+        title="Realizar Compra",
+    )
 
 
 @bp.route(
@@ -108,7 +119,10 @@ def registro_compra_finalizada(payment_code):
 
     clear_form_data_session()
 
-    return render_template("auth/compra-finalizada.html")
+    return render_template(
+        "auth/compra-finalizada.html",
+        title="Compra Finalizada",
+    )
 
 
 @bp.route("/cerrar-sesion", methods=["GET"])

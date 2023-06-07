@@ -76,6 +76,7 @@ def cursos_agregar_curso():
             flash("Curso agregado exitosamente!", "success")
         except (StatementError):
             flash("No se permiten letras para el precio del curso", "error")
+            return redirect(url_for("admin.cursos_agregar_curso"))
 
         return redirect(url_for("admin.cursos"))
 

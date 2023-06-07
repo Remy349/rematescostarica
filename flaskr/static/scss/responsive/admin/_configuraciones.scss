@@ -1,0 +1,17 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__config {
+    &-password {
+      &_form {
+        &_submit {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Gunmetal;
+          }
+        }
+      }
+    }
+  }
+}

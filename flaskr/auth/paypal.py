@@ -43,10 +43,10 @@ def create_order():
     access_token = get_access_token(api_url, client_id, client_secret)
 
     if course_name == "Vivo":
-        course_price = 75000
+        course_price = 95000
         product_price = course_price // change.change_price
     elif course_name == "Pregrabado":
-        course_price = 55000
+        course_price = 75000
         product_price = course_price // change.change_price
 
     json = create_product(

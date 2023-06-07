@@ -588,6 +588,44 @@ button {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+.admin__control-update_preview_content p {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.admin__config-password_form {
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+.admin__config-password_form_input {
+  border: 1px solid #CCC;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #FFF;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.admin__config-password_form_submit {
+  border: none;
+  outline: none;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  background-color: #395B64;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
 
 @media screen and (min-width: 768px) {
   .container {
@@ -833,6 +871,14 @@ button {
   }
   .admin__control-subjects_cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .admin__config-password_form_submit {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__config-password_form_submit:hover {
+    background-color: #1B262C;
   }
 }
 
