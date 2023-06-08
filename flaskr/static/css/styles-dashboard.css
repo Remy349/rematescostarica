@@ -465,6 +465,19 @@ button {
   font-size: 1.15rem;
   font-weight: 500;
 }
+.admin__addcurso-form_textarea {
+  border: 1px solid #CCC;
+  resize: none;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
 .admin__addcurso-form_file {
   border: 1px solid #CCC;
   width: 100%;
@@ -533,6 +546,19 @@ button {
 }
 .admin__control-update_form_input {
   border: 1px solid #CCC;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.admin__control-update_form_textarea {
+  border: 1px solid #CCC;
+  resize: none;
   width: 100%;
   border-radius: 1rem;
   outline: none;

@@ -37,6 +37,7 @@ def cursos_agregar_curso():
     if form.validate_on_submit():
         try:
             course_name = form.course_name.data
+            course_basic_desc = form.course_basic_desc.data
             course_desc = form.course_desc.data
             course_price = form.course_price.data
             course_image = form.course_image.data
@@ -46,6 +47,7 @@ def cursos_agregar_curso():
             course = Course(
                 course_name=course_name,
                 course_price=course_price,
+                course_basic_desc=course_basic_desc,
                 course_desc=course_desc,
                 course_code=course_code,
             )
@@ -104,11 +106,13 @@ def cursos_control(course_code):
         try:
             course_name = form.course_name.data
             course_price = form.course_price.data
+            course_basic_desc = form.course_basic_desc.data
             course_desc = form.course_desc.data
             course_image = form.course_image.data
 
             course.course_name = course_name
             course.course_price = course_price
+            course.course_basic_desc = course_basic_desc
             course.course_desc = course_desc
 
             if course_image.filename == "":
@@ -152,6 +156,7 @@ def cursos_control(course_code):
     elif request.method == "GET":
         form.course_name.data = course.course_name
         form.course_price.data = course.course_price
+        form.course_basic_desc.data = course.course_basic_desc
         form.course_desc.data = course.course_desc
 
     return render_template(

@@ -26,8 +26,10 @@
       {{ form.hidden_tag() }}
       {{ form.course_name(class_='admin__control-update_form_input', placeholder='Nombre del curso',
       autocomplete='off') }}
-      {{ form.course_price(class_='admin__control-update_form_input', placeholder='Precio del curso: ₡00000',
+      {{ form.course_price(class_='admin__control-update_form_input', placeholder='Precio del curso: ₡00000.00',
       autocomplete='off') }}
+      {{ form.course_basic_desc(class_='admin__control-update_form_textarea',
+      placeholder='Descripción básica', rows=8) }}
       {{ form.course_desc() }}
       {{ form.course_image(class_='admin__control-update_form_file') }}
       {{ form.submit(class_='admin__control-update_form_submit',
@@ -37,10 +39,10 @@
       <img src="{{ course.secure_url }}" alt="Imagen del curso {{ course.course_name }}" />
       <div class="admin__control-update_preview_content">
         <h3>Curso: {{ course.course_name }}</h3>
-        {% if course.course_desc == "" %}
+        {% if course.course_basic_desc == "" %}
         <p>Sin descripción.</p>
         {% else %}
-        {{ course.course_desc|safe }}
+        <p>{{ course.course_basic_desc }}</p>
         {% endif %}
       </div>
     </article>

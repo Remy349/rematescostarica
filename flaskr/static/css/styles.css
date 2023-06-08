@@ -1190,9 +1190,10 @@ img {
     flex-direction: row;
     column-gap: 2.5rem;
     justify-content: center;
+    align-items: baseline;
   }
   .cursos__cards-card {
-    max-width: 20rem;
+    width: 20rem;
     transition: all 0.3s ease-in-out;
   }
   .cursos__cards-card:hover {
@@ -1286,7 +1287,7 @@ img {
     margin-top: 6.5rem;
   }
   .cursos__cards-card {
-    max-width: 27rem;
+    width: 25rem;
   }
   .testimonios {
     position: relative;

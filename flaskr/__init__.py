@@ -1,7 +1,7 @@
 import os
 import cloudinary
 from flask import Flask
-from config import DevelopmentConfig, ProductionConfig, ProductionTestConfig
+from config import DevelopmentConfig, ProductionConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager

@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // ======================>
-    registroForm.addEventListener('submit', () => {
+    registroForm.addEventListener('submit', (e) => {
       let courseName = ''
 
       const registroPriceCards = document.querySelectorAll(
@@ -121,14 +121,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
 
-      const registroPaymentData = {
-        courseName,
-      }
+      if (courseName === '') {
+        e.preventDefault()
+      } else {
+        const registroPaymentData = {
+          courseName,
+        }
 
-      localStorage.setItem(
-        'registroPaymentData',
-        JSON.stringify({ ...registroPaymentData })
-      )
+        localStorage.setItem(
+          'registroPaymentData',
+          JSON.stringify({ ...registroPaymentData })
+        )
+      }
     })
 
     // ======================>
@@ -153,24 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // ======================>
-    const registroPricingCardOne = document.getElementById(
-      'registroPricingCardOne'
-    )
-    const registroPricingCardTwo = document.getElementById(
-      'registroPricingCardTwo'
-    )
+    const registroPricingCards = document.querySelectorAll('.registro__form-prices_card')
 
-    if (registroPricingCardOne && registroPricingCardTwo) {
-      registroPricingCardOne.addEventListener('click', () => {
-        registroPricingCardOne.classList.add('current-price')
-        registroPricingCardTwo.classList.remove('current-price')
+    registroPricingCards.forEach((registroPricingCard) => {
+      registroPricingCard.addEventListener('click', () => {
+        registroPricingCard.classList.toggle('current-price')
       })
-
-      registroPricingCardTwo.addEventListener('click', () => {
-        registroPricingCardOne.classList.remove('current-price')
-        registroPricingCardTwo.classList.add('current-price')
-      })
-    }
+    })
 
     // ======================>
     const registroFormSummary = document.getElementById('registroFormSummary')

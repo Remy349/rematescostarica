@@ -5,6 +5,7 @@ from sqlalchemy.exc import NoResultFound
 from flaskr.auth.forms import IngresarForm, RegistroForm
 from flaskr.helpers import clear_form_data_session, generate_code
 
+from flaskr.models.course import Course
 from flaskr.models.person import Person
 
 bp = Blueprint("auth", __name__)
@@ -56,6 +57,8 @@ def registro():
 
     form = RegistroForm()
 
+    courses = db.session.execute(db.select(Course)).scalars().all()
+
     if form.validate_on_submit():
         firstname = form.firstname.data
         first_lastname = form.first_lastname.data
@@ -83,6 +86,7 @@ def registro():
         "auth/registro.html",
         form=form,
         title="Registro",
+        courses=courses,
     )
 
 

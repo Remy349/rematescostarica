@@ -4,7 +4,7 @@
 {% include "partials/header-dashboard.html" %}
 <section class="admin__cursos">
   <h2 class="section__title">Cursos actuales</h2>
-  <div class="admin__cursos-actions">
+  <div class="admin__cursos-actions" style="display: none;">
     <a
       href="{{ url_for('admin.cursos_agregar_curso') }}"
       class="admin__cursos-actions_create"
@@ -29,10 +29,10 @@
       <img src="{{ course.secure_url }}" alt="Imagen del curso {{ course.course_name }}" />
       <div class="admin__cursos-card_content">
         <h3>Curso: {{ course.course_name }}</h3>
-        {% if course.course_desc == "" %}
+        {% if course.course_basic_desc == "" %}
         <p>Sin descripción.</p>
         {% else %}
-        {{ course.course_desc|safe }}
+        <p>{{ course.course_basic_desc }}</p>
         {% endif %}
       </div>
     </a>

@@ -42,6 +42,12 @@
         @include m.input(c.$Platinum-light, c.$Gunmetal, 1rem);
       }
 
+      &_textarea {
+        border: 1px solid c.$Silver;
+        resize: none;
+        @include m.input(c.$Platinum-light, c.$Gunmetal, 1rem);
+      }
+
       &_file {
         border: 1px solid c.$Silver;
         width: 100%;

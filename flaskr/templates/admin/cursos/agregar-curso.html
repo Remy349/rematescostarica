@@ -13,8 +13,10 @@
     {{ form.hidden_tag() }}
     {{ form.course_name(class_='admin__addcurso-form_input', placeholder='Nombre del curso',
     autocomplete='off') }}
-    {{ form.course_price(class_='admin__addcurso-form_input', placeholder='Precio del curso: ₡00000',
+    {{ form.course_price(class_='admin__addcurso-form_input', placeholder='Precio del curso: ₡00000.00',
     autocomplete='off') }}
+    {{ form.course_basic_desc(class_='admin__addcurso-form_textarea',
+    placeholder='Descripción básica', rows=8) }}
     {{ form.course_desc() }}
     {{ form.course_image(class_='admin__addcurso-form_file') }}
     {{ form.submit(class_='admin__addcurso-form_submit') }}

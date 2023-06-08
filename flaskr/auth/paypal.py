@@ -1,6 +1,7 @@
 import os
 import base64
 import requests
+from sqlalchemy.exc import NoResultFound
 from flaskr import db
 from flaskr.auth.email import send_user_information_email
 from flaskr.helpers import clear_form_data_session, generate_code
@@ -24,50 +25,57 @@ bp = Blueprint("paypal", __name__)
 
 @bp.route("/create-order", methods=["POST"])
 def create_order():
-    data = request.get_json() or {}
+    try:
+        data = request.get_json() or {}
 
-    change = db.session.execute(db.select(Change).filter_by(id=1)).scalar_one()
+        course_name = data["courseName"]
 
-    course_name = data["courseName"]
-    product_price = None
+        change = db.session.execute(db.select(Change).filter_by(id=1)).scalar_one()
+        course = db.session.execute(
+            db.select(Course).filter_by(course_name=course_name)
+        ).scalar_one()
 
-    session["course_name"] = course_name
+        product_price = None
 
-    api_url = os.getenv("PAYPAL_API_URL_DEV")
-    client_id = os.getenv("PAYPAL_CLIENT_ID_DEV")
-    client_secret = os.getenv("PAYPAL_CLIENT_SECRET_DEV")
+        session["course_name"] = course_name
 
-    return_url = os.getenv("PAYPAL_RETURN_URL_DEV")
-    cancel_url = os.getenv("PAYPAL_CANCEL_URL_DEV")
+        api_url = os.getenv("PAYPAL_API_URL_DEV")
+        client_id = os.getenv("PAYPAL_CLIENT_ID_DEV")
+        client_secret = os.getenv("PAYPAL_CLIENT_SECRET_DEV")
 
-    access_token = get_access_token(api_url, client_id, client_secret)
+        return_url = os.getenv("PAYPAL_RETURN_URL_DEV")
+        cancel_url = os.getenv("PAYPAL_CANCEL_URL_DEV")
 
-    if course_name == "Vivo":
-        course_price = 95000
+        access_token = get_access_token(api_url, client_id, client_secret)
+
+        course_price = course.course_price
         product_price = course_price // change.change_price
-    elif course_name == "Pregrabado":
-        course_price = 75000
-        product_price = course_price // change.change_price
 
-    json = create_product(
-        product_name=course_name,
-        product_price=product_price,
-        cancel_url=cancel_url,
-        return_url=return_url,
-    )
+        json = create_product(
+            product_name=course_name,
+            product_price=product_price,
+            cancel_url=cancel_url,
+            return_url=return_url,
+        )
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token}",
-    }
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {access_token}",
+        }
 
-    response = requests.post(
-        f"{api_url}/v2/checkout/orders",
-        headers=headers,
-        json=json,
-    )
+        response = requests.post(
+            f"{api_url}/v2/checkout/orders",
+            headers=headers,
+            json=json,
+        )
 
-    return jsonify(response.json())
+        return jsonify(response.json())
+    except NoResultFound:
+        data = {"links": [{"": ""}, {"href": "/auth/registro"}]}
+
+        clear_form_data_session()
+
+        return jsonify(data)
 
 
 @bp.route("/capture-order", methods=["GET"])

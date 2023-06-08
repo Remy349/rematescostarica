@@ -1,4 +1,5 @@
 from flask_ckeditor import CKEditorField
+from flask_ckeditor.fields import TextAreaField
 from flask_wtf import FlaskForm
 from wtforms import FileField, PasswordField, StringField, SubmitField
 from wtforms.validators import InputRequired, Length
@@ -10,6 +11,12 @@ class AddUpdateCourse(FlaskForm):
         validators=[
             InputRequired(),
             Length(max=160),
+        ],
+    )
+    course_basic_desc = TextAreaField(
+        "course_basic_desc",
+        validators=[
+            Length(max=600),
         ],
     )
     course_desc = CKEditorField("course_desc", validators=[Length(max=600)])
