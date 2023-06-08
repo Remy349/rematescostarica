@@ -2,6 +2,49 @@
 @use '../../utils/mixins' as m;
 
 .admin__control {
+  &-data {
+    display: grid;
+    row-gap: 1.5rem;
+
+    &_card {
+      user-select: none;
+      background-color: c.$White;
+      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px,
+        rgb(0 0 0 / 23%) 0px 3px 6px;
+      border-radius: 1rem;
+      display: flex;
+      column-gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      &_title {
+        & h3 {
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: c.$Dark-slate-gray;
+        }
+      }
+
+      &_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & svg {
+          fill: c.$Dark-slate-gray;
+          width: 2.25rem;
+          height: 2.25rem;
+        }
+
+        & span {
+          font-weight: 700;
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+
   &-desc {
     background-color: c.$Silver;
     border-radius: 1rem;

@@ -2,6 +2,11 @@
 
 @media screen and (min-width: 768px) {
   .admin__control {
+    &-data {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+    }
+
     &-actions {
       margin-bottom: 3.5rem;
 
@@ -39,6 +44,11 @@
 
 @media screen and (min-width: 1024px) {
   .admin__control {
+    &-data {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1.5rem;
+    }
+
     &-update {
       grid-template-columns: auto 320px;
     }

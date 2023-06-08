@@ -131,5 +131,8 @@ def registro_compra_finalizada(payment_code):
 
 @bp.route("/cerrar-sesion", methods=["GET"])
 def cerrar_sesion():
+    if session.get("course_code") is not None:
+        session.pop("course_code", None)
+
     logout_user()
     return redirect(url_for("auth.ingresar"))

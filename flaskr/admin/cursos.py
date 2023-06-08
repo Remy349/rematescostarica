@@ -1,5 +1,6 @@
-from flask import flash, redirect, render_template, request, url_for
+from flask import flash, jsonify, redirect, render_template, request, url_for, session
 from cloudinary.uploader import upload
+from sqlalchemy import func
 from sqlalchemy.exc import StatementError
 from flaskr import db
 from flask_login import current_user, login_required
@@ -8,6 +9,9 @@ from flaskr.admin.forms import AddUpdateCourse
 from flaskr.helpers import allowed_file, generate_code
 
 from flaskr.models.course import Course
+from flaskr.models.person import Person
+from flaskr.models.student import Student
+from flaskr.models.student_course import student_course
 
 
 @bp.route("/cursos", methods=["GET"])
@@ -76,7 +80,7 @@ def cursos_agregar_curso():
             db.session.commit()
 
             flash("Curso agregado exitosamente!", "success")
-        except (StatementError):
+        except StatementError:
             flash("No se permiten letras para el precio del curso", "error")
             return redirect(url_for("admin.cursos_agregar_curso"))
 
@@ -101,6 +105,15 @@ def cursos_control(course_code):
     course = db.session.execute(
         db.select(Course).filter_by(course_code=course_code)
     ).scalar_one()
+
+    users_count = (
+        db.session.query(func.count(student_course.c.student_id))
+        .filter(student_course.c.course_id == course.id)
+        .scalar()
+    )
+
+    session.pop("course_code", None)
+    session["course_code"] = course.course_code
 
     if form.validate_on_submit():
         try:
@@ -144,7 +157,7 @@ def cursos_control(course_code):
             db.session.commit()
 
             flash("Datos del curso actualizados exitosamente!", "success")
-        except (StatementError):
+        except StatementError:
             flash("No se permiten letras para el precio del curso!", "error")
 
         return redirect(
@@ -165,4 +178,57 @@ def cursos_control(course_code):
         title=f"Curso: {course.course_name}",
         course=course,
         form=form,
+        users_count=users_count,
     )
+
+
+@bp.route("/cursos/data", methods=["GET"])
+@login_required
+def cursos_data():
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    course_code = session.get("course_code")
+
+    users_items = []
+    total = 0
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    users = course.students
+
+    search = request.args.get("search")
+
+    if search:
+        users = db.session.execute(
+            db.select(Student)
+            .join(Person)
+            .filter(
+                db.or_(
+                    Person.firstname.like(f"%{search}%"),
+                    Person.email.like(f"%{search}%"),
+                ),
+                Student.courses.any(id=course.id),
+            )
+        ).scalars().all()
+
+    for u in users:
+        person = u.person
+
+        users_items.append(
+            {
+                "firstname": person.firstname,
+                "firstLastname": person.first_lastname,
+                "secondLastname": person.second_lastname,
+                "email": person.email,
+                "phoneNumber": u.phone_number,
+                "joinedIn": u.joined_in,
+                "isActive": u.is_active,
+            }
+        )
+
+        total += 1
+
+    return jsonify({"totel": total, "data": users_items})
