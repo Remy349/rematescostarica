@@ -65,6 +65,20 @@
       @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
     }
   }
+  
+  &-tabla {
+    &_status { 
+      font-weight: 500;
+
+      &.true {
+        color: c.$Sea-green;
+      }
+
+      &.false {
+        color: c.$Bittersweet;
+      }
+    }
+  }
 
   &-update {
     display: grid;

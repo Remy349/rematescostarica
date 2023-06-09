@@ -30,4 +30,40 @@
     <div id="adminUsuariosTabla"></div>
   </div>
 </section>
+<section class="admin__usuarios">
+  <h2 class="section__title">Agregar usuario</h2>
+  <div class="admin__usuarios-adduser">
+    <form class="admin__usuarios-adduser_form" action="" method="POST" id="adminAddUpdateUserForm">
+      {{ form.hidden_tag() }}
+      {{ form.firstname(class_='admin__usuarios-adduser_form_input',
+      placeholder='Nombre', autocomplete='off') }}
+      <div class="admin__usuarios-adduser_form_container">
+        {{ form.first_lastname(class_='admin__usuarios-adduser_form_input',
+        placeholder='Primer Apellido', autocomplete='off') }}
+        {{ form.second_lastname(class_='admin__usuarios-adduser_form_input',
+        placeholder='Segundo Apellido', autocomplete='off') }}
+      </div>
+      <div class="admin__usuarios-adduser_form_messages">
+        {{ form.email(class_='admin__usuarios-adduser_form_input',
+        placeholder='correo@ejemplo.com', autocomplete='off') }}
+        {% for error in form.email.errors %}
+        <span class="admin__usuarios-adduser_form_messages_error">
+          [{{ error }}]
+        </span>
+        {% endfor %}
+      </div>
+      <div class="admin__usuarios-adduser_form_messages">
+        {{ form.phone_number(class_='admin__usuarios-adduser_form_input',
+        autocomplete='off') }}
+        {% for error in form.phone_number.errors %}
+        <span class="admin__usuarios-adduser_form_messages_error">
+          [{{ error }}]
+        </span>
+        {% endfor %}
+      </div>
+      {{ form.course(class_='admin__usuarios-adduser_form_input') }}
+      {{ form.submit(class_='admin__usuarios-adduser_form_submit') }}
+    </form>
+  </div>
+</section>
 {% endblock content %}

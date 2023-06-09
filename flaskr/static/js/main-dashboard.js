@@ -46,4 +46,31 @@ document.addEventListener('DOMContentLoaded', () => {
       navDashboard.classList.remove('show-nav')
     })
   }
+
+  // =======================>
+  const adminAddUpdateUserForm = document.getElementById('adminAddUpdateUserForm')
+
+  if (adminAddUpdateUserForm) {
+    // ======================>
+    const phoneNumberInput = document.getElementById('phone_number')
+
+    const iti = window.intlTelInput(phoneNumberInput, {
+      separateDialCode: true,
+      initialCountry: 'auto',
+      geoIpLookup: (callback) => {
+        fetch('https://ipapi.co/json')
+          .then((res) => res.json())
+          .then((data) => callback(data.country_code))
+          .catch(() => callback('us'))
+      },
+      utilsScript:
+        'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
+    })
+
+    iti.setNumber(phoneNumberInput.value)
+
+    phoneNumberInput.addEventListener('blur', () => {
+      phoneNumberInput.value = iti.getNumber()
+    })
+  }
 })

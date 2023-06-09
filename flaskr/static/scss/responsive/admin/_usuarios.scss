@@ -1,3 +1,5 @@
+@use '../../utils/colors' as c;
+
 @media screen and (min-width: 568px) {
   .admin__usuarios {
     &-data {
@@ -9,6 +11,15 @@
         }
       }
     }
+
+    &-adduser {
+      &_form {
+        &_container {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 1.5rem;
+        }
+      }
+    }
   }
 }
 
@@ -17,6 +28,20 @@
     &-data {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 1.5rem;
+    }
+
+    &-adduser {
+      &_form {
+        padding: 2.5rem;
+
+        &_submit {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            background-color: c.$Gunmetal;
+          }
+        }
+      }
     }
   }
 }

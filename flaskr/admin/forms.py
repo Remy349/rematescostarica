@@ -1,8 +1,75 @@
+import phonenumbers
 from flask_ckeditor import CKEditorField
+from sqlalchemy.exc import NoResultFound
+from flaskr import db
 from flask_ckeditor.fields import TextAreaField
 from flask_wtf import FlaskForm
-from wtforms import FileField, PasswordField, StringField, SubmitField
-from wtforms.validators import InputRequired, Length
+from wtforms.validators import Email, InputRequired, Length, ValidationError
+from wtforms import (
+    FileField,
+    PasswordField,
+    SelectField,
+    StringField,
+    SubmitField,
+    TelField,
+)
+
+from flaskr.models.person import Person
+
+
+class AddUpdateStudent(FlaskForm):
+    firstname = StringField(
+        "firstname",
+        validators=[
+            InputRequired(),
+            Length(min=3, max=20),
+        ],
+    )
+    first_lastname = StringField(
+        "first_lastname",
+        validators=[
+            InputRequired(),
+            Length(min=3, max=20),
+        ],
+    )
+    second_lastname = StringField(
+        "second_lastname",
+        validators=[
+            InputRequired(),
+            Length(min=3, max=20),
+        ],
+    )
+    email = StringField(
+        "email",
+        validators=[
+            InputRequired(),
+            Length(max=280),
+            Email(message="Correo electrónico no válido!"),
+        ],
+    )
+    phone_number = TelField("Telefono", validators=[InputRequired()])
+    course = SelectField("course", choices=[])
+    submit = SubmitField("Agregar")
+
+    def validate_email(self, email):
+        try:
+            user = db.session.execute(
+                db.select(Person).filter_by(email=email.data)
+            ).scalar_one()
+
+            if user is not None:
+                raise ValidationError("Correo electrónico ya registrado!")
+        except NoResultFound:
+            pass
+
+    def validate_phone_number(self, phone_number):
+        try:
+            p = phonenumbers.parse(phone_number.data)
+
+            if not phonenumbers.is_valid_number(p):
+                raise ValueError()
+        except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
+            raise ValidationError("Número de teléfono no válido")
 
 
 class AddUpdateCourse(FlaskForm):

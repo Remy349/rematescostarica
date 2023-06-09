@@ -157,7 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
             d.email,
             d.phoneNumber,
             moment(`${d.joinedIn}`).format('L'),
-            gridjs.html(d.isActive ? 'Activo' : 'Inactivo'),
+            gridjs.html(
+              d.isActive
+                ? '<p class="admin__control-tabla_status true">Activo</p>'
+                : '<p class="admin__control-tabla_status false">Inactivo</p>'
+            ),
           ]),
       },
       search: {
