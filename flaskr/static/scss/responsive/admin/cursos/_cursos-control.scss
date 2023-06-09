@@ -1,5 +1,19 @@
 @use '../../../utils/colors' as c;
 
+@media screen and (min-width: 568px) {
+  .admin__control {
+    &-data {
+      &_card {
+        &_info {
+          & span {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .admin__control {
     &-data {

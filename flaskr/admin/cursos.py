@@ -202,17 +202,21 @@ def cursos_data():
     search = request.args.get("search")
 
     if search:
-        users = db.session.execute(
-            db.select(Student)
-            .join(Person)
-            .filter(
-                db.or_(
-                    Person.firstname.like(f"%{search}%"),
-                    Person.email.like(f"%{search}%"),
-                ),
-                Student.courses.any(id=course.id),
+        users = (
+            db.session.execute(
+                db.select(Student)
+                .join(Person)
+                .filter(
+                    db.or_(
+                        Person.firstname.like(f"%{search}%"),
+                        Person.email.like(f"%{search}%"),
+                    ),
+                    Student.courses.any(id=course.id),
+                )
             )
-        ).scalars().all()
+            .scalars()
+            .all()
+        )
 
     for u in users:
         person = u.person
