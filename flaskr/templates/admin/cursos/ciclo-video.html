@@ -1,0 +1,82 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__ciclo">
+  <div class="admin__ciclo-header">
+    <h2 class="section__title">{{ cycle.cycle_name }}</h2>
+    <a
+      href="{{ url_for('admin.cursos_ciclo', course_code=course.course_code,
+      cycle_code=cycle.cycle_code) }}"
+      class="admin__ciclo-header_volver"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+      </svg>
+      Atrás
+    </a>
+  </div>
+</section>
+<section class="admin__video section">
+  <div class="admin__video-current">
+    <div class="admin__video-current_iframe">
+      <iframe src="{{ current_video.video_url }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="admin__video-current_content">
+      <h3>{{ current_video.video_name }}</h3>
+      <div class="admin__video-current_content_desc">
+        {{ current_video.video_desc|safe }}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="admin__video">
+  <div class="admin__video-videos">
+    {% for video in videos %}
+    {% if video.id == current_video.id %}
+    <div class="admin__video-videos_current"></div>
+    {% else %}
+    <a
+      href="{{ url_for('admin.cursos_ciclo_video', course_code=course.course_code,
+      cycle_code=cycle.cycle_code, video_code=video.video_code) }}"
+      class="admin__video-videos_card"
+    >
+      <div class="admin__video-videos_card_iframe">
+        <iframe src="{{ video.video_url }}" loading="lazy"></iframe>
+      </div>
+      <div class="admin__video-videos_card_content">
+        <h3>{{ video.video_name }}</h3>
+        {{ video.video_desc|safe }}
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<section class="admin__video section">
+  <h2 class="section__title">Actualizar video</h2>
+  <form action="" method="POST" class="admin__addcurso-form">
+    {{ form.hidden_tag() }}
+    {{ form.video_name(class_='admin__addcurso-form_input', placeholder='Titulo del video',
+    autocomplete='off') }}
+    {{ form.video_url(class_='admin__addcurso-form_input', autocomplete='off',
+    hidden='true') }}
+    {{ form.video_desc() }}
+    {{ form.submit(class_='admin__addcurso-form_submit') }}
+  </form>
+</section>
+<section class="admin__ciclo">
+  <h2 class="section__title admin__ciclo-danger_title">Eliminar ciclo</h2>
+  <div class="admin__ciclo-danger">
+    <a
+      href="{{ url_for('admin.cursos_ciclo_video_eliminar', course_code=course.course_code,
+      cycle_code=cycle.cycle_code, video_code=current_video.video_code) }}"
+      class="admin__ciclo-danger_delete"
+    >
+      Eliminar
+    </a>
+  </div>
+</section>
+{{ ckeditor.load(pkg_type='basic') }}
+{{ ckeditor.config(name='video_desc', height=300) }}
+{% endblock content %}

@@ -4,7 +4,7 @@
 {% include "partials/header-dashboard.html" %}
 <section class="admin__ciclo">
   <div class="admin__ciclo-header">
-    <h2 class="section__title">Ciclo: {{ cycle.cycle_name }}</h2>
+    <h2 class="section__title">{{ cycle.cycle_name }}</h2>
     <a
       href="{{ url_for('admin.cursos_control', course_code=course.course_code) }}"
       class="admin__ciclo-header_volver"
@@ -39,7 +39,11 @@
     {% else %}
     <div class="admin__ciclo-videos_cards">
       {% for video in videos %}
-      <a href="" class="admin__ciclo-videos_card">
+      <a
+        href="{{ url_for('admin.cursos_ciclo_video', course_code=course.course_code,
+        cycle_code=cycle.cycle_code, video_code=video.video_code) }}"
+        class="admin__ciclo-videos_card"
+      >
         <div class="admin__ciclo-videos_card_iframe">
           <iframe src="{{ video.video_url }}"></iframe>
         </div>

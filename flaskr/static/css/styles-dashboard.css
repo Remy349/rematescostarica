@@ -528,6 +528,7 @@ button {
 .admin__cursos-card_content h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
+  color: #395B64;
 }
 .admin__cursos-card_content p {
   display: -webkit-box;
@@ -916,6 +917,84 @@ button {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
+.admin__video-current {
+  display: grid;
+  row-gap: 2rem;
+}
+.admin__video-current_iframe {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+.admin__video-current_iframe iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.admin__video-current_content {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #CCC;
+}
+.admin__video-current_content ul, .admin__video-current_content ol {
+  list-style: inside;
+}
+.admin__video-current_content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.admin__video-videos {
+  display: grid;
+  row-gap: 2.5rem;
+}
+.admin__video-videos_current {
+  display: none;
+}
+.admin__video-videos_card {
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color: #FFF;
+  overflow: hidden;
+}
+.admin__video-videos_card_iframe {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+.admin__video-videos_card_iframe iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.admin__video-videos_card_content {
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  color: #1B262C;
+}
+.admin__video-videos_card_content ul, .admin__video-videos_card_content ol {
+  list-style: inside;
+}
+.admin__video-videos_card_content h3 {
+  margin-bottom: 1rem;
+  color: #395B64;
+}
+.admin__video-videos_card_content div {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
 .admin__config-password_form {
   display: grid;
   row-gap: 1.5rem;
@@ -1287,6 +1366,32 @@ button {
 }
 @media screen and (min-width: 1024px) {
   .admin__ciclo-videos_cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .admin__video-current {
+    row-gap: 2.5rem;
+  }
+  .admin__video-current_content h3 {
+    font-size: 1.75rem;
+  }
+  .admin__video-current_content_desc {
+    font-size: 1.2rem;
+  }
+  .admin__video-videos {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+  .admin__video-videos_card {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__video-videos_card:hover {
+    transform: translateY(-14px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .admin__video-videos {
     grid-template-columns: repeat(3, 1fr);
   }
 }

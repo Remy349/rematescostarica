@@ -1,0 +1,96 @@
+@use '../../utils/colors' as c;
+
+.admin__video {
+  &-current {
+    display: grid;
+    row-gap: 2rem;
+
+    &_iframe {
+      position: relative;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+
+      & iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &_content {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background-color: c.$Silver;
+
+      & ul, ol {
+        list-style: inside;
+      }
+
+      & h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &-videos {
+    display: grid;
+    row-gap: 2.5rem;
+
+    &_current {
+      display: none;
+    }
+
+    &_card {
+      border-radius: 1rem;
+      box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px,
+        rgb(0 0 0 / 23%) 0px 3px 6px;
+      background-color: c.$White;
+      overflow: hidden;
+
+      &_iframe {
+        position: relative;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        padding-bottom: 56.25%;
+
+        & iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      &_content {
+        padding: 1.5rem 1.5rem 2rem 1.5rem;
+        color: c.$Gunmetal;
+
+        & ul, ol {
+          list-style: inside;
+        }
+
+        & h3 {
+          margin-bottom: 1rem;
+          color: c.$Dark-slate-gray;
+        }
+
+        & div {
+          display: -webkit-box;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+        }
+      }
+    }
+  }
+}

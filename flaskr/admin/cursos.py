@@ -265,6 +265,109 @@ def cursos_ciclo(course_code, cycle_code):
 
 
 @bp.route(
+    "/cursos/<course_code>/<cycle_code>/<video_code>",
+    methods=["GET", "POST"],
+)
+@login_required
+def cursos_ciclo_video(course_code, cycle_code, video_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    cycle = db.session.execute(
+        db.select(Cycle).filter(
+            Cycle.cycle_code.like(cycle_code),
+            Cycle.course_id.like(course.id),
+        )
+    ).scalar_one()
+
+    current_video = db.session.execute(
+        db.select(Video).filter(
+            Video.cycle_id.like(cycle.id),
+            Video.video_code.like(video_code),
+        )
+    ).scalar_one()
+
+    videos = (
+        db.session.execute(
+            db.select(Video).filter(
+                Video.cycle_id.like(cycle.id),
+            )
+        )
+        .scalars()
+        .all()
+    )
+
+    form = AddUpdateVideo()
+
+    if form.validate_on_submit():
+        video_name = form.video_name.data
+        video_desc = form.video_desc.data
+
+        current_video.video_name = video_name
+        current_video.video_desc = video_desc
+
+        db.session.add(current_video)
+        db.session.commit()
+
+        flash("Video actualizado exitosamente!", "success")
+
+        return redirect(
+            url_for(
+                "admin.cursos_ciclo_video",
+                course_code=course_code,
+                cycle_code=cycle_code,
+                video_code=video_code,
+            )
+        )
+    elif request.method == "GET":
+        form.video_name.data = current_video.video_name
+        form.video_url.data = current_video.video_url
+        form.video_desc.data = current_video.video_desc
+
+    return render_template(
+        "admin/cursos/ciclo-video.html",
+        course=course,
+        cycle=cycle,
+        page=f"Curso: {course.course_name}",
+        title=f"Curso: {course.course_name}",
+        form=form,
+        current_video=current_video,
+        videos=videos,
+    )
+
+
+@bp.route(
+    "/cursos/<course_code>/<cycle_code>/<video_code>/eliminar",
+    methods=["GET"],
+)
+@login_required
+def cursos_ciclo_video_eliminar(course_code, cycle_code, video_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    video = db.session.execute(
+        db.select(Video).filter_by(video_code=video_code)
+    ).scalar_one()
+
+    db.session.delete(video)
+    db.session.commit()
+
+    flash("Video eliminado exitosamente!", "success")
+
+    return redirect(
+        url_for(
+            "admin.cursos_ciclo",
+            course_code=course_code,
+            cycle_code=cycle_code,
+        )
+    )
+
+
+@bp.route(
     "/cursos/<course_code>/<cycle_code>/agregar-video",
     methods=["GET", "POST"],
 )
@@ -288,10 +391,13 @@ def cursos_agregar_video(course_code, cycle_code):
         video_url = form.video_url.data
         video_desc = form.video_desc.data
 
+        video_code = generate_code()
+
         video = Video(
             video_name=video_name,
             video_url=video_url,
             video_desc=video_desc,
+            video_code=video_code,
             cycle=cycle,
         )
 
