@@ -17,6 +17,18 @@ from wtforms import (
 from flaskr.models.person import Person
 
 
+class AddUpdateCycle(FlaskForm):
+    cycle_name = StringField(
+        "cycle_name",
+        validators=[
+            InputRequired(),
+            Length(max=160),
+        ],
+    )
+    cycle_desc = CKEditorField("cycle_desc", validators=[Length(max=600)])
+    submit = SubmitField("Agregar")
+
+
 class AddUpdateStudent(FlaskForm):
     firstname = StringField(
         "firstname",

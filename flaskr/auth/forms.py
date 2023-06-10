@@ -2,8 +2,14 @@ import phonenumbers
 from sqlalchemy.exc import NoResultFound
 from flaskr import db
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, PasswordField, StringField, SubmitField, TelField
 from wtforms.validators import Email, InputRequired, Length, ValidationError
+from wtforms import (
+    BooleanField,
+    PasswordField,
+    StringField,
+    SubmitField,
+    TelField,
+)
 
 from flaskr.models.person import Person
 

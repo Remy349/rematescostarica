@@ -12,6 +12,8 @@ class Course(db.Model):
     secure_url = sa.Column(sa.String(160))
     public_id = sa.Column(sa.String(160))
 
+    cycles = db.relationship("Cycle", backref="course", lazy="dynamic")
+
     purchases_paypal = db.relationship(
         "PurchasePaypal",
         backref="course",

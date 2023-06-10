@@ -24,11 +24,26 @@
     &-actions {
       margin-bottom: 3.5rem;
 
-      &_create {
+      &_btn {
         transition: all .3s ease-in-out;
 
         &:hover {
           background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &-cycle {
+      &_cards {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+
+        &_card {
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            transform: translateY(-14px);
+          }
         }
       }
     }

@@ -5,6 +5,7 @@ from flaskr.models.student import Student
 from flaskr.models.course import Course
 from flaskr.models.change import Change
 from flaskr.models.purchase_paypal import PurchasePaypal
+from flaskr.models.cycle import Cycle
 
 app = create_app()
 
@@ -18,4 +19,5 @@ def make_shell_context():
         "course": Course,
         "change": Change,
         "purchase_paypal": PurchasePaypal,
+        "cycle": Cycle,
     }

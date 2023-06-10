@@ -1,0 +1,22 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__addcurso">
+  <form action="" method="POST" class="admin__addcurso-form">
+    {{ form.hidden_tag() }}
+    {{ form.cycle_name(class_='admin__addcurso-form_input', placeholder='Nombre del ciclo',
+    autocomplete='off') }}
+    {{ form.cycle_desc() }}
+    {{ form.submit(class_='admin__addcurso-form_submit') }}
+    <a
+      href="{{ url_for('admin.cursos_control', course_code=course.course_code) }}"
+      class="admin__addcurso-form_cancel"
+    >
+      Cancelar
+    </a>
+  </form>
+</section>
+{{ ckeditor.load(pkg_type='basic') }}
+{{ ckeditor.config(name='cycle_desc', height=300) }}
+{% endblock content %}

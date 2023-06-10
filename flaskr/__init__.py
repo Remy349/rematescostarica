@@ -57,3 +57,4 @@ from flaskr.models.course import Course
 from flaskr.models.change import Change
 from flaskr.models.student_course import student_course
 from flaskr.models.purchase_paypal import PurchasePaypal
+from flaskr.models.cycle import Cycle

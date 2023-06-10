@@ -1,14 +1,23 @@
-from flask import flash, jsonify, redirect, render_template, request, url_for, session
 from cloudinary.uploader import upload
 from sqlalchemy import func
 from sqlalchemy.exc import StatementError
 from flaskr import db
 from flask_login import current_user, login_required
 from flaskr.admin.base import bp
-from flaskr.admin.forms import AddUpdateCourse
+from flaskr.admin.forms import AddUpdateCourse, AddUpdateCycle
 from flaskr.helpers import allowed_file, generate_code
+from flask import (
+    flash,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    url_for,
+    session,
+)
 
 from flaskr.models.course import Course
+from flaskr.models.cycle import Cycle
 from flaskr.models.person import Person
 from flaskr.models.student import Student
 from flaskr.models.student_course import student_course
@@ -106,6 +115,14 @@ def cursos_control(course_code):
         db.select(Course).filter_by(course_code=course_code)
     ).scalar_one()
 
+    cycles = db.session.execute(
+        db.select(
+            Cycle.cycle_name,
+            Cycle.cycle_desc,
+            Cycle.cycle_code,
+        ).filter(Cycle.course_id == course.id)
+    ).all()
+
     users_count = (
         db.session.query(func.count(student_course.c.student_id))
         .filter(student_course.c.course_id == course.id)
@@ -179,6 +196,79 @@ def cursos_control(course_code):
         course=course,
         form=form,
         users_count=users_count,
+        cycles=cycles,
+    )
+
+
+@bp.route("/cursos/<course_code>/<cycle_code>", methods=["GET", "POST"])
+@login_required
+def cursos_ciclo(course_code, cycle_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    cycle = db.session.execute(
+        db.select(Cycle).filter(
+            Cycle.cycle_code.like(cycle_code),
+            Cycle.course_id.like(course.id),
+        )
+    ).scalar_one()
+
+    return render_template(
+        "admin/cursos/ciclo.html",
+        page=f"Curso: {course.course_name}",
+        title=f"Curso: {course.course_name}",
+        course=course,
+        cycle=cycle,
+    )
+
+
+@bp.route("/cursos/<course_code>/agregar-ciclo", methods=["GET", "POST"])
+@login_required
+def cursos_agregar_ciclo(course_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    form = AddUpdateCycle()
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    if form.validate_on_submit():
+        cycle_name = form.cycle_name.data
+        cycle_desc = form.cycle_desc.data
+
+        cycle_code = generate_code()
+
+        cycle = Cycle(
+            cycle_name=cycle_name,
+            cycle_desc=cycle_desc,
+            cycle_code=cycle_code,
+            course=course,
+        )
+
+        db.session.add(cycle)
+        db.session.commit()
+
+        flash("Ciclo agregado exitosamente!", "success")
+
+        return redirect(
+            url_for(
+                "admin.cursos_control",
+                course_code=course_code,
+            )
+        )
+
+    return render_template(
+        "admin/cursos/agregar-ciclo.html",
+        form=form,
+        course=course,
+        page="Agregar ciclo",
+        title="Agregar ciclo",
     )
 
 

@@ -60,12 +60,75 @@
   &-actions {
     margin-bottom: 2.5rem;
 
-    &_create {
+    &_btn {
       padding: .75rem 2rem;
       @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
     }
   }
-  
+
+  &-cycle {
+    &_image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & img {
+        max-width: 20rem;
+      }
+
+      &_text {
+        text-align: center;
+      }
+    }
+
+    &_cards {
+      display: grid;
+      row-gap: 2.5rem;
+
+      &_card {
+        position: relative;
+        background-color: c.$White;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px,
+          rgb(0 0 0 / 23%) 0px 3px 6px;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: .5rem;
+          height: 100%;
+          background-color: c.$Dark-slate-gray;
+        }
+
+        & h3 {
+          color: c.$Dark-slate-gray;
+          margin-bottom: 1rem;
+          font-size: 1.35rem;
+        }
+
+        & ul, ol {
+          list-style: inside;
+        }
+
+        & p {
+          color: c.$Gunmetal;
+        }
+
+        & div {
+          display: -webkit-box;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+        }
+      }
+    }
+  }
+
   &-tabla {
     &_status { 
       font-weight: 500;

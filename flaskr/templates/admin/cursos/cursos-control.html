@@ -19,6 +19,47 @@
   </div>
 </section>
 <section class="admin__control section">
+  <h2 class="section__title">Ciclos del curso</h2>
+  <div class="admin__control-actions">
+    <a
+      href="{{ url_for('admin.cursos_agregar_ciclo', course_code=course.course_code) }}"
+      class="admin__control-actions_btn">
+      Agregar
+    </a>
+  </div>
+  <div class="admin__control-cycle">
+    {% if cycles|length < 1 %}
+    <div class="admin__control-cycle_image">
+      <img src="{{ url_for('static', filename='img/add-files.png') }}" alt="No hay ciclos agregados." />
+      <p class="admin__control-cycle_image_text">
+        Aún no hay ciclos registrados.
+        <br />
+        Agrega alguno para el curso.
+      </p>
+    </div>
+    {% else %}
+    <div class="admin__control-cycle_cards">
+      {% for cycle in cycles %}
+      <a
+        href="{{ url_for('admin.cursos_ciclo', course_code=course.course_code,
+        cycle_code=cycle.cycle_code) }}"
+        class="admin__control-cycle_cards_card"
+      >
+        <h3>{{ cycle.cycle_name }}</h3>
+        {% if cycle.cycle_desc == "" %}
+        <p>Sin descripción.</p>
+        {% else %}
+        <div>
+          {{ cycle.cycle_desc|safe }}
+        </div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+<section class="admin__control">
   <h2 class="section__title">Registro de usuarios</h2>
   <p class="admin__control-desc">
     <span>Nota: </span>Se pueden realizar las busquedas usando el correo o nombre del usuario.
@@ -27,7 +68,7 @@
     <div id="adminCursosTabla"></div>
   </div>
 </section>
-<section class="admin__control">
+<section class="admin__control section">
   <h2 class="section__title">Editar información del curso</h2>
   <p class="admin__control-desc">
     <span>Nota: </span> El tamaño maximo de la imagen debe ser de 10MB (Megas). Esta
