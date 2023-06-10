@@ -1,0 +1,35 @@
+@use '../../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__ciclo {
+    &-header {
+      & h2 {
+        margin-bottom: 0;
+      }
+
+      &_volver {
+        & svg {
+          transition: all .3s ease-in-out;
+        }
+
+        &:hover {
+          text-decoration: underline;
+
+          & svg {
+            transform: translateX(-6px);
+          }
+        }
+      }
+    }
+
+    &-danger {
+      &_delete {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: #D72323;
+        }
+      }
+    }
+  }
+}

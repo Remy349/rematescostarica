@@ -206,6 +206,8 @@ def cursos_ciclo(course_code, cycle_code):
     if current_user.is_admin is False:
         return redirect(url_for("main.index"))
 
+    form = AddUpdateCycle()
+
     course = db.session.execute(
         db.select(Course).filter_by(course_code=course_code)
     ).scalar_one()
@@ -217,12 +219,60 @@ def cursos_ciclo(course_code, cycle_code):
         )
     ).scalar_one()
 
+    if form.validate_on_submit():
+        cycle_name = form.cycle_name.data
+        cycle_desc = form.cycle_desc.data
+
+        cycle.cycle_name = cycle_name
+        cycle.cycle_desc = cycle_desc
+
+        db.session.add(cycle)
+        db.session.commit()
+
+        flash("Ciclo actualizado exitosamente!", "success")
+
+        return redirect(
+            url_for(
+                "admin.cursos_ciclo",
+                course_code=course_code,
+                cycle_code=cycle_code,
+            )
+        )
+    elif request.method == "GET":
+        form.cycle_name.data = cycle.cycle_name
+        form.cycle_desc.data = cycle.cycle_desc
+
     return render_template(
         "admin/cursos/ciclo.html",
         page=f"Curso: {course.course_name}",
         title=f"Curso: {course.course_name}",
         course=course,
         cycle=cycle,
+        form=form,
+    )
+
+
+@bp.route("/cursos/<course_code>/<cycle_code>/eliminar", methods=["GET"])
+@login_required
+def cursos_ciclo_eliminar(course_code, cycle_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    cycle = db.session.execute(
+        db.select(Cycle).filter_by(cycle_code=cycle_code)
+    ).scalar_one()
+    print(cycle)
+
+    db.session.delete(cycle)
+    db.session.commit()
+
+    flash("Ciclo eliminado exitosamente!", "success")
+
+    return redirect(
+        url_for(
+            "admin.cursos_control",
+            course_code=course_code,
+        )
     )
 
 

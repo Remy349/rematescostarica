@@ -1,6 +1,7 @@
 import os
 import cloudinary
 from flask import Flask
+from sqlalchemy import MetaData
 from config import DevelopmentConfig, ProductionConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -14,7 +15,17 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
 )
 
-db = SQLAlchemy(engine_options={"pool_pre_ping": True})
+convention = {
+    "ix": "ix_%(column_0_label)s",
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s",
+}
+
+metadata = MetaData(naming_convention=convention)
+
+db = SQLAlchemy(metadata=metadata, engine_options={"pool_pre_ping": True})
 migrate = Migrate()
 login_manager = LoginManager()
 ckeditor = CKEditor()
@@ -58,3 +69,4 @@ from flaskr.models.change import Change
 from flaskr.models.student_course import student_course
 from flaskr.models.purchase_paypal import PurchasePaypal
 from flaskr.models.cycle import Cycle
+from flaskr.models.video import Video

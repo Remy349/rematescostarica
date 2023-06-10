@@ -818,6 +818,41 @@ button {
   -webkit-line-clamp: 3;
 }
 
+.admin__ciclo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.admin__ciclo-header_volver {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  color: #395B64;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.admin__ciclo-header_volver svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #395B64;
+}
+.admin__ciclo-danger {
+  display: grid;
+}
+.admin__ciclo-danger_title {
+  color: #F05454;
+}
+.admin__ciclo-danger_delete {
+  text-align: center;
+  padding: 0.75rem 0;
+  background-color: #F05D5E;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
 .admin__config-password_form {
   display: grid;
   row-gap: 1.5rem;
@@ -1146,6 +1181,26 @@ button {
   }
   .admin__control-subjects_cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .admin__ciclo-header h2 {
+    margin-bottom: 0;
+  }
+  .admin__ciclo-header_volver svg {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__ciclo-header_volver:hover {
+    text-decoration: underline;
+  }
+  .admin__ciclo-header_volver:hover svg {
+    transform: translateX(-6px);
+  }
+  .admin__ciclo-danger_delete {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__ciclo-danger_delete:hover {
+    background-color: #D72323;
   }
 }
 @media screen and (min-width: 768px) {

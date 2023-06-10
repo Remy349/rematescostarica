@@ -16,4 +16,56 @@
     </a>
   </div>
 </section>
+<section class="admin__control section">
+  <h2 class="section__title">Videos del ciclo</h2>
+  <div class="admin__control-actions">
+    <a
+      href=""
+      class="admin__control-actions_btn">
+      Agregar
+    </a>
+  </div>
+  <div class="admin__control-cycle">
+    {% if videos|length < 1 %}
+    <div class="admin__control-cycle_image">
+      <img src="{{ url_for('static', filename='img/add-videos.png') }}" alt="No hay videos agregados." />
+      <p class="admin__control-cycle_image_text">
+        Aún no hay videos registrados.
+        <br />
+        Agrega alguno para el ciclo.
+      </p>
+    </div>
+    {% else %}
+    <div class="admin__control-cycle_cards">
+      {% for video in videos %}
+      <a href="">Video</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+<section class="admin__ciclo">
+  <h2 class="section__title">Actualizar ciclo</h2>
+  <form action="" method="POST" class="admin__addcurso-form">
+    {{ form.hidden_tag() }}
+    {{ form.cycle_name(class_='admin__addcurso-form_input', placeholder='Nombre del ciclo',
+    autocomplete='off') }}
+    {{ form.cycle_desc() }}
+    {{ form.submit(class_='admin__addcurso-form_submit', value='Actualizar') }}
+  </form>
+</section>
+<section class="admin__ciclo section">
+  <h2 class="section__title admin__ciclo-danger_title">Eliminar ciclo</h2>
+  <div class="admin__ciclo-danger">
+    <a
+      href="{{ url_for('admin.cursos_ciclo_eliminar', course_code=course.course_code,
+      cycle_code=cycle.cycle_code) }}"
+      class="admin__ciclo-danger_delete"
+    >
+      Eliminar
+    </a>
+  </div>
+</section>
+{{ ckeditor.load(pkg_type='basic') }}
+{{ ckeditor.config(name='cycle_desc', height=300) }}
 {% endblock content %}

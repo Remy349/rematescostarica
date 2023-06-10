@@ -10,6 +10,13 @@ class Cycle(db.Model):
 
     course_id = sa.Column(sa.Integer, sa.ForeignKey("course.id"))
 
+    videos = db.relationship(
+        "Video",
+        backref="cycle",
+        lazy="dynamic",
+        cascade="all, delete-orphan",
+    )
+
     def __repr__(self):
         return f"""
             cycle:
