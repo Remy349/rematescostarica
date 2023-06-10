@@ -22,6 +22,33 @@
       }
     }
 
+    &-actions {
+      margin-bottom: 3.5rem;
+
+      &_btn {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &-videos {
+      &_cards {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+      }
+
+      &_card {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(-14px);
+        }
+      }
+    }
+
     &-danger {
       &_delete {
         transition: all .3s ease-in-out;
@@ -29,6 +56,16 @@
         &:hover {
           background-color: #D72323;
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin__ciclo {
+    &-videos {
+      &_cards {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }

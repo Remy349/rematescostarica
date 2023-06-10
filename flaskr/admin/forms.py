@@ -17,6 +17,25 @@ from wtforms import (
 from flaskr.models.person import Person
 
 
+class AddUpdateVideo(FlaskForm):
+    video_name = StringField(
+        "video_name",
+        validators=[
+            InputRequired(),
+            Length(max=160),
+        ],
+    )
+    video_url = StringField(
+        "video_url",
+        validators=[
+            InputRequired(),
+            Length(max=300),
+        ],
+    )
+    video_desc = CKEditorField("video_desc")
+    submit = SubmitField("Agregar")
+
+
 class AddUpdateCycle(FlaskForm):
     cycle_name = StringField(
         "cycle_name",

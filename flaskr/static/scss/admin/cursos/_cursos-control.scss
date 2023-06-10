@@ -93,6 +93,7 @@
         border-radius: 1rem;
         padding: 1.5rem;
         overflow: hidden;
+        color: c.$Gunmetal;
 
         &::before {
           content: '';
@@ -112,10 +113,6 @@
 
         & ul, ol {
           list-style: inside;
-        }
-
-        & p {
-          color: c.$Gunmetal;
         }
 
         & div {

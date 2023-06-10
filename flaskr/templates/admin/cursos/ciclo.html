@@ -16,29 +16,40 @@
     </a>
   </div>
 </section>
-<section class="admin__control section">
+<section class="admin__ciclo section">
   <h2 class="section__title">Videos del ciclo</h2>
-  <div class="admin__control-actions">
+  <div class="admin__ciclo-actions">
     <a
-      href=""
-      class="admin__control-actions_btn">
+      href="{{ url_for('admin.cursos_agregar_video', course_code=course.course_code,
+      cycle_code=cycle.cycle_code) }}"
+      class="admin__ciclo-actions_btn">
       Agregar
     </a>
   </div>
-  <div class="admin__control-cycle">
+  <div class="admin__ciclo-videos">
     {% if videos|length < 1 %}
-    <div class="admin__control-cycle_image">
+    <div class="admin__ciclo-videos_image">
       <img src="{{ url_for('static', filename='img/add-videos.png') }}" alt="No hay videos agregados." />
-      <p class="admin__control-cycle_image_text">
+      <p class="admin__ciclo-videos_image_text">
         Aún no hay videos registrados.
         <br />
         Agrega alguno para el ciclo.
       </p>
     </div>
     {% else %}
-    <div class="admin__control-cycle_cards">
+    <div class="admin__ciclo-videos_cards">
       {% for video in videos %}
-      <a href="">Video</a>
+      <a href="" class="admin__ciclo-videos_card">
+        <div class="admin__ciclo-videos_card_iframe">
+          <iframe src="{{ video.video_url }}"></iframe>
+        </div>
+        <div class="admin__ciclo-videos_card_content">
+          <h3>{{ video.video_name }}</h3>
+          <div>
+            {{ video.video_desc|safe }}
+          </div>
+        </div>
+      </a>
       {% endfor %}
     </div>
     {% endif %}

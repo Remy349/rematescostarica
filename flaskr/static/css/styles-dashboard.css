@@ -690,6 +690,7 @@ button {
   border-radius: 1rem;
   padding: 1.5rem;
   overflow: hidden;
+  color: #1B262C;
 }
 .admin__control-cycle_cards_card::before {
   content: "";
@@ -707,9 +708,6 @@ button {
 }
 .admin__control-cycle_cards_card ul, .admin__control-cycle_cards_card ol {
   list-style: inside;
-}
-.admin__control-cycle_cards_card p {
-  color: #1B262C;
 }
 .admin__control-cycle_cards_card div {
   display: -webkit-box;
@@ -836,6 +834,71 @@ button {
   width: 1.5rem;
   height: 1.5rem;
   fill: #395B64;
+}
+.admin__ciclo-actions {
+  margin-bottom: 2.5rem;
+}
+.admin__ciclo-actions_btn {
+  padding: 0.75rem 2rem;
+  background-color: #395B64;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.admin__ciclo-videos_image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin__ciclo-videos_image img {
+  max-width: 20rem;
+}
+.admin__ciclo-videos_image_text {
+  text-align: center;
+}
+.admin__ciclo-videos_cards {
+  display: grid;
+  row-gap: 2.5rem;
+}
+.admin__ciclo-videos_card {
+  background-color: #FFF;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  overflow: hidden;
+}
+.admin__ciclo-videos_card_iframe {
+  position: relative;
+  display: block;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  width: 100%;
+}
+.admin__ciclo-videos_card_iframe iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+}
+.admin__ciclo-videos_card_content {
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  color: #1B262C;
+}
+.admin__ciclo-videos_card_content h3 {
+  color: #395B64;
+  margin-bottom: 1rem;
+}
+.admin__ciclo-videos_card_content ul, .admin__ciclo-videos_card_content ol {
+  list-style: inside;
+}
+.admin__ciclo-videos_card_content div {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 .admin__ciclo-danger {
   display: grid;
@@ -1196,11 +1259,35 @@ button {
   .admin__ciclo-header_volver:hover svg {
     transform: translateX(-6px);
   }
+  .admin__ciclo-actions {
+    margin-bottom: 3.5rem;
+  }
+  .admin__ciclo-actions_btn {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__ciclo-actions_btn:hover {
+    background-color: #1B262C;
+  }
+  .admin__ciclo-videos_cards {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+  .admin__ciclo-videos_card {
+    transition: all 0.3s ease-in-out;
+  }
+  .admin__ciclo-videos_card:hover {
+    transform: translateY(-14px);
+  }
   .admin__ciclo-danger_delete {
     transition: all 0.3s ease-in-out;
   }
   .admin__ciclo-danger_delete:hover {
     background-color: #D72323;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .admin__ciclo-videos_cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 768px) {

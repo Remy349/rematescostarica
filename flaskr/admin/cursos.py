@@ -4,7 +4,7 @@ from sqlalchemy.exc import StatementError
 from flaskr import db
 from flask_login import current_user, login_required
 from flaskr.admin.base import bp
-from flaskr.admin.forms import AddUpdateCourse, AddUpdateCycle
+from flaskr.admin.forms import AddUpdateCourse, AddUpdateCycle, AddUpdateVideo
 from flaskr.helpers import allowed_file, generate_code
 from flask import (
     flash,
@@ -21,6 +21,7 @@ from flaskr.models.cycle import Cycle
 from flaskr.models.person import Person
 from flaskr.models.student import Student
 from flaskr.models.student_course import student_course
+from flaskr.models.video import Video
 
 
 @bp.route("/cursos", methods=["GET"])
@@ -219,6 +220,16 @@ def cursos_ciclo(course_code, cycle_code):
         )
     ).scalar_one()
 
+    videos = (
+        db.session.execute(
+            db.select(Video).filter(
+                Video.cycle_id.like(cycle.id),
+            )
+        )
+        .scalars()
+        .all()
+    )
+
     if form.validate_on_submit():
         cycle_name = form.cycle_name.data
         cycle_desc = form.cycle_desc.data
@@ -249,6 +260,61 @@ def cursos_ciclo(course_code, cycle_code):
         course=course,
         cycle=cycle,
         form=form,
+        videos=videos,
+    )
+
+
+@bp.route(
+    "/cursos/<course_code>/<cycle_code>/agregar-video",
+    methods=["GET", "POST"],
+)
+@login_required
+def cursos_agregar_video(course_code, cycle_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    form = AddUpdateVideo()
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    cycle = db.session.execute(
+        db.select(Cycle).filter_by(cycle_code=cycle_code)
+    ).scalar_one()
+
+    if form.validate_on_submit():
+        video_name = form.video_name.data
+        video_url = form.video_url.data
+        video_desc = form.video_desc.data
+
+        video = Video(
+            video_name=video_name,
+            video_url=video_url,
+            video_desc=video_desc,
+            cycle=cycle,
+        )
+
+        db.session.add(video)
+        db.session.commit()
+
+        flash("Video agregado exitosamente!", "success")
+
+        return redirect(
+            url_for(
+                "admin.cursos_ciclo",
+                course_code=course_code,
+                cycle_code=cycle_code,
+            )
+        )
+
+    return render_template(
+        "admin/cursos/agregar-video.html",
+        form=form,
+        course=course,
+        cycle=cycle,
+        page=f"Curso: {course.course_name}",
+        title=f"Curso: {course.course_name}",
     )
 
 
@@ -261,7 +327,6 @@ def cursos_ciclo_eliminar(course_code, cycle_code):
     cycle = db.session.execute(
         db.select(Cycle).filter_by(cycle_code=cycle_code)
     ).scalar_one()
-    print(cycle)
 
     db.session.delete(cycle)
     db.session.commit()

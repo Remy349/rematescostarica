@@ -46,13 +46,9 @@
         class="admin__control-cycle_cards_card"
       >
         <h3>{{ cycle.cycle_name }}</h3>
-        {% if cycle.cycle_desc == "" %}
-        <p>Sin descripción.</p>
-        {% else %}
         <div>
           {{ cycle.cycle_desc|safe }}
         </div>
-        {% endif %}
       </a>
       {% endfor %}
     </div>
