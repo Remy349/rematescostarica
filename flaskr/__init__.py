@@ -59,6 +59,9 @@ def create_app(config_class=DevelopmentConfig):
     from flaskr.admin.base import bp as admin_bp
     app.register_blueprint(admin_bp, url_prefix="/admin")
 
+    from flaskr.user.base import bp as user_bp
+    app.register_blueprint(user_bp, url_prefix="/user")
+
     return app
 
 

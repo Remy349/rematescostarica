@@ -81,7 +81,7 @@
                   <div class="registro__form-prices_info">
                     <h2>{{ c.course_name }}</h2>
                     <p class="registro__form-prices_price" id="priceOnePayment">
-                      ₡{{ c.course_price }}
+                      ₡{{ "{:,.0f}".format(c.course_price) }}
                     </p>
                   </div>
                 </article>

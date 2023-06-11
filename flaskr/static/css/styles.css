@@ -1215,6 +1215,7 @@ img {
     flex-direction: row;
     align-items: flex-start;
     column-gap: 2.5rem;
+    justify-content: center;
   }
   .precios__cards-card_money {
     font-size: 3rem;
@@ -1337,10 +1338,9 @@ img {
   }
   .precios__cards {
     margin-top: 6.5rem;
-    justify-content: center;
   }
   .precios__cards-card {
-    max-width: 27rem;
+    width: 25rem;
   }
   .faq__title {
     margin-bottom: 6.5rem;

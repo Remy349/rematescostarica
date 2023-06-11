@@ -7,6 +7,7 @@ from flaskr.helpers import clear_form_data_session, generate_code
 
 from flaskr.models.course import Course
 from flaskr.models.person import Person
+from flaskr.models.student import Student
 
 bp = Blueprint("auth", __name__)
 
@@ -34,12 +35,28 @@ def ingresar():
                 flash("Contraseña incorrecta!", "error")
                 return redirect(url_for("auth.ingresar"))
 
-            login_user(user, remember=remember_me)
-
             if user.is_admin is True:
+                login_user(user, remember=remember_me)
                 return redirect(url_for("admin.dashboard"))
-            else:
-                return "Student"
+            elif user.is_admin is False:
+                student = db.session.execute(
+                    db.select(Student).filter(Student.person_id.like(user.id))
+                ).scalar_one()
+
+                if student.is_active is True:
+                    login_user(user, remember=remember_me)
+
+                    session["student_code"] = student.student_code
+
+                    return redirect(
+                        url_for(
+                            "user.dashboard",
+                            student_code=student.student_code,
+                        )
+                    )
+                elif student.is_active is False:
+                    flash("Cuenta suspendida temporalmente!", "error")
+                    return redirect(url_for("auth.ingresar"))
         except NoResultFound:
             flash("Usuario no registrado!", "error")
 
@@ -133,6 +150,7 @@ def registro_compra_finalizada(payment_code):
 def cerrar_sesion():
     if session.get("course_code") is not None:
         session.pop("course_code", None)
+    session.pop("student_code", None)
 
     logout_user()
     return redirect(url_for("auth.ingresar"))

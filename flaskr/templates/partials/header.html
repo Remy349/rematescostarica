@@ -31,7 +31,7 @@
         </li>
         {% else %}
         <li class="nav__item nav__last">
-          <a href="{{ url_for('auth.ingresar') }}" class="nav__link nav__btn">
+          <a href="{{ url_for('user.dashboard', student_code=session['student_code']) }}" class="nav__link nav__btn">
             Ir al dashboard
           </a>
         </li>

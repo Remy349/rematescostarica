@@ -122,6 +122,7 @@
       flex-direction: row;
       align-items: flex-start;
       column-gap: 2.5rem;
+      justify-content: center;
 
       &-card {
         &_money {
@@ -302,10 +303,9 @@
 
     &__cards {
       margin-top: 6.5rem;
-      justify-content: center;
 
       &-card {
-        max-width: 27rem;
+        width: 25rem;
       }
     }
   }
