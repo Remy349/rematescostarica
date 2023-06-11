@@ -216,14 +216,14 @@ def cursos_ciclo(course_code, cycle_code):
     cycle = db.session.execute(
         db.select(Cycle).filter(
             Cycle.cycle_code.like(cycle_code),
-            Cycle.course_id.like(course.id),
+            Cycle.course_id == course.id,
         )
     ).scalar_one()
 
     videos = (
         db.session.execute(
             db.select(Video).filter(
-                Video.cycle_id.like(cycle.id),
+                Video.cycle_id == cycle.id,
             )
         )
         .scalars()
@@ -280,13 +280,13 @@ def cursos_ciclo_video(course_code, cycle_code, video_code):
     cycle = db.session.execute(
         db.select(Cycle).filter(
             Cycle.cycle_code.like(cycle_code),
-            Cycle.course_id.like(course.id),
+            Cycle.course_id == course.id,
         )
     ).scalar_one()
 
     current_video = db.session.execute(
         db.select(Video).filter(
-            Video.cycle_id.like(cycle.id),
+            Video.cycle_id == cycle.id,
             Video.video_code.like(video_code),
         )
     ).scalar_one()
@@ -294,7 +294,7 @@ def cursos_ciclo_video(course_code, cycle_code, video_code):
     videos = (
         db.session.execute(
             db.select(Video).filter(
-                Video.cycle_id.like(cycle.id),
+                Video.cycle_id == cycle.id,
             )
         )
         .scalars()
