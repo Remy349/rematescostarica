@@ -39,12 +39,12 @@ def create_order():
 
         session["course_name"] = course_name
 
-        api_url = os.getenv("PAYPAL_API_URL_DEV")
-        client_id = os.getenv("PAYPAL_CLIENT_ID_DEV")
-        client_secret = os.getenv("PAYPAL_CLIENT_SECRET_DEV")
+        api_url = os.getenv("PAYPAL_API_URL")
+        client_id = os.getenv("PAYPAL_CLIENT_ID")
+        client_secret = os.getenv("PAYPAL_CLIENT_SECRET")
 
-        return_url = os.getenv("PAYPAL_RETURN_URL_DEV")
-        cancel_url = os.getenv("PAYPAL_CANCEL_URL_DEV")
+        return_url = os.getenv("PAYPAL_RETURN_URL")
+        cancel_url = os.getenv("PAYPAL_CANCEL_URL")
 
         access_token = get_access_token(api_url, client_id, client_secret)
 
@@ -80,9 +80,9 @@ def create_order():
 
 @bp.route("/capture-order", methods=["GET"])
 def capture_order():
-    api_url = os.getenv("PAYPAL_API_URL_DEV")
-    client_id = os.getenv("PAYPAL_CLIENT_ID_DEV")
-    client_secret = os.getenv("PAYPAL_CLIENT_SECRET_DEV")
+    api_url = os.getenv("PAYPAL_API_URL")
+    client_id = os.getenv("PAYPAL_CLIENT_ID")
+    client_secret = os.getenv("PAYPAL_CLIENT_SECRET")
 
     token = request.args["token"]
 
