@@ -2,4 +2,36 @@
 
 {% block content %}
 {% include "partials/header-dashboard.html" %}
+<section class="user__index">
+  <h2 class="section__title">
+    Curso actual: {{ course.course_name }}
+  </h2>
+  <div class="user__index-videos">
+    {% if videos|length < 1 %}
+    <div class="user__index-videos_image">
+      <img src="{{ url_for('static', filename='img/add-videos.png') }}" alt="No hay videos agregados." />
+      <p class="user__index-videos_image_text">
+        Aún no hay videos registrados.
+      </p>
+    </div>
+    {% else %}
+    <div class="user__index-videos_cards">
+      {% for video in videos %}
+      <a
+        href="{{ url_for('user.dashboard_video', student_code=student_code,
+        video_code=video.video_code) }}"
+        class="user__index-videos_card"
+      >
+        <div class="user__index-videos_card_iframe">
+          <iframe src="{{ video.video_url }}"></iframe>
+        </div>
+        <div class="user__index-videos_card_content">
+          <h3>{{ video.video_name }}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
 {% endblock content %}

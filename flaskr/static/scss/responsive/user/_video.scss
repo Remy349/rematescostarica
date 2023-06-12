@@ -1,0 +1,38 @@
+@media screen and (min-width: 768px) {
+  .user__video {
+    &-current {
+      row-gap: 2.5rem;
+
+      &_content {
+        & h3 {
+          font-size: 1.75rem;
+        }
+
+        &_desc {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    &-videos {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.5rem;
+
+      &_card {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(-14px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user__video {
+    &-videos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

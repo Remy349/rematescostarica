@@ -1,0 +1,28 @@
+@media screen and (min-width: 768px) {
+  .user__index {
+    &-videos {
+      &_cards {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+      }
+
+      &_card {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(-14px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user__index {
+    &-videos {
+      &_cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

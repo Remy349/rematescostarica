@@ -8,5 +8,7 @@
 @forward './partials/notification-dashboard';
 // ADMIN
 @forward './admin/admin';
+// USER
+@forward './user/user';
 // RESPONSIVE
 @forward './responsive/responsive-dashboard';
