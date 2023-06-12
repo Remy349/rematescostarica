@@ -9,6 +9,13 @@ class Video(db.Model):
     video_desc = sa.Column(sa.String(600))
     video_code = sa.Column(sa.String(20))
 
+    materials = db.relationship(
+        "Material",
+        backref="video",
+        lazy="dynamic",
+        cascade="all, delete-orphan",
+    )
+
     cycle_id = sa.Column(
         sa.Integer,
         sa.ForeignKey("cycle.id", ondelete="CASCADE"),

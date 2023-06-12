@@ -22,7 +22,8 @@
     {{ form.hidden_tag() }}
     {{ form.video_name(class_='admin__addcurso-form_input', placeholder='Titulo del video',
     autocomplete='off') }}
-    {{ form.video_url(class_='admin__addcurso-form_input', autocomplete='off') }}
+    {{ form.video_url(class_='admin__addcurso-form_input', autocomplete='off',
+    placeholder='Link del video') }}
     {{ form.video_desc() }}
     {{ form.submit(class_='admin__addcurso-form_submit') }}
     <a

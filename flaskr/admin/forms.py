@@ -17,6 +17,11 @@ from wtforms import (
 from flaskr.models.person import Person
 
 
+class AddUpdateMaterial(FlaskForm):
+    material_file = FileField("material_file", validators=[InputRequired()])
+    submit = SubmitField("Agregar")
+
+
 class AddUpdateVideo(FlaskForm):
     video_name = StringField(
         "video_name",
@@ -32,7 +37,7 @@ class AddUpdateVideo(FlaskForm):
             Length(max=300),
         ],
     )
-    video_desc = CKEditorField("video_desc")
+    video_desc = CKEditorField("video_desc", validators=[Length(max=600)])
     submit = SubmitField("Agregar")
 
 
@@ -44,7 +49,7 @@ class AddUpdateCycle(FlaskForm):
             Length(max=160),
         ],
     )
-    cycle_desc = CKEditorField("cycle_desc", validators=[Length(max=600)])
+    cycle_desc = TextAreaField("cycle_desc", validators=[Length(max=600)])
     submit = SubmitField("Agregar")
 
 

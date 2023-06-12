@@ -49,9 +49,6 @@
         </div>
         <div class="admin__ciclo-videos_card_content">
           <h3>{{ video.video_name }}</h3>
-          <div>
-            {{ video.video_desc|safe }}
-          </div>
         </div>
       </a>
       {% endfor %}
@@ -65,7 +62,8 @@
     {{ form.hidden_tag() }}
     {{ form.cycle_name(class_='admin__addcurso-form_input', placeholder='Nombre del ciclo',
     autocomplete='off') }}
-    {{ form.cycle_desc() }}
+    {{ form.cycle_desc(class_='admin__addcurso-form_textarea',
+    placeholder='Descripción del ciclo', rows=8) }}
     {{ form.submit(class_='admin__addcurso-form_submit', value='Actualizar') }}
   </form>
 </section>
@@ -81,6 +79,4 @@
     </a>
   </div>
 </section>
-{{ ckeditor.load(pkg_type='basic') }}
-{{ ckeditor.config(name='cycle_desc', height=300) }}
 {% endblock content %}

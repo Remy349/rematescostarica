@@ -40,7 +40,7 @@ def ingresar():
                 return redirect(url_for("admin.dashboard"))
             elif user.is_admin is False:
                 student = db.session.execute(
-                    db.select(Student).filter(Student.person_id.like(user.id))
+                    db.select(Student).filter(Student.person_id == user.id)
                 ).scalar_one()
 
                 if student.is_active is True:

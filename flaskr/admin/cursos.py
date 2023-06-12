@@ -4,7 +4,6 @@ from sqlalchemy.exc import StatementError
 from flaskr import db
 from flask_login import current_user, login_required
 from flaskr.admin.base import bp
-from flaskr.admin.forms import AddUpdateCourse, AddUpdateCycle, AddUpdateVideo
 from flaskr.helpers import allowed_file, generate_code
 from flask import (
     flash,
@@ -14,6 +13,12 @@ from flask import (
     request,
     url_for,
     session,
+)
+from flaskr.admin.forms import (
+    AddUpdateCourse,
+    AddUpdateCycle,
+    AddUpdateMaterial,
+    AddUpdateVideo,
 )
 
 from flaskr.models.course import Course
@@ -341,6 +346,46 @@ def cursos_ciclo_video(course_code, cycle_code, video_code):
 
 
 @bp.route(
+    "/cursos/<course_code>/<cycle_code>/<video_code>/agregar-material",
+    methods=["GET", "POST"],
+)
+@login_required
+def cursos_ciclo_video_agregar_material(course_code, cycle_code, video_code):
+    if current_user.is_admin is False:
+        return redirect(url_for("main.index"))
+
+    course = db.session.execute(
+        db.select(Course).filter_by(course_code=course_code)
+    ).scalar_one()
+
+    form = AddUpdateMaterial()
+
+    if form.validate_on_submit():
+        material_file = form.material_file.data
+
+        flash("Material agregado exitosamente!", "success")
+
+        return redirect(
+            url_for(
+                "admin.cursos_ciclo_video",
+                course_code=course_code,
+                cycle_code=cycle_code,
+                video_code=video_code,
+            )
+        )
+
+    return render_template(
+        "admin/cursos/agregar-material.html",
+        form=form,
+        page=f"Curso: {course.course_name}",
+        title=f"Curso: {course.course_name}",
+        course_code=course_code,
+        cycle_code=cycle_code,
+        video_code=video_code,
+    )
+
+
+@bp.route(
     "/cursos/<course_code>/<cycle_code>/<video_code>/eliminar",
     methods=["GET"],
 )
@@ -488,8 +533,8 @@ def cursos_agregar_ciclo(course_code):
         "admin/cursos/agregar-ciclo.html",
         form=form,
         course=course,
-        page="Agregar ciclo",
-        title="Agregar ciclo",
+        page=f"Curso: {course.course_name}",
+        title=f"Curso: {course.course_name}",
     )
 
 

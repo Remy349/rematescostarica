@@ -18,6 +18,17 @@
   </div>
 </section>
 <section class="admin__video section">
+  <h2 class="section__title">Agregar material</h2>
+  <div class="admin__video-actions">
+    <a
+      href="{{ url_for('admin.cursos_ciclo_video_agregar_material', course_code=course.course_code,
+      cycle_code=cycle.cycle_code, video_code=current_video.video_code) }}"
+      class="admin__video-actions_btn">
+      Agregar
+    </a>
+  </div>
+</section>
+<section class="admin__video">
   <div class="admin__video-current">
     <div class="admin__video-current_iframe">
       <iframe src="{{ current_video.video_url }}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -30,7 +41,8 @@
     </div>
   </div>
 </section>
-<section class="admin__video">
+<section class="admin__video section">
+  <h2 class="section__title">Lista de videos</h2>
   <div class="admin__video-videos">
     {% for video in videos %}
     {% if video.id == current_video.id %}
@@ -46,14 +58,13 @@
       </div>
       <div class="admin__video-videos_card_content">
         <h3>{{ video.video_name }}</h3>
-        {{ video.video_desc|safe }}
       </div>
     </a>
     {% endif %}
     {% endfor %}
   </div>
 </section>
-<section class="admin__video section">
+<section class="admin__video">
   <h2 class="section__title">Actualizar video</h2>
   <form action="" method="POST" class="admin__addcurso-form">
     {{ form.hidden_tag() }}
@@ -62,10 +73,10 @@
     {{ form.video_url(class_='admin__addcurso-form_input', autocomplete='off',
     hidden='true') }}
     {{ form.video_desc() }}
-    {{ form.submit(class_='admin__addcurso-form_submit') }}
+    {{ form.submit(class_='admin__addcurso-form_submit', value='Actualizar') }}
   </form>
 </section>
-<section class="admin__ciclo">
+<section class="admin__ciclo section">
   <h2 class="section__title admin__ciclo-danger_title">Eliminar video</h2>
   <div class="admin__ciclo-danger">
     <a

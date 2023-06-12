@@ -4,9 +4,10 @@
 {% include "partials/header-dashboard.html" %}
 <section class="admin__ciclo">
   <div class="admin__ciclo-header">
-    <h2 class="section__title">Agregar ciclo</h2>
+    <h2 class="section__title">Agregar material</h2>
     <a
-      href="{{ url_for('admin.cursos_control', course_code=course.course_code) }}"
+      href="{{ url_for('admin.cursos_ciclo_video', course_code=course_code,
+      cycle_code=cycle_code, video_code=video_code) }}"
       class="admin__ciclo-header_volver"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -17,15 +18,13 @@
   </div>
 </section>
 <section class="admin__addcurso section">
-  <form action="" method="POST" class="admin__addcurso-form">
+  <form action="" method="POST" class="admin__addcurso-form" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
-    {{ form.cycle_name(class_='admin__addcurso-form_input', placeholder='Nombre del ciclo',
-    autocomplete='off') }}
-    {{ form.cycle_desc(class_='admin__addcurso-form_textarea',
-    placeholder='Descripción del ciclo', rows=8) }}
+    {{ form.material_file(class_='admin__addcurso-form_file') }}
     {{ form.submit(class_='admin__addcurso-form_submit') }}
     <a
-      href="{{ url_for('admin.cursos_control', course_code=course.course_code) }}"
+      href="{{ url_for('admin.cursos_ciclo_video', course_code=course_code,
+      cycle_code=cycle_code, video_code=video_code) }}"
       class="admin__addcurso-form_cancel"
     >
       Cancelar

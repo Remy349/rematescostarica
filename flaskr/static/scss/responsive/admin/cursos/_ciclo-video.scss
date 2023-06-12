@@ -2,6 +2,18 @@
 
 @media screen and (min-width: 768px) {
   .admin__video {
+    &-actions {
+      margin-bottom: 3.5rem;
+
+      &_btn {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
     &-current {
       row-gap: 2.5rem;
 
