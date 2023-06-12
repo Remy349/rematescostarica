@@ -1,8 +1,12 @@
 from flask import redirect, render_template, url_for
 from flaskr import db
 from flask_login import current_user, login_required
+from flaskr.models.cycle import Cycle
+from flaskr.models.video import Video
 from flaskr.user.base import bp
 
+from flaskr.models.student_course import student_course
+from flaskr.models.course import Course
 from flaskr.models.student import Student
 
 
@@ -20,6 +24,22 @@ def dashboard(student_code):
                 student_code=student_code,
             )
         )
+
+    course = db.session.execute(
+        db.select(Course)
+        .join(student_course)
+        .filter(student_course.c.student_id == student.id)
+    ).scalar_one()
+
+    cycle = (
+        db.session.execute(
+            db.select(Cycle).filter(
+                Cycle.course_id == course.id,
+            )
+        )
+        .scalars()
+        .all()
+    )
 
     return render_template(
         "user/index.html",
