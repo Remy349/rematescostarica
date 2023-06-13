@@ -75,7 +75,10 @@ def dashboard_data():
             PurchasePaypal.purchase_net_amount,
             PurchasePaypal.purchase_date,
         )
-        .group_by(PurchasePaypal.purchase_date)
+        .group_by(
+            PurchasePaypal.purchase_date,
+            PurchasePaypal.purchase_net_amount,
+        )
         .order_by(PurchasePaypal.purchase_date)
     ).all()
 

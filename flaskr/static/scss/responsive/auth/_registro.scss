@@ -18,7 +18,8 @@
     &__form {
       &-prices {
         &_wrapper {
-          flex-direction: row;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
           column-gap: 1.5rem;
         }
 
@@ -26,7 +27,6 @@
           padding: 1.3rem;
           flex-direction: column;
           height: 10rem;
-          width: 12rem;
           align-items: flex-start;
           justify-content: space-between;
         }

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: data.line.labels,
         datasets: [
           {
-            label: 'Ingresos | Mes-Día-Año',
+            label: 'Ingresos',
             data: data.line.data,
             fill: true,
             tension: 0.1,
