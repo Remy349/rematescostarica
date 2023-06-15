@@ -24,7 +24,7 @@
               {{ form.remember_me(class_='ingresar__form-checkbox') }}
               {{ form.remember_me.label(class_='ingresar__form-checkbox_label') }}
             </p>
-            <a href="">
+            <a href="{{ url_for('auth.reset_password_request') }}">
               ¿Olvidaste tu contraseña?
             </a>
           </div>

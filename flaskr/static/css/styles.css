@@ -971,6 +971,97 @@ img {
   text-decoration: underline;
 }
 
+.resetPasswordRequest {
+  background-color: #FFF;
+}
+.resetPasswordRequest__title span {
+  color: #F05454;
+}
+.resetPasswordRequest__text {
+  line-height: 1.7;
+  text-align: left;
+}
+.resetPasswordRequest__wrapper {
+  margin-top: 2.5rem;
+}
+.resetPasswordRequest__form {
+  display: grid;
+  width: 100%;
+  row-gap: 1.5rem;
+}
+.resetPasswordRequest__form-messages {
+  display: grid;
+  row-gap: 0.5rem;
+}
+.resetPasswordRequest__form-messages_error {
+  color: #F05D5E;
+  font-size: 1.15rem;
+  text-align: center;
+  font-weight: 500;
+}
+.resetPasswordRequest__form-input {
+  border: 1px solid #CCC;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.resetPasswordRequest__form-submit {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  outline: none;
+  border: none;
+  background-color: #395B64;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.resetPassword {
+  background-color: #FFF;
+}
+.resetPassword__title span {
+  color: #F05454;
+}
+.resetPassword__form {
+  display: grid;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+.resetPassword__form-input {
+  border: 1px solid #CCC;
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.7rem 1.5rem 0.7rem 1.2rem;
+  font-family: inherit;
+  background-color: #E6E6E6;
+  color: #1B262C;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.resetPassword__form-submit {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  outline: none;
+  border: none;
+  background-color: #395B64;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
 .footer__title {
   color: #FFF;
   text-align: left;
@@ -1564,6 +1655,41 @@ img {
   }
   .completed__link:hover {
     color: #1B262C;
+  }
+}
+@media screen and (min-width: 768px) {
+  .resetPasswordRequest__title {
+    max-width: 40rem;
+  }
+  .resetPasswordRequest__text {
+    max-width: 45rem;
+  }
+  .resetPasswordRequest__form-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .resetPasswordRequest__form-input {
+    max-width: 45rem;
+  }
+  .resetPasswordRequest__form-submit {
+    max-width: 15rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .resetPasswordRequest__form-submit:hover {
+    background-color: #1B262C;
+  }
+}
+@media screen and (min-width: 768px) {
+  .resetPassword__form-input {
+    width: 45rem;
+  }
+  .resetPassword__form-submit {
+    width: 18rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .resetPassword__form-submit:hover {
+    background-color: #1B262C;
   }
 }
 @media screen and (min-width: 768px) {

@@ -73,3 +73,25 @@ class RegistroForm(FlaskForm):
                 raise ValueError()
         except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
             raise ValidationError("Número de teléfono no válido")
+
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField(
+        "email",
+        validators=[
+            InputRequired(),
+            Email(message="Correo electrónico no válido!"),
+        ],
+    )
+    submit = SubmitField("Solicitar Cambio")
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField(
+        "password",
+        validators=[
+            InputRequired(),
+            Length(min=8),
+        ],
+    )
+    submit = SubmitField("Cambiar Contraseña")

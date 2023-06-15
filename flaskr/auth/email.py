@@ -18,3 +18,23 @@ def send_user_information_email(email, password):
             user_info=user_info,
         ),
     )
+
+
+def send_password_reset_email(user):
+    token = user.get_reset_password_token()
+
+    send_email(
+        "[Remates Costa Rica] Cambia tu contraseña",
+        sender=current_app.config["MAIL_USERNAME"],
+        recipients=[user.email],
+        text_body=render_template(
+            "auth/email/reset-password.txt",
+            user=user,
+            token=token,
+        ),
+        text_html=render_template(
+            "auth/email/reset-password.html",
+            user=user,
+            token=token,
+        ),
+    )

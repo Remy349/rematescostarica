@@ -2,8 +2,14 @@ from flask_login import current_user, login_user, logout_user
 from flaskr import db
 from flask import Blueprint, flash, redirect, render_template, session, url_for
 from sqlalchemy.exc import NoResultFound
-from flaskr.auth.forms import IngresarForm, RegistroForm
+from flaskr.auth.email import send_password_reset_email
 from flaskr.helpers import clear_form_data_session, generate_code
+from flaskr.auth.forms import (
+    IngresarForm,
+    RegistroForm,
+    ResetPasswordForm,
+    ResetPasswordRequestForm,
+)
 
 from flaskr.models.course import Course
 from flaskr.models.person import Person
@@ -154,3 +160,66 @@ def cerrar_sesion():
 
     logout_user()
     return redirect(url_for("auth.ingresar"))
+
+
+@bp.route("/reset-password-request", methods=["GET", "POST"])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for("main.index"))
+
+    form = ResetPasswordRequestForm()
+
+    if form.validate_on_submit():
+        email = form.email.data
+
+        try:
+            user = db.session.execute(
+                db.select(Person).filter_by(email=email),
+            ).scalar_one()
+
+            if user:
+                send_password_reset_email(user)
+        except NoResultFound:
+            flash("Correo no registrado!", "error")
+            return redirect(url_for("auth.reset_password_request"))
+
+        flash("Solicitud exitosa. Revisa tu correo!", "success")
+
+        return redirect(url_for("auth.ingresar"))
+
+    return render_template(
+        "auth/reset-password-request.html",
+        form=form,
+        title="Solicitar Cambio de Contraseña",
+    )
+
+
+@bp.route("/reset-password/<token>", methods=["GET", "POST"])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for("main.index"))
+
+    form = ResetPasswordForm()
+
+    user = Person.verify_reset_password_token(token)
+
+    if not user:
+        return redirect(url_for("main.index"))
+
+    if form.validate_on_submit():
+        password = form.password.data
+
+        user.set_password(password=password)
+
+        db.session.add(user)
+        db.session.commit()
+
+        flash("Cambio de contraseña completado!", "success")
+
+        return redirect(url_for("auth.ingresar"))
+
+    return render_template(
+        "auth/reset-password.html",
+        title="Cambiar Contraseña",
+        form=form,
+    )

@@ -1,8 +1,11 @@
+import jwt
 import sqlalchemy as sa
+from time import time
 from flaskr import db, login_manager
 from hashlib import md5
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import current_app
 
 
 class Person(UserMixin, db.Model):
@@ -30,6 +33,24 @@ class Person(UserMixin, db.Model):
     def avatar(self):
         digest = md5(self.email.lower().encode("utf-8")).hexdigest()
         return f"https://www.gravatar.com/avatar/{digest}?d=identicon"
+
+    def get_reset_password_token(self, expires_in=600):
+        return jwt.encode(
+            {"reset_password": self.id, "exp": time() + expires_in},
+            current_app.config["SECRET_KEY"],
+            algorithm="HS256",
+        )
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            id = jwt.decode(
+                token, current_app.config["SECRET_KEY"], algorithms=["HS256"]
+            )["reset_password"]
+        except:
+            return
+
+        return db.get_or_404(Person, id)
 
     def __repr__(self):
         return f"""
