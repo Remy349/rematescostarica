@@ -1,0 +1,107 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+
+.admin__editPage {
+  &-actions {
+    margin-bottom: 2.5rem;
+
+    &_btn {
+      padding: .75rem 2rem;
+      @include m.btn(c.$Dark-slate-gray, c.$White, 1rem);
+    }
+  }
+
+  &-faqs {
+    &_image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & img {
+        max-width: 20rem;
+      }
+
+      &_text {
+        text-align: center;
+      }
+    }
+
+    &_wrapper {
+      display: grid;
+      row-gap: 1.5rem;
+    }
+
+    &_card {
+      border-bottom: 1px solid c.$Dark-slate-gray;
+      padding-bottom: 1.2rem;
+      padding-top: 1.2rem;
+      display: grid;
+      row-gap: 1.5rem;
+
+      &:first-child {
+        border-top: 1px solid c.$Dark-slate-gray;
+        padding-top: 1.2rem;
+      }
+    }
+
+    &_faq {
+      &[open] &_question {
+        font-weight: 700;
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+
+      &_question {
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+        outline: none;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        list-style: none;
+        padding-right: 1.5rem;
+        position: relative;
+
+        &::after {
+          content: '';
+          background-image: url(../../../static/img/angle-down.svg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 1.5rem;
+          height: 1.5rem;
+          transition: all .3s ease-in-out;
+        }
+      }
+
+      &_answer {
+        line-height: 1.7;
+        font-size: 1.15rem;
+        font-weight: 300;
+        text-align: left;
+        padding-right: 1.5rem;
+      }
+    }
+
+    &_btns {
+      display: flex;
+      column-gap: .5rem;
+      align-items: center;
+
+      &_btn {
+        padding: .75rem 1.25rem;
+
+        &.update {
+          @include m.btn(c.$Blue-crayola, c.$White, 1rem);
+        }
+
+        &.delete {
+          @include m.btn(c.$Bittersweet, c.$White, 1rem);
+        }
+      }
+    }
+  }
+}

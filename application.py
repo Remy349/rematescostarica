@@ -8,6 +8,7 @@ from flaskr.models.purchase_paypal import PurchasePaypal
 from flaskr.models.cycle import Cycle
 from flaskr.models.video import Video
 from flaskr.models.material import Material
+from flaskr.models.faq import Faq
 
 app = create_app()
 
@@ -24,4 +25,5 @@ def make_shell_context():
         "cycle": Cycle,
         "video": Video,
         "material": Material,
+        "faq": Faq,
     }

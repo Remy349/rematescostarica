@@ -1,0 +1,60 @@
+{% extends "base-dashboard.html" %}
+
+{% block content %}
+{% include "partials/header-dashboard.html" %}
+<section class="admin__editPage">
+  <h2 class="section__title">Sección de preguntas frecuentes</h2>
+  <div class="admin__editPage-actions">
+    <a
+      href="{{ url_for('admin.editar_pagina_agregar_faq') }}"
+      class="admin__editPage-actions_btn"
+    >
+      Agregar
+    </a>
+  </div>
+  <div class="admin__editPage-faqs">
+    {% if faqs|length < 1 %}
+    <div class="admin__editPage-faqs_image">
+      <img
+        src="{{ url_for('static', filename='img/add-files.png') }}"
+        alt="No hay datos almacenados."
+      />
+      <p class="admin__editPage-faqs_image_text">
+        No hay datos almacenados.
+        <br />
+        Agrega alguno para la página.
+      </p>
+    </div>
+    {% else %}
+    <div class="admin__editPage-faqs_wrapper">
+      {% for faq in faqs %}
+      <article class="admin__editPage-faqs_card">
+        <details class="admin__editPage-faqs_faq">
+          <summary class="admin__editPage-faqs_faq_question">
+            {{ faq.question }}
+          </summary>
+          <p class="admin__editPage-faqs_faq_answer">
+            {{ faq.answer }}
+          </p>
+        </details>
+        <div class="admin__editPage-faqs_btns">
+          <a
+            href="{{ url_for('admin.editar_pagina_editar_faq', faq_id=faq.id) }}"
+            class="admin__editPage-faqs_btns_btn update"
+          >
+            Actualizar
+          </a>
+          <a
+            href="{{ url_for('admin.editar_pagina_eliminar_faq', faq_id=faq.id) }}"
+             class="admin__editPage-faqs_btns_btn delete"
+          >
+            Eliminar
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock content %}

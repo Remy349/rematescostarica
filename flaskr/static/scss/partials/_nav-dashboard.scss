@@ -41,6 +41,8 @@
 
   &__menu {
     padding: 2rem 1.5rem;
+    overflow-y: auto;
+    height: 490px;
   }
 
   &__list {

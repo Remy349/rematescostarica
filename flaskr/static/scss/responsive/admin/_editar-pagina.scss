@@ -1,0 +1,58 @@
+@use '../../utils/colors' as c;
+
+@media screen and (min-width: 768px) {
+  .admin__editPage {
+    &-actions {
+      margin-bottom: 3.5rem;
+
+      &_btn {
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: c.$Gunmetal;
+        }
+      }
+    }
+
+    &-faqs {
+      &_card {
+        row-gap: 1rem;
+      }
+
+      &_faq {
+        &_question {
+          padding-right: 5rem;
+          font-size: 1.35rem;
+
+          &:hover {
+            color: c.$Imperial-red;
+          }
+        }
+
+        &_answer {
+          padding-right: 3rem;
+        }
+      }
+
+      &_btns {
+        column-gap: 1rem;
+
+        &_btn {
+          transition: all .3s ease-in-out;
+
+          &.update {
+            &:hover {
+              background-color: c.$Tang-blue;
+            }
+          }
+
+          &.delete {
+            &:hover {
+              background-color: #D72323;
+            }
+          }
+        }
+      }
+    }
+  }
+}

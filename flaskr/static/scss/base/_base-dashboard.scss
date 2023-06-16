@@ -73,6 +73,16 @@ button {
   padding-bottom: 3rem;
 }
 
+::-webkit-scrollbar {
+  width: .4rem;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: c.$Dark-slate-gray;
+  border-radius: 1rem;
+}
+
 ::-webkit-file-upload-button {
   background-color: c.$Tang-blue;
   color: c.$White;

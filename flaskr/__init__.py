@@ -36,7 +36,7 @@ login_manager.login_message = "Inicia sesión antes de acceder!"
 login_manager.login_message_category = "error"
 
 
-def create_app(config_class=ProductionConfig):
+def create_app(config_class=DevelopmentConfig):
     app = Flask(__name__)
 
     app.config.from_object(config_class)
@@ -74,3 +74,4 @@ from flaskr.models.purchase_paypal import PurchasePaypal
 from flaskr.models.cycle import Cycle
 from flaskr.models.video import Video
 from flaskr.models.material import Material
+from flaskr.models.faq import Faq

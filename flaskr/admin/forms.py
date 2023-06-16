@@ -17,6 +17,24 @@ from wtforms import (
 from flaskr.models.person import Person
 
 
+class AddUpdateFaq(FlaskForm):
+    question = StringField(
+        "question",
+        validators=[
+            InputRequired(),
+            Length(max=600),
+        ],
+    )
+    answer = TextAreaField(
+        "answer",
+        validators=[
+            InputRequired(),
+            Length(max=900),
+        ],
+    )
+    submit = SubmitField("Agregar")
+
+
 class AddUpdateMaterial(FlaskForm):
     material_file = FileField("material_file", validators=[InputRequired()])
     submit = SubmitField("Agregar")
